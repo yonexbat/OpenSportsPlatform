@@ -12,12 +12,6 @@ namespace OpenSportsPlatform.Lib.Database.Mappings
         public void Configure(EntityTypeBuilder<Workout> builder)
         {
             builder.ToTable("OSPWorkout");
-
-            builder.Property<int>("Id")
-                    .ValueGeneratedOnAdd()
-                    .HasColumnType("int")
-                    .UseIdentityColumn();
-           
         }
     }
 }

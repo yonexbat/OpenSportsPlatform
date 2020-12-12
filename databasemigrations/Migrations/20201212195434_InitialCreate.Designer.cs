@@ -9,7 +9,7 @@ using OpenSportsPlatform.Lib.Database;
 namespace OpenSportsPlatform.DatabaseMigrations.Migrations
 {
     [DbContext(typeof(OpenSportsPlatformDbContext))]
-    [Migration("20201212194858_InitialCreate")]
+    [Migration("20201212195434_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
