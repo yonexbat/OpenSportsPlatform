@@ -5,17 +5,25 @@ using OpenSportsPlatform.Lib.DependencyInjection;
 using OpenSportsPlatform.Lib.Services.Contract;
 using System;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace OpenSportsPlatform.Importer
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
+            // Build configuration
+            IConfiguration configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetParent(AppContext.BaseDirectory).FullName)
+                .AddJsonFile("appsettings.json", false)
+                .AddUserSecrets<Program>()
+                .Build();
+
             //setup our DI
             ServiceProvider serviceProvider = new ServiceCollection()
                 .AddLogging(configure => configure.AddConsole())
-                .AddOpenSportsPlatformServices()               
+                .AddOpenSportsPlatformServices(configuration)               
                 .BuildServiceProvider();
 
 
@@ -23,16 +31,12 @@ namespace OpenSportsPlatform.Importer
                 .CreateLogger<Program>();
             logger.LogDebug("Starting importer");
 
-            // Build configuration
-            var configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetParent(AppContext.BaseDirectory).FullName)
-                .AddJsonFile("appsettings.json", false)
-                .AddUserSecrets<Program>()
-                .Build();
 
+            IDatabaseMigrationService migrationService = serviceProvider.GetService<IDatabaseMigrationService>();
+            await migrationService.Migrate();
 
             IJsonFileImporterService jsonFileImporterService = serviceProvider.GetService<IJsonFileImporterService>();
-            jsonFileImporterService.ImportFiles();
+            await jsonFileImporterService.ImportFiles();
 
             logger.LogDebug("All done!");
         }
