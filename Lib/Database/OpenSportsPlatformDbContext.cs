@@ -2,6 +2,7 @@
 using OpenSportsPlatform.Lib.Entities;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 namespace OpenSportsPlatform.Lib.Database
@@ -16,7 +17,7 @@ namespace OpenSportsPlatform.Lib.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Workout>().ToTable("OSPWorkout");
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }
