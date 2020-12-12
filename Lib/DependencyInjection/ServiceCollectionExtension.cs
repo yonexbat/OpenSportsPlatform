@@ -18,7 +18,6 @@ namespace OpenSportsPlatform.Lib.DependencyInjection
 
             return serviceCollection
                 .AddTransient<IJsonFileImporterService, JsonFileImporterService>()
-                .AddTransient<IDatabaseMigrationService, DatabaseMigrationService>()
                 .AddDbContext<OpenSportsPlatformDbContext>(options =>
                 options.UseSqlServer(connectionString));
         }
