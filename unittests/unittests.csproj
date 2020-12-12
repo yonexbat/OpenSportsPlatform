@@ -4,6 +4,10 @@
     <TargetFramework>net5.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
+
+    <PackageId>OpenSportsPlatform.UnitTests</PackageId>
+
+    <Authors>Claude Glauser</Authors>
   </PropertyGroup>
 
   <ItemGroup>
