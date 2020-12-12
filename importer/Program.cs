@@ -31,10 +31,6 @@ namespace OpenSportsPlatform.Importer
                 .CreateLogger<Program>();
             logger.LogDebug("Starting importer");
 
-
-            IDatabaseMigrationService migrationService = serviceProvider.GetService<IDatabaseMigrationService>();
-            await migrationService.Migrate();
-
             IJsonFileImporterService jsonFileImporterService = serviceProvider.GetService<IJsonFileImporterService>();
             await jsonFileImporterService.ImportFiles();
 

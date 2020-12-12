@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace OpenSportsPlatform.Importer.Migrations
+namespace OpenSportsPlatform.DatabaseMigrations.Migrations
 {
     public partial class InitialCreate : Migration
     {
