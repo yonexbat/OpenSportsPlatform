@@ -23,6 +23,7 @@ namespace OpenSportsPlatform.Importer
             //setup our DI
             ServiceProvider serviceProvider = new ServiceCollection()
                 .AddLogging(configure => configure.AddConsole())
+                .AddSingleton<IConfiguration>(configuration)
                 .AddOpenSportsPlatformServices(configuration)               
                 .BuildServiceProvider();
 
