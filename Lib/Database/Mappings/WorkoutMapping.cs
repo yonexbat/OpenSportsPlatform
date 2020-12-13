@@ -12,6 +12,9 @@ namespace OpenSportsPlatform.Lib.Database.Mappings
         public void Configure(EntityTypeBuilder<Workout> builder)
         {
             builder.ToTable("OSPWorkout");
+            builder.HasOne(wo => wo.SportsCategory)
+                .WithMany(cat => cat.Workouts)
+                .HasForeignKey(c => c.SportsCategoryId);
         }
     }
 }

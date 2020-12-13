@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using OpenSportsPlatform.DatabaseMigrations;
 using OpenSportsPlatform.Lib.Database;
+using OpenSportsPlatform.Lib.Services.Contract;
+using OpenSportsPlatform.Lib.Services.Impl;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,7 +29,9 @@ namespace OpenSportsPlatform.DatabaseMigrations.OSPMigration
             var optionsBuilder = new DbContextOptionsBuilder<OpenSportsPlatformDbContext>();
             optionsBuilder.UseSqlServer(connectionString, b => b.MigrationsAssembly("OpenSportsPlatform.DatabaseMigrations"));
 
-            return new OpenSportsPlatformDbContext(optionsBuilder.Options);
+            ISecurityService securityService = new SecurityService();
+
+            return new OpenSportsPlatformDbContext(optionsBuilder.Options, securityService);
         }
     }
 }
