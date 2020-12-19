@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OpenSportsPlatform.Lib.Entities
 {
-    public class SportsCategory
+    public class SportsCategory : IEntity
     {
         public virtual int Id { get; set; }       
         public virtual string Name { get; set; }
