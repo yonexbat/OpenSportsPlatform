@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using OpenSportsPlatform.Lib.Database;
 using OpenSportsPlatform.Lib.Entities;
 using OpenSportsPlatform.Lib.Services.Contract;
+using OpenSportsPlatform.Lib.Util;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -69,11 +70,11 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                     }
                     if(property.Name == "start_time")
                     {
-                        wo.StartTime = GetDateTime(property.Value.GetString());
+                        wo.StartTime = DateHelper.ParseStrangeEndomondoDate(property.Value.GetString());
                     }
                     if(property.Name == "end_time")
                     {
-                        wo.EndTime = GetDateTime(property.Value.GetString());
+                        wo.EndTime = DateHelper.ParseStrangeEndomondoDate(property.Value.GetString());
                     }
                     if (property.Name == "duration_s")
                     {
@@ -176,7 +177,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                         }
                         else if (sampleProperty.Name == "timestamp")
                         {
-                            sample.Timestamp = GetDateTime(sampleProperty.Value.GetString());
+                            sample.Timestamp = DateHelper.ParseStrangeEndomondoDate(sampleProperty.Value.GetString());
                         }
                     }                    
                 }                
