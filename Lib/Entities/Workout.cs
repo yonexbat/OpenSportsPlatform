@@ -29,5 +29,6 @@ namespace OpenSportsPlatform.Lib.Entities
         public virtual string UpdateUser { get; set; }
         public virtual DateTime UpdateDate { get; set; }
         public virtual SportsCategory SportsCategory { get; set; }
+        public virtual IList<Segment> Segments { get; set; }
     }
 }

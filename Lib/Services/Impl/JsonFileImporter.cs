@@ -31,8 +31,10 @@ namespace OpenSportsPlatform.Lib.Services.Impl
         }
 
         public async Task ImportFiles()
-        {
+        {           
             _logger.LogInformation("Importing files");
+            await _dbContext.Database.ExecuteSqlRawAsync("DELETE FROM dbo.OSPSample");
+            await _dbContext.Database.ExecuteSqlRawAsync("DELETE FROM dbo.OSPSegment");
             await _dbContext.Database.ExecuteSqlRawAsync("DELETE FROM dbo.OSPWorkout");
             List<string> list = GetFileList();
             int index = 0;
@@ -125,12 +127,60 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                     {
                         wo.DescendInMeters = GetFloat(property);
                     }
+                    if(property.Name == "points")
+                    {
+                        await ImportPoints(property, wo);
+                    }
 
                 }
             }
             
            
             await _dbContext.AddAsync(wo);
+        }
+
+        private async Task ImportPoints(JsonProperty property, Workout wo)
+        {
+            Segment segment = new Segment();
+            segment.Workout = wo;
+            await _dbContext.AddAsync(segment);
+            foreach(var e1 in property.Value.EnumerateArray()) {
+                Sample sample = new Sample();
+                sample.Segment = segment;
+                await _dbContext.AddAsync(sample);
+                foreach (JsonElement sampleElem in e1.EnumerateArray())
+                {
+
+                    foreach (JsonProperty sampleProperty in sampleElem.EnumerateObject())
+                    {
+                        if (sampleProperty.Name == "location")
+                        {
+                            JsonElement.ArrayEnumerator coordEnum = sampleProperty.Value.EnumerateArray().First().EnumerateArray();
+                            coordEnum.MoveNext();
+                            double latitude = coordEnum.Current.GetProperty("latitude").GetDouble();
+                            coordEnum.MoveNext();
+                            double longitude = coordEnum.Current.GetProperty("longitude").GetDouble();
+                            sample.Location = new NetTopologySuite.Geometries.Point(longitude, latitude) { SRID = 4326 };
+                        }
+                        else if(sampleProperty.Name == "altitude")
+                        {
+                            sample.AltitudeInMeters = GetFloat(sampleProperty);
+                        }
+                        else if (sampleProperty.Name == "distance_km")
+                        {
+                            sample.DistanceInKm = GetFloat(sampleProperty);
+                        }
+                        else if (sampleProperty.Name == "speed_kmh")
+                        {
+                            sample.SpeedKmh = GetFloat(sampleProperty);
+                        }
+                        else if (sampleProperty.Name == "timestamp")
+                        {
+                            sample.Timestamp = GetDateTime(sampleProperty.Value.GetString());
+                        }
+                    }                    
+                }                
+            }
         }
 
         private DateTime? GetDateTime(string value)

@@ -27,7 +27,11 @@ namespace OpenSportsPlatform.DatabaseMigrations.OSPMigration
             string connectionString = configuration.GetConnectionString("DefaultConnection");
 
             var optionsBuilder = new DbContextOptionsBuilder<OpenSportsPlatformDbContext>();
-            optionsBuilder.UseSqlServer(connectionString, b => b.MigrationsAssembly("OpenSportsPlatform.DatabaseMigrations"));
+            optionsBuilder.UseSqlServer(connectionString, 
+                    b => 
+                        b.MigrationsAssembly("OpenSportsPlatform.DatabaseMigrations")
+                        .UseNetTopologySuite()
+                );            
 
             ISecurityService securityService = new SecurityService();
 

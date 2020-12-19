@@ -20,7 +20,7 @@ namespace OpenSportsPlatform.Lib.DependencyInjection
                  .AddTransient<ISecurityService, SecurityService>()
                 .AddTransient<IJsonFileImporterService, JsonFileImporterService>()
                 .AddDbContext<OpenSportsPlatformDbContext>(options =>
-                options.UseSqlServer(connectionString));
+                options.UseSqlServer(connectionString, x => x.UseNetTopologySuite()));
         }
     }
 }
