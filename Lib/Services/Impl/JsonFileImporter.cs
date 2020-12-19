@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using OpenSportsPlatform.Lib.Database;
 using OpenSportsPlatform.Lib.Entities;
 using OpenSportsPlatform.Lib.Services.Contract;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -32,6 +33,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
         public async Task ImportFiles()
         {
             _logger.LogInformation("Importing files");
+            await _dbContext.Database.ExecuteSqlRawAsync("DELETE FROM dbo.OSPWorkout");
             List<string> list = GetFileList();
             int index = 0;
             foreach(string file in list)
@@ -52,24 +54,98 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             var stream = File.OpenRead(fileNameAndPath);
             JsonDocument document = await JsonDocument.ParseAsync(stream);
             JsonElement rooteElem = document.RootElement;
-            string sport = null;
-            
-            foreach(JsonElement elem in rooteElem.EnumerateArray())
+            Workout wo = new Workout();
+
+            foreach (JsonElement elem in rooteElem.EnumerateArray())
             {
                 foreach(JsonProperty property in elem.EnumerateObject())
                 {
                     _logger.LogTrace($"{property.Name}, {property.Value}");
                     if(property.Name == "sport")
                     {
-                        sport = property.Value.ToString();
+                        wo.SportsCategory = await GetSportCat(property.Value.GetString());
                     }
+                    if(property.Name == "start_time")
+                    {
+                        wo.StartTime = GetDateTime(property.Value.GetString());
+                    }
+                    if(property.Name == "end_time")
+                    {
+                        wo.EndTime = GetDateTime(property.Value.GetString());
+                    }
+                    if (property.Name == "duration_s")
+                    {
+                        wo.DurationInSec = GetFloat(property);
+                    }
+                    if (property.Name == "distance_km")
+                    {
+                        wo.DistanceInKm = GetFloat(property);
+                    }
+                    if (property.Name == "calories_kcal")
+                    {
+                        wo.CaloriesInKCal = GetFloat(property);
+                    }
+                    if (property.Name == "altitude_min_m")
+                    {
+                        wo.AltitudeMinInMeters = GetFloat(property);
+                    }
+                    if (property.Name == "altitude_max_m")
+                    {
+                        wo.AltitudeMaxInMeters = GetFloat(property);
+                    }
+                    if (property.Name == "heart_rate_avg_bpm")
+                    {
+                        wo.HeartRateAvgBpm = GetFloat(property);
+                    }
+                    if (property.Name == "heart_rate_max_bpm")
+                    {
+                        wo.HeartRateMaxBpm = GetFloat(property);
+                    }                    
+                    if (property.Name == "cadence_avg_rpm")
+                    {
+                        wo.CadenceAvgRpm = GetFloat(property);
+                    }
+                    if (property.Name == "cadence_max_rpm")
+                    {
+                        wo.CadenceMaxRpm = GetFloat(property);
+                    }
+                    if (property.Name == "speed_avg_kmh")
+                    {
+                        wo.SpeedAvgKmh = GetFloat(property);
+                    }
+                    if (property.Name == "speed_max_kmh")
+                    {
+                        wo.SpeedMaxKmh = GetFloat(property);
+                    }
+                    if (property.Name == "ascend_m")
+                    {
+                        wo.AscendInMeters = GetFloat(property);
+                    }
+                    if (property.Name == "descend_m")
+                    {
+                        wo.DescendInMeters = GetFloat(property);
+                    }
+
                 }
             }
-
-
-            Workout wo = new Workout();
-            wo.SportsCategory = await GetSportCat(sport);
+            
+           
             await _dbContext.AddAsync(wo);
+        }
+
+        private DateTime? GetDateTime(string value)
+        {
+            return DateTime.Parse(value);
+        }
+
+        private float? GetFloat(JsonProperty property)
+        {
+            double x = 0;
+            if(property.Value.TryGetDouble(out x))
+            {
+                return (float) x;
+            }
+            return null;
         }
 
         private async Task<SportsCategory> GetSportCat(string name)
