@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -31,9 +32,12 @@ namespace OpenSportsPlatform.DatabaseMigrations.OSPMigration
                     b => 
                         b.MigrationsAssembly("OpenSportsPlatform.DatabaseMigrations")
                         .UseNetTopologySuite()
-                );            
+                );
 
-            ISecurityService securityService = new SecurityService();
+            GenericIdentity identity = new GenericIdentity("technicaluser");
+            GenericPrincipal principal = new GenericPrincipal(identity, new string[0]);
+
+            ISecurityService securityService = new SecurityService(principal);
 
             return new OpenSportsPlatformDbContext(optionsBuilder.Options, securityService);
         }

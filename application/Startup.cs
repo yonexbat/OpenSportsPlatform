@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using OpenSportsPlatform.Lib.DependencyInjection;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -61,6 +63,11 @@ namespace OpenSportsPlatform.Application
             });
 
             services.AddOpenSportsPlatformServices(Configuration);
+            services.AddHttpContextAccessor();
+
+            services.AddScoped<IPrincipal>(
+                (sp) => sp.GetService<IHttpContextAccessor>().HttpContext.User
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

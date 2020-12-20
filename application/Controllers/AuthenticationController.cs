@@ -24,11 +24,11 @@ namespace OpenSportsPlatform.Application.Controllers
         }
 
         [HttpPost("[action]")]
-        public JsonResult ExchangeToken([FromBody] ExchangeToken token)
+        public async Task<JsonResult> ExchangeToken([FromBody] ExchangeToken token)
         {
             _logger.LogDebug($"Exchanging token");
-            _jwtTokenService.ValidateGoogelTokenAndGetUserId(token.IdToken);
-            return new JsonResult(_jwtTokenService.GenerateJwtToken("hello@gmail.com"));
+            string userId =  await _jwtTokenService.ValidateGoogelTokenAndGetUserId(token.IdToken);
+            return new JsonResult(_jwtTokenService.GenerateJwtToken(userId));
         }
 
     }

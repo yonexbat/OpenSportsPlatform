@@ -28,7 +28,7 @@ const socialProviders = [
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
-        autoLogin: false,
+        autoLogin: true,
         providers: socialProviders,
       } as SocialAuthServiceConfig,
     }

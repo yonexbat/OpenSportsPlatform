@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using OpenSportsPlatform.Application;
+using OpenSportsPlatform.Lib.Services.Contract;
 
 namespace OpenSportsPlatform.Application.Controllers
 {
@@ -21,17 +22,18 @@ namespace OpenSportsPlatform.Application.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ISecurityService _securityService;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, ISecurityService securityService)
         {
             _logger = logger;
+            _securityService = securityService;
         }
 
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
-            ClaimsPrincipal user = User;
-            string name = user.Identity.Name;
+            _logger.LogDebug("Current Userid: {0}", _securityService.GetCurrentUserid());
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
