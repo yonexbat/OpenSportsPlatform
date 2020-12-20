@@ -1,11 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using OpenSportsPlatform.Lib.Dtos;
 using OpenSportsPlatform.Lib.Services.Contract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace application.Controllers
+namespace OpenSportsPlatform.Application.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -13,16 +15,21 @@ namespace application.Controllers
     {
 
         private readonly IJwtTokenService _jwtTokenService;
+        private readonly ILogger _logger;
 
-        public AuthenticationController(IJwtTokenService jwtTokenService)
+        public AuthenticationController(ILogger<AuthenticationController> logger, IJwtTokenService jwtTokenService)
         {
             _jwtTokenService = jwtTokenService;
+            _logger = logger;
         }
 
-        [HttpGet("[action]")]
-        public JsonResult JwtToken()
+        [HttpPost("[action]")]
+        public JsonResult ExchangeToken([FromBody] ExchangeToken token)
         {
-           return new JsonResult(_jwtTokenService.GenerateJwtToken("hello@gmail.com"));
+            _logger.LogDebug($"Exchanging token");
+            _jwtTokenService.ValidateGoogelTokenAndGetUserId(token.IdToken);
+            return new JsonResult(_jwtTokenService.GenerateJwtToken("hello@gmail.com"));
         }
+
     }
 }

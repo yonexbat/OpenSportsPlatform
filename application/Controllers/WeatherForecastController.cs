@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using OpenSportsPlatform.Application;
 
-namespace application.Controllers
+namespace OpenSportsPlatform.Application.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -29,7 +30,7 @@ namespace application.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
-            ClaimsPrincipal user = this.User;
+            ClaimsPrincipal user = User;
             string name = user.Identity.Name;
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast

@@ -22,7 +22,6 @@ export class AppComponent implements OnInit {
   }
 
   private async login(): Promise<any> {
-    await this.authService.login();
     await this.dataService.getForeCast();
     this.authService.authenticationState().subscribe(x => {
       this.userId = x.name;

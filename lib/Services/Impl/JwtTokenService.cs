@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Google.Apis.Auth;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using OpenSportsPlatform.Lib.Services.Contract;
@@ -8,6 +9,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace OpenSportsPlatform.Lib.Services.Impl
 {
@@ -46,6 +48,15 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                             signingCredentials: credentials);
             var jwt_token = new JwtSecurityTokenHandler().WriteToken(token);
             return jwt_token;
+        }
+
+        public async Task<string> ValidateGoogelTokenAndGetUserId(string token)
+        {
+            string googleClientId = _configuration.GetValue<string>("googleClientId");
+            GoogleJsonWebSignature.ValidationSettings settings = new GoogleJsonWebSignature.ValidationSettings();
+            settings.Audience = new List<string>() { googleClientId };
+            GoogleJsonWebSignature.Payload payload = await GoogleJsonWebSignature.ValidateAsync(token, settings);
+            return payload.Email;
         }
 
         public string ValidateJwtToken(string token)

@@ -1,4 +1,3 @@
-using application.middleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,7 +9,7 @@ using OpenSportsPlatform.Lib.DependencyInjection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace application
+namespace OpenSportsPlatform.Application
 {
     public class Startup
     {
@@ -66,7 +65,7 @@ namespace application
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        { 
+        {
 
             if (env.IsDevelopment())
             {
@@ -104,9 +103,9 @@ namespace application
                 // see https://go.microsoft.com/fwlink/?linkid=864501
 
                 spa.Options.SourcePath = "ClientApp";
-            
 
-                if (env.IsDevelopment()) 
+
+                if (env.IsDevelopment())
                 {
                     spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
                     // spa.UseAngularCliServer(npmScript: "start");
