@@ -33,7 +33,7 @@ namespace OpenSportsPlatform.Importer
             logger.LogDebug("Starting importer");
 
             IJsonFileImporterService jsonFileImporterService = serviceProvider.GetService<IJsonFileImporterService>();
-            await jsonFileImporterService.ImportFiles();
+            //await jsonFileImporterService.ImportFiles();
 
             logger.LogDebug("All done!");
         }

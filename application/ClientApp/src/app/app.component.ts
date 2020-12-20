@@ -1,15 +1,36 @@
-import { Component } from '@angular/core';
+import { ThisReceiver } from '@angular/compiler';
+import { Component, OnInit } from '@angular/core';
+import { PromiseType } from 'protractor/built/plugins';
+import { AuthenticationService } from './authentication.service';
+import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  constructor() {
-    console.log('Hello World');
+  public title = 'Open Sports Platform';
+  public userId = '';
+
+  constructor(private authService: AuthenticationService, private dataService: DataService) {
   }
 
-  title = 'OpenSportPlatform';
+  ngOnInit(): void {
+    this.login();
+  }
+
+  private async login(): Promise<any> {
+    await this.authService.login();
+    await this.dataService.getForeCast();
+    this.authService.authenticationState().subscribe(x => {
+      this.userId = x.name;
+      console.log(x);
+    });
+  }
+
+  public signInGoogle(): void {
+    this.authService.signInGoogle();
+  }
 }

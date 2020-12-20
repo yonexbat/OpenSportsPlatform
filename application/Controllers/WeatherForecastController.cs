@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -9,6 +11,7 @@ namespace application.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -26,6 +29,8 @@ namespace application.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
+            ClaimsPrincipal user = this.User;
+            string name = user.Identity.Name;
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
