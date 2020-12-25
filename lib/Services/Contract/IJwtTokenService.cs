@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Google.Apis.Auth;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,6 @@ namespace OpenSportsPlatform.Lib.Services.Contract
 
         string ValidateJwtToken(string token);
 
-        Task<string> ValidateGoogelTokenAndGetUserId(string idToken);
+        Task<GoogleJsonWebSignature.Payload> ValidateGoogelTokenAndGetUserId(string idToken);
     }
 }

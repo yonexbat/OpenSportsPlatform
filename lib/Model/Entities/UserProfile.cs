@@ -7,6 +7,7 @@ namespace OpenSportsPlatform.Lib.Model.Entities
     public class UserProfile : IEntity
     {
         public string Name { get; set; }
+        public string UserId { get; set; }
         public int Id { get; set; }
         public bool IsAdmin { get; set; }
         public virtual string InsertUser { get; set; }

@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './jwt.interceptor';
 import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule  } from 'angularx-social-login';
+import { UserInfoComponent } from './user-info/user-info.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Use your Client ID in the GoogleLoginProvider()
 const socialProviders = [
@@ -15,13 +17,15 @@ const socialProviders = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserInfoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     SocialLoginModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

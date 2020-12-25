@@ -15,25 +15,29 @@ namespace OpenSportsPlatform.Application.Controllers
     public class AuthenticationController
     {
 
-        private readonly IJwtTokenService _jwtTokenService;
+        private readonly IUserProfileService _userProfileService;
         private readonly ILogger _logger;
 
-        public AuthenticationController(ILogger<AuthenticationController> logger, IJwtTokenService jwtTokenService)
+        public AuthenticationController(ILogger<AuthenticationController> logger,
+            IUserProfileService userProfileService)
         {
-            _jwtTokenService = jwtTokenService;
             _logger = logger;
+            _userProfileService = userProfileService;
         }
 
         [HttpPost("[action]")]
         [AllowAnonymous]
         public async Task<JsonResult> ExchangeToken([FromBody] ExchangeTokenDto token)
         {
-            _logger.LogDebug($"Exchanging token");
-            string userId =  await _jwtTokenService.ValidateGoogelTokenAndGetUserId(token.IdToken);
-            return new JsonResult(_jwtTokenService.GenerateJwtToken(userId));
+            string authToken = await _userProfileService.ExchangeToken(token);
+            return new JsonResult(authToken);
         }
 
-
+        [HttpGet("[action]")]
+        public async Task<ShortUserProfileDto> GetShortUserProfile()
+        {
+            return await _userProfileService.GetShortUserProfile();
+        }
 
     }
 }

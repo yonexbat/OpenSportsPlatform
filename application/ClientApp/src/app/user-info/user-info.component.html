@@ -1,0 +1,11 @@
+<div *ngIf="userProfile$ | async as profile">
+    
+    <div *ngIf="profile.authenticated === true">
+        Welcome {{profile.name}} <span (click)="signOut()">Logout</span>
+    </div>
+
+    <div *ngIf="profile.authenticated === false">
+        <span (click)="signIn()">Please login with google</span> 
+    </div>
+
+</div>

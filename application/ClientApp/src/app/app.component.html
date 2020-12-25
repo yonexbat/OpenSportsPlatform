@@ -1,6 +1,10 @@
 <div>
   <h1>{{title}}</h1>
-  <button (click)="signInGoogle()">sign in google</button>
+  
+  <!-- information about the user -->
+  <app-user-info>    
+  </app-user-info>
+
   <router-outlet></router-outlet>
-  <p>user: {{userId}}</p>
+  
 </div>

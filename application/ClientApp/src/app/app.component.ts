@@ -12,20 +12,11 @@ import { DataService } from './data.service';
 export class AppComponent implements OnInit {
 
   public title = 'Open Sports Platform';
-  public userId = '';
 
-  constructor(private authService: AuthenticationService, private dataService: DataService) {
+  constructor() {
   }
 
   ngOnInit(): void {
-    this.login();
-  }
 
-  private async login(): Promise<any> {
-    // await this.dataService.getForeCast();
-  }
-
-  public signInGoogle(): void {
-    this.authService.signInGoogle();
   }
 }

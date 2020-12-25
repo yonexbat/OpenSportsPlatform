@@ -50,13 +50,13 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             return jwt_token;
         }
 
-        public async Task<string> ValidateGoogelTokenAndGetUserId(string token)
+        public async Task<GoogleJsonWebSignature.Payload> ValidateGoogelTokenAndGetUserId(string token)
         {
             string googleClientId = _configuration.GetValue<string>("googleClientId");
             GoogleJsonWebSignature.ValidationSettings settings = new GoogleJsonWebSignature.ValidationSettings();
             settings.Audience = new List<string>() { googleClientId };
             GoogleJsonWebSignature.Payload payload = await GoogleJsonWebSignature.ValidateAsync(token, settings);
-            return payload.Email;
+            return payload;
         }
 
         public string ValidateJwtToken(string token)
