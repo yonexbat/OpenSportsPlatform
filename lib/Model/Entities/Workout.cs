@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OpenSportsPlatform.Lib.Entities
+namespace OpenSportsPlatform.Lib.Model.Entities
 {
     public class Workout : IEntity
     {
@@ -22,7 +22,7 @@ namespace OpenSportsPlatform.Lib.Entities
         public virtual float? HeartRateMaxBpm { get; set; }
         public virtual float? CadenceAvgRpm { get; set; }
         public virtual float? CadenceMaxRpm { get; set; }
-        public virtual float? SpeedMaxKmh {get;set;}
+        public virtual float? SpeedMaxKmh { get; set; }
         public virtual float? SpeedAvgKmh { get; set; }
         public virtual string InsertUser { get; set; }
         public virtual DateTime InsertDate { get; set; }

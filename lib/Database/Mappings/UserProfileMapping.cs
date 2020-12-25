@@ -7,11 +7,11 @@ using System.Text;
 
 namespace OpenSportsPlatform.Lib.Database.Mappings
 {
-    public class SportsCategoryMapping : IEntityTypeConfiguration<SportsCategory>
+    public class UserProfileMapping : IEntityTypeConfiguration<UserProfile>
     {
-        public void Configure(EntityTypeBuilder<SportsCategory> builder)
+        public void Configure(EntityTypeBuilder<UserProfile> builder)
         {
-            builder.ToTable("OSPSportcCategory");
+            builder.ToTable("OSPUserProfile");
         }
     }
 }

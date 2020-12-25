@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace OpenSportsPlatform.Lib.Entities
+namespace OpenSportsPlatform.Lib.Model.Entities
 {
     public class Sample : IEntity
     {

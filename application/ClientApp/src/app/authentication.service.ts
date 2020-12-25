@@ -15,11 +15,8 @@ export class AuthenticationService {
   public async signInGoogle(): Promise<void> {
     console.log('signing in to google');
     const user = await this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    await this.exchangeToken(user);
     console.log('done signing in');
-  }
-
-  public authenticationState(): Observable<SocialUser> {
-    return this.authService.authState.pipe(switchMap(p => from(this.exchangeToken(p))));
   }
 
 

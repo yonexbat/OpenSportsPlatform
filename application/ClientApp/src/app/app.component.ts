@@ -22,11 +22,7 @@ export class AppComponent implements OnInit {
   }
 
   private async login(): Promise<any> {
-    await this.dataService.getForeCast();
-    this.authService.authenticationState().subscribe(x => {
-      this.userId = x.name;
-      console.log(x);
-    });
+    // await this.dataService.getForeCast();
   }
 
   public signInGoogle(): void {

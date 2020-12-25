@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using OpenSportsPlatform.Lib.Entities;
+using OpenSportsPlatform.Lib.Model.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;

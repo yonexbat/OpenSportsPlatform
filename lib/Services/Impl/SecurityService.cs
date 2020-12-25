@@ -1,4 +1,5 @@
-﻿using OpenSportsPlatform.Lib.Services.Contract;
+﻿using OpenSportsPlatform.Lib.Model;
+using OpenSportsPlatform.Lib.Services.Contract;
 using System;
 using System.Collections.Generic;
 using System.Security.Principal;
@@ -17,6 +18,11 @@ namespace OpenSportsPlatform.Lib.Services.Impl
         public string GetCurrentUserid()
         {
             return _principal.Identity.Name;
+        }
+
+        public bool IsUserInAnyRole(params Role[] roles)
+        {
+            throw new NotImplementedException();
         }
     }
 }

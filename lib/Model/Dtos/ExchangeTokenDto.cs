@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OpenSportsPlatform.Lib.Dtos
+namespace OpenSportsPlatform.Lib.Model.Dtos
 {
-    public class ExchangeToken
+    public class ExchangeTokenDto
     {
         public string IdToken { get; set; }
     }

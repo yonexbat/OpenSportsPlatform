@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using OpenSportsPlatform.Lib.Dtos;
+using OpenSportsPlatform.Lib.Model.Dtos;
 using OpenSportsPlatform.Lib.Services.Contract;
 using System;
 using System.Collections.Generic;
@@ -24,12 +25,15 @@ namespace OpenSportsPlatform.Application.Controllers
         }
 
         [HttpPost("[action]")]
-        public async Task<JsonResult> ExchangeToken([FromBody] ExchangeToken token)
+        [AllowAnonymous]
+        public async Task<JsonResult> ExchangeToken([FromBody] ExchangeTokenDto token)
         {
             _logger.LogDebug($"Exchanging token");
             string userId =  await _jwtTokenService.ValidateGoogelTokenAndGetUserId(token.IdToken);
             return new JsonResult(_jwtTokenService.GenerateJwtToken(userId));
         }
+
+
 
     }
 }
