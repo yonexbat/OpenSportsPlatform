@@ -12,6 +12,7 @@ import { ShortUserProfile } from '../model/shortUserProfile';
 export class UserInfoComponent implements OnInit {
 
   public userProfile$: Observable<ShortUserProfile>;
+  public showLoginSpinner = false;
 
   constructor(private authenticationService: AuthenticationService) {
     this.userProfile$ = authenticationService.getUserProfile();
@@ -20,8 +21,10 @@ export class UserInfoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public signIn(): void {
-    this.authenticationService.signInGoogle();
+  public async signIn(): Promise<void> {
+    this.showLoginSpinner = true;
+    await this.authenticationService.signInGoogle();
+    this.showLoginSpinner = false;
   }
 
   public signOut(): void {
