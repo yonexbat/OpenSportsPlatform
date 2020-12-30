@@ -50,8 +50,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                 {
                     UserId = payload.Email,                  
                 };
-                await _dbContext.AddAsync(user);
-               
+                await _dbContext.AddAsync(user);               
             }
 
             user.Name = payload.Name;

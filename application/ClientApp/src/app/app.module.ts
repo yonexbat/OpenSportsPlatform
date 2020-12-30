@@ -10,6 +10,8 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { WorkoutOverViewComponent } from './workout-over-view/workout-over-view.component';
+import {MatTableModule} from '@angular/material/table'; 
 
 // Use your Client ID in the GoogleLoginProvider()
 const socialProviders = [
@@ -20,7 +22,8 @@ const socialProviders = [
 @NgModule({
   declarations: [
     AppComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    WorkoutOverViewComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +33,7 @@ const socialProviders = [
     BrowserAnimationsModule,
     MatButtonModule,
     MatProgressSpinnerModule,
+    MatTableModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

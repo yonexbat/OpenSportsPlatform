@@ -21,6 +21,7 @@ namespace OpenSportsPlatform.Lib.DependencyInjection
                 .AddScoped<ISecurityService, SecurityService>()
                 .AddScoped<IJsonFileImporterService, JsonFileImporterService>()
                 .AddScoped<IUserProfileService, UserProfileService>()
+                .AddScoped<IWorkoutOverviewService, WorkoutOverviewService>()
                 .AddDbContext<OpenSportsPlatformDbContext>(options =>
                 options.UseSqlServer(connectionString, x => x.UseNetTopologySuite()));
         }

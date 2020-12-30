@@ -1,0 +1,24 @@
+<div>
+    <h3>Workouts</h3>
+
+    <table mat-table [dataSource]="workouts" class="mat-elevation-z8">
+
+      
+        <!-- Starttime -->
+        <ng-container matColumnDef="starttime">
+          <th mat-header-cell *matHeaderCellDef>Starttime</th>
+          <td mat-cell *matCellDef="let workout"> {{workout.startTime}} </td>
+        </ng-container>
+
+        <!-- Endtime -->
+        <ng-container matColumnDef="endtime">
+            <th mat-header-cell *matHeaderCellDef>Endtime</th>
+            <td mat-cell *matCellDef="let workout"> {{workout.endTime}} </td>
+          </ng-container>
+      
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      
+</div>
