@@ -8,6 +8,6 @@ namespace OpenSportsPlatform.Lib.Services.Contract
 {
     public interface IWorkoutOverviewService
     {
-        Task<IList<WorkoutOverviewItemDto>> SearchWorkoutItems(SearchWorkoutsDto search);
+        Task<PagedResultDto<WorkoutOverviewItemDto>> SearchWorkoutItems(SearchWorkoutsDto search);
     }
 }

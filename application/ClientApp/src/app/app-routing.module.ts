@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { WorkoutOverViewComponent } from './workout-over-view/workout-over-view.component';
 
 const routes: Routes = [
+  { path: '',   redirectTo: '/workouts', pathMatch: 'full' },
   { path: 'workouts', component: WorkoutOverViewComponent },
 ];
 

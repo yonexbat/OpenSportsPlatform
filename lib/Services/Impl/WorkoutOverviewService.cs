@@ -25,18 +25,29 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             _logger = logger;
         }
 
-        public async Task<IList<WorkoutOverviewItemDto>> SearchWorkoutItems(SearchWorkoutsDto search)
+        public async Task<PagedResultDto<WorkoutOverviewItemDto>> SearchWorkoutItems(SearchWorkoutsDto search)
         {
-            return await _dbContext.Workout
+            var query = _dbContext.Workout;
+
+            IList<WorkoutOverviewItemDto> data = await query
                 .Select(x => new WorkoutOverviewItemDto()
                 {
                     StartTime = x.StartTime,
                     EndTime = x.EndTime,
+                    Sport = x.SportsCategory.Name,
                 })
                 .OrderByDescending(x => x.StartTime)
                 .Skip(PageSize*search.Page)
                 .Take(PageSize)
                 .ToListAsync();
+
+            var count = await query.CountAsync();
+
+            return new PagedResultDto<WorkoutOverviewItemDto>()
+            {
+                Data = data,
+                Count = count,
+            };
         }
     }
 }

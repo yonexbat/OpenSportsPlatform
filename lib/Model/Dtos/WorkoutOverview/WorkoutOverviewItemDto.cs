@@ -9,5 +9,7 @@ namespace OpenSportsPlatform.Lib.Model.Dtos.WorkoutOverview
         public DateTime? StartTime { get; set; }
 
         public DateTime? EndTime { get; set; }
+
+        public string Sport { get; set; }
     }
 }

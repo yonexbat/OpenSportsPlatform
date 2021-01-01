@@ -20,7 +20,9 @@ export class AuthenticationService {
 
   private userProfile: Subject<ShortUserProfile> = new BehaviorSubject<ShortUserProfile>(this.unauthenticatedUserProfile);
 
-  constructor(private http: HttpClient, private authService: SocialAuthService) {}
+  constructor(private http: HttpClient, private authService: SocialAuthService) {
+    this.startUp();
+  }
 
   public async signInGoogle(): Promise<void> {
     console.log('signing in to google');
@@ -42,6 +44,13 @@ export class AuthenticationService {
 
   public isUserLoggedIn(): Observable<boolean> {
     return this.getUserProfile().pipe(map(x => x.authenticated));
+  }
+
+  private async startUp(): Promise<void> {
+    const jwt = localStorage.getItem('jwt');
+    if (jwt) {
+      await this.fetchUserProfile();
+    }
   }
 
   private async fetchUserProfile(): Promise<void> {

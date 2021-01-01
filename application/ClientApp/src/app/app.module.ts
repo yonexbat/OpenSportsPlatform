@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { WorkoutOverViewComponent } from './workout-over-view/workout-over-view.component';
 import {MatTableModule} from '@angular/material/table'; 
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 // Use your Client ID in the GoogleLoginProvider()
 const socialProviders = [
@@ -34,6 +35,7 @@ const socialProviders = [
     MatButtonModule,
     MatProgressSpinnerModule,
     MatTableModule,
+    MatPaginatorModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

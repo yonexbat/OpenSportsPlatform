@@ -20,11 +20,10 @@ namespace OpenSportsPlatform.Application.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
         [Route("[action]")]
-        public Task<IList<WorkoutOverviewItemDto>> SearchWorkoutItems([FromQuery]SearchWorkoutsDto search)
+        public async Task<PagedResultDto<WorkoutOverviewItemDto>> SearchWorkoutItems([FromQuery]SearchWorkoutsDto search)
         {
-            return _workoutService.SearchWorkoutItems(search);
+            return await _workoutService.SearchWorkoutItems(search);
         }
     }
 }
