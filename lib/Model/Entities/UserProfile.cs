@@ -14,5 +14,7 @@ namespace OpenSportsPlatform.Lib.Model.Entities
         public virtual DateTime InsertDate { get; set; }
         public virtual string UpdateUser { get; set; }
         public virtual DateTime UpdateDate { get; set; }
+
+        public virtual IList<Workout> Workouts { get; set; }
     }
 }

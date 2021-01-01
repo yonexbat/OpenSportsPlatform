@@ -15,6 +15,10 @@ namespace OpenSportsPlatform.Lib.Database.Mappings
             builder.HasOne(wo => wo.SportsCategory)
                 .WithMany(cat => cat.Workouts)
                 .HasForeignKey(c => c.SportsCategoryId);
+
+            builder.HasOne(wo => wo.UserProfile)
+                .WithMany(cat => cat.Workouts)
+                .HasForeignKey(c => c.UserProfileId);
         }
     }
 }
