@@ -2,9 +2,11 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using OpenSportsPlatform.Lib.DependencyInjection;
+using OpenSportsPlatform.Lib.Model;
 using OpenSportsPlatform.Lib.Services.Contract;
 using System;
 using System.IO;
+using System.Security.Principal;
 using System.Threading.Tasks;
 
 namespace OpenSportsPlatform.Importer
@@ -20,11 +22,17 @@ namespace OpenSportsPlatform.Importer
                 .AddUserSecrets<Program>()
                 .Build();
 
+            // Principal
+            GenericIdentity identity = new GenericIdentity("importjob");
+            string[] rolenames = { Role.Admin.ToString() };
+            IPrincipal principal = new GenericPrincipal(identity, rolenames);
+
             //setup our DI
             ServiceProvider serviceProvider = new ServiceCollection()
                 .AddLogging(configure => configure.AddConsole())
                 .AddSingleton<IConfiguration>(configuration)
-                .AddOpenSportsPlatformServices(configuration)               
+                .AddSingleton<IPrincipal>(principal)
+                .AddOpenSportsPlatformServices(configuration)                 
                 .BuildServiceProvider();
 
 
@@ -32,8 +40,8 @@ namespace OpenSportsPlatform.Importer
                 .CreateLogger<Program>();
             logger.LogDebug("Starting importer");
 
-            IJsonFileImporterService jsonFileImporterService = serviceProvider.GetService<IJsonFileImporterService>();
-            //await jsonFileImporterService.ImportFiles();
+            IMultiFileImporterService jsonFileImporterService = serviceProvider.GetService<IMultiFileImporterService>();
+            await jsonFileImporterService.ImportFiles();
 
             logger.LogDebug("All done!");
         }

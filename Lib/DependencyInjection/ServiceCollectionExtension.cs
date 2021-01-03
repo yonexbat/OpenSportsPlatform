@@ -19,9 +19,10 @@ namespace OpenSportsPlatform.Lib.DependencyInjection
             return serviceCollection
                 .AddSingleton<IJwtTokenService, JwtTokenService>()
                 .AddScoped<ISecurityService, SecurityService>()
-                .AddScoped<IJsonFileImporterService, JsonFileImporterService>()
+                .AddScoped<IMultiFileImporterService, MultiFileImporterService>()
                 .AddScoped<IUserProfileService, UserProfileService>()
                 .AddScoped<IWorkoutOverviewService, WorkoutOverviewService>()
+                .AddScoped<ITcxFileImporterService, TcxFileImporterService>()
                 .AddDbContext<OpenSportsPlatformDbContext>(options =>
                 options.UseSqlServer(connectionString, x => x.UseNetTopologySuite()));
         }

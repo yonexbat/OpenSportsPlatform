@@ -29,6 +29,10 @@ namespace OpenSportsPlatform.Lib.Services.Impl
         private string _currentElement;
         private string _currentHeartRate;
 
+        private float? _lastElevation;
+        private float _ascendInMeters;
+        private float _descendInMeters;
+
         public TcxFileImporterService(
             ILogger<TcxFileImporterService> logger,
             ISecurityService securityService,
@@ -41,6 +45,17 @@ namespace OpenSportsPlatform.Lib.Services.Impl
 
         public async Task ImoportWorkout(Stream stream)
         {
+            _sample = null;
+            _segment = null;
+            _workout = null;
+            _currentElement = null;
+            _currentHeartRate = null;
+            _importState = ImportTcxState.Activity;
+            _lastElevation = null;
+            _ascendInMeters = 0;
+            _descendInMeters = 0;
+            
+
             string user = _securityService.GetCurrentUserid();
             _logger.LogInformation("imorting workout for user {0}", user);
 
@@ -80,7 +95,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                 }
             }
 
-            // Calculate averages
+            // Calculate values
             IEnumerable<float?> cadence = _workout
                 .Segments
                 .SelectMany(x => x.Samples)
@@ -89,7 +104,21 @@ namespace OpenSportsPlatform.Lib.Services.Impl
 
             _workout.CadenceMaxRpm = cadence.Max();
             _workout.CadenceAvgRpm = cadence.Average();
+
+            IEnumerable<float?> altitude = _workout
+              .Segments
+              .SelectMany(x => x.Samples)
+              .Select(x => x.AltitudeInMeters)
+              .Where(x => x > 0);
+
+            _workout.AltitudeMaxInMeters = altitude.Max();
+            _workout.AltitudeMinInMeters = altitude.Min();
+
+            _workout.StartTime = _workout.Segments?.First().Samples?.First().Timestamp;
             _workout.EndTime = _workout.Segments?.Last().Samples?.Last().Timestamp;
+
+            _workout.AscendInMeters = _ascendInMeters;
+            _workout.DescendInMeters = _descendInMeters;
                 
 
             await _dbContext.SaveChangesAsync();
@@ -122,8 +151,22 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                     if (_importState == ImportTcxState.Trackpoint)
                     {
                         _sample.AltitudeInMeters = float.Parse(value);
+                        if(_lastElevation.HasValue)
+                        {
+                            float diff = _sample.AltitudeInMeters.Value - _lastElevation.Value;
+                            if(diff > 0)
+                            {
+                                _ascendInMeters += diff;
+                            }
+                            else
+                            {
+                                _descendInMeters += (diff*-1);
+                            }
+                        }
+                       
+                        _lastElevation = _sample.AltitudeInMeters;                       
                     }
-                    break;
+                    break;                
                 case "DistanceMeters":
                     float dist = float.Parse(value);
                     dist = dist * 0.001f;
@@ -235,7 +278,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
         {
             if(_sample.Longitude.HasValue && _sample.Latitude.HasValue)
             {
-                //_sample.Location = new NetTopologySuite.Geometries.Point(_sample.Longitude.Value, _sample.Latitude.Value) { SRID = 4326 };
+                _sample.Location = new NetTopologySuite.Geometries.Point(_sample.Longitude.Value, _sample.Latitude.Value) { SRID = 4326 };
             }
         }
 

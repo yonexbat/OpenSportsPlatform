@@ -13,6 +13,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { WorkoutOverViewComponent } from './workout-over-view/workout-over-view.component';
 import {MatTableModule} from '@angular/material/table'; 
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { HomeComponent } from './home/home.component';
 
 // Use your Client ID in the GoogleLoginProvider()
 const socialProviders = [
@@ -24,7 +25,8 @@ const socialProviders = [
   declarations: [
     AppComponent,
     UserInfoComponent,
-    WorkoutOverViewComponent
+    WorkoutOverViewComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
