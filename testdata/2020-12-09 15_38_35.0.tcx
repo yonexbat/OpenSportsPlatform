@@ -11,7 +11,7 @@
                 <AverageHeartRateBpm xsi:type="HeartRateInBeatsPerMinute_t">
                     <Value>149</Value>
                 </AverageHeartRateBpm>
-                <MaximumHeartRatezimBpm xsi:type="HeartRateInBeatsPerMinute_t">
+                <MaximumHeartRateBpm xsi:type="HeartRateInBeatsPerMinute_t">
                     <Value>163</Value>
                 </MaximumHeartRateBpm>
                 <Intensity>Active</Intensity>
