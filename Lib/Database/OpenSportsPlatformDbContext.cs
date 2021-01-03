@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OpenSportsPlatform.Lib.Entities;
+using OpenSportsPlatform.Lib.Model.Entities;
 using OpenSportsPlatform.Lib.Services.Contract;
 using System;
 using System.Collections.Generic;
@@ -14,6 +14,8 @@ namespace OpenSportsPlatform.Lib.Database
         public DbSet<Workout> Workout { get; set; }
 
         public DbSet<SportsCategory> SportsCategory { get; set; }
+
+        public DbSet<UserProfile> UserProfile { get; set; }
 
         public OpenSportsPlatformDbContext(
             DbContextOptions<OpenSportsPlatformDbContext> options, 

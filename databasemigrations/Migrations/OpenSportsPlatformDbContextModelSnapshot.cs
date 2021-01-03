@@ -20,7 +20,7 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.1");
 
-            modelBuilder.Entity("OpenSportsPlatform.Lib.Entities.Sample", b =>
+            modelBuilder.Entity("OpenSportsPlatform.Lib.Model.Entities.Sample", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -64,7 +64,7 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                     b.ToTable("OSPSample");
                 });
 
-            modelBuilder.Entity("OpenSportsPlatform.Lib.Entities.Segment", b =>
+            modelBuilder.Entity("OpenSportsPlatform.Lib.Model.Entities.Segment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -93,7 +93,7 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                     b.ToTable("OSPSegment");
                 });
 
-            modelBuilder.Entity("OpenSportsPlatform.Lib.Entities.SportsCategory", b =>
+            modelBuilder.Entity("OpenSportsPlatform.Lib.Model.Entities.SportsCategory", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -120,7 +120,40 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                     b.ToTable("OSPSportcCategory");
                 });
 
-            modelBuilder.Entity("OpenSportsPlatform.Lib.Entities.Workout", b =>
+            modelBuilder.Entity("OpenSportsPlatform.Lib.Model.Entities.UserProfile", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<DateTime>("InsertDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("InsertUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsAdmin")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OSPUserProfile");
+                });
+
+            modelBuilder.Entity("OpenSportsPlatform.Lib.Model.Entities.Workout", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -190,6 +223,9 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                     b.Property<string>("UpdateUser")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UserProfileId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("SportsCategoryId");
@@ -197,9 +233,9 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                     b.ToTable("OSPWorkout");
                 });
 
-            modelBuilder.Entity("OpenSportsPlatform.Lib.Entities.Sample", b =>
+            modelBuilder.Entity("OpenSportsPlatform.Lib.Model.Entities.Sample", b =>
                 {
-                    b.HasOne("OpenSportsPlatform.Lib.Entities.Segment", "Segment")
+                    b.HasOne("OpenSportsPlatform.Lib.Model.Entities.Segment", "Segment")
                         .WithMany("Samples")
                         .HasForeignKey("SegmentId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -208,9 +244,9 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                     b.Navigation("Segment");
                 });
 
-            modelBuilder.Entity("OpenSportsPlatform.Lib.Entities.Segment", b =>
+            modelBuilder.Entity("OpenSportsPlatform.Lib.Model.Entities.Segment", b =>
                 {
-                    b.HasOne("OpenSportsPlatform.Lib.Entities.Workout", "Workout")
+                    b.HasOne("OpenSportsPlatform.Lib.Model.Entities.Workout", "Workout")
                         .WithMany("Segments")
                         .HasForeignKey("WorkoutId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -219,9 +255,9 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                     b.Navigation("Workout");
                 });
 
-            modelBuilder.Entity("OpenSportsPlatform.Lib.Entities.Workout", b =>
+            modelBuilder.Entity("OpenSportsPlatform.Lib.Model.Entities.Workout", b =>
                 {
-                    b.HasOne("OpenSportsPlatform.Lib.Entities.SportsCategory", "SportsCategory")
+                    b.HasOne("OpenSportsPlatform.Lib.Model.Entities.SportsCategory", "SportsCategory")
                         .WithMany("Workouts")
                         .HasForeignKey("SportsCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -230,17 +266,17 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                     b.Navigation("SportsCategory");
                 });
 
-            modelBuilder.Entity("OpenSportsPlatform.Lib.Entities.Segment", b =>
+            modelBuilder.Entity("OpenSportsPlatform.Lib.Model.Entities.Segment", b =>
                 {
                     b.Navigation("Samples");
                 });
 
-            modelBuilder.Entity("OpenSportsPlatform.Lib.Entities.SportsCategory", b =>
+            modelBuilder.Entity("OpenSportsPlatform.Lib.Model.Entities.SportsCategory", b =>
                 {
                     b.Navigation("Workouts");
                 });
 
-            modelBuilder.Entity("OpenSportsPlatform.Lib.Entities.Workout", b =>
+            modelBuilder.Entity("OpenSportsPlatform.Lib.Model.Entities.Workout", b =>
                 {
                     b.Navigation("Segments");
                 });

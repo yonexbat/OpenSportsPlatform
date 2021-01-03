@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lib", "lib\lib.csproj", "{F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "unittests", "unittests\unittests.csproj", "{B8D9450B-6CCF-49F0-90AD-45ED9DD76B29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "databasemigrations", "databasemigrations\databasemigrations.csproj", "{915CEFF8-F24E-4F90-A99A-E89054E53A82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "databasemigrations", "databasemigrations\databasemigrations.csproj", "{915CEFF8-F24E-4F90-A99A-E89054E53A82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

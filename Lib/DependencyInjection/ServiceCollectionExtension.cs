@@ -17,8 +17,11 @@ namespace OpenSportsPlatform.Lib.DependencyInjection
             string connectionString = configuration.GetConnectionString("DefaultConnection");
 
             return serviceCollection
-                 .AddTransient<ISecurityService, SecurityService>()
-                .AddTransient<IJsonFileImporterService, JsonFileImporterService>()
+                .AddSingleton<IJwtTokenService, JwtTokenService>()
+                .AddScoped<ISecurityService, SecurityService>()
+                .AddScoped<IJsonFileImporterService, JsonFileImporterService>()
+                .AddScoped<IUserProfileService, UserProfileService>()
+                .AddScoped<IWorkoutOverviewService, WorkoutOverviewService>()
                 .AddDbContext<OpenSportsPlatformDbContext>(options =>
                 options.UseSqlServer(connectionString, x => x.UseNetTopologySuite()));
         }

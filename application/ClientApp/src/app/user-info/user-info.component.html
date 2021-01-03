@@ -1,0 +1,28 @@
+<div *ngIf="userProfile$ | async as profile">
+    
+    <div *ngIf="profile.authenticated === true">
+        Welcome {{profile.name}} 
+        <a mat-raised-button (click)="signOut()">
+            Sign out
+        </a>
+    </div>
+
+    <div class="loginline" *ngIf="profile.authenticated === false">
+        
+        <span>Currently, you are not signed in.</span>
+        
+        <!-- Login button -->
+        <a  mat-raised-button
+            class="signinbuttons"
+            (click)="signIn()">
+           <span>Sign in with Google</span>      
+           
+        </a> 
+        
+        <mat-spinner 
+            *ngIf="showLoginSpinner" 
+            [diameter]="20"
+            class="spinner"></mat-spinner>     
+    </div>
+
+</div>

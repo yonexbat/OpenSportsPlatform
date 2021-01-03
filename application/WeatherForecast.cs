@@ -1,6 +1,6 @@
 using System;
 
-namespace application
+namespace OpenSportsPlatform.Application
 {
     public class WeatherForecast
     {

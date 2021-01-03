@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using OpenSportsPlatform.Lib.Database;
-using OpenSportsPlatform.Lib.Entities;
+using OpenSportsPlatform.Lib.Model.Entities;
 using OpenSportsPlatform.Lib.Services.Contract;
 using OpenSportsPlatform.Lib.Util;
 using System;
