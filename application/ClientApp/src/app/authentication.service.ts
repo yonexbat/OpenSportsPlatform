@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { GoogleLoginProvider, SocialAuthService, SocialUser } from 'angularx-social-login';
-import { map, switchMap } from 'rxjs/operators';
-import { BehaviorSubject, from, Observable, Subject } from 'rxjs';
+import { map, shareReplay, switchMap } from 'rxjs/operators';
+import { BehaviorSubject, from, Observable, ReplaySubject, Subject } from 'rxjs';
 import { ExchangeToken } from './model/exchangetoken';
 import { ShortUserProfile } from './model/shortUserProfile';
 
@@ -19,6 +19,7 @@ export class AuthenticationService {
   };
 
   private userProfile: Subject<ShortUserProfile> = new BehaviorSubject<ShortUserProfile>(this.unauthenticatedUserProfile);
+  private userProfileReplay?: Observable<ShortUserProfile> = undefined;
 
   constructor(private http: HttpClient, private authService: SocialAuthService) {
     this.startUp();
@@ -35,6 +36,7 @@ export class AuthenticationService {
   public async signOut(): Promise<void> {
     localStorage.removeItem('jwt');
     await this.authService.signOut();
+    this.userProfileReplay = undefined;
     this.userProfile.next(this.unauthenticatedUserProfile);
   }
 
@@ -42,8 +44,9 @@ export class AuthenticationService {
     return this.userProfile.asObservable();
   }
 
-  public isUserLoggedIn(): Observable<boolean> {
-    return this.getUserProfile().pipe(map(x => x.authenticated));
+  public async isLoggedIn(): Promise<boolean> {
+    const userProfile = await this.fetchUserProfile();
+    return userProfile.authenticated;
   }
 
   private async startUp(): Promise<void> {
@@ -53,9 +56,23 @@ export class AuthenticationService {
     }
   }
 
-  private async fetchUserProfile(): Promise<void> {
-    const profile = await this.http.get<ShortUserProfile>('/Authentication/GetShortUserProfile').toPromise();
-    this.userProfile.next(profile);
+  private async fetchUserProfile(): Promise<ShortUserProfile> {
+    return this.fetchUserProfileReplay().toPromise();
+  }
+
+  private fetchUserProfileReplay(): Observable<ShortUserProfile> {
+    if (this.userProfileReplay) {
+      return this.userProfileReplay;
+    }
+    this.userProfileReplay = this.http.get<ShortUserProfile>('/Authentication/GetShortUserProfile')
+    .pipe(
+      map(profile => {
+        this.userProfile.next(profile);
+        return profile;
+      }),
+      shareReplay(1)
+      );
+    return this.userProfileReplay;
   }
 
   private async exchangeToken(user: SocialUser): Promise<SocialUser> {
