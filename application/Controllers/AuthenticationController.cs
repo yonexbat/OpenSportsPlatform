@@ -12,6 +12,7 @@ namespace OpenSportsPlatform.Application.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class AuthenticationController
     {
 

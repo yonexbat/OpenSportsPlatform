@@ -27,6 +27,7 @@ export class AuthenticationService {
 
   public async signInGoogle(): Promise<void> {
     console.log('signing in to google');
+    this.userProfileReplay = undefined;
     const user = await this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
     await this.exchangeToken(user);
     await this.fetchUserProfile();
