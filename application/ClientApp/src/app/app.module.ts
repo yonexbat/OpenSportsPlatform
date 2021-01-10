@@ -19,6 +19,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { WorkoutComponent } from './workout/workout.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 // Use your Client ID in the GoogleLoginProvider()
 const socialProviders = [
@@ -32,7 +34,8 @@ const socialProviders = [
     UserInfoComponent,
     WorkoutOverViewComponent,
     HomeComponent,
-    NavigationComponent
+    NavigationComponent,
+    WorkoutComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +51,7 @@ const socialProviders = [
     MatToolbarModule,
     MatIconModule,
     MatListModule,
+    LeafletModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

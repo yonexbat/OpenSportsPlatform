@@ -6,7 +6,7 @@ import { from, merge } from 'rxjs';
 import { map, startWith, switchMap } from 'rxjs/operators';
 import { threadId } from 'worker_threads';
 import { DataService } from '../data.service';
-import { WorkoutOverviewItem } from '../model/WorkoutOverview/workoutOverviewItem';
+import { WorkoutOverviewItem } from '../model/workoutOverview/workoutOverviewItem';
 
 @Component({
   selector: 'app-workout-over-view',
@@ -43,6 +43,10 @@ export class WorkoutOverViewComponent implements OnInit, AfterViewInit  {
   }
 
   ngOnInit(): void {
+  }
+
+  itemClick(): void {
+    console.log('item click');
   }
 
 }

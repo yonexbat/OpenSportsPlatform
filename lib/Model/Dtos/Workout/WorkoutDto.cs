@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OpenSportsPlatform.Lib.Model.Dtos.WorkoutOverview
+namespace OpenSportsPlatform.Lib.Model.Dtos.Workout
 {
-    public class WorkoutOverviewItemDto
+    public class WorkoutDto
     {
         public int Id { get; set; }
         public DateTime? StartTime { get; set; }
+
         public DateTime? EndTime { get; set; }
+
         public string Sport { get; set; }
     }
 }

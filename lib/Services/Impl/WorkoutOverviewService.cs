@@ -32,6 +32,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             IList<WorkoutOverviewItemDto> data = await query
                 .Select(x => new WorkoutOverviewItemDto()
                 {
+                    Id = x.Id,
                     StartTime = x.StartTime,
                     EndTime = x.EndTime,
                     Sport = x.SportsCategory.Name,

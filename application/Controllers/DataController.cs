@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using OpenSportsPlatform.Lib.Model.Dtos.Workout;
 using OpenSportsPlatform.Lib.Model.Dtos.WorkoutOverview;
 using OpenSportsPlatform.Lib.Services.Contract;
 using System;
@@ -13,9 +14,13 @@ namespace OpenSportsPlatform.Application.Controllers
     [Route("[controller]")]
     public class DataController : ControllerBase
     {
-        private readonly IWorkoutOverviewService _workoutService;
-        public DataController(IWorkoutOverviewService workoutService)
+        private readonly IWorkoutOverviewService _workoutOverviewService;
+        private readonly IWorkoutService _workoutService;
+
+        public DataController(IWorkoutOverviewService workoutOverviewService,
+            IWorkoutService workoutService)
         {
+            _workoutOverviewService = workoutOverviewService;
             _workoutService = workoutService;
         }
 
@@ -23,7 +28,14 @@ namespace OpenSportsPlatform.Application.Controllers
         [Route("[action]")]
         public async Task<PagedResultDto<WorkoutOverviewItemDto>> SearchWorkoutItems([FromQuery]SearchWorkoutsDto search)
         {
-            return await _workoutService.SearchWorkoutItems(search);
+            return await _workoutOverviewService.SearchWorkoutItems(search);
+        }
+
+        [HttpGet]
+        [Route("[action]/{id}")]
+        public async Task<WorkoutDto> GetWorkout(int id)
+        {
+            return await _workoutService.GetWorkout(id);
         }
     }
 }

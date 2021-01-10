@@ -1,0 +1,8 @@
+<div *ngIf="workout">
+    <h1>My Workout</h1>
+    <strong>Sport:</strong><span>{{workout.sport}}</span>
+
+    <div style="height: 300px;" leaflet [leafletOptions]="options">
+    </div>
+
+</div>
