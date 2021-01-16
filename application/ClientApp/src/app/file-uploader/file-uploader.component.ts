@@ -3,7 +3,6 @@ import { HttpClient, HttpErrorResponse, HttpEventType, HttpRequest } from '@angu
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { of, Subscription } from 'rxjs';
 import { catchError, last, map, tap } from 'rxjs/operators';
-import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-file-uploader',
@@ -22,13 +21,13 @@ export class FileUploaderComponent implements OnInit {
 
   @Input() text = 'Upload';
 
-  @Input() param = 'file';
+  @Input() param = 'files';
 
   @Input() target = '/Data/UploadTcxFiles';
 
   @Input() accept = 'image/*';
 
-  /** Allow you to add handler after its completion. Bubble up response text from remote. */
+
   // tslint:disable-next-line:no-output-native
   @Output() complete = new EventEmitter<string>();
 
@@ -51,8 +50,12 @@ export class FileUploaderComponent implements OnInit {
       for (let index = 0; index < fileUpload.files.length; index++) {
         const file = fileUpload.files[index];
         this.files.push({
-          data: file, state: 'in',
-          inProgress: false, progress: 0, canRetry: false, canCancel: true
+          data: file,
+          state: 'in',
+          inProgress: false,
+          progress: 0,
+          canRetry: false,
+          canCancel: true,
         });
       }
       this.uploadFiles();

@@ -17,12 +17,15 @@ namespace OpenSportsPlatform.Application.Controllers
     {
         private readonly IWorkoutOverviewService _workoutOverviewService;
         private readonly IWorkoutService _workoutService;
+        private readonly ITcxFileImporterService _tcxFileImporterService;
 
         public DataController(IWorkoutOverviewService workoutOverviewService,
-            IWorkoutService workoutService)
+            IWorkoutService workoutService,
+            ITcxFileImporterService tcxFileImporterService)
         {
             _workoutOverviewService = workoutOverviewService;
             _workoutService = workoutService;
+            _tcxFileImporterService = tcxFileImporterService;
         }
 
         [HttpGet]
@@ -43,6 +46,20 @@ namespace OpenSportsPlatform.Application.Controllers
         [Route("[action]")]
         public async Task<IActionResult> UploadTcxFiles(List<IFormFile> files)
         {
+            foreach(IFormFile file in files)
+            {
+                try
+                {
+                    var stream = file.OpenReadStream();
+                    await _tcxFileImporterService.ImoportWorkout(stream);
+                } 
+                catch(Exception ex)
+                {
+                    throw;
+                }
+                
+            }
+
             return Ok(new { count = files.Count, size = 4 });
         }
     }
