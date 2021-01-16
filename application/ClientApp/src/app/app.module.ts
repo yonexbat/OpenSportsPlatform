@@ -21,6 +21,8 @@ import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { WorkoutComponent } from './workout/workout.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { FileUploaderComponent } from './file-uploader/file-uploader.component';
+import { UploadWorkoutComponent } from './upload-workout/upload-workout.component';
 
 // Use your Client ID in the GoogleLoginProvider()
 const socialProviders = [
@@ -35,7 +37,9 @@ const socialProviders = [
     WorkoutOverViewComponent,
     HomeComponent,
     NavigationComponent,
-    WorkoutComponent
+    WorkoutComponent,
+    FileUploaderComponent,
+    UploadWorkoutComponent,
   ],
   imports: [
     BrowserModule,
