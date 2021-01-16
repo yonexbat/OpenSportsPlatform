@@ -10,6 +10,7 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { WorkoutOverViewComponent } from './workout-over-view/workout-over-view.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -45,6 +46,7 @@ const socialProviders = [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     SocialLoginModule,
     BrowserAnimationsModule,
     MatButtonModule,
@@ -55,6 +57,7 @@ const socialProviders = [
     MatToolbarModule,
     MatIconModule,
     MatListModule,
+    MatProgressBarModule,
     LeafletModule,
   ],
   providers: [

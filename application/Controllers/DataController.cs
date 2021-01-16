@@ -40,10 +40,9 @@ namespace OpenSportsPlatform.Application.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
+        [Route("[action]")]
         public async Task<IActionResult> UploadTcxFiles(List<IFormFile> files)
         {
-
             return Ok(new { count = files.Count, size = 4 });
         }
     }
