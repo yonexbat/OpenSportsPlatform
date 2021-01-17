@@ -11,11 +11,14 @@ namespace OpenSportsPlatform.Lib.Database
     public class OpenSportsPlatformDbContext : DbContext
     {
         private readonly ISecurityService _securityService;
+
         public DbSet<Workout> Workout { get; set; }
 
         public DbSet<SportsCategory> SportsCategory { get; set; }
 
         public DbSet<UserProfile> UserProfile { get; set; }
+
+        public DbSet<Sample> Sample { get; set; }
 
         public OpenSportsPlatformDbContext(
             DbContextOptions<OpenSportsPlatformDbContext> options, 

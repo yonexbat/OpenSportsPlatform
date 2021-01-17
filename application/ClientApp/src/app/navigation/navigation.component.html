@@ -1,43 +1,45 @@
-<mat-toolbar color="primary">
+<div class="container">
+    <mat-toolbar color="primary">
 
-    <div>
-        <button (click)="sidenav.toggle()" mat-icon-button>
-            <mat-icon>menu</mat-icon>
-        </button>                
-    </div>
+        <div>
+            <button (click)="sidenav.toggle()" mat-icon-button>
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
 
-    <div>Open Sports Platform</div>
+        <div>Open Sports Platform</div>
 
-    <div class="spacer"></div>
+        <div class="spacer"></div>
 
-    <div>
-        <!-- information about the user -->
-        <app-user-info>
-        </app-user-info>
-    </div>
+        <div>
+            <!-- information about the user -->
+            <app-user-info>
+            </app-user-info>
+        </div>
 
-</mat-toolbar>
+    </mat-toolbar>
 
-<mat-sidenav-container>
+    <mat-sidenav-container>
 
-    <mat-sidenav #sidenav>
-        <mat-nav-list (click)="sidenav.close()">
-            <a mat-list-item  routerLink="/home">
-                <mat-icon class="icon">home</mat-icon>
-                <span class="label">Home</span>
-            </a>
-            <a mat-list-item  routerLink="/workouts">
-                <mat-icon class="icon">list</mat-icon>
-                <span class="label">Workouts</span>
-            </a>    
-            <a mat-list-item  routerLink="/uploadworkout">
-                <mat-icon class="icon">upload</mat-icon>
-                <span class="label">Upload</span>
-            </a>         
-        </mat-nav-list>
-    </mat-sidenav>
+        <mat-sidenav #sidenav>
+            <mat-nav-list (click)="sidenav.close()">
+                <a mat-list-item routerLink="/home">
+                    <mat-icon class="icon">home</mat-icon>
+                    <span class="label">Home</span>
+                </a>
+                <a mat-list-item routerLink="/workouts">
+                    <mat-icon class="icon">list</mat-icon>
+                    <span class="label">Workouts</span>
+                </a>
+                <a mat-list-item routerLink="/uploadworkout">
+                    <mat-icon class="icon">upload</mat-icon>
+                    <span class="label">Upload</span>
+                </a>
+            </mat-nav-list>
+        </mat-sidenav>
 
-    <mat-sidenav-content>
-        <router-outlet></router-outlet>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

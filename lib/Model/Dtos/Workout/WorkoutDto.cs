@@ -12,5 +12,7 @@ namespace OpenSportsPlatform.Lib.Model.Dtos.Workout
         public DateTime? EndTime { get; set; }
 
         public string Sport { get; set; }
+
+        public IList<SampleDto> Samples { get; set; }
     }
 }

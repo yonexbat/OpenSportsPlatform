@@ -2,7 +2,9 @@
     <h1>My Workout</h1>
     <strong>Sport:</strong><span>{{workout.sport}}</span>
 
-    <div  class="leaflet" leaflet [leafletOptions]="options">
+    <div class="leaflet" leaflet [leafletOptions]="options"
+     [leafletLayersControl]="layersControl"
+     [leafletLayers]="layers">
     </div>
 
 </div>
