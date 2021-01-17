@@ -9,5 +9,7 @@ namespace OpenSportsPlatform.Lib.Services.Contract
     public interface IWorkoutService
     {
         Task<WorkoutDto> GetWorkout(int id);
+
+        Task<bool> DeleteWorkout(int id);
     }
 }

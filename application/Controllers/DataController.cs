@@ -42,6 +42,14 @@ namespace OpenSportsPlatform.Application.Controllers
             return await _workoutService.GetWorkout(id);
         }
 
+
+        [HttpDelete]
+        [Route("[action]/{id}")]
+        public async Task<bool> DeleteWorkout(int id)
+        {
+            return await _workoutService.DeleteWorkout(id);
+        }
+
         [HttpPost]
         [Route("[action]")]
         public async Task<IActionResult> UploadTcxFiles(List<IFormFile> files)
@@ -60,7 +68,7 @@ namespace OpenSportsPlatform.Application.Controllers
                 
             }
 
-            return Ok(new { count = files.Count, size = 4 });
+            return Ok(new { count = files.Count});
         }
     }
 }

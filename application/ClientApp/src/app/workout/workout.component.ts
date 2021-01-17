@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { circle, latLng, LatLngTuple, marker, polygon, polyline, tileLayer } from 'leaflet';
+import { ConfirmService } from '../confirm.service';
 import { DataService } from '../data.service';
 import { Workout } from '../model/workout/workout';
 
@@ -32,7 +33,12 @@ export class WorkoutComponent implements OnInit {
   public layers: any[] = [];
 
 
-  constructor(private dataService: DataService, private route: ActivatedRoute) {
+  constructor(
+    private dataService: DataService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private confirmService: ConfirmService
+  ) {
     this.route.params.subscribe(x => this.handleRouteParamChanged(x));
   }
 
@@ -54,8 +60,21 @@ export class WorkoutComponent implements OnInit {
       this.options.center = latLng(this.workout.samples[0].latitude, this.workout.samples[0].longitude);
       this.options.zoom = 15;
     }
-
   }
 
+  public deleteClick(): void {
+    this.confirmService.confirm('Delete workout', 'Do you really want to delete this workout?')
+      .subscribe(x => {
+        if (x) {
+          this.deleteWorkout();
+        }
+      });
+  }
 
+  private async deleteWorkout(): Promise<void> {
+    if (this.workout && this.workout.id) {
+      await  this.dataService.deleteWorkout(this.workout?.id);
+      this.router.navigate(['workouts']);
+    }
+  }
 }

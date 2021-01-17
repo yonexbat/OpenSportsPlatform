@@ -18,12 +18,15 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
 import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { WorkoutComponent } from './workout/workout.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 import { UploadWorkoutComponent } from './upload-workout/upload-workout.component';
+import { ConfirmComponent } from './confirm/confirm.component';
 
 // Use your Client ID in the GoogleLoginProvider()
 const socialProviders = [
@@ -41,6 +44,7 @@ const socialProviders = [
     WorkoutComponent,
     FileUploaderComponent,
     UploadWorkoutComponent,
+    ConfirmComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +62,8 @@ const socialProviders = [
     MatIconModule,
     MatListModule,
     MatProgressBarModule,
+    MatDialogModule,
+    MatCardModule,
     LeafletModule,
   ],
   providers: [

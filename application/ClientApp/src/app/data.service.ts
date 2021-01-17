@@ -26,4 +26,8 @@ export class DataService {
   public getWorkout(id: number): Promise<Workout> {
     return this.http.get<Workout>(`${this.apiPrefix}/Data/GetWorkout/${id}`).toPromise();
   }
+
+  public deleteWorkout(id: number): Promise<boolean> {
+    return this.http.delete<boolean>(`${this.apiPrefix}/Data/DeleteWorkout/${id}`).toPromise();
+  }
 }
