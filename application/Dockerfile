@@ -1,0 +1,7 @@
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:5.0-alpine
+RUN apk add icu-libs
+ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
+WORKDIR /app
+COPY ./out ./
+ENTRYPOINT ["dotnet", "application.dll"]
