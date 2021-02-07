@@ -27,6 +27,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 import { UploadWorkoutComponent } from './upload-workout/upload-workout.component';
 import { ConfirmComponent } from './confirm/confirm.component';
+import { StatsComponent } from './stats/stats.component';
 
 // Use your Client ID in the GoogleLoginProvider()
 const socialProviders = [
@@ -45,6 +46,7 @@ const socialProviders = [
     FileUploaderComponent,
     UploadWorkoutComponent,
     ConfirmComponent,
+    StatsComponent,
   ],
   imports: [
     BrowserModule,

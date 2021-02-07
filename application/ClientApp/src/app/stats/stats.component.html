@@ -1,0 +1,23 @@
+<div>
+  <h3>Statistics</h3>
+
+  <table mat-table [dataSource]="statistics.items" class="mat-elevation-z8">
+
+    <!-- Category -->
+    <ng-container matColumnDef="sportsCategoryName">
+      <th mat-header-cell *matHeaderCellDef>Category</th>
+      <td mat-cell *matCellDef="let item"> {{item.sportsCategoryName}} </td>
+    </ng-container>
+
+    <!-- distance -->
+    <ng-container matColumnDef="distanceInKm">
+      <th mat-header-cell *matHeaderCellDef>Distance</th>
+      <td mat-cell *matCellDef="let item"> {{item.distanceInKm}} </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+</div>

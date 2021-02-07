@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { PagedResult } from './model/common/pagedresult';
+import { Statistics } from './model/statistics/statistics';
 import { Workout } from './model/workout/workout';
 import { WorkoutOverviewItem } from './model/workoutOverview/workoutOverviewItem';
 
@@ -29,5 +30,9 @@ export class DataService {
 
   public deleteWorkout(id: number): Promise<boolean> {
     return this.http.delete<boolean>(`${this.apiPrefix}/Data/DeleteWorkout/${id}`).toPromise();
+  }
+
+  public getStatistics(): Promise<Statistics> {
+    return this.http.get<Statistics>(`${this.apiPrefix}/Data/GetStatistics`).toPromise();
   }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using OpenSportsPlatform.Lib.Model.Dtos.Statistics;
 using OpenSportsPlatform.Lib.Model.Dtos.Workout;
 using OpenSportsPlatform.Lib.Model.Dtos.WorkoutOverview;
 using OpenSportsPlatform.Lib.Services.Contract;
@@ -18,14 +19,17 @@ namespace OpenSportsPlatform.Application.Controllers
         private readonly IWorkoutOverviewService _workoutOverviewService;
         private readonly IWorkoutService _workoutService;
         private readonly ITcxFileImporterService _tcxFileImporterService;
+        private readonly IStatisticsService _statisticsService;
 
         public DataController(IWorkoutOverviewService workoutOverviewService,
             IWorkoutService workoutService,
-            ITcxFileImporterService tcxFileImporterService)
+            ITcxFileImporterService tcxFileImporterService,
+            IStatisticsService statisticsService)
         {
             _workoutOverviewService = workoutOverviewService;
             _workoutService = workoutService;
             _tcxFileImporterService = tcxFileImporterService;
+            _statisticsService = statisticsService;
         }
 
         [HttpGet]
@@ -69,6 +73,13 @@ namespace OpenSportsPlatform.Application.Controllers
             }
 
             return Ok(new { count = files.Count});
+        }
+
+        [HttpGet]
+        [Route("[action]")]
+        public async Task<StatisticsDto> GetStatistics([FromQuery] GetStatisticsDto dto)
+        {
+            return await _statisticsService.GetStatistics(dto);
         }
     }
 }
