@@ -60,16 +60,8 @@ namespace OpenSportsPlatform.Application.Controllers
         {
             foreach(IFormFile file in files)
             {
-                try
-                {
-                    var stream = file.OpenReadStream();
-                    await _tcxFileImporterService.ImoportWorkout(stream);
-                } 
-                catch(Exception ex)
-                {
-                    throw;
-                }
-                
+                var stream = file.OpenReadStream();
+                await _tcxFileImporterService.ImoportWorkout(stream);   
             }
 
             return Ok(new { count = files.Count});
