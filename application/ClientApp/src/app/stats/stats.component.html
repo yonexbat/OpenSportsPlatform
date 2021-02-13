@@ -6,7 +6,9 @@
     <!-- Category -->
     <ng-container matColumnDef="sportsCategoryName">
       <th mat-header-cell *matHeaderCellDef>Category</th>
-      <td mat-cell *matCellDef="let item"> {{item.sportsCategoryName}} </td>
+      <td mat-cell *matCellDef="let item"> 
+        <img [src]="getImage(item.sportsCategoryName)" class="sportsicon">  
+      </td>
     </ng-container>
 
     <!-- distance -->

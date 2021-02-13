@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Statistics } from '../model/statistics/statistics';
+import { getImageFromCategory } from '../util/util';
 
 @Component({
   selector: 'app-stats',
@@ -23,6 +24,10 @@ export class StatsComponent implements OnInit {
 
   private async load(): Promise<void> {
     this.statistics = await this.dataService.getStatistics();
+  }
+
+  public getImage(sportCat: string): string {
+    return getImageFromCategory(sportCat);
   }
 
 }

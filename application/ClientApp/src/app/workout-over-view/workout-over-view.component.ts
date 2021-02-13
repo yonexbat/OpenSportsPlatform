@@ -7,6 +7,7 @@ import { map, startWith, switchMap } from 'rxjs/operators';
 import { threadId } from 'worker_threads';
 import { DataService } from '../data.service';
 import { WorkoutOverviewItem } from '../model/workoutOverview/workoutOverviewItem';
+import { getImageFromCategory } from '../util/util';
 
 @Component({
   selector: 'app-workout-over-view',
@@ -27,14 +28,7 @@ export class WorkoutOverViewComponent implements OnInit, AfterViewInit  {
   @ViewChild(MatSort) sort: any;
 
   public getImage(sportCat: string): string {
-    console.log(sportCat);
-    switch (sportCat) {
-      case 'RUNNING':
-        return '/assets/images/Laufen.png';
-      case 'Biking':
-        return '/assets/images/Mountainbike.png';
-    }
-    return '/assets/images/AlpineTrailrun.png';
+    return getImageFromCategory(sportCat);
   }
 
   ngAfterViewInit(): void {
