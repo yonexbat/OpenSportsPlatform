@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +28,7 @@ import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 import { UploadWorkoutComponent } from './upload-workout/upload-workout.component';
 import { ConfirmComponent } from './confirm/confirm.component';
 import { StatsComponent } from './stats/stats.component';
+import { GlobalErrorHandler } from './errorhandler/globalerrorhandler';
 
 // Use your Client ID in the GoogleLoginProvider()
 const socialProviders = [
@@ -76,6 +77,11 @@ const socialProviders = [
         autoLogin: true,
         providers: socialProviders,
       } as SocialAuthServiceConfig,
+    },
+    {
+      // processes all errors
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandler,
     }
   ],
   bootstrap: [AppComponent]
