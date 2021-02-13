@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './jwt.interceptor';
 import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
-import { UserInfoComponent } from './user-info/user-info.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -20,6 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { WorkoutComponent } from './workout/workout.component';
@@ -38,7 +38,6 @@ const socialProviders = [
 @NgModule({
   declarations: [
     AppComponent,
-    UserInfoComponent,
     WorkoutOverViewComponent,
     HomeComponent,
     NavigationComponent,
@@ -66,6 +65,7 @@ const socialProviders = [
     MatProgressBarModule,
     MatDialogModule,
     MatCardModule,
+    MatTooltipModule,
     LeafletModule,
   ],
   providers: [

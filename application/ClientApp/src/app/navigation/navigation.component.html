@@ -1,21 +1,28 @@
 <div class="container">
     <mat-toolbar color="primary">
 
-        <div>
-            <button (click)="sidenav.toggle()" mat-icon-button>
-                <mat-icon>menu</mat-icon>
+        <mat-toolbar-row>
+            <div>
+                <button (click)="sidenav.toggle()" mat-icon-button>
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </div>
+
+            <div>Open Sports Platform</div>
+
+            <div class="spacer"></div>
+
+            <!-- Login button -->
+            <button *ngIf="(isLoggedIn$ | async) === false" mat-icon-button (click)="signIn()" matTooltip="Login">
+                <mat-icon>login</mat-icon>
             </button>
-        </div>
 
-        <div>Open Sports Platform</div>
+            <!-- Logout button -->
+            <button *ngIf="(isLoggedIn$ | async) === true" mat-icon-button (click)="signOut()" matTooltip="Logout">
+                <mat-icon>logout</mat-icon>
+            </button>
 
-        <div class="spacer"></div>
-
-        <div>
-            <!-- information about the user -->
-            <app-user-info>
-            </app-user-info>
-        </div>
+        </mat-toolbar-row>
 
     </mat-toolbar>
 
@@ -27,15 +34,15 @@
                     <mat-icon class="icon">home</mat-icon>
                     <span class="label">Home</span>
                 </a>
-                <a mat-list-item routerLink="/workouts">
+                <a *ngIf="isLoggedIn$ | async" mat-list-item routerLink="/workouts">
                     <mat-icon class="icon">list</mat-icon>
                     <span class="label">Workouts</span>
-                </a>               
-                <a mat-list-item routerLink="/statistics">
+                </a>
+                <a *ngIf="isLoggedIn$ | async" mat-list-item routerLink="/statistics">
                     <mat-icon class="icon">bar_chart</mat-icon>
                     <span class="label">Statistics</span>
                 </a>
-                <a mat-list-item routerLink="/uploadworkout">
+                <a *ngIf="isLoggedIn$ | async" mat-list-item routerLink="/uploadworkout">
                     <mat-icon class="icon">upload</mat-icon>
                     <span class="label">Upload</span>
                 </a>
@@ -43,6 +50,8 @@
         </mat-sidenav>
 
         <mat-sidenav-content>
+
+
             <router-outlet></router-outlet>
         </mat-sidenav-content>
     </mat-sidenav-container>

@@ -35,6 +35,7 @@ namespace OpenSportsPlatform.Application.Controllers
         }
 
         [HttpGet("[action]")]
+        [AllowAnonymous]
         public async Task<ShortUserProfileDto> GetShortUserProfile()
         {
             return await _userProfileService.GetShortUserProfile();

@@ -45,6 +45,11 @@ export class AuthenticationService {
     return this.userProfile.asObservable();
   }
 
+  public isLoggedInObservalbe(): Observable<boolean> {
+    return this.getUserProfile()
+      .pipe(map(x => x.authenticated));
+  }
+
   public async isLoggedIn(): Promise<boolean> {
     const userProfile = await this.fetchUserProfile();
     return userProfile.authenticated;
