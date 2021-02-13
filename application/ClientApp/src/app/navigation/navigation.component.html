@@ -12,6 +12,11 @@
 
             <div class="spacer"></div>
 
+            <!-- Face -->
+            <mat-icon *ngIf="(isLoggedIn$ | async) === true" [matTooltip]="(userProfile$ | async)?.name || ''">
+                face
+            </mat-icon>
+
             <!-- Login button -->
             <button *ngIf="(isLoggedIn$ | async) === false" mat-icon-button (click)="signIn()" matTooltip="Login">
                 <mat-icon>login</mat-icon>
@@ -45,6 +50,10 @@
                 <a *ngIf="isLoggedIn$ | async" mat-list-item routerLink="/uploadworkout">
                     <mat-icon class="icon">upload</mat-icon>
                     <span class="label">Upload</span>
+                </a>
+                <a mat-list-item (click)="throwTestError()">
+                    <mat-icon class="icon">error</mat-icon>
+                    <span class="label">force error</span>
                 </a>
             </mat-nav-list>
         </mat-sidenav>

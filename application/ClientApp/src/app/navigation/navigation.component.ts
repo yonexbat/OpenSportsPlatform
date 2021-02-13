@@ -32,4 +32,8 @@ export class NavigationComponent implements OnInit {
     this.authenticationService.signOut();
   }
 
+  public throwTestError(): void {
+    throw new Error('Testerror');
+  }
+
 }
