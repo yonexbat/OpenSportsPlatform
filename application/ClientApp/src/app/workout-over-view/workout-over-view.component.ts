@@ -15,6 +15,9 @@ import { WorkoutOverviewItem } from '../model/workoutOverview/workoutOverviewIte
 })
 export class WorkoutOverViewComponent implements OnInit, AfterViewInit  {
 
+  constructor(private dataService: DataService) {
+  }
+
   public workouts: WorkoutOverviewItem[] = [];
   public count = 0;
   public displayedColumns: string[] = ['date', 'starttime', 'endtime', 'sport'];
@@ -23,7 +26,15 @@ export class WorkoutOverViewComponent implements OnInit, AfterViewInit  {
 
   @ViewChild(MatSort) sort: any;
 
-  constructor(private dataService: DataService) {
+  public getImage(sportCat: string): string {
+    console.log(sportCat);
+    switch (sportCat) {
+      case 'RUNNING':
+        return '/assets/images/Laufen.png';
+      case 'Biking':
+        return '/assets/images/Mountainbike.png';
+    }
+    return '/assets/images/AlpineTrailrun.png';
   }
 
   ngAfterViewInit(): void {

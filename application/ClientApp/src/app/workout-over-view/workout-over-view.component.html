@@ -24,7 +24,9 @@
     <!-- Endtime -->
     <ng-container matColumnDef="sport">
       <th mat-header-cell *matHeaderCellDef>Sport</th>
-      <td mat-cell *matCellDef="let workout"> {{workout.sport}} </td>
+      <td mat-cell *matCellDef="let workout"> 
+        <img [src]="getImage(workout.sport)" class="sportsicon">  
+      </td>
     </ng-container>
 
 
