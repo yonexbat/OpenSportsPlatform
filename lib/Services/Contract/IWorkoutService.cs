@@ -11,5 +11,9 @@ namespace OpenSportsPlatform.Lib.Services.Contract
         Task<WorkoutDto> GetWorkout(int id);
 
         Task<bool> DeleteWorkout(int id);
+
+        Task<bool> SaveWorkout(SaveWorkoutDto dto);
+
+        Task<EditWorkoutDto> GetEditWorkout(int id);
     }
 }

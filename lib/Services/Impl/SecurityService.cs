@@ -22,7 +22,8 @@ namespace OpenSportsPlatform.Lib.Services.Impl
 
         public bool IsUserInAnyRole(params Role[] roles)
         {
-            throw new NotImplementedException();
+            //todo: implement
+            return false;
         }
     }
 }

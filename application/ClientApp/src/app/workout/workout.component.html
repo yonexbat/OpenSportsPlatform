@@ -4,7 +4,10 @@
     <mat-toolbar>
         <button (click)="deleteClick()" mat-icon-button>
             <mat-icon>delete</mat-icon>
-        </button>        
+        </button>      
+        <button [routerLink]="['/editworkout', workout?.id]" mat-icon-button>
+          <mat-icon>edit</mat-icon>
+        </button>    
     </mat-toolbar>
 
     <mat-card>

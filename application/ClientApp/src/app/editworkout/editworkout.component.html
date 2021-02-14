@@ -1,0 +1,23 @@
+<div>
+    <form  [formGroup]="formGroup" (ngSubmit)="saveClick()">
+
+        <input type="hidden" formControlName="id">
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Sport</mat-label>
+            <select matNativeControl required placeholder="Sports category for this workout"
+                formControlName="sportsCategoryId">
+                <option value=""></option>
+                <option *ngFor="let item of sports" [value]="item.id">{{item.name}}</option>
+            </select>           
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Leave a comment</mat-label>
+            <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+        </mat-form-field>
+
+        <button mat-button type="submit" [disabled]="!formGroup.valid">Save</button>
+
+    </form>
+</div>

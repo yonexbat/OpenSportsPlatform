@@ -20,6 +20,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatInputModule } from '@angular/material/input';
 import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { WorkoutComponent } from './workout/workout.component';
@@ -29,6 +30,8 @@ import { UploadWorkoutComponent } from './upload-workout/upload-workout.componen
 import { ConfirmComponent } from './confirm/confirm.component';
 import { StatsComponent } from './stats/stats.component';
 import { GlobalErrorHandler } from './errorhandler/globalerrorhandler';
+import { EditworkoutComponent } from './editworkout/editworkout.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // Use your Client ID in the GoogleLoginProvider()
 const socialProviders = [
@@ -47,6 +50,7 @@ const socialProviders = [
     UploadWorkoutComponent,
     ConfirmComponent,
     StatsComponent,
+    EditworkoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +71,9 @@ const socialProviders = [
     MatDialogModule,
     MatCardModule,
     MatTooltipModule,
+    MatInputModule,
     LeafletModule,
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

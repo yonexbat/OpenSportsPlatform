@@ -46,6 +46,12 @@ namespace OpenSportsPlatform.Application.Controllers
             return await _workoutService.GetWorkout(id);
         }
 
+        [HttpGet]
+        [Route("[action]/{id}")]
+        public async Task<EditWorkoutDto> GetEditWorkout(int id)
+        {
+            return await _workoutService.GetEditWorkout(id);
+        }
 
         [HttpDelete]
         [Route("[action]/{id}")]
@@ -65,6 +71,13 @@ namespace OpenSportsPlatform.Application.Controllers
             }
 
             return Ok(new { count = files.Count});
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        public async Task<bool> SaveWorkout([FromBody] SaveWorkoutDto dto)
+        {
+            return await _workoutService.SaveWorkout(dto);
         }
 
         [HttpGet]
