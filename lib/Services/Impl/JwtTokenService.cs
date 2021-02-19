@@ -55,6 +55,8 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             string googleClientId = _configuration.GetValue<string>("googleClientId");
             GoogleJsonWebSignature.ValidationSettings settings = new GoogleJsonWebSignature.ValidationSettings();
             settings.Audience = new List<string>() { googleClientId };
+            settings.ExpirationTimeClockTolerance = new TimeSpan(1, 0, 0);
+            settings.IssuedAtClockTolerance = new TimeSpan(1, 0, 0);
             GoogleJsonWebSignature.Payload payload = await GoogleJsonWebSignature.ValidateAsync(token, settings);
             return payload;
         }
@@ -71,6 +73,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                     IssuerSigningKey = new SymmetricSecurityKey(key),
                     ValidateIssuer = false,
                     ValidateAudience = false,
+
                     // set clockskew to zero so tokens expire exactly at token expiration time (instead of 5 minutes later)
                     ClockSkew = TimeSpan.Zero
                 }, out SecurityToken validatedToken);
