@@ -78,6 +78,12 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                     StartTime = x.StartTime,
                     EndTime = x.EndTime,
                     Sport = x.SportsCategory.Name,
+                    DistanceInKm = x.DistanceInKm,
+                    AscendInMeters = x.AscendInMeters,
+                    DescendInMeters = x.DescendInMeters,
+                    CaloriesInKCal = x.CaloriesInKCal,
+                    HeartRateAvgBpm = x.HeartRateAvgBpm,
+                    HeartRateMaxBpm = x.HeartRateMaxBpm,
                 }).SingleAsync();
 
             //Samples
@@ -90,6 +96,8 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                 {
                     Latitude = x.Latitude,
                     Longitude = x.Longitude,
+                    AltitudeInMeters = x.AltitudeInMeters,
+                    HeartRateBpm = x.HeartRateBpm,
                 }).ToListAsync();
 
             return res;

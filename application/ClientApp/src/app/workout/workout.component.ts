@@ -4,6 +4,7 @@ import { circle, latLng, LatLngTuple, marker, polygon, polyline, tileLayer } fro
 import { ConfirmService } from '../confirm.service';
 import { DataService } from '../data.service';
 import { Workout } from '../model/workout/workout';
+import { getImageFromCategory } from '../util/util';
 
 @Component({
   selector: 'app-workout',
@@ -13,6 +14,7 @@ import { Workout } from '../model/workout/workout';
 export class WorkoutComponent implements OnInit {
 
   public workout?: Workout;
+  public panelOpenState = false;
 
   public options = {
     layers: [
@@ -22,10 +24,17 @@ export class WorkoutComponent implements OnInit {
     center: latLng(46.879966, -121.726909)
   };
 
+  private mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+  private ocmlink = '<a href="http://thunderforest.com/">Thunderforest</a>';
+
   public layersControl = {
     baseLayers: {
       'Open Street Map': tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' }),
-      'Open Cycle Map': tileLayer('http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' })
+      'Open Cycle Map': tileLayer(
+        'https://tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=8ae171ac1d904baea2ef1f3e9a7cf4e8', {
+        attribution: `&copy; ${this.mapLink} Contributors ${this.ocmlink}`,
+        maxZoom: 19,
+      })
     },
     overlays: {},
   };
@@ -73,8 +82,12 @@ export class WorkoutComponent implements OnInit {
 
   private async deleteWorkout(): Promise<void> {
     if (this.workout && this.workout.id) {
-      await  this.dataService.deleteWorkout(this.workout?.id);
+      await this.dataService.deleteWorkout(this.workout?.id);
       this.router.navigate(['workouts']);
     }
+  }
+
+  public getImage(sportCat?: string): string {
+    return getImageFromCategory(sportCat);
   }
 }

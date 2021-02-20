@@ -1,5 +1,4 @@
-export function getImageFromCategory(sportCat: string): string {
-    console.log(sportCat);
+export function getImageFromCategory(sportCat?: string): string {
     switch (sportCat) {
       case 'RUNNING':
         return '/assets/images/Laufen.png';

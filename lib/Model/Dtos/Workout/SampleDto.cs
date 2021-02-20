@@ -6,7 +6,9 @@ namespace OpenSportsPlatform.Lib.Model.Dtos.Workout
 {
     public class SampleDto
     {
-        public virtual double? Longitude { get; set; }
-        public virtual double? Latitude { get; set; }
+        public double? Longitude { get; set; }
+        public double? Latitude { get; set; }
+        public float? AltitudeInMeters { get; set; }
+        public float? HeartRateBpm { get; set; }
     }
 }

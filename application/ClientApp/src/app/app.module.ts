@@ -21,6 +21,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatInputModule } from '@angular/material/input';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { WorkoutComponent } from './workout/workout.component';
@@ -72,6 +73,7 @@ const socialProviders = [
     MatCardModule,
     MatTooltipModule,
     MatInputModule,
+    MatExpansionModule,
     LeafletModule,
     ReactiveFormsModule,
   ],
