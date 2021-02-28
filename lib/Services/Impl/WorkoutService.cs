@@ -84,6 +84,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                     CaloriesInKCal = x.CaloriesInKCal,
                     HeartRateAvgBpm = x.HeartRateAvgBpm,
                     HeartRateMaxBpm = x.HeartRateMaxBpm,
+                    DurationInSec = x.DurationInSec,
                 }).SingleAsync();
 
             //Samples

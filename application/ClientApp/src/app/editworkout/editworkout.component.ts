@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { threadId } from 'worker_threads';
+import { ConfirmService } from '../confirm.service';
 import { DataService } from '../data.service';
 import { SelectItem } from '../model/common/selectitem';
 import { SaveWorkout } from '../model/editworkout/saveWorkout';
@@ -25,9 +26,10 @@ export class EditworkoutComponent implements OnInit {
   });
 
   constructor(private fb: FormBuilder,
-              private dataSevice: DataService,
+              private dataService: DataService,
               private route: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private confirmService: ConfirmService) {
       this.route.params.subscribe(x => this.handleRouteParamChanged(x));
   }
 
@@ -40,7 +42,7 @@ export class EditworkoutComponent implements OnInit {
   }
 
   async loadData(id: number): Promise<void> {
-    const workout = await this.dataSevice.getEditWorkout(id);
+    const workout = await this.dataService.getEditWorkout(id);
     this.sports = workout.sportsCategories;
     this.formGroup.patchValue(workout);
   }
@@ -51,7 +53,23 @@ export class EditworkoutComponent implements OnInit {
 
   async save(): Promise<void> {
     const saveWorkout = this.formGroup.value;
-    debugger;
-    await this.dataSevice.saveWorkout(saveWorkout);
+    await this.dataService.saveWorkout(saveWorkout);
+  }
+
+  public deleteClick(): void {
+    this.confirmService.confirm('Delete workout', 'Do you really want to delete this workout?')
+      .subscribe(x => {
+        if (x) {
+          this.deleteWorkout();
+        }
+      });
+  }
+
+  private async deleteWorkout(): Promise<void> {
+    const id = this.formGroup.get('id')?.value;
+    if (id > 0) {
+      await this.dataService.deleteWorkout(id);
+      this.router.navigate(['workouts']);
+    }
   }
 }

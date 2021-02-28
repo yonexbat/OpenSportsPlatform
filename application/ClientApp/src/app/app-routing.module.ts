@@ -8,6 +8,7 @@ import { StatsComponent } from './stats/stats.component';
 import { UploadWorkoutComponent } from './upload-workout/upload-workout.component';
 import { WorkoutOverViewComponent } from './workout-over-view/workout-over-view.component';
 import { WorkoutComponent } from './workout/workout.component';
+import { WorkoutstatisticsComponent } from './workoutstatistics/workoutstatistics.component';
 
 const routes: Routes = [
   { path: '',   redirectTo: '/home', pathMatch: 'full' },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'test', component: FileUploaderComponent, canActivate: [AuthGuard] },
   { path: 'workout/:id', component: WorkoutComponent, canActivate: [AuthGuard] },
   { path: 'editworkout/:id', component: EditworkoutComponent, canActivate: [AuthGuard] },
+  { path: 'workoutstatistics/:id', component: WorkoutstatisticsComponent, canActivate: [AuthGuard] },
   { path: 'statistics', component: StatsComponent, canActivate: [AuthGuard] }
 ];
 

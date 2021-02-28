@@ -22,6 +22,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTabsModule } from '@angular/material/tabs';
 import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { WorkoutComponent } from './workout/workout.component';
@@ -33,6 +34,9 @@ import { StatsComponent } from './stats/stats.component';
 import { GlobalErrorHandler } from './errorhandler/globalerrorhandler';
 import { EditworkoutComponent } from './editworkout/editworkout.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AltitudechartComponent } from './altitudechart/altitudechart.component';
+import { TabmenuComponent } from './tabmenu/tabmenu.component';
+import { WorkoutstatisticsComponent } from './workoutstatistics/workoutstatistics.component';
 
 // Use your Client ID in the GoogleLoginProvider()
 const socialProviders = [
@@ -52,6 +56,9 @@ const socialProviders = [
     ConfirmComponent,
     StatsComponent,
     EditworkoutComponent,
+    AltitudechartComponent,
+    TabmenuComponent,
+    WorkoutstatisticsComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,6 +81,7 @@ const socialProviders = [
     MatTooltipModule,
     MatInputModule,
     MatExpansionModule,
+    MatTabsModule,
     LeafletModule,
     ReactiveFormsModule,
   ],

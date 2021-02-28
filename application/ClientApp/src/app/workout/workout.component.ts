@@ -14,8 +14,6 @@ import { getImageFromCategory } from '../util/util';
 export class WorkoutComponent implements OnInit {
 
   public workout?: Workout;
-  public panelOpenState = false;
-
   public options = {
     layers: [
       tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' })
@@ -68,22 +66,6 @@ export class WorkoutComponent implements OnInit {
     if (this.workout.samples.length > 0) {
       this.options.center = latLng(this.workout.samples[0].latitude, this.workout.samples[0].longitude);
       this.options.zoom = 15;
-    }
-  }
-
-  public deleteClick(): void {
-    this.confirmService.confirm('Delete workout', 'Do you really want to delete this workout?')
-      .subscribe(x => {
-        if (x) {
-          this.deleteWorkout();
-        }
-      });
-  }
-
-  private async deleteWorkout(): Promise<void> {
-    if (this.workout && this.workout.id) {
-      await this.dataService.deleteWorkout(this.workout?.id);
-      this.router.navigate(['workouts']);
     }
   }
 

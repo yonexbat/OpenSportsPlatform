@@ -1,0 +1,32 @@
+<div *ngIf="workout">
+    <app-tabmenu></app-tabmenu>
+
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{workout.startTime | date : 'dd.MM.yyyy HH:mm'}}
+          </mat-panel-title>
+          <mat-panel-description>     
+            <img [src]="getImage(workout.sport)" class="sportsicon"> 
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+    
+    
+    
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Stats</mat-card-title>
+            <mat-card-subtitle></mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <span>{{workout.distanceInKm}} km</span>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button>l</button>
+          </mat-card-actions>
+        </mat-card>
+    
+      </mat-expansion-panel>
+
+</div>
