@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
-import { ActivatedRoute, Params, Router, UrlSegment } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, NavigationStart, Params, Router, UrlSegment } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import { WorkoutMenuItem } from '../model/workout/workoutMenuItem';
 
 @Component({
@@ -13,11 +14,11 @@ export class TabmenuComponent implements OnInit {
   links: WorkoutMenuItem[] = [
     {
       name: 'Map',
-      routerLink: 'workout'
+      routerLink: 'map'
     },
     {
       name: 'Statistics',
-      routerLink: 'workoutstatistics'
+      routerLink: 'stats'
     },
     {
       name: 'Edit Workout',
@@ -25,29 +26,28 @@ export class TabmenuComponent implements OnInit {
     }
   ];
 
-  public id?: number;
+  public id?: string;
   public path?: string;
 
   background: ThemePalette = undefined;
 
   constructor(private route: ActivatedRoute,  private router: Router) {
-    this.route.params.subscribe(x => this.handleRouteParamChanged(x));
-    this.route.url.subscribe(x => this.handleRouteChanged(x));
+    this.router.events
+    .pipe(filter(e => e instanceof NavigationEnd)).subscribe(() => this.handleRouteChanged());
+    console.log(`id: ${this.id}, path: ${this.path}`);
   }
 
   itemClicked(link: WorkoutMenuItem): void {
-    console.log('item clicked');
-    this.router.navigate([link.routerLink, this.id]);
+    this.router.navigate(['.', link.routerLink, this.id], {relativeTo: this.route});
   }
 
   ngOnInit(): void {
   }
 
-  handleRouteParamChanged(params: Params): void {
-    this.id = params.id;
-  }
 
-  handleRouteChanged(urlSeg: UrlSegment[]): void {
-    this.path = urlSeg[0].path;
+  handleRouteChanged(): void {
+    const firstChild = this.route.snapshot.firstChild;
+    this.path = firstChild?.url[0]?.path;
+    this.id = firstChild?.url[1]?.path;
   }
 }

@@ -1,7 +1,12 @@
-<nav mat-tab-nav-bar [backgroundColor]="background">
+<div class="container">
+   
+    <nav mat-tab-nav-bar [backgroundColor]="background">
 
-    <a mat-tab-link *ngFor="let link of links"
-       [active]="path === link.routerLink"
-       (click)="itemClicked(link)"> {{link.name}} </a>
+        <a mat-tab-link *ngFor="let link of links" [active]="path === link.routerLink" (click)="itemClicked(link)">
+            {{link.name}} </a>
+    </nav>
 
-</nav>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -31,7 +31,7 @@
 
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row [routerLink]="['/workout', row.id]" *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-row [routerLink]="['/workout', 'map', row.id]" *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
   <mat-paginator [length]="count" [pageSize]="10"></mat-paginator>

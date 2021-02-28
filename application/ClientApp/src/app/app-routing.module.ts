@@ -5,6 +5,7 @@ import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { StatsComponent } from './stats/stats.component';
+import { TabmenuComponent } from './tabmenu/tabmenu.component';
 import { UploadWorkoutComponent } from './upload-workout/upload-workout.component';
 import { WorkoutOverViewComponent } from './workout-over-view/workout-over-view.component';
 import { WorkoutComponent } from './workout/workout.component';
@@ -16,9 +17,17 @@ const routes: Routes = [
   { path: 'workouts', component: WorkoutOverViewComponent, canActivate: [AuthGuard] },
   { path: 'uploadworkout', component: UploadWorkoutComponent, canActivate: [AuthGuard] },
   { path: 'test', component: FileUploaderComponent, canActivate: [AuthGuard] },
-  { path: 'workout/:id', component: WorkoutComponent, canActivate: [AuthGuard] },
-  { path: 'editworkout/:id', component: EditworkoutComponent, canActivate: [AuthGuard] },
-  { path: 'workoutstatistics/:id', component: WorkoutstatisticsComponent, canActivate: [AuthGuard] },
+
+  {
+    path: 'workout',
+    component: TabmenuComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {path: 'map/:id', component: WorkoutComponent},
+      {path: 'stats/:id', component: WorkoutstatisticsComponent},
+      {path: 'editworkout/:id', component: EditworkoutComponent},
+    ]
+   },
   { path: 'statistics', component: StatsComponent, canActivate: [AuthGuard] }
 ];
 
