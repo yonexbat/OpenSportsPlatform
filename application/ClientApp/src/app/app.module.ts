@@ -37,6 +37,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AltitudechartComponent } from './altitudechart/altitudechart.component';
 import { TabmenuComponent } from './tabmenu/tabmenu.component';
 import { WorkoutstatisticsComponent } from './workoutstatistics/workoutstatistics.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 // Use your Client ID in the GoogleLoginProvider()
 const socialProviders = [
@@ -84,6 +85,7 @@ const socialProviders = [
     MatTabsModule,
     LeafletModule,
     ReactiveFormsModule,
+    NgxChartsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

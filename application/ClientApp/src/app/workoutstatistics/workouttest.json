@@ -1,0 +1,5673 @@
+{
+    "id": 2689,
+    "startTime": "2021-03-01T10:10:18",
+    "endTime": "2021-03-01T11:28:51",
+    "distanceInKm": 12.20999,
+    "durationInSec": 4712.44,
+    "caloriesInKCal": 1057,
+    "ascendInMeters": 378.39972,
+    "descendInMeters": 367.99976,
+    "heartRateAvgBpm": null,
+    "heartRateMaxBpm": null,
+    "sport": "RUNNING",
+    "samples": [
+        {
+            "longitude": 7.624092875048518,
+            "latitude": 47.06868086010218,
+            "altitudeInMeters": 631.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6241363771259785,
+            "latitude": 47.06868731416762,
+            "altitudeInMeters": 631.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624146351590753,
+            "latitude": 47.06867968663573,
+            "altitudeInMeters": 632,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624199073761702,
+            "latitude": 47.06869502551854,
+            "altitudeInMeters": 633.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6242217887192965,
+            "latitude": 47.0687089394778,
+            "altitudeInMeters": 633.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624270152300596,
+            "latitude": 47.068732073530555,
+            "altitudeInMeters": 632,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624371070414782,
+            "latitude": 47.06881161779165,
+            "altitudeInMeters": 632.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624382385984063,
+            "latitude": 47.06883206963539,
+            "altitudeInMeters": 633.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624379117041826,
+            "latitude": 47.0688817743212,
+            "altitudeInMeters": 634.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6243307534605265,
+            "latitude": 47.06897967495024,
+            "altitudeInMeters": 635.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62427962385118,
+            "latitude": 47.06913247704506,
+            "altitudeInMeters": 637.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624268978834152,
+            "latitude": 47.069284189492464,
+            "altitudeInMeters": 638.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624251460656524,
+            "latitude": 47.069439087063074,
+            "altitudeInMeters": 639.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624249029904604,
+            "latitude": 47.06953179091215,
+            "altitudeInMeters": 640.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624306781217456,
+            "latitude": 47.0695533324033,
+            "altitudeInMeters": 641.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624354474246502,
+            "latitude": 47.06954360939562,
+            "altitudeInMeters": 641.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624421697109938,
+            "latitude": 47.06952089443803,
+            "altitudeInMeters": 643.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6244930271059275,
+            "latitude": 47.06949130631983,
+            "altitudeInMeters": 644.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6245619263499975,
+            "latitude": 47.069451827555895,
+            "altitudeInMeters": 645.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624651696532965,
+            "latitude": 47.06940262578428,
+            "altitudeInMeters": 646.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624714225530624,
+            "latitude": 47.06934101879597,
+            "altitudeInMeters": 647.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624812126159668,
+            "latitude": 47.06914094276726,
+            "altitudeInMeters": 648.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624913463369012,
+            "latitude": 47.06896492280066,
+            "altitudeInMeters": 648.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625013459473848,
+            "latitude": 47.068766774609685,
+            "altitudeInMeters": 647.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625138014554977,
+            "latitude": 47.068596202880144,
+            "altitudeInMeters": 646.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625206997618079,
+            "latitude": 47.06848514266312,
+            "altitudeInMeters": 646.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625308586284518,
+            "latitude": 47.06830124370754,
+            "altitudeInMeters": 646.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625412102788687,
+            "latitude": 47.06812782213092,
+            "altitudeInMeters": 646.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625512685626745,
+            "latitude": 47.06795088015497,
+            "altitudeInMeters": 646.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625629948452115,
+            "latitude": 47.067777374759316,
+            "altitudeInMeters": 646.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625749642029405,
+            "latitude": 47.067599426954985,
+            "altitudeInMeters": 646.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625841675326228,
+            "latitude": 47.0674345549196,
+            "altitudeInMeters": 646.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.626097071915865,
+            "latitude": 47.06734168343246,
+            "altitudeInMeters": 645.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62616571970284,
+            "latitude": 47.06730371341109,
+            "altitudeInMeters": 645.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.626378536224365,
+            "latitude": 47.06715904176235,
+            "altitudeInMeters": 645.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.626587664708495,
+            "latitude": 47.067014118656516,
+            "altitudeInMeters": 646,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.626812886446714,
+            "latitude": 47.06689174287021,
+            "altitudeInMeters": 646.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6270985417068005,
+            "latitude": 47.06689082086086,
+            "altitudeInMeters": 646.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627134248614311,
+            "latitude": 47.06690146587789,
+            "altitudeInMeters": 646.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62723533436656,
+            "latitude": 47.06696039065719,
+            "altitudeInMeters": 646.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627369947731495,
+            "latitude": 47.06712467595935,
+            "altitudeInMeters": 647.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627453431487083,
+            "latitude": 47.06730790436268,
+            "altitudeInMeters": 647,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6275623962283134,
+            "latitude": 47.067497335374355,
+            "altitudeInMeters": 646.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627719976007938,
+            "latitude": 47.06766187213361,
+            "altitudeInMeters": 646.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627977970987558,
+            "latitude": 47.06774024292827,
+            "altitudeInMeters": 645.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.628069585189223,
+            "latitude": 47.06771710887551,
+            "altitudeInMeters": 645.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.628240576013923,
+            "latitude": 47.067653741687536,
+            "altitudeInMeters": 644.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.628455068916082,
+            "latitude": 47.06756045110524,
+            "altitudeInMeters": 643,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.628658330067992,
+            "latitude": 47.06746255047619,
+            "altitudeInMeters": 641.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.628893526270986,
+            "latitude": 47.06734855659306,
+            "altitudeInMeters": 640.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629049681127071,
+            "latitude": 47.06731142476201,
+            "altitudeInMeters": 640.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629209943115711,
+            "latitude": 47.06748442724347,
+            "altitudeInMeters": 641.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6292843744158745,
+            "latitude": 47.06757478415966,
+            "altitudeInMeters": 641.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62935645878315,
+            "latitude": 47.06766271032393,
+            "altitudeInMeters": 643,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629468608647585,
+            "latitude": 47.067794390022755,
+            "altitudeInMeters": 644,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629546392709017,
+            "latitude": 47.06789614632726,
+            "altitudeInMeters": 645.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629648903384805,
+            "latitude": 47.067997734993696,
+            "altitudeInMeters": 646.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629721155390143,
+            "latitude": 47.06806101836264,
+            "altitudeInMeters": 647.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629808159545064,
+            "latitude": 47.068105190992355,
+            "altitudeInMeters": 648.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629925590008497,
+            "latitude": 47.068155566230416,
+            "altitudeInMeters": 649.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630059532821178,
+            "latitude": 47.06818012520671,
+            "altitudeInMeters": 651,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630215436220169,
+            "latitude": 47.068199487403035,
+            "altitudeInMeters": 652,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630371423438191,
+            "latitude": 47.06818347796798,
+            "altitudeInMeters": 653,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630466390401125,
+            "latitude": 47.06813972443342,
+            "altitudeInMeters": 654,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630543420091271,
+            "latitude": 47.068092534318566,
+            "altitudeInMeters": 655.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630578624084592,
+            "latitude": 47.06801709719002,
+            "altitudeInMeters": 656.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6305740140378475,
+            "latitude": 47.06795331090689,
+            "altitudeInMeters": 657.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630573762580752,
+            "latitude": 47.06788927316666,
+            "altitudeInMeters": 658.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63057217001915,
+            "latitude": 47.067779302597046,
+            "altitudeInMeters": 659.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630567727610469,
+            "latitude": 47.067595487460494,
+            "altitudeInMeters": 660.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630577618256211,
+            "latitude": 47.06743665039539,
+            "altitudeInMeters": 662,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630555825307965,
+            "latitude": 47.06732835620642,
+            "altitudeInMeters": 663.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630497990176082,
+            "latitude": 47.06720623187721,
+            "altitudeInMeters": 664.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63042557053268,
+            "latitude": 47.06707815639675,
+            "altitudeInMeters": 665.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630416853353381,
+            "latitude": 47.06705586053431,
+            "altitudeInMeters": 665.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630416853353381,
+            "latitude": 47.06705586053431,
+            "altitudeInMeters": 665.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630387516692281,
+            "latitude": 47.066976483911276,
+            "altitudeInMeters": 666.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630363292992115,
+            "latitude": 47.06689182668924,
+            "altitudeInMeters": 667.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630382319912314,
+            "latitude": 47.066798536106944,
+            "altitudeInMeters": 668.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6304099801927805,
+            "latitude": 47.0667109452188,
+            "altitudeInMeters": 670,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630432695150375,
+            "latitude": 47.06663332879543,
+            "altitudeInMeters": 671,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630500001832843,
+            "latitude": 47.06651397049427,
+            "altitudeInMeters": 672.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630572086200118,
+            "latitude": 47.06644012592733,
+            "altitudeInMeters": 673.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63064350001514,
+            "latitude": 47.066353373229504,
+            "altitudeInMeters": 674.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63071583583951,
+            "latitude": 47.06626913510263,
+            "altitudeInMeters": 676,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630780963227153,
+            "latitude": 47.066173665225506,
+            "altitudeInMeters": 677,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630862267687917,
+            "latitude": 47.06610937602818,
+            "altitudeInMeters": 678.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630922785028815,
+            "latitude": 47.066040225327015,
+            "altitudeInMeters": 679.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630993947386742,
+            "latitude": 47.065987419337034,
+            "altitudeInMeters": 680.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631069635972381,
+            "latitude": 47.065913239493966,
+            "altitudeInMeters": 681.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631172565743327,
+            "latitude": 47.06584802828729,
+            "altitudeInMeters": 682.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631288068369031,
+            "latitude": 47.06577820703387,
+            "altitudeInMeters": 683.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6313612423837185,
+            "latitude": 47.065754402428865,
+            "altitudeInMeters": 684.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631469452753663,
+            "latitude": 47.0657180249691,
+            "altitudeInMeters": 685.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631604569032788,
+            "latitude": 47.06568533554673,
+            "altitudeInMeters": 686.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631686627864838,
+            "latitude": 47.06563445739448,
+            "altitudeInMeters": 688.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631893577054143,
+            "latitude": 47.06553018651903,
+            "altitudeInMeters": 688.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6319579500705,
+            "latitude": 47.06552415154874,
+            "altitudeInMeters": 688.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632128605619073,
+            "latitude": 47.06557570025325,
+            "altitudeInMeters": 687,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632392551749945,
+            "latitude": 47.0656215492636,
+            "altitudeInMeters": 686.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63256723061204,
+            "latitude": 47.06559548154473,
+            "altitudeInMeters": 688.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632711231708527,
+            "latitude": 47.0655919611454,
+            "altitudeInMeters": 688.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6327661331743,
+            "latitude": 47.065626410767436,
+            "altitudeInMeters": 689.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632881216704845,
+            "latitude": 47.06580217927694,
+            "altitudeInMeters": 689.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633040389046073,
+            "latitude": 47.06596537493169,
+            "altitudeInMeters": 688.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633064612746239,
+            "latitude": 47.06600334495306,
+            "altitudeInMeters": 688.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633211212232709,
+            "latitude": 47.06611809320748,
+            "altitudeInMeters": 687.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633374072611332,
+            "latitude": 47.06619000993669,
+            "altitudeInMeters": 686.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633573310449719,
+            "latitude": 47.066254802048206,
+            "altitudeInMeters": 684.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633661152794957,
+            "latitude": 47.06625983119011,
+            "altitudeInMeters": 683.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633784953504801,
+            "latitude": 47.066280115395784,
+            "altitudeInMeters": 682.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6338881347328424,
+            "latitude": 47.066305512562394,
+            "altitudeInMeters": 681.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6339208241552114,
+            "latitude": 47.066307524219155,
+            "altitudeInMeters": 681.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633956698700786,
+            "latitude": 47.06629511900246,
+            "altitudeInMeters": 680.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633953345939517,
+            "latitude": 47.066269889473915,
+            "altitudeInMeters": 679.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6339605543762445,
+            "latitude": 47.066234769299626,
+            "altitudeInMeters": 678.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633985700085759,
+            "latitude": 47.066233763471246,
+            "altitudeInMeters": 678,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634077146649361,
+            "latitude": 47.06625455059111,
+            "altitudeInMeters": 676.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6341555174440145,
+            "latitude": 47.06628229469061,
+            "altitudeInMeters": 674.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634243778884411,
+            "latitude": 47.06632990390062,
+            "altitudeInMeters": 673.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634395658969879,
+            "latitude": 47.06636929884553,
+            "altitudeInMeters": 672.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634616354480386,
+            "latitude": 47.06642118282616,
+            "altitudeInMeters": 671.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634695814922452,
+            "latitude": 47.06641850061715,
+            "altitudeInMeters": 670,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6348888501524925,
+            "latitude": 47.066412130370736,
+            "altitudeInMeters": 669.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635177606716752,
+            "latitude": 47.066362760961056,
+            "altitudeInMeters": 669.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635454796254635,
+            "latitude": 47.0662981364876,
+            "altitudeInMeters": 670.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6356955245137215,
+            "latitude": 47.066217167302966,
+            "altitudeInMeters": 670.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6357517670840025,
+            "latitude": 47.06619160249829,
+            "altitudeInMeters": 670.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6356142200529575,
+            "latitude": 47.066181460395455,
+            "altitudeInMeters": 668.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635607682168484,
+            "latitude": 47.06617961637676,
+            "altitudeInMeters": 667.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635686891153455,
+            "latitude": 47.06615296192467,
+            "altitudeInMeters": 666.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635702649131417,
+            "latitude": 47.06614449620247,
+            "altitudeInMeters": 665.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635689657181501,
+            "latitude": 47.06613100133836,
+            "altitudeInMeters": 665,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6355762500315905,
+            "latitude": 47.06613854505122,
+            "altitudeInMeters": 664,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635500058531761,
+            "latitude": 47.06611976958811,
+            "altitudeInMeters": 663,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635464770719409,
+            "latitude": 47.06609210930765,
+            "altitudeInMeters": 661.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6353641878813505,
+            "latitude": 47.06604450009763,
+            "altitudeInMeters": 660.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635364690795541,
+            "latitude": 47.06602287478745,
+            "altitudeInMeters": 660,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635380448773503,
+            "latitude": 47.066012816503644,
+            "altitudeInMeters": 659.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635430488735437,
+            "latitude": 47.06599663943052,
+            "altitudeInMeters": 658.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635559402406216,
+            "latitude": 47.065952215343714,
+            "altitudeInMeters": 657,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635625954717398,
+            "latitude": 47.06593360751867,
+            "altitudeInMeters": 655.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635845309123397,
+            "latitude": 47.06590058282018,
+            "altitudeInMeters": 654.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6360035594552755,
+            "latitude": 47.06594358198345,
+            "altitudeInMeters": 653.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636087546125054,
+            "latitude": 47.0659683085978,
+            "altitudeInMeters": 652.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6361870393157005,
+            "latitude": 47.065982054919004,
+            "altitudeInMeters": 651,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636311678215861,
+            "latitude": 47.065978199243546,
+            "altitudeInMeters": 649.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63644159771502,
+            "latitude": 47.065981635823846,
+            "altitudeInMeters": 648,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6365814078599215,
+            "latitude": 47.066001165658236,
+            "altitudeInMeters": 646.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636673524975777,
+            "latitude": 47.06604584120214,
+            "altitudeInMeters": 645.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6368155144155025,
+            "latitude": 47.066131588071585,
+            "altitudeInMeters": 644.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6369300950318575,
+            "latitude": 47.06620819866657,
+            "altitudeInMeters": 643.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637043837457895,
+            "latitude": 47.06627877429128,
+            "altitudeInMeters": 642.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637108294293284,
+            "latitude": 47.06633065827191,
+            "altitudeInMeters": 640.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637157328426838,
+            "latitude": 47.066365694627166,
+            "altitudeInMeters": 639.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637191694229841,
+            "latitude": 47.066408190876245,
+            "altitudeInMeters": 638,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63722974807024,
+            "latitude": 47.06644616089761,
+            "altitudeInMeters": 636.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637269143015146,
+            "latitude": 47.06643241457641,
+            "altitudeInMeters": 635.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637332510203123,
+            "latitude": 47.0664485078305,
+            "altitudeInMeters": 634.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637353129684925,
+            "latitude": 47.06644062884152,
+            "altitudeInMeters": 634,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6373921893537045,
+            "latitude": 47.06640559248626,
+            "altitudeInMeters": 633,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637417167425156,
+            "latitude": 47.066335352137685,
+            "altitudeInMeters": 631.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637428818270564,
+            "latitude": 47.0663224440068,
+            "altitudeInMeters": 631.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637471565976739,
+            "latitude": 47.066316744312644,
+            "altitudeInMeters": 630.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637572651728988,
+            "latitude": 47.066348511725664,
+            "altitudeInMeters": 629.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637646999210119,
+            "latitude": 47.06639276817441,
+            "altitudeInMeters": 628,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637706845998764,
+            "latitude": 47.06643442623317,
+            "altitudeInMeters": 626.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637730063870549,
+            "latitude": 47.06645973958075,
+            "altitudeInMeters": 625.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637756885960698,
+            "latitude": 47.06649553030729,
+            "altitudeInMeters": 624,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637757388874888,
+            "latitude": 47.06650994718075,
+            "altitudeInMeters": 623.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637755963951349,
+            "latitude": 47.06652562133968,
+            "altitudeInMeters": 622.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637763591483235,
+            "latitude": 47.066552359610796,
+            "altitudeInMeters": 621.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637792676687241,
+            "latitude": 47.066619750112295,
+            "altitudeInMeters": 620.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637862581759691,
+            "latitude": 47.06674514338374,
+            "altitudeInMeters": 619.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6379260327667,
+            "latitude": 47.06684773787856,
+            "altitudeInMeters": 618.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6379272900521755,
+            "latitude": 47.06688688136637,
+            "altitudeInMeters": 617,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637919746339321,
+            "latitude": 47.0669252704829,
+            "altitudeInMeters": 616,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6379220094531775,
+            "latitude": 47.066967096179724,
+            "altitudeInMeters": 614.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637921674177051,
+            "latitude": 47.0670407731086,
+            "altitudeInMeters": 613.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637919327244163,
+            "latitude": 47.06719416193664,
+            "altitudeInMeters": 612.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637844812124968,
+            "latitude": 47.067339001223445,
+            "altitudeInMeters": 611.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63771447353065,
+            "latitude": 47.067502699792385,
+            "altitudeInMeters": 610.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63769150711596,
+            "latitude": 47.06752231344581,
+            "altitudeInMeters": 610.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637559324502945,
+            "latitude": 47.06768316216767,
+            "altitudeInMeters": 610.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637461423873901,
+            "latitude": 47.067768070846796,
+            "altitudeInMeters": 611.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637372994795442,
+            "latitude": 47.06782498396933,
+            "altitudeInMeters": 612,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63734214939177,
+            "latitude": 47.06784317269921,
+            "altitudeInMeters": 612.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63734214939177,
+            "latitude": 47.06784317269921,
+            "altitudeInMeters": 612.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637110976502299,
+            "latitude": 47.06794794648886,
+            "altitudeInMeters": 613.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636963790282607,
+            "latitude": 47.068007877096534,
+            "altitudeInMeters": 613.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6367604453116655,
+            "latitude": 47.068146765232086,
+            "altitudeInMeters": 614.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636745190247893,
+            "latitude": 47.068154560402036,
+            "altitudeInMeters": 614.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636683247983456,
+            "latitude": 47.06827676855028,
+            "altitudeInMeters": 615.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6366055477410555,
+            "latitude": 47.068484304472804,
+            "altitudeInMeters": 616.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636550646275282,
+            "latitude": 47.06863216124475,
+            "altitudeInMeters": 617.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636535307392478,
+            "latitude": 47.068692930042744,
+            "altitudeInMeters": 618,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63653002679348,
+            "latitude": 47.06888278014958,
+            "altitudeInMeters": 618.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636551149189472,
+            "latitude": 47.069082437083125,
+            "altitudeInMeters": 618.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636568751186132,
+            "latitude": 47.06927220337093,
+            "altitudeInMeters": 617.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6365395821630955,
+            "latitude": 47.06937781535089,
+            "altitudeInMeters": 616.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636512257158756,
+            "latitude": 47.06945652142167,
+            "altitudeInMeters": 615.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636506222188473,
+            "latitude": 47.06950052641332,
+            "altitudeInMeters": 614,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636492224410176,
+            "latitude": 47.06955844536424,
+            "altitudeInMeters": 612.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636478981003165,
+            "latitude": 47.06963622942567,
+            "altitudeInMeters": 611.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636455679312348,
+            "latitude": 47.06967202015221,
+            "altitudeInMeters": 610.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636439837515354,
+            "latitude": 47.06970462575555,
+            "altitudeInMeters": 609,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6364214811474085,
+            "latitude": 47.06975508481264,
+            "altitudeInMeters": 608,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636412512511015,
+            "latitude": 47.06979422830045,
+            "altitudeInMeters": 606.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6363887917250395,
+            "latitude": 47.06986497156322,
+            "altitudeInMeters": 605.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636355264112353,
+            "latitude": 47.069945856928825,
+            "altitudeInMeters": 604.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636332213878632,
+            "latitude": 47.07002582028508,
+            "altitudeInMeters": 603,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636312851682305,
+            "latitude": 47.070074854418635,
+            "altitudeInMeters": 601.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636283598840237,
+            "latitude": 47.07014735788107,
+            "altitudeInMeters": 600.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636255519464612,
+            "latitude": 47.070213574916124,
+            "altitudeInMeters": 599.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6362088322639465,
+            "latitude": 47.07029898650944,
+            "altitudeInMeters": 597.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6361628994345665,
+            "latitude": 47.07037945277989,
+            "altitudeInMeters": 596.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636115290224552,
+            "latitude": 47.070416416972876,
+            "altitudeInMeters": 595.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636044295504689,
+            "latitude": 47.07049193792045,
+            "altitudeInMeters": 593.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636011857539415,
+            "latitude": 47.07054893486202,
+            "altitudeInMeters": 592.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63600037433207,
+            "latitude": 47.07061992958188,
+            "altitudeInMeters": 591.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636011019349098,
+            "latitude": 47.07064784131944,
+            "altitudeInMeters": 591,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636054353788495,
+            "latitude": 47.070687068626285,
+            "altitudeInMeters": 589.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636080924421549,
+            "latitude": 47.07071430981159,
+            "altitudeInMeters": 589.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636130042374134,
+            "latitude": 47.07075613550842,
+            "altitudeInMeters": 588.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636138927191496,
+            "latitude": 47.0707759167999,
+            "altitudeInMeters": 588,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6361352391541,
+            "latitude": 47.07080106250942,
+            "altitudeInMeters": 587.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636036919429898,
+            "latitude": 47.07089728675783,
+            "altitudeInMeters": 586.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6359334867447615,
+            "latitude": 47.07099719904363,
+            "altitudeInMeters": 585.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635740032419562,
+            "latitude": 47.071134243160486,
+            "altitudeInMeters": 584.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6357105281203985,
+            "latitude": 47.071151342242956,
+            "altitudeInMeters": 584.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635488659143448,
+            "latitude": 47.07127413712442,
+            "altitudeInMeters": 583.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635261341929436,
+            "latitude": 47.07139676436782,
+            "altitudeInMeters": 582.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635039472952485,
+            "latitude": 47.071518218144774,
+            "altitudeInMeters": 582.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634862028062344,
+            "latitude": 47.0716480538249,
+            "altitudeInMeters": 582.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634601267054677,
+            "latitude": 47.07173698581755,
+            "altitudeInMeters": 582,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634320221841335,
+            "latitude": 47.07180881872773,
+            "altitudeInMeters": 582.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634110506623983,
+            "latitude": 47.071961956098676,
+            "altitudeInMeters": 582,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633965164422989,
+            "latitude": 47.07211324945092,
+            "altitudeInMeters": 581.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633784534409642,
+            "latitude": 47.0722664706409,
+            "altitudeInMeters": 581.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6337523479014635,
+            "latitude": 47.07229312509298,
+            "altitudeInMeters": 581.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633559899404645,
+            "latitude": 47.07242287695408,
+            "altitudeInMeters": 581,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633343897759914,
+            "latitude": 47.072562016546726,
+            "altitudeInMeters": 581,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6331497728824615,
+            "latitude": 47.07269176840782,
+            "altitudeInMeters": 581.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633013315498829,
+            "latitude": 47.07284985110164,
+            "altitudeInMeters": 582,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632981296628714,
+            "latitude": 47.0728967897594,
+            "altitudeInMeters": 582.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632805947214365,
+            "latitude": 47.073048083111644,
+            "altitudeInMeters": 582.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632611989974976,
+            "latitude": 47.07318822853267,
+            "altitudeInMeters": 582.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632469581440091,
+            "latitude": 47.073366260156035,
+            "altitudeInMeters": 582.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632347205653787,
+            "latitude": 47.07353649660945,
+            "altitudeInMeters": 582.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632286939769983,
+            "latitude": 47.07371670752764,
+            "altitudeInMeters": 582.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632184261456132,
+            "latitude": 47.07388392649591,
+            "altitudeInMeters": 582.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6320951618254185,
+            "latitude": 47.074084589257836,
+            "altitudeInMeters": 581.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6320581138134,
+            "latitude": 47.07414032891393,
+            "altitudeInMeters": 581.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631935989484191,
+            "latitude": 47.07428525201976,
+            "altitudeInMeters": 580,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631860971450806,
+            "latitude": 47.074354737997055,
+            "altitudeInMeters": 579,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631747731938958,
+            "latitude": 47.07444869913161,
+            "altitudeInMeters": 578,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631639605388045,
+            "latitude": 47.074545761570334,
+            "altitudeInMeters": 576.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631527874618769,
+            "latitude": 47.07465304993093,
+            "altitudeInMeters": 575.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631431901827455,
+            "latitude": 47.07475757226348,
+            "altitudeInMeters": 574.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631367025896907,
+            "latitude": 47.07482890225947,
+            "altitudeInMeters": 573.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6312717236578465,
+            "latitude": 47.074921522289515,
+            "altitudeInMeters": 572.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6311238668859005,
+            "latitude": 47.0750776771456,
+            "altitudeInMeters": 571.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63097676448524,
+            "latitude": 47.07523073069751,
+            "altitudeInMeters": 570.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630949858576059,
+            "latitude": 47.07525495439768,
+            "altitudeInMeters": 570.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630818849429488,
+            "latitude": 47.07537950947881,
+            "altitudeInMeters": 570,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63067627325654,
+            "latitude": 47.07553407177329,
+            "altitudeInMeters": 569,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630564793944359,
+            "latitude": 47.07567773759365,
+            "altitudeInMeters": 567.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630460774526,
+            "latitude": 47.07582961767912,
+            "altitudeInMeters": 566.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630402687937021,
+            "latitude": 47.075916454195976,
+            "altitudeInMeters": 565.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630337728187442,
+            "latitude": 47.07602960988879,
+            "altitudeInMeters": 564.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630261369049549,
+            "latitude": 47.07622264511883,
+            "altitudeInMeters": 563.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630218705162406,
+            "latitude": 47.07641651853919,
+            "altitudeInMeters": 562.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630172688513994,
+            "latitude": 47.076600501313806,
+            "altitudeInMeters": 562.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630118289962411,
+            "latitude": 47.07680393010378,
+            "altitudeInMeters": 563,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630065819248557,
+            "latitude": 47.076993277296424,
+            "altitudeInMeters": 563.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630011755973101,
+            "latitude": 47.07717256620526,
+            "altitudeInMeters": 563.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629961632192135,
+            "latitude": 47.077368618920445,
+            "altitudeInMeters": 563.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62991352006793,
+            "latitude": 47.07755989395082,
+            "altitudeInMeters": 564,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629864234477282,
+            "latitude": 47.077739937230945,
+            "altitudeInMeters": 564.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629849901422858,
+            "latitude": 47.077816128730774,
+            "altitudeInMeters": 564.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629809752106667,
+            "latitude": 47.077999440953135,
+            "altitudeInMeters": 564.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629782008007169,
+            "latitude": 47.07808468490839,
+            "altitudeInMeters": 565.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6297644060105085,
+            "latitude": 47.07816397771239,
+            "altitudeInMeters": 566.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6297408528625965,
+            "latitude": 47.07823078148067,
+            "altitudeInMeters": 567.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629734734073281,
+            "latitude": 47.07830177620053,
+            "altitudeInMeters": 569,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629721658304334,
+            "latitude": 47.07837310619652,
+            "altitudeInMeters": 570.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6297110971063375,
+            "latitude": 47.07844971679151,
+            "altitudeInMeters": 571.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6296863704919815,
+            "latitude": 47.078553065657616,
+            "altitudeInMeters": 572.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629654938355088,
+            "latitude": 47.07863789051771,
+            "altitudeInMeters": 573.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629623673856258,
+            "latitude": 47.078689355403185,
+            "altitudeInMeters": 575,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6295906491577625,
+            "latitude": 47.078747441992164,
+            "altitudeInMeters": 576,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629575477913022,
+            "latitude": 47.078790022060275,
+            "altitudeInMeters": 577.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629562485963106,
+            "latitude": 47.07885883748531,
+            "altitudeInMeters": 578.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629554271697998,
+            "latitude": 47.078914074227214,
+            "altitudeInMeters": 579.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629544213414192,
+            "latitude": 47.078960090875626,
+            "altitudeInMeters": 580.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629519905894995,
+            "latitude": 47.079015830531716,
+            "altitudeInMeters": 582.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629494173452258,
+            "latitude": 47.07908104173839,
+            "altitudeInMeters": 583.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629472799599171,
+            "latitude": 47.079136949032545,
+            "altitudeInMeters": 584.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629453772678971,
+            "latitude": 47.0791981369257,
+            "altitudeInMeters": 585.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629447905346751,
+            "latitude": 47.07925505004823,
+            "altitudeInMeters": 587,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629439020529389,
+            "latitude": 47.07930467091501,
+            "altitudeInMeters": 588.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629434829577804,
+            "latitude": 47.0793498493731,
+            "altitudeInMeters": 589.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629421167075634,
+            "latitude": 47.079420341178775,
+            "altitudeInMeters": 590.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629405157640576,
+            "latitude": 47.07945579662919,
+            "altitudeInMeters": 592,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629395015537739,
+            "latitude": 47.079513212665915,
+            "altitudeInMeters": 593.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62939115986228,
+            "latitude": 47.07957808859646,
+            "altitudeInMeters": 594.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629392836242914,
+            "latitude": 47.07960415631533,
+            "altitudeInMeters": 595.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62940825894475,
+            "latitude": 47.07967665977776,
+            "altitudeInMeters": 596.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629432315006852,
+            "latitude": 47.07977875135839,
+            "altitudeInMeters": 597.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629444636404514,
+            "latitude": 47.079973462969065,
+            "altitudeInMeters": 598.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629445977509022,
+            "latitude": 47.08009298890829,
+            "altitudeInMeters": 597.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62948252260685,
+            "latitude": 47.080296920612454,
+            "altitudeInMeters": 597,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629488641396165,
+            "latitude": 47.0803255867213,
+            "altitudeInMeters": 596.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629496604204178,
+            "latitude": 47.08043740130961,
+            "altitudeInMeters": 595.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629509009420872,
+            "latitude": 47.080513928085566,
+            "altitudeInMeters": 593.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629506411030889,
+            "latitude": 47.08063236437738,
+            "altitudeInMeters": 592.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629502471536398,
+            "latitude": 47.0807280857116,
+            "altitudeInMeters": 591.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629505572840571,
+            "latitude": 47.080816347151995,
+            "altitudeInMeters": 590.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629506746307015,
+            "latitude": 47.08091399632394,
+            "altitudeInMeters": 589.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6294937543570995,
+            "latitude": 47.0810024254024,
+            "altitudeInMeters": 588.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629474308341742,
+            "latitude": 47.08109278231859,
+            "altitudeInMeters": 587.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62947422452271,
+            "latitude": 47.08113804459572,
+            "altitudeInMeters": 586.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629488054662943,
+            "latitude": 47.08122504875064,
+            "altitudeInMeters": 585.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6295155473053455,
+            "latitude": 47.08130719140172,
+            "altitudeInMeters": 584,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629537088796496,
+            "latitude": 47.081363182514906,
+            "altitudeInMeters": 583,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629562234506011,
+            "latitude": 47.08144348114729,
+            "altitudeInMeters": 581.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629577489569783,
+            "latitude": 47.08149729296565,
+            "altitudeInMeters": 580.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629626942798495,
+            "latitude": 47.08158245310187,
+            "altitudeInMeters": 579.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62968041934073,
+            "latitude": 47.08169208839536,
+            "altitudeInMeters": 577.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629793491214514,
+            "latitude": 47.08185888826847,
+            "altitudeInMeters": 577,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629887368530035,
+            "latitude": 47.08200339227915,
+            "altitudeInMeters": 577.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629710845649242,
+            "latitude": 47.08214378915727,
+            "altitudeInMeters": 578.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629632139578462,
+            "latitude": 47.08220346830785,
+            "altitudeInMeters": 579,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629420161247253,
+            "latitude": 47.08233078941703,
+            "altitudeInMeters": 579.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62919862754643,
+            "latitude": 47.08242994733155,
+            "altitudeInMeters": 580,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629023529589176,
+            "latitude": 47.082580737769604,
+            "altitudeInMeters": 581,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6289277244359255,
+            "latitude": 47.08271727897227,
+            "altitudeInMeters": 582.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.628885395824909,
+            "latitude": 47.0828175265342,
+            "altitudeInMeters": 583.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.628850694745779,
+            "latitude": 47.082900842651725,
+            "altitudeInMeters": 584.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62881456874311,
+            "latitude": 47.08299052901566,
+            "altitudeInMeters": 585.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.628796631470323,
+            "latitude": 47.08304853178561,
+            "altitudeInMeters": 587,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6287689711898565,
+            "latitude": 47.083159759640694,
+            "altitudeInMeters": 588,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.628694623708725,
+            "latitude": 47.08334659226239,
+            "altitudeInMeters": 588.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6285492815077305,
+            "latitude": 47.083522360771894,
+            "altitudeInMeters": 588.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.628410141915083,
+            "latitude": 47.08368480205536,
+            "altitudeInMeters": 588.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.628389522433281,
+            "latitude": 47.08370768465102,
+            "altitudeInMeters": 588.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.628231020644307,
+            "latitude": 47.08388043567538,
+            "altitudeInMeters": 588.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62803815305233,
+            "latitude": 47.08404405042529,
+            "altitudeInMeters": 588.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627852242439985,
+            "latitude": 47.084206407889724,
+            "altitudeInMeters": 588.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627681419253349,
+            "latitude": 47.08436222746968,
+            "altitudeInMeters": 587.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627515457570553,
+            "latitude": 47.08452634513378,
+            "altitudeInMeters": 587.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627392411231995,
+            "latitude": 47.084692642092705,
+            "altitudeInMeters": 588,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6273472327739,
+            "latitude": 47.08487721160054,
+            "altitudeInMeters": 589.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627334827557206,
+            "latitude": 47.08497762680054,
+            "altitudeInMeters": 590.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627313369885087,
+            "latitude": 47.08515817299485,
+            "altitudeInMeters": 590.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627310520038009,
+            "latitude": 47.08523168228567,
+            "altitudeInMeters": 591.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627304149791598,
+            "latitude": 47.0854320935905,
+            "altitudeInMeters": 592.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627286547794938,
+            "latitude": 47.085617082193494,
+            "altitudeInMeters": 593.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6272878888994455,
+            "latitude": 47.08575898781419,
+            "altitudeInMeters": 594.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627007849514484,
+            "latitude": 47.08582470193505,
+            "altitudeInMeters": 595.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.626966862007976,
+            "latitude": 47.08595311269164,
+            "altitudeInMeters": 597,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.626923443749547,
+            "latitude": 47.08605654537678,
+            "altitudeInMeters": 598,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62675890699029,
+            "latitude": 47.08617942407727,
+            "altitudeInMeters": 599.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.626889245584607,
+            "latitude": 47.08633893169463,
+            "altitudeInMeters": 600.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627006005495787,
+            "latitude": 47.08652241155505,
+            "altitudeInMeters": 601,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627018326893449,
+            "latitude": 47.086596339941025,
+            "altitudeInMeters": 601.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627020254731178,
+            "latitude": 47.08675484173,
+            "altitudeInMeters": 602.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627030145376921,
+            "latitude": 47.086912924423814,
+            "altitudeInMeters": 603.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627031151205301,
+            "latitude": 47.08710470236838,
+            "altitudeInMeters": 604.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627027798444033,
+            "latitude": 47.08712004125118,
+            "altitudeInMeters": 604.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.626932915300131,
+            "latitude": 47.087289188057184,
+            "altitudeInMeters": 605.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6268434803932905,
+            "latitude": 47.087483145296574,
+            "altitudeInMeters": 606.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.626760834828019,
+            "latitude": 47.08766905590892,
+            "altitudeInMeters": 607.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.626687157899141,
+            "latitude": 47.087852116674185,
+            "altitudeInMeters": 607.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62657324783504,
+            "latitude": 47.08804967813194,
+            "altitudeInMeters": 607.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.626556819304824,
+            "latitude": 47.088076835498214,
+            "altitudeInMeters": 607.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6264724135398865,
+            "latitude": 47.08825109526515,
+            "altitudeInMeters": 607.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.626384990289807,
+            "latitude": 47.088424265384674,
+            "altitudeInMeters": 607.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.626272505149245,
+            "latitude": 47.08859936334193,
+            "altitudeInMeters": 607.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62609388679266,
+            "latitude": 47.088742358610034,
+            "altitudeInMeters": 606.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.626012414693832,
+            "latitude": 47.0888027921319,
+            "altitudeInMeters": 606.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625869167968631,
+            "latitude": 47.088960288092494,
+            "altitudeInMeters": 605.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625855002552271,
+            "latitude": 47.08897956646979,
+            "altitudeInMeters": 605.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6257373206317425,
+            "latitude": 47.0891638007015,
+            "altitudeInMeters": 604.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625702535733581,
+            "latitude": 47.08920202217996,
+            "altitudeInMeters": 604.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625526264309883,
+            "latitude": 47.08938826806843,
+            "altitudeInMeters": 604,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62538930401206,
+            "latitude": 47.08955724723637,
+            "altitudeInMeters": 603.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62532576918602,
+            "latitude": 47.08960795775056,
+            "altitudeInMeters": 603.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6251571252942085,
+            "latitude": 47.08976771682501,
+            "altitudeInMeters": 602.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624985463917255,
+            "latitude": 47.08987299352884,
+            "altitudeInMeters": 602.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624804750084877,
+            "latitude": 47.0900066010654,
+            "altitudeInMeters": 601.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624641302973032,
+            "latitude": 47.0901255402714,
+            "altitudeInMeters": 601.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624438209459186,
+            "latitude": 47.0902722235769,
+            "altitudeInMeters": 600.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624373668804765,
+            "latitude": 47.090317402035,
+            "altitudeInMeters": 600.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624155068770051,
+            "latitude": 47.09044732153416,
+            "altitudeInMeters": 599.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6239437609910965,
+            "latitude": 47.0905814319849,
+            "altitudeInMeters": 599.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.623763047158718,
+            "latitude": 47.09073641337454,
+            "altitudeInMeters": 599.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.623597756028175,
+            "latitude": 47.09088770672679,
+            "altitudeInMeters": 600,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.623445289209485,
+            "latitude": 47.09104914218187,
+            "altitudeInMeters": 600,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.623303635045886,
+            "latitude": 47.09121946245432,
+            "altitudeInMeters": 599.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.623288128525019,
+            "latitude": 47.09125810302794,
+            "altitudeInMeters": 599,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.623219396919012,
+            "latitude": 47.09144082851708,
+            "altitudeInMeters": 598.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.623202381655574,
+            "latitude": 47.09149673581123,
+            "altitudeInMeters": 598,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.623157370835543,
+            "latitude": 47.09159907884896,
+            "altitudeInMeters": 597.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.623062990605831,
+            "latitude": 47.0917714945972,
+            "altitudeInMeters": 597.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6230390183627605,
+            "latitude": 47.09181725978851,
+            "altitudeInMeters": 597,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.622934998944402,
+            "latitude": 47.092005433514714,
+            "altitudeInMeters": 596.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6227907463908195,
+            "latitude": 47.09217097610235,
+            "altitudeInMeters": 596.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.622517077252269,
+            "latitude": 47.09229351952672,
+            "altitudeInMeters": 597.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.622380619868636,
+            "latitude": 47.09234221838415,
+            "altitudeInMeters": 598,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.622257070615888,
+            "latitude": 47.092362167313695,
+            "altitudeInMeters": 599.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.622131174430251,
+            "latitude": 47.092388570308685,
+            "altitudeInMeters": 600.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62202313169837,
+            "latitude": 47.09240047261119,
+            "altitudeInMeters": 601.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.621910898014903,
+            "latitude": 47.092401729896665,
+            "altitudeInMeters": 602.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.621710486710072,
+            "latitude": 47.09240784868598,
+            "altitudeInMeters": 603.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.621589787304401,
+            "latitude": 47.092412039637566,
+            "altitudeInMeters": 604.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.621465651318431,
+            "latitude": 47.09239871241152,
+            "altitudeInMeters": 605.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62131268158555,
+            "latitude": 47.09236736409366,
+            "altitudeInMeters": 607,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.621167171746492,
+            "latitude": 47.09233274683356,
+            "altitudeInMeters": 608.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.621077066287398,
+            "latitude": 47.09230273962021,
+            "altitudeInMeters": 609.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.621045466512442,
+            "latitude": 47.0923013985157,
+            "altitudeInMeters": 609.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.620966089889407,
+            "latitude": 47.092281030490994,
+            "altitudeInMeters": 610.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.620887299999595,
+            "latitude": 47.09222855977714,
+            "altitudeInMeters": 611.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.620776742696762,
+            "latitude": 47.092140801250935,
+            "altitudeInMeters": 612.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62071848846972,
+            "latitude": 47.09208128973842,
+            "altitudeInMeters": 613.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.620653863996267,
+            "latitude": 47.092008367180824,
+            "altitudeInMeters": 614.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62058949097991,
+            "latitude": 47.09192932583392,
+            "altitudeInMeters": 616,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.620529560372233,
+            "latitude": 47.09185807965696,
+            "altitudeInMeters": 617,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.620459822937846,
+            "latitude": 47.09179596975446,
+            "altitudeInMeters": 618,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6203307416290045,
+            "latitude": 47.09168214350939,
+            "altitudeInMeters": 619.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.620231248438358,
+            "latitude": 47.09157527424395,
+            "altitudeInMeters": 620.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.620054390281439,
+            "latitude": 47.09143353626132,
+            "altitudeInMeters": 621,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.619892451912165,
+            "latitude": 47.09134661592543,
+            "altitudeInMeters": 621.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.619673935696483,
+            "latitude": 47.09121912717819,
+            "altitudeInMeters": 621.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.619424657896161,
+            "latitude": 47.09109926596284,
+            "altitudeInMeters": 621,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.61922474950552,
+            "latitude": 47.09099021740258,
+            "altitudeInMeters": 620.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.618955438956618,
+            "latitude": 47.09091318771243,
+            "altitudeInMeters": 619.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.618812778964639,
+            "latitude": 47.09088569507003,
+            "altitudeInMeters": 619.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.618562327697873,
+            "latitude": 47.09082467481494,
+            "altitudeInMeters": 618.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.618440538644791,
+            "latitude": 47.09079634398222,
+            "altitudeInMeters": 618.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.618137113749981,
+            "latitude": 47.090751668438315,
+            "altitudeInMeters": 617.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6180429849773645,
+            "latitude": 47.09074202924967,
+            "altitudeInMeters": 617.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.61777451261878,
+            "latitude": 47.0907074958086,
+            "altitudeInMeters": 616.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.617664039134979,
+            "latitude": 47.09068511612713,
+            "altitudeInMeters": 616.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.617393974214792,
+            "latitude": 47.09062912501395,
+            "altitudeInMeters": 615.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.61732348240912,
+            "latitude": 47.090608421713114,
+            "altitudeInMeters": 615,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.617065068334341,
+            "latitude": 47.090567937120795,
+            "altitudeInMeters": 614.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.616935987025499,
+            "latitude": 47.09053700789809,
+            "altitudeInMeters": 614,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.616679165512323,
+            "latitude": 47.09045201539993,
+            "altitudeInMeters": 613.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6165515929460526,
+            "latitude": 47.09039334207773,
+            "altitudeInMeters": 613,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.616304075345397,
+            "latitude": 47.0902846287936,
+            "altitudeInMeters": 612,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.616064855828881,
+            "latitude": 47.09017147310078,
+            "altitudeInMeters": 611,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.616000063717365,
+            "latitude": 47.09013626910746,
+            "altitudeInMeters": 610.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.61587617918849,
+            "latitude": 47.090061251074076,
+            "altitudeInMeters": 609.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.61567777954042,
+            "latitude": 47.0899304933846,
+            "altitudeInMeters": 608.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.615553895011544,
+            "latitude": 47.089837873354554,
+            "altitudeInMeters": 607.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.615432105958462,
+            "latitude": 47.08970149978995,
+            "altitudeInMeters": 606.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.615380808711052,
+            "latitude": 47.08957484923303,
+            "altitudeInMeters": 605.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.615321548655629,
+            "latitude": 47.089477786794305,
+            "altitudeInMeters": 604.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.615227587521076,
+            "latitude": 47.089442163705826,
+            "altitudeInMeters": 603.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.615193473175168,
+            "latitude": 47.08944249898195,
+            "altitudeInMeters": 602.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.615064727142453,
+            "latitude": 47.08947661332786,
+            "altitudeInMeters": 601.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.614962970837951,
+            "latitude": 47.08954400382936,
+            "altitudeInMeters": 600.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.614897675812244,
+            "latitude": 47.08962597884238,
+            "altitudeInMeters": 599,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.614830117672682,
+            "latitude": 47.08970560692251,
+            "altitudeInMeters": 598,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.614775551483035,
+            "latitude": 47.0897904317826,
+            "altitudeInMeters": 597,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.614679327234626,
+            "latitude": 47.089868215844035,
+            "altitudeInMeters": 595.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.614618055522442,
+            "latitude": 47.08993728272617,
+            "altitudeInMeters": 594.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6145395170897245,
+            "latitude": 47.0900288131088,
+            "altitudeInMeters": 593.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.614450333639979,
+            "latitude": 47.09012160077691,
+            "altitudeInMeters": 592,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.614367939531803,
+            "latitude": 47.09018404595554,
+            "altitudeInMeters": 590.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.61425000615418,
+            "latitude": 47.09025353193283,
+            "altitudeInMeters": 589.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.614192757755518,
+            "latitude": 47.0902621652931,
+            "altitudeInMeters": 589,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.61415671557188,
+            "latitude": 47.090237103402615,
+            "altitudeInMeters": 588.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6141328271478415,
+            "latitude": 47.09004582837224,
+            "altitudeInMeters": 587.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.614169539883733,
+            "latitude": 47.089854553341866,
+            "altitudeInMeters": 587.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.61418697424233,
+            "latitude": 47.08971071988344,
+            "altitudeInMeters": 587.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.614247407764196,
+            "latitude": 47.089527575299144,
+            "altitudeInMeters": 587,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.614317229017615,
+            "latitude": 47.08935390226543,
+            "altitudeInMeters": 586.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.614421248435974,
+            "latitude": 47.089178720489144,
+            "altitudeInMeters": 586.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.614520490169525,
+            "latitude": 47.089003790169954,
+            "altitudeInMeters": 586.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.614667760208249,
+            "latitude": 47.088816203176975,
+            "altitudeInMeters": 586,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.614852245897055,
+            "latitude": 47.08865845575929,
+            "altitudeInMeters": 586.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.615054082125425,
+            "latitude": 47.088516633957624,
+            "altitudeInMeters": 586.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6152453571558,
+            "latitude": 47.08837187848985,
+            "altitudeInMeters": 587,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.61530939489603,
+            "latitude": 47.08832376636565,
+            "altitudeInMeters": 587.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.615487175062299,
+            "latitude": 47.088179932907224,
+            "altitudeInMeters": 588.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.615501843392849,
+            "latitude": 47.08816593512893,
+            "altitudeInMeters": 588.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.615656657144427,
+            "latitude": 47.08806501701474,
+            "altitudeInMeters": 589.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.615815661847591,
+            "latitude": 47.08797709085047,
+            "altitudeInMeters": 591,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.615940971300006,
+            "latitude": 47.087880531325936,
+            "altitudeInMeters": 592.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.616120344027877,
+            "latitude": 47.08777793683112,
+            "altitudeInMeters": 593.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.61632913723588,
+            "latitude": 47.08765681833029,
+            "altitudeInMeters": 594.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.616352355107665,
+            "latitude": 47.08764525130391,
+            "altitudeInMeters": 594.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.616555783897638,
+            "latitude": 47.08752823993564,
+            "altitudeInMeters": 595.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.616758709773421,
+            "latitude": 47.08741659298539,
+            "altitudeInMeters": 596.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.616941099986434,
+            "latitude": 47.08727837540209,
+            "altitudeInMeters": 597,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.617162885144353,
+            "latitude": 47.08713638596237,
+            "altitudeInMeters": 596.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.617356674745679,
+            "latitude": 47.086997497826815,
+            "altitudeInMeters": 595.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6174145098775625,
+            "latitude": 47.08696145564318,
+            "altitudeInMeters": 595.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.61765331029892,
+            "latitude": 47.08686891943216,
+            "altitudeInMeters": 594.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6178771909326315,
+            "latitude": 47.08675735630095,
+            "altitudeInMeters": 594.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6179064437747,
+            "latitude": 47.086741011589766,
+            "altitudeInMeters": 594.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.618133928626776,
+            "latitude": 47.086615953594446,
+            "altitudeInMeters": 594,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.618287904188037,
+            "latitude": 47.086531380191445,
+            "altitudeInMeters": 593.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.618537852540612,
+            "latitude": 47.08643205463886,
+            "altitudeInMeters": 592.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.618763158097863,
+            "latitude": 47.08631127141416,
+            "altitudeInMeters": 591.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.618840606883168,
+            "latitude": 47.08627154119313,
+            "altitudeInMeters": 591.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.618997599929571,
+            "latitude": 47.08620021119714,
+            "altitudeInMeters": 590,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.619151156395674,
+            "latitude": 47.0861139614135,
+            "altitudeInMeters": 589,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.619338156655431,
+            "latitude": 47.0860346686095,
+            "altitudeInMeters": 587.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.619549632072449,
+            "latitude": 47.08594079129398,
+            "altitudeInMeters": 586.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.619763622060418,
+            "latitude": 47.08582277409732,
+            "altitudeInMeters": 585.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.619797820225358,
+            "latitude": 47.08580408245325,
+            "altitudeInMeters": 585.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.620022539049387,
+            "latitude": 47.085697799921036,
+            "altitudeInMeters": 584.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.620047517120838,
+            "latitude": 47.08569050766528,
+            "altitudeInMeters": 584.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.620309703052044,
+            "latitude": 47.08565362729132,
+            "altitudeInMeters": 583.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.620579265058041,
+            "latitude": 47.085617166012526,
+            "altitudeInMeters": 583.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6208617351949215,
+            "latitude": 47.085567796602845,
+            "altitudeInMeters": 584.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.621138589456677,
+            "latitude": 47.085508117452264,
+            "altitudeInMeters": 585.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.621249817311764,
+            "latitude": 47.085494454950094,
+            "altitudeInMeters": 585.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.621535304933786,
+            "latitude": 47.08546335808933,
+            "altitudeInMeters": 586.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.621675869449973,
+            "latitude": 47.085453467443585,
+            "altitudeInMeters": 586.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.621958674862981,
+            "latitude": 47.085443241521716,
+            "altitudeInMeters": 587.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.622224381193519,
+            "latitude": 47.085415832698345,
+            "altitudeInMeters": 587.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.622500732541084,
+            "latitude": 47.0854180958122,
+            "altitudeInMeters": 588.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.622558316215873,
+            "latitude": 47.08542622625828,
+            "altitudeInMeters": 588.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.622726121917367,
+            "latitude": 47.08542647771537,
+            "altitudeInMeters": 590,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.622955534607172,
+            "latitude": 47.08543661981821,
+            "altitudeInMeters": 591,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62308981269598,
+            "latitude": 47.0854579936713,
+            "altitudeInMeters": 592.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.623283015564084,
+            "latitude": 47.08545514382422,
+            "altitudeInMeters": 593.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62338837608695,
+            "latitude": 47.08548062480986,
+            "altitudeInMeters": 594.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.623519636690617,
+            "latitude": 47.085485234856606,
+            "altitudeInMeters": 595.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.623687023296952,
+            "latitude": 47.08551465533674,
+            "altitudeInMeters": 596.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.623976618051529,
+            "latitude": 47.08554960787296,
+            "altitudeInMeters": 597.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624219441786408,
+            "latitude": 47.08555840887129,
+            "altitudeInMeters": 597.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624480538070202,
+            "latitude": 47.08559897728264,
+            "altitudeInMeters": 598,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624754877761006,
+            "latitude": 47.08568086847663,
+            "altitudeInMeters": 598.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624986218288541,
+            "latitude": 47.08579218015075,
+            "altitudeInMeters": 598.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625135164707899,
+            "latitude": 47.085847752168775,
+            "altitudeInMeters": 598.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625439092516899,
+            "latitude": 47.08587633445859,
+            "altitudeInMeters": 598.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625734135508537,
+            "latitude": 47.0858982950449,
+            "altitudeInMeters": 598.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625798089429736,
+            "latitude": 47.0859136339277,
+            "altitudeInMeters": 598.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.626054659485817,
+            "latitude": 47.08598881959915,
+            "altitudeInMeters": 598.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.626305194571614,
+            "latitude": 47.08608219400048,
+            "altitudeInMeters": 599.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.626518430188298,
+            "latitude": 47.08612997084856,
+            "altitudeInMeters": 599.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.626815652474761,
+            "latitude": 47.0861158054322,
+            "altitudeInMeters": 600.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627009777352214,
+            "latitude": 47.08605956286192,
+            "altitudeInMeters": 600.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627155790105462,
+            "latitude": 47.08588119596243,
+            "altitudeInMeters": 600.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627180013805628,
+            "latitude": 47.08576804026961,
+            "altitudeInMeters": 598.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627213457599282,
+            "latitude": 47.08563485182822,
+            "altitudeInMeters": 597.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627236843109131,
+            "latitude": 47.085534017533064,
+            "altitudeInMeters": 596.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627245057374239,
+            "latitude": 47.08543997257948,
+            "altitudeInMeters": 595.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6272752322256565,
+            "latitude": 47.08530913107097,
+            "altitudeInMeters": 593.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62730180285871,
+            "latitude": 47.08515959791839,
+            "altitudeInMeters": 592.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627337761223316,
+            "latitude": 47.08497712388635,
+            "altitudeInMeters": 592,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6273515075445175,
+            "latitude": 47.084900764748454,
+            "altitudeInMeters": 591.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627438344061375,
+            "latitude": 47.084709238260984,
+            "altitudeInMeters": 591.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627478325739503,
+            "latitude": 47.08465861156583,
+            "altitudeInMeters": 590.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627573544159532,
+            "latitude": 47.084553921595216,
+            "altitudeInMeters": 589.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627712851390243,
+            "latitude": 47.084400448948145,
+            "altitudeInMeters": 588.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627862384542823,
+            "latitude": 47.08422618918121,
+            "altitudeInMeters": 588.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627976629883051,
+            "latitude": 47.08406391553581,
+            "altitudeInMeters": 588.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.628139238804579,
+            "latitude": 47.08391949534416,
+            "altitudeInMeters": 589.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.628298411145806,
+            "latitude": 47.08376258611679,
+            "altitudeInMeters": 589.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.628450458869338,
+            "latitude": 47.08361095748842,
+            "altitudeInMeters": 589.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.628607619553804,
+            "latitude": 47.0834547188133,
+            "altitudeInMeters": 589.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.628761846572161,
+            "latitude": 47.083273250609636,
+            "altitudeInMeters": 588,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62881264090538,
+            "latitude": 47.083223378285766,
+            "altitudeInMeters": 587.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.628890844061971,
+            "latitude": 47.08310200832784,
+            "altitudeInMeters": 586.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6289465837180614,
+            "latitude": 47.08302045240998,
+            "altitudeInMeters": 585.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629006849601865,
+            "latitude": 47.08294065669179,
+            "altitudeInMeters": 584.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629095613956451,
+            "latitude": 47.08285616710782,
+            "altitudeInMeters": 585.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629239447414875,
+            "latitude": 47.082697162404656,
+            "altitudeInMeters": 584.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629327205941081,
+            "latitude": 47.08264259621501,
+            "altitudeInMeters": 582.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629422675818205,
+            "latitude": 47.08258694037795,
+            "altitudeInMeters": 581.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6295900624245405,
+            "latitude": 47.08247747272253,
+            "altitudeInMeters": 580.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629767255857587,
+            "latitude": 47.08233707584441,
+            "altitudeInMeters": 579.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62985828332603,
+            "latitude": 47.08227069117129,
+            "altitudeInMeters": 579.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63006255030632,
+            "latitude": 47.082149824127555,
+            "altitudeInMeters": 578.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630302859470248,
+            "latitude": 47.08202216774225,
+            "altitudeInMeters": 578.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630372261628509,
+            "latitude": 47.08198654465377,
+            "altitudeInMeters": 578.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630601087585092,
+            "latitude": 47.081875735893846,
+            "altitudeInMeters": 577.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630644673481584,
+            "latitude": 47.08185411058366,
+            "altitudeInMeters": 577,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630868386477232,
+            "latitude": 47.081707092002034,
+            "altitudeInMeters": 576.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630906021222472,
+            "latitude": 47.08168504759669,
+            "altitudeInMeters": 576,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631085393950343,
+            "latitude": 47.081540962681174,
+            "altitudeInMeters": 575.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631151778623462,
+            "latitude": 47.081475080922246,
+            "altitudeInMeters": 575,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631292091682553,
+            "latitude": 47.08130484446883,
+            "altitudeInMeters": 574.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631377587094903,
+            "latitude": 47.08113117143512,
+            "altitudeInMeters": 574.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631462328135967,
+            "latitude": 47.080933609977365,
+            "altitudeInMeters": 574.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631574561819434,
+            "latitude": 47.08076789975166,
+            "altitudeInMeters": 574.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631726358085871,
+            "latitude": 47.08060101605952,
+            "altitudeInMeters": 574.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6318813394755125,
+            "latitude": 47.08044393919408,
+            "altitudeInMeters": 574.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632056102156639,
+            "latitude": 47.080296417698264,
+            "altitudeInMeters": 575.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632208401337266,
+            "latitude": 47.08014135248959,
+            "altitudeInMeters": 575.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632368914783001,
+            "latitude": 47.07997413352132,
+            "altitudeInMeters": 575.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632479891180992,
+            "latitude": 47.07981043495238,
+            "altitudeInMeters": 573.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632574439048767,
+            "latitude": 47.07963030785322,
+            "altitudeInMeters": 572.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632603021338582,
+            "latitude": 47.07960147410631,
+            "altitudeInMeters": 572.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632621377706528,
+            "latitude": 47.07957582548261,
+            "altitudeInMeters": 572.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632700921967626,
+            "latitude": 47.07937558181584,
+            "altitudeInMeters": 572,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632741238921881,
+            "latitude": 47.07925831899047,
+            "altitudeInMeters": 571.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632818268612027,
+            "latitude": 47.07908833399415,
+            "altitudeInMeters": 570.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632854897528887,
+            "latitude": 47.07888272590935,
+            "altitudeInMeters": 570,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632866967469454,
+            "latitude": 47.07869455218315,
+            "altitudeInMeters": 570,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632891442626715,
+            "latitude": 47.078499253839254,
+            "altitudeInMeters": 570.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632950199767947,
+            "latitude": 47.07830739207566,
+            "altitudeInMeters": 570.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633031420409679,
+            "latitude": 47.078114273026586,
+            "altitudeInMeters": 570.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6331032533198595,
+            "latitude": 47.077936911955476,
+            "altitudeInMeters": 569.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6331824623048306,
+            "latitude": 47.07776332274079,
+            "altitudeInMeters": 568.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633245075121522,
+            "latitude": 47.07764295861125,
+            "altitudeInMeters": 567.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633255384862423,
+            "latitude": 47.077450677752495,
+            "altitudeInMeters": 566.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633241135627031,
+            "latitude": 47.077378006652,
+            "altitudeInMeters": 566.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633116832002997,
+            "latitude": 47.07720953039825,
+            "altitudeInMeters": 565.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632934609428048,
+            "latitude": 47.07719016820192,
+            "altitudeInMeters": 565.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632659347727895,
+            "latitude": 47.07725923508406,
+            "altitudeInMeters": 564.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632437478750944,
+            "latitude": 47.07732427865267,
+            "altitudeInMeters": 564.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632154421880841,
+            "latitude": 47.07739242352545,
+            "altitudeInMeters": 564.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6318887155503035,
+            "latitude": 47.07745394669473,
+            "altitudeInMeters": 564.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631622506305575,
+            "latitude": 47.07752460613847,
+            "altitudeInMeters": 564.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631363673135638,
+            "latitude": 47.07759886980057,
+            "altitudeInMeters": 564.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63110919855535,
+            "latitude": 47.077672462910414,
+            "altitudeInMeters": 564.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630857741460204,
+            "latitude": 47.077742451801896,
+            "altitudeInMeters": 564.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630584659054875,
+            "latitude": 47.07782233133912,
+            "altitudeInMeters": 564.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630328005179763,
+            "latitude": 47.07789248786867,
+            "altitudeInMeters": 564.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630085684359074,
+            "latitude": 47.07796457223594,
+            "altitudeInMeters": 564.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629909999668598,
+            "latitude": 47.078004805371165,
+            "altitudeInMeters": 564.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629922740161419,
+            "latitude": 47.077817637473345,
+            "altitudeInMeters": 564.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629981245845556,
+            "latitude": 47.07763466052711,
+            "altitudeInMeters": 564.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630037236958742,
+            "latitude": 47.07745679654181,
+            "altitudeInMeters": 563.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6300877798348665,
+            "latitude": 47.0772622525692,
+            "altitudeInMeters": 563.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630149889737368,
+            "latitude": 47.07706594839692,
+            "altitudeInMeters": 563.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630205545574427,
+            "latitude": 47.07688464783132,
+            "altitudeInMeters": 563.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630227338522673,
+            "latitude": 47.07680216990411,
+            "altitudeInMeters": 563,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630281066522002,
+            "latitude": 47.07661542110145,
+            "altitudeInMeters": 563,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630332028493285,
+            "latitude": 47.076422134414315,
+            "altitudeInMeters": 562.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630394725129008,
+            "latitude": 47.07623236812651,
+            "altitudeInMeters": 562.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630459852516651,
+            "latitude": 47.07605291157961,
+            "altitudeInMeters": 562.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6305601838976145,
+            "latitude": 47.07586381584406,
+            "altitudeInMeters": 562.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630686666816473,
+            "latitude": 47.07568301819265,
+            "altitudeInMeters": 563.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6307368744164705,
+            "latitude": 47.075601294636726,
+            "altitudeInMeters": 564.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630788842216134,
+            "latitude": 47.07550364546478,
+            "altitudeInMeters": 565.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630902836099267,
+            "latitude": 47.07538596354425,
+            "altitudeInMeters": 566.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631004257127643,
+            "latitude": 47.07530038431287,
+            "altitudeInMeters": 567.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631125962361693,
+            "latitude": 47.07519594579935,
+            "altitudeInMeters": 568.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6312672812491655,
+            "latitude": 47.075039790943265,
+            "altitudeInMeters": 569.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63128899037838,
+            "latitude": 47.07502202130854,
+            "altitudeInMeters": 569.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631437852978706,
+            "latitude": 47.074867794290185,
+            "altitudeInMeters": 570.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631582440808415,
+            "latitude": 47.0747304148972,
+            "altitudeInMeters": 570.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63173121958971,
+            "latitude": 47.074613738805056,
+            "altitudeInMeters": 571.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631844626739621,
+            "latitude": 47.074528662487864,
+            "altitudeInMeters": 573,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631925260648131,
+            "latitude": 47.07446487620473,
+            "altitudeInMeters": 574,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6320109236985445,
+            "latitude": 47.07437116652727,
+            "altitudeInMeters": 575.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632092898711562,
+            "latitude": 47.07426907494664,
+            "altitudeInMeters": 576.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632127515971661,
+            "latitude": 47.07420336082578,
+            "altitudeInMeters": 577,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632145620882511,
+            "latitude": 47.07416111603379,
+            "altitudeInMeters": 577.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632205048575997,
+            "latitude": 47.074050810188055,
+            "altitudeInMeters": 578.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63226087205112,
+            "latitude": 47.07395517267287,
+            "altitudeInMeters": 579.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632341338321567,
+            "latitude": 47.07380421459675,
+            "altitudeInMeters": 580.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632407303899527,
+            "latitude": 47.07360950298607,
+            "altitudeInMeters": 581.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632514424622059,
+            "latitude": 47.07343792542815,
+            "altitudeInMeters": 581.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6326497085392475,
+            "latitude": 47.073258720338345,
+            "altitudeInMeters": 581.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632844587787986,
+            "latitude": 47.07310860045254,
+            "altitudeInMeters": 581.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632976686581969,
+            "latitude": 47.07301505841315,
+            "altitudeInMeters": 581.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633088752627373,
+            "latitude": 47.072845911607146,
+            "altitudeInMeters": 582.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633239291608334,
+            "latitude": 47.072681626304984,
+            "altitudeInMeters": 582.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633458646014333,
+            "latitude": 47.07255204208195,
+            "altitudeInMeters": 581.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633627960458398,
+            "latitude": 47.07247283309698,
+            "altitudeInMeters": 580.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633842369541526,
+            "latitude": 47.07234769128263,
+            "altitudeInMeters": 580.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634025597944856,
+            "latitude": 47.072203354910016,
+            "altitudeInMeters": 580.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634198013693094,
+            "latitude": 47.07206279039383,
+            "altitudeInMeters": 580.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634424744173884,
+            "latitude": 47.07194552756846,
+            "altitudeInMeters": 581,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6346750278025866,
+            "latitude": 47.0718639716506,
+            "altitudeInMeters": 581.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634932016953826,
+            "latitude": 47.071772525087,
+            "altitudeInMeters": 581.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6351771876215935,
+            "latitude": 47.071660375222564,
+            "altitudeInMeters": 581.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635291181504726,
+            "latitude": 47.07158552482724,
+            "altitudeInMeters": 581.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63549854978919,
+            "latitude": 47.071471782401204,
+            "altitudeInMeters": 582,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63570667244494,
+            "latitude": 47.07135192118585,
+            "altitudeInMeters": 582.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635822091251612,
+            "latitude": 47.071293415501714,
+            "altitudeInMeters": 582.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6360150426626205,
+            "latitude": 47.07115243189037,
+            "altitudeInMeters": 583.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636120151728392,
+            "latitude": 47.07105570472777,
+            "altitudeInMeters": 583.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636228362098336,
+            "latitude": 47.07090239971876,
+            "altitudeInMeters": 584.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636118978261948,
+            "latitude": 47.07082478329539,
+            "altitudeInMeters": 585.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636099783703685,
+            "latitude": 47.07083106972277,
+            "altitudeInMeters": 585.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63603993691504,
+            "latitude": 47.070822939276695,
+            "altitudeInMeters": 586.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6360080018639565,
+            "latitude": 47.0707534532994,
+            "altitudeInMeters": 587.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636047061532736,
+            "latitude": 47.07068572752178,
+            "altitudeInMeters": 588.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636085115373135,
+            "latitude": 47.07065563648939,
+            "altitudeInMeters": 589.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636134987697005,
+            "latitude": 47.070628395304084,
+            "altitudeInMeters": 590.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6362047251313925,
+            "latitude": 47.07056418992579,
+            "altitudeInMeters": 592,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636221321299672,
+            "latitude": 47.07055505365133,
+            "altitudeInMeters": 593.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636268679052591,
+            "latitude": 47.070525800809264,
+            "altitudeInMeters": 594.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636284185573459,
+            "latitude": 47.07049981690943,
+            "altitudeInMeters": 594.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636305475607514,
+            "latitude": 47.07046939060092,
+            "altitudeInMeters": 595.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636357443407178,
+            "latitude": 47.0704014133662,
+            "altitudeInMeters": 596.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636376554146409,
+            "latitude": 47.07037668675184,
+            "altitudeInMeters": 597.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6364111714065075,
+            "latitude": 47.07032639533281,
+            "altitudeInMeters": 599.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636419050395489,
+            "latitude": 47.07028649747372,
+            "altitudeInMeters": 600.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636442519724369,
+            "latitude": 47.0702322665602,
+            "altitudeInMeters": 601.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636480741202831,
+            "latitude": 47.07015045918524,
+            "altitudeInMeters": 603,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6364983431994915,
+            "latitude": 47.07009597681463,
+            "altitudeInMeters": 604,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63650756329298,
+            "latitude": 47.07003210671246,
+            "altitudeInMeters": 605.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63652172870934,
+            "latitude": 47.069975109770894,
+            "altitudeInMeters": 606.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636561878025532,
+            "latitude": 47.06985457800329,
+            "altitudeInMeters": 607.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636616276577115,
+            "latitude": 47.0697539113462,
+            "altitudeInMeters": 608.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636652821674943,
+            "latitude": 47.06969138234854,
+            "altitudeInMeters": 610,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6366709265857935,
+            "latitude": 47.0696328766644,
+            "altitudeInMeters": 611.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63668735511601,
+            "latitude": 47.069594571366906,
+            "altitudeInMeters": 612.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636671345680952,
+            "latitude": 47.069529527798295,
+            "altitudeInMeters": 613.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636654833331704,
+            "latitude": 47.06947471015155,
+            "altitudeInMeters": 614.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636650810018182,
+            "latitude": 47.06940237432718,
+            "altitudeInMeters": 615.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636646535247564,
+            "latitude": 47.06932450644672,
+            "altitudeInMeters": 616.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636631364002824,
+            "latitude": 47.069228952750564,
+            "altitudeInMeters": 617.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636565733700991,
+            "latitude": 47.06902896054089,
+            "altitudeInMeters": 618.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6365666557103395,
+            "latitude": 47.06897514872253,
+            "altitudeInMeters": 619,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636578055098653,
+            "latitude": 47.0687850471586,
+            "altitudeInMeters": 618.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63657545670867,
+            "latitude": 47.06858639605343,
+            "altitudeInMeters": 618.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636569254100323,
+            "latitude": 47.068516574800014,
+            "altitudeInMeters": 617.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636603703722358,
+            "latitude": 47.06835891120136,
+            "altitudeInMeters": 616.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636718368157744,
+            "latitude": 47.06818657927215,
+            "altitudeInMeters": 615.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636741250753403,
+            "latitude": 47.06816470250487,
+            "altitudeInMeters": 615.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6369197852909565,
+            "latitude": 47.06803277134895,
+            "altitudeInMeters": 614.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637145174667239,
+            "latitude": 47.067940989509225,
+            "altitudeInMeters": 613.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637368468567729,
+            "latitude": 47.067844765260816,
+            "altitudeInMeters": 613,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637577094137669,
+            "latitude": 47.067721132189035,
+            "altitudeInMeters": 612.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637616405263543,
+            "latitude": 47.067702608183026,
+            "altitudeInMeters": 612.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6377885695546865,
+            "latitude": 47.06761124543846,
+            "altitudeInMeters": 611.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637910777702928,
+            "latitude": 47.06743975169957,
+            "altitudeInMeters": 610.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637992752715945,
+            "latitude": 47.0672688446939,
+            "altitudeInMeters": 610.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.638068776577711,
+            "latitude": 47.067134818062186,
+            "altitudeInMeters": 612.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63806332834065,
+            "latitude": 47.06708142533898,
+            "altitudeInMeters": 612.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.638002475723624,
+            "latitude": 47.06705627962947,
+            "altitudeInMeters": 613,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637942880392075,
+            "latitude": 47.067041946575046,
+            "altitudeInMeters": 613.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637906838208437,
+            "latitude": 47.06698494963348,
+            "altitudeInMeters": 614.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637905245646834,
+            "latitude": 47.066931053996086,
+            "altitudeInMeters": 615.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63790063560009,
+            "latitude": 47.066904399544,
+            "altitudeInMeters": 617,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637907676398754,
+            "latitude": 47.06683533266187,
+            "altitudeInMeters": 618.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637905078008771,
+            "latitude": 47.06675008870661,
+            "altitudeInMeters": 619.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637919830158353,
+            "latitude": 47.06656677648425,
+            "altitudeInMeters": 620.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637891415506601,
+            "latitude": 47.066454123705626,
+            "altitudeInMeters": 621.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637863839045167,
+            "latitude": 47.06642487086356,
+            "altitudeInMeters": 622.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637819834053516,
+            "latitude": 47.06637583673,
+            "altitudeInMeters": 624,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637762166559696,
+            "latitude": 47.06636133603752,
+            "altitudeInMeters": 625,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637723861262202,
+            "latitude": 47.06636535935104,
+            "altitudeInMeters": 626.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637711288407445,
+            "latitude": 47.066377345472574,
+            "altitudeInMeters": 627.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637719754129648,
+            "latitude": 47.06640349701047,
+            "altitudeInMeters": 628.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637654710561037,
+            "latitude": 47.06645932048559,
+            "altitudeInMeters": 629.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637615231797099,
+            "latitude": 47.066459907218814,
+            "altitudeInMeters": 629.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637583129107952,
+            "latitude": 47.06645781174302,
+            "altitudeInMeters": 630.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637582961469889,
+            "latitude": 47.06648270599544,
+            "altitudeInMeters": 632,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637543063610792,
+            "latitude": 47.06646560691297,
+            "altitudeInMeters": 633,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637426136061549,
+            "latitude": 47.06637122668326,
+            "altitudeInMeters": 634.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637405768036842,
+            "latitude": 47.066314397379756,
+            "altitudeInMeters": 635.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637376096099615,
+            "latitude": 47.06624809652567,
+            "altitudeInMeters": 636.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6372873317450285,
+            "latitude": 47.06618917174637,
+            "altitudeInMeters": 637.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6372413989156485,
+            "latitude": 47.06615824252367,
+            "altitudeInMeters": 639.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.637224467471242,
+            "latitude": 47.06612077541649,
+            "altitudeInMeters": 640.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6371807139366865,
+            "latitude": 47.06607651896775,
+            "altitudeInMeters": 641.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6371227111667395,
+            "latitude": 47.06603896804154,
+            "altitudeInMeters": 642.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636987259611487,
+            "latitude": 47.06598540768027,
+            "altitudeInMeters": 643.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636770671233535,
+            "latitude": 47.066001165658236,
+            "altitudeInMeters": 644.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636634381487966,
+            "latitude": 47.06601256504655,
+            "altitudeInMeters": 645.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636612504720688,
+            "latitude": 47.06600870937109,
+            "altitudeInMeters": 645.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636457942426205,
+            "latitude": 47.0659683085978,
+            "altitudeInMeters": 646.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6363613829016685,
+            "latitude": 47.06595238298178,
+            "altitudeInMeters": 648,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636299272999167,
+            "latitude": 47.065950371325016,
+            "altitudeInMeters": 649.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636214615777135,
+            "latitude": 47.06594224087894,
+            "altitudeInMeters": 650.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.636086959391832,
+            "latitude": 47.06593293696642,
+            "altitudeInMeters": 651.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63596273958683,
+            "latitude": 47.065953221172094,
+            "altitudeInMeters": 652.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635823432356119,
+            "latitude": 47.06596772186458,
+            "altitudeInMeters": 654,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635575160384178,
+            "latitude": 47.06604961305857,
+            "altitudeInMeters": 655,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63554691337049,
+            "latitude": 47.06606294028461,
+            "altitudeInMeters": 655,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635465441271663,
+            "latitude": 47.06607626751065,
+            "altitudeInMeters": 655.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635470889508724,
+            "latitude": 47.066080793738365,
+            "altitudeInMeters": 656,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635512379929423,
+            "latitude": 47.06609915010631,
+            "altitudeInMeters": 657.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635561749339104,
+            "latitude": 47.06613334827125,
+            "altitudeInMeters": 658.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635574657469988,
+            "latitude": 47.06613569520414,
+            "altitudeInMeters": 658.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635608101263642,
+            "latitude": 47.06614315509796,
+            "altitudeInMeters": 659.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635649256408215,
+            "latitude": 47.06614407710731,
+            "altitudeInMeters": 660.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635719496756792,
+            "latitude": 47.06615874543786,
+            "altitudeInMeters": 661.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635715724900365,
+            "latitude": 47.06616310402751,
+            "altitudeInMeters": 661.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635621344670653,
+            "latitude": 47.066191183403134,
+            "altitudeInMeters": 662.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635620255023241,
+            "latitude": 47.06619378179312,
+            "altitudeInMeters": 662.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6356416288763285,
+            "latitude": 47.06619537435472,
+            "altitudeInMeters": 663.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635677587240934,
+            "latitude": 47.06619679927826,
+            "altitudeInMeters": 663.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635806165635586,
+            "latitude": 47.06619034521282,
+            "altitudeInMeters": 665.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635876405984163,
+            "latitude": 47.066200487315655,
+            "altitudeInMeters": 666.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635866766795516,
+            "latitude": 47.06620384007692,
+            "altitudeInMeters": 667,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635829970240593,
+            "latitude": 47.066210294142365,
+            "altitudeInMeters": 667.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635705666616559,
+            "latitude": 47.06627340987325,
+            "altitudeInMeters": 668.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635570969432592,
+            "latitude": 47.066348092630506,
+            "altitudeInMeters": 669.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6355076022446156,
+            "latitude": 47.06635999493301,
+            "altitudeInMeters": 670,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.635247595608234,
+            "latitude": 47.066437443718314,
+            "altitudeInMeters": 670.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634991528466344,
+            "latitude": 47.066435515880585,
+            "altitudeInMeters": 669.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634966550394893,
+            "latitude": 47.06643325276673,
+            "altitudeInMeters": 669.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634712997823954,
+            "latitude": 47.06634038127959,
+            "altitudeInMeters": 669.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634571259841323,
+            "latitude": 47.066270811483264,
+            "altitudeInMeters": 670.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63445382937789,
+            "latitude": 47.06623091362417,
+            "altitudeInMeters": 672,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634343020617962,
+            "latitude": 47.06622328609228,
+            "altitudeInMeters": 672.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634323658421636,
+            "latitude": 47.06624482758343,
+            "altitudeInMeters": 672.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634325670078397,
+            "latitude": 47.06626829691231,
+            "altitudeInMeters": 673,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6343389973044395,
+            "latitude": 47.06630375236273,
+            "altitudeInMeters": 674.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634345535188913,
+            "latitude": 47.066327556967735,
+            "altitudeInMeters": 675.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634323826059699,
+            "latitude": 47.066333424299955,
+            "altitudeInMeters": 675.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634291471913457,
+            "latitude": 47.066327473148704,
+            "altitudeInMeters": 676.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634239252656698,
+            "latitude": 47.06633660942316,
+            "altitudeInMeters": 677.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634147303178906,
+            "latitude": 47.06634473986924,
+            "altitudeInMeters": 678.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.634031716734171,
+            "latitude": 47.06634792499244,
+            "altitudeInMeters": 680,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633973881602287,
+            "latitude": 47.066336777061224,
+            "altitudeInMeters": 681.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633777828887105,
+            "latitude": 47.0663155708462,
+            "altitudeInMeters": 682.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633629888296127,
+            "latitude": 47.066321689635515,
+            "altitudeInMeters": 683.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633475661277771,
+            "latitude": 47.06629117950797,
+            "altitudeInMeters": 685,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633356973528862,
+            "latitude": 47.06621582619846,
+            "altitudeInMeters": 686,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63325035572052,
+            "latitude": 47.06603259779513,
+            "altitudeInMeters": 686.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633191850036383,
+            "latitude": 47.065995214506984,
+            "altitudeInMeters": 687,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.633010800927877,
+            "latitude": 47.065842831507325,
+            "altitudeInMeters": 688,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632978614419699,
+            "latitude": 47.06579530611634,
+            "altitudeInMeters": 688.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632908709347248,
+            "latitude": 47.0656212978065,
+            "altitudeInMeters": 688.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632827991619706,
+            "latitude": 47.06554351374507,
+            "altitudeInMeters": 689.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632802510634065,
+            "latitude": 47.06554829142988,
+            "altitudeInMeters": 689.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632563877850771,
+            "latitude": 47.06564384512603,
+            "altitudeInMeters": 688.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632354078814387,
+            "latitude": 47.06562062725425,
+            "altitudeInMeters": 688,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.632221393287182,
+            "latitude": 47.06554594449699,
+            "altitudeInMeters": 687,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631977899000049,
+            "latitude": 47.06557528115809,
+            "altitudeInMeters": 686,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631731554865837,
+            "latitude": 47.06567351706326,
+            "altitudeInMeters": 687.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6314443070441484,
+            "latitude": 47.06573462113738,
+            "altitudeInMeters": 687.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631275495514274,
+            "latitude": 47.06578206270933,
+            "altitudeInMeters": 686,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631196202710271,
+            "latitude": 47.06583118066192,
+            "altitudeInMeters": 684.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.631129650399089,
+            "latitude": 47.06588800996542,
+            "altitudeInMeters": 683.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6310487650334835,
+            "latitude": 47.06595213152468,
+            "altitudeInMeters": 682.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630952876061201,
+            "latitude": 47.06603268161416,
+            "altitudeInMeters": 681.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630879366770387,
+            "latitude": 47.066114069893956,
+            "altitudeInMeters": 680,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630840474739671,
+            "latitude": 47.066158913075924,
+            "altitudeInMeters": 678.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630777694284916,
+            "latitude": 47.06622177734971,
+            "altitudeInMeters": 677.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630682894960046,
+            "latitude": 47.06633451394737,
+            "altitudeInMeters": 676.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630606452003121,
+            "latitude": 47.06642755307257,
+            "altitudeInMeters": 675,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630543587729335,
+            "latitude": 47.06650433130562,
+            "altitudeInMeters": 673.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630477203056216,
+            "latitude": 47.06658178009093,
+            "altitudeInMeters": 672.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630438813939691,
+            "latitude": 47.06664942204952,
+            "altitudeInMeters": 671.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630424229428172,
+            "latitude": 47.066755620762706,
+            "altitudeInMeters": 670.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630440490320325,
+            "latitude": 47.06683021970093,
+            "altitudeInMeters": 669.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630497068166733,
+            "latitude": 47.066929042339325,
+            "altitudeInMeters": 668.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630542330443859,
+            "latitude": 47.066996432840824,
+            "altitudeInMeters": 667.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630581054836512,
+            "latitude": 47.06710238009691,
+            "altitudeInMeters": 665.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63053260743618,
+            "latitude": 47.06728451885283,
+            "altitudeInMeters": 664.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630493966862559,
+            "latitude": 47.06740664318204,
+            "altitudeInMeters": 663.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630475861951709,
+            "latitude": 47.06748350523412,
+            "altitudeInMeters": 662.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630469156429172,
+            "latitude": 47.067510075867176,
+            "altitudeInMeters": 662.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630469156429172,
+            "latitude": 47.067510075867176,
+            "altitudeInMeters": 662.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630501259118319,
+            "latitude": 47.06766312941909,
+            "altitudeInMeters": 661.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630510814487934,
+            "latitude": 47.06783805973828,
+            "altitudeInMeters": 660.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.63045541010797,
+            "latitude": 47.06799144856632,
+            "altitudeInMeters": 659,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630302524194121,
+            "latitude": 47.06808750517666,
+            "altitudeInMeters": 657.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630195487290621,
+            "latitude": 47.06811608746648,
+            "altitudeInMeters": 656.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.630092976614833,
+            "latitude": 47.068155566230416,
+            "altitudeInMeters": 655.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629989208653569,
+            "latitude": 47.06822848878801,
+            "altitudeInMeters": 654.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629890721291304,
+            "latitude": 47.06835421733558,
+            "altitudeInMeters": 653.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629736913368106,
+            "latitude": 47.06850919872522,
+            "altitudeInMeters": 652.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629617219790816,
+            "latitude": 47.068675914779305,
+            "altitudeInMeters": 652.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6295435428619385,
+            "latitude": 47.06879057921469,
+            "altitudeInMeters": 654.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629497358575463,
+            "latitude": 47.06886559724808,
+            "altitudeInMeters": 655.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6294725481420755,
+            "latitude": 47.06889786757529,
+            "altitudeInMeters": 656.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629420412704349,
+            "latitude": 47.06894296221435,
+            "altitudeInMeters": 657.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629396943375468,
+            "latitude": 47.06896844319999,
+            "altitudeInMeters": 659.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629378838464618,
+            "latitude": 47.0689938403666,
+            "altitudeInMeters": 660.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629350256174803,
+            "latitude": 47.06903298385441,
+            "altitudeInMeters": 661.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62933106161654,
+            "latitude": 47.06905628554523,
+            "altitudeInMeters": 662.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6293073408305645,
+            "latitude": 47.06908067688346,
+            "altitudeInMeters": 664,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629286972805858,
+            "latitude": 47.069106912240386,
+            "altitudeInMeters": 665.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629262749105692,
+            "latitude": 47.06913448870182,
+            "altitudeInMeters": 666.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629240620881319,
+            "latitude": 47.06916541792452,
+            "altitudeInMeters": 667.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62921622954309,
+            "latitude": 47.06920011900365,
+            "altitudeInMeters": 668.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629181109368801,
+            "latitude": 47.069241190329194,
+            "altitudeInMeters": 669.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629143223166466,
+            "latitude": 47.069266587495804,
+            "altitudeInMeters": 671,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629126040264964,
+            "latitude": 47.06928159110248,
+            "altitudeInMeters": 672,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629059907048941,
+            "latitude": 47.06933045759797,
+            "altitudeInMeters": 673.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.629035096615553,
+            "latitude": 47.06935199908912,
+            "altitudeInMeters": 674.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.628996456041932,
+            "latitude": 47.0693791564554,
+            "altitudeInMeters": 675.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.628933843225241,
+            "latitude": 47.06941209733486,
+            "altitudeInMeters": 676.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6288864854723215,
+            "latitude": 47.06944906152785,
+            "altitudeInMeters": 678.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.628851030021906,
+            "latitude": 47.069450402632356,
+            "altitudeInMeters": 679.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.628830913454294,
+            "latitude": 47.06945811398327,
+            "altitudeInMeters": 679.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.628601500764489,
+            "latitude": 47.069593481719494,
+            "altitudeInMeters": 679.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6283967308700085,
+            "latitude": 47.069709319621325,
+            "altitudeInMeters": 679,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6281640492379665,
+            "latitude": 47.06983110867441,
+            "altitudeInMeters": 678.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.628097832202911,
+            "latitude": 47.069862708449364,
+            "altitudeInMeters": 678.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627861546352506,
+            "latitude": 47.06996480002999,
+            "altitudeInMeters": 678,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627624003216624,
+            "latitude": 47.070086505264044,
+            "altitudeInMeters": 678,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627388052642345,
+            "latitude": 47.070198906585574,
+            "altitudeInMeters": 677.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.627166686579585,
+            "latitude": 47.070297813043,
+            "altitudeInMeters": 678,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.626933502033353,
+            "latitude": 47.0704082865268,
+            "altitudeInMeters": 677.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62670568190515,
+            "latitude": 47.07052890211344,
+            "altitudeInMeters": 677.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62654097750783,
+            "latitude": 47.070611882954836,
+            "altitudeInMeters": 677.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.626340230926871,
+            "latitude": 47.07071657292545,
+            "altitudeInMeters": 676,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.626180807128549,
+            "latitude": 47.07080164924264,
+            "altitudeInMeters": 674.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.626016018912196,
+            "latitude": 47.07087540999055,
+            "altitudeInMeters": 673.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6258898712694645,
+            "latitude": 47.070927461609244,
+            "altitudeInMeters": 672.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625791719183326,
+            "latitude": 47.0709677785635,
+            "altitudeInMeters": 671.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625688957050443,
+            "latitude": 47.07100264728069,
+            "altitudeInMeters": 670.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6255495660007,
+            "latitude": 47.07105729728937,
+            "altitudeInMeters": 669.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625479660928249,
+            "latitude": 47.07108638249338,
+            "altitudeInMeters": 668.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625411432236433,
+            "latitude": 47.07111404277384,
+            "altitudeInMeters": 667.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625311519950628,
+            "latitude": 47.071156203746796,
+            "altitudeInMeters": 666,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625159723684192,
+            "latitude": 47.071245051920414,
+            "altitudeInMeters": 664.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625115634873509,
+            "latitude": 47.07128679379821,
+            "altitudeInMeters": 663.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6250917464494705,
+            "latitude": 47.07130531780422,
+            "altitudeInMeters": 662.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625060649588704,
+            "latitude": 47.071382850408554,
+            "altitudeInMeters": 661.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625125525519252,
+            "latitude": 47.07155794836581,
+            "altitudeInMeters": 661.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625216133892536,
+            "latitude": 47.071690298616886,
+            "altitudeInMeters": 660.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625331552699208,
+            "latitude": 47.07185743376613,
+            "altitudeInMeters": 660.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625493239611387,
+            "latitude": 47.07200872711837,
+            "altitudeInMeters": 660.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62568686157465,
+            "latitude": 47.07213948480785,
+            "altitudeInMeters": 660.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625872101634741,
+            "latitude": 47.07225423306227,
+            "altitudeInMeters": 660.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625587536022067,
+            "latitude": 47.07223830744624,
+            "altitudeInMeters": 660.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625295929610729,
+            "latitude": 47.0722215436399,
+            "altitudeInMeters": 660,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.625015806406736,
+            "latitude": 47.07216647453606,
+            "altitudeInMeters": 659.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624802989885211,
+            "latitude": 47.072045020759106,
+            "altitudeInMeters": 659,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62465437874198,
+            "latitude": 47.07188869826496,
+            "altitudeInMeters": 658.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624635603278875,
+            "latitude": 47.07186112180352,
+            "altitudeInMeters": 658.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624505516141653,
+            "latitude": 47.071703374385834,
+            "altitudeInMeters": 658.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6243725791573524,
+            "latitude": 47.07155224867165,
+            "altitudeInMeters": 657.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624268140643835,
+            "latitude": 47.07138301804662,
+            "altitudeInMeters": 657,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624219274148345,
+            "latitude": 47.07131219096482,
+            "altitudeInMeters": 656.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6241587568074465,
+            "latitude": 47.07117070443928,
+            "altitudeInMeters": 655.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624116260558367,
+            "latitude": 47.07100868225098,
+            "altitudeInMeters": 654.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624113243073225,
+            "latitude": 47.07088924013078,
+            "altitudeInMeters": 653.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62409639544785,
+            "latitude": 47.07075965590775,
+            "altitudeInMeters": 652.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624099664390087,
+            "latitude": 47.07064591348171,
+            "altitudeInMeters": 651.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624098407104611,
+            "latitude": 47.070522448047996,
+            "altitudeInMeters": 651,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624129755422473,
+            "latitude": 47.07037274725735,
+            "altitudeInMeters": 649.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624143837019801,
+            "latitude": 47.07025741226971,
+            "altitudeInMeters": 648.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624191530048847,
+            "latitude": 47.07007368095219,
+            "altitudeInMeters": 647.6,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.6242103055119514,
+            "latitude": 47.06990847364068,
+            "altitudeInMeters": 646.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624232433736324,
+            "latitude": 47.06972373649478,
+            "altitudeInMeters": 645.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624245090410113,
+            "latitude": 47.06953120417893,
+            "altitudeInMeters": 644.2,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624266128987074,
+            "latitude": 47.069452833384275,
+            "altitudeInMeters": 644,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624298986047506,
+            "latitude": 47.06929366104305,
+            "altitudeInMeters": 643,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624328406527638,
+            "latitude": 47.06911588087678,
+            "altitudeInMeters": 641.8,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.62437098659575,
+            "latitude": 47.06891915760934,
+            "altitudeInMeters": 641,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624359419569373,
+            "latitude": 47.068899627774954,
+            "altitudeInMeters": 640.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624288173392415,
+            "latitude": 47.068836595863104,
+            "altitudeInMeters": 639.4,
+            "heartRateBpm": null
+        },
+        {
+            "longitude": 7.624264620244503,
+            "latitude": 47.06882452592254,
+            "altitudeInMeters": 638.6,
+            "heartRateBpm": null
+        }
+    ]
+}
