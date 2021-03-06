@@ -1,13 +1,11 @@
 <div>
-    altitude
 
-    <ngx-charts-line-chart 
-        [view]="[400, 400]" 
-        [results]="data"
-        [xAxis]="true"
-        [yAxis]="true"
-        >
-    </ngx-charts-line-chart>
+    Altitude
+
+    <div #ContainerRef style="width: 100%;">
+        <ngx-charts-line-chart [view]="[ContainerRef.offsetWidth, 400]" [results]="data" [xAxis]="true" [yAxis]="true">
+        </ngx-charts-line-chart>
+    </div>
 
     done
 </div>

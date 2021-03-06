@@ -17,11 +17,17 @@ describe('StatisticsService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should generate heightmap', () => {
+  it('should generate distance data', () => {
     const res = service.convertToDist(workout.samples);
     expect(res).toBeTruthy();
     const last = res[res.length - 1];
-    const dist = last.x;
+    const dist = last.sumDist;
+    expect(dist).toBeGreaterThan(12200);
+  });
+
+  it('should should thin out', () => {
+    const samplesX = service.convertToDist(workout.samples);
+    const res = service.thinOut(samplesX, 500);
   });
 
 });

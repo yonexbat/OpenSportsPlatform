@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { sample } from 'rxjs/operators';
+import { AvgSampleX } from '../model/workout/avgsamplex';
 import { Sample } from '../model/workout/sample';
 import { SampleX } from '../model/workout/samplex';
 
@@ -14,7 +14,7 @@ export class StatisticsService {
     let last: SampleX;
     return samples.map(x => {
       if (last) {
-        const lastDist = last.x;
+        const lastDist = last.sumDist;
         const delta = this.dist(last.sample, x);
         last = new SampleX(x, lastDist + delta);
       } else {
@@ -22,6 +22,42 @@ export class StatisticsService {
       }
       return last;
     });
+  }
+
+  public thinOut(samples: SampleX[], deltaDist: number): AvgSampleX[] {
+
+    const map: Map<number, SampleX[]> = new Map<number, SampleX[]>();
+
+    for (const sample of samples) {
+      const currentDist = sample.sumDist;
+      const currentKey = Math.floor(currentDist / deltaDist) * deltaDist;
+
+      if (!map.has(currentKey)) {
+        map.set(currentKey, []);
+      }
+      map.get(currentKey)?.push(sample);
+    }
+
+    const lastSample = samples[samples.length - 1];
+    const lastKey = Math.floor(lastSample.sumDist / deltaDist) * deltaDist;
+
+    const res: AvgSampleX[] = [];
+    for (let key = 0; key <= lastKey; key += deltaDist) {
+      if (map.has(key)) {
+        const values = map.get(key);
+        const sumEvelation = values?.reduce((accumulator, value)  => accumulator + value?.sample?.altitudeInMeters, 0) ?? 0;
+        const numSamples = values?.length ?? 1;
+        const averageEvelation = sumEvelation / numSamples;
+
+        res.push(new AvgSampleX(averageEvelation ?? 0, key));
+      }
+      else {
+        const lastRes = res[res.length - 1];
+        res.push(new AvgSampleX(lastRes.evelation, key));
+      }
+    }
+
+    return res;
   }
 
   public dist(sample1: Sample, sample2: Sample): number {

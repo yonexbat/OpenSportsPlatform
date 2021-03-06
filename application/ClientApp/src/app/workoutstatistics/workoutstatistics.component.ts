@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ConfirmService } from '../confirm.service';
 import { DataService } from '../data.service';
+import { AvgSampleX } from '../model/workout/avgsamplex';
 import { Workout } from '../model/workout/workout';
 import { getImageFromCategory } from '../util/util';
+import { StatisticsService } from './statistics.service';
 
 @Component({
   selector: 'app-workoutstatistics',
@@ -16,9 +18,12 @@ export class WorkoutstatisticsComponent implements OnInit {
 
   public panelOpenState = true;
 
+  public samples: AvgSampleX[] = [];
+
   constructor(
     private dataService: DataService,
     private route: ActivatedRoute,
+    private statisticsService: StatisticsService,
     private router: Router,
     private confirmService: ConfirmService) {
       this.route.params.subscribe(x => this.handleRouteParamChanged(x));
@@ -34,6 +39,8 @@ export class WorkoutstatisticsComponent implements OnInit {
 
   async loadData(id: number): Promise<void> {
     this.workout = await this.dataService.getWorkout(id);
+    const dists =  this.statisticsService.convertToDist(this.workout.samples);
+    this.samples = this.statisticsService.thinOut(dists, 500);
   }
 
   public getImage(sportCat?: string): string {

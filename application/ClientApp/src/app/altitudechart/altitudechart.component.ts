@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AvgSampleX } from '../model/workout/avgsamplex';
 import { Workout } from '../model/workout/workout';
+import { StatisticsService } from '../workoutstatistics/statistics.service';
 
 @Component({
   selector: 'app-altitudechart',
@@ -10,31 +12,32 @@ export class AltitudechartComponent implements OnInit {
 
   public data = [
     {
-      name: 'Germany',
+      name: 'Altitude',
       series: [
         {
-          name: '2010',
+          name: 2010,
           value: 7300000
-        },
-        {
-          name: '2011',
-          value: 8940000
-        },
-        {
-          name: '2012',
-          value: 6940000
-        },
-        {
-          name: '2013',
-          value: 8940000
         }
       ]
     }
   ];
 
-  constructor() { }
+  // tslint:disable-next-line:variable-name
+  private _samples: AvgSampleX[] = [];
 
-  @Input() workout?: Workout;
+  @Input()
+  public set samples(val: AvgSampleX[]) {
+    this._samples = val;
+    this.data[0].series = val.map(x => {
+      return {name: x.dist, value: x.evelation};
+    });
+  }
+  public get samples(): AvgSampleX[] {
+    return this._samples;
+  }
+
+  constructor(private statisticsService: StatisticsService) { }
+
 
   ngOnInit(): void {
   }
