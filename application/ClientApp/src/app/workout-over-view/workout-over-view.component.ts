@@ -2,9 +2,9 @@ import { ThrowStmt } from '@angular/compiler';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { from, merge } from 'rxjs';
-import { map, startWith, switchMap } from 'rxjs/operators';
-import { threadId } from 'worker_threads';
+import { startWith, switchMap, take } from 'rxjs/operators';
 import { DataService } from '../data.service';
 import { WorkoutOverviewItem } from '../model/workoutOverview/workoutOverviewItem';
 import { getImageFromCategory } from '../util/util';
@@ -16,12 +16,16 @@ import { getImageFromCategory } from '../util/util';
 })
 export class WorkoutOverViewComponent implements OnInit, AfterViewInit  {
 
-  constructor(private dataService: DataService) {
+  constructor(
+    private dataService: DataService,
+    private router: Router,
+    private route: ActivatedRoute) {
   }
 
   public workouts: WorkoutOverviewItem[] = [];
   public count = 0;
   public displayedColumns: string[] = ['date', 'starttime', 'endtime', 'sport'];
+  public pageIndex = 0;
 
   @ViewChild(MatPaginator) paginator: any;
 
@@ -41,17 +45,26 @@ export class WorkoutOverViewComponent implements OnInit, AfterViewInit  {
         return obsv;
       })
     ).subscribe(x => {
-      console.log(x);
+      console.log(paginator.pageIndex);
       this.workouts = x.data;
       this.count = x.count;
+      this.router.navigate([], {
+        relativeTo: this.route,
+        queryParams: { page: `${paginator.pageIndex}`},
+        queryParamsHandling: 'merge',
+        skipLocationChange: false,
+      });
     });
   }
 
   ngOnInit(): void {
+    const queryparams = this.route.queryParams.pipe(take(1))
+    .subscribe((x: Params) => {
+      const page = (x as any).page;
+      const pageNumber = parseInt(page, 10);
+      if (isNaN(pageNumber) === false) {
+        this.pageIndex = pageNumber;
+      }
+    });
   }
-
-  itemClick(): void {
-    console.log('item click');
-  }
-
 }

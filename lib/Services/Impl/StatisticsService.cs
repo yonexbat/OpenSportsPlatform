@@ -32,12 +32,21 @@ namespace OpenSportsPlatform.Lib.Services.Impl
 
             int year = DateTime.Today.Year;
             int month = DateTime.Today.Month;
-            DateTime from = new DateTime(year, month, 1);
-            DateTime toExcl = from.AddMonths(1);
+            DateTime fromMonth = new DateTime(year, month, 1);
+            DateTime fromYear = new DateTime(year, 1, 1);
+            DateTime toExcl = fromMonth.AddMonths(1);
 
             string userId = _securityService.GetCurrentUserid();
 
-            result.Items =  await _dbContext.Workout
+            result.MonthItems = await GetStatsForPeriod(fromMonth, toExcl, userId);
+            result.YearItems = await GetStatsForPeriod(fromYear, toExcl, userId);
+
+            return result;
+        }
+
+        private async Task<IList<StatisticsItemDto>> GetStatsForPeriod(DateTime from, DateTime toExcl, string userId)
+        {
+            return await _dbContext.Workout
                 .Where(x => x.UserProfile.UserId == userId)
                 .Where(x => x.StartTime >= from && x.StartTime < toExcl)
                 .GroupBy(x => new { x.SportsCategory.Name })
@@ -47,8 +56,6 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                     DistanceInKm = g.Sum(wo => wo.DistanceInKm),
                 })
                 .ToListAsync();
-
-            return result;
         }
     }
 }

@@ -34,6 +34,6 @@
     <tr mat-row [routerLink]="['/workout', 'map', row.id]" *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
-  <mat-paginator [length]="count" [pageSize]="10"></mat-paginator>
+  <mat-paginator [pageIndex]="pageIndex" [length]="count" [pageSize]="10"></mat-paginator>
 
 </div>

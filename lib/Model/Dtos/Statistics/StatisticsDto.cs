@@ -6,6 +6,8 @@ namespace OpenSportsPlatform.Lib.Model.Dtos.Statistics
 {
     public class StatisticsDto
     {
-        public IList<StatisticsItemDto> Items { get; set; }
+        public IList<StatisticsItemDto> MonthItems { get; set; }
+
+        public IList<StatisticsItemDto> YearItems { get; set; }
     }
 }

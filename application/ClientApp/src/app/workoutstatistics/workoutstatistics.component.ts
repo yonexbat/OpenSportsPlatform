@@ -40,7 +40,7 @@ export class WorkoutstatisticsComponent implements OnInit {
   async loadData(id: number): Promise<void> {
     this.workout = await this.dataService.getWorkout(id);
     const dists =  this.statisticsService.convertToDist(this.workout.samples);
-    this.samples = this.statisticsService.thinOut(dists, 500);
+    this.samples = this.statisticsService.thinOut(dists, 50);
   }
 
   public getImage(sportCat?: string): string {

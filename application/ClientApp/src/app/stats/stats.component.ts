@@ -11,7 +11,8 @@ import { getImageFromCategory } from '../util/util';
 export class StatsComponent implements OnInit {
 
   public statistics: Statistics = {
-    items: []
+    monthItems: [],
+    yearItems: [],
   };
 
   public displayedColumns: string[] = ['sportsCategoryName', 'distanceInKm'];
