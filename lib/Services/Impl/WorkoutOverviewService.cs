@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using OpenSportsPlatform.Lib.Database;
 using OpenSportsPlatform.Lib.Model.Dtos.WorkoutOverview;
 using OpenSportsPlatform.Lib.Services.Contract;
+using OpenSportsPlatform.Lib.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,9 +41,15 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                     DurationInSec = x.DurationInSec,
                 })
                 .OrderByDescending(x => x.StartTime)
-                .Skip(PageSize*search.Page)
+                .Skip(PageSize * search.Page)
                 .Take(PageSize)
                 .ToListAsync();
+
+            foreach(var item in data)
+            {
+                item.StartTime = item.StartTime.AsUtc();
+                item.EndTime = item.EndTime.AsUtc();
+            }
 
             var count = await query.CountAsync();
 

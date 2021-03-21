@@ -6,6 +6,7 @@ using OpenSportsPlatform.Lib.Model.Dtos.Common;
 using OpenSportsPlatform.Lib.Model.Dtos.Workout;
 using OpenSportsPlatform.Lib.Model.Entities;
 using OpenSportsPlatform.Lib.Services.Contract;
+using OpenSportsPlatform.Lib.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -86,6 +87,9 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                     HeartRateMaxBpm = x.HeartRateMaxBpm,
                     DurationInSec = x.DurationInSec,
                 }).SingleAsync();
+
+            res.StartTime = res.StartTime.AsUtc();
+            res.EndTime = res.EndTime.AsUtc();
 
             //Samples
             res.Samples = await _dbContext

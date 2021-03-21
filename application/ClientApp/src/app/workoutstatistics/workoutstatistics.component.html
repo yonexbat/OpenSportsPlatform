@@ -1,38 +1,53 @@
 <div *ngIf="workout">
 
-    <mat-expansion-panel>
+  <mat-accordion>
 
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            {{workout.startTime | date : 'dd.MM.yyyy HH:mm'}}
-          </mat-panel-title>
-          <mat-panel-description>     
-            <img [src]="getImage(workout.sport)" class="sportsicon"> 
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-    
-    
-    
-        <mat-card>
-          <mat-card-header>
-            <mat-card-title>Stats</mat-card-title>
-            <mat-card-subtitle></mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            <span>{{workout.distanceInKm}} km</span> <br>
-            <span>{{workout.durationInSec}} sec</span> <br>
-            <span>{{workout.caloriesInKCal}} K Cal</span><br>
-            <span>{{workout.ascendInMeters}} asc m</span><br>
-            <span>{{workout.descendInMeters}} desc m</span><br>
-            <span>{{workout.heartRateAvgBpm}} hr avg</span><br>
-            <span>{{workout.heartRateMaxBpm}} hr avg</span>
-          </mat-card-content>          
-        </mat-card>
-                
-      </mat-expansion-panel>
+    <mat-expansion-panel [expanded]="true">
 
-      <app-altitudechart [samples]="samples">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{workout.startTime | date : 'dd.MM.yyyy HH:mm'}}
+        </mat-panel-title>
+        <mat-panel-description>
+          <img [src]="getImage(workout.sport)" class="sportsicon">
+        </mat-panel-description>
+      </mat-expansion-panel-header>
 
-      </app-altitudechart>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Stats</mat-card-title>
+          <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <span>{{workout.distanceInKm | distance}}</span> <br>
+          <span>{{workout.durationInSec | duration }}</span> <br>
+          <span>{{workout.caloriesInKCal}} K Cal</span><br>
+          <span>{{workout.ascendInMeters}} asc m</span><br>
+          <span>{{workout.descendInMeters}} desc m</span><br>
+          <span>{{workout.heartRateAvgBpm}} hr avg</span><br>
+          <span>{{workout.heartRateMaxBpm}} hr avg</span>
+        </mat-card-content>
+      </mat-card>
+
+    </mat-expansion-panel>
+
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Graphs
+        </mat-panel-title>
+        <mat-panel-description>
+          Altitude and Heartrate
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-card>
+        <mat-card-content>
+          <app-altitudechart [samples]="samples">
+          </app-altitudechart>
+        </mat-card-content>
+      </mat-card>
+    </mat-expansion-panel>
+
+  </mat-accordion>
 
 </div>

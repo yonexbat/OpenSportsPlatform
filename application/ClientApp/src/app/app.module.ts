@@ -39,6 +39,7 @@ import { TabmenuComponent } from './tabmenu/tabmenu.component';
 import { WorkoutstatisticsComponent } from './workoutstatistics/workoutstatistics.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { DistancePipe } from './pipes/distance.pipe';
+import { DurationPipe } from './pipes/duration.pipe';
 
 // Use your Client ID in the GoogleLoginProvider()
 const socialProviders = [
@@ -62,6 +63,7 @@ const socialProviders = [
     TabmenuComponent,
     WorkoutstatisticsComponent,
     DistancePipe,
+    DurationPipe,
   ],
   imports: [
     BrowserModule,

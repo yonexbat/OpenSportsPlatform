@@ -16,7 +16,7 @@
     <!-- distance -->
     <ng-container matColumnDef="distanceInKm">
       <th mat-header-cell *matHeaderCellDef>Distance</th>
-      <td mat-cell *matCellDef="let item"> {{item.distanceInKm}} </td>
+      <td mat-cell *matCellDef="let item"> {{item.distanceInKm | distance}} </td>
     </ng-container>
 
 
@@ -39,7 +39,7 @@
     <!-- distance -->
     <ng-container matColumnDef="distanceInKm">
       <th mat-header-cell *matHeaderCellDef>Distance</th>
-      <td mat-cell *matCellDef="let item"> {{item.distanceInKm}} </td>
+      <td mat-cell *matCellDef="let item"> {{item.distanceInKm | distance}} </td>
     </ng-container>
 
 

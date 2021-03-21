@@ -10,10 +10,10 @@ export class DistancePipe implements PipeTransform {
       const distInKm = value as number;
       if (distInKm > 1) {
         const distInKmRounded = Math.round(distInKm * 10) / 10;
-        return `${distInKmRounded} km`;
+        return `${distInKmRounded}km`;
       } else {
         const meters = Math.round(distInKm * 1000);
-        return `${meters} m`;
+        return `${meters}m`;
       }
     }
     return value;

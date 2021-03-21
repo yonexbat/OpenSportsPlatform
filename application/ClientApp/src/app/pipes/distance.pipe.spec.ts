@@ -10,14 +10,14 @@ describe('DistancePipe', () => {
   it('should transform km', () => {
     const pipe = new DistancePipe();
     const res = pipe.transform(12.1234);
-    expect(res).toBe('12.1 km');
+    expect(res).toBe('12.1km');
   });
 
   it('shlould transform m', () => {
     const pipe = new DistancePipe();
     const res = pipe.transform(0.12345678);
-    expect(res).toBe('123 m');
-  })
+    expect(res).toBe('123m');
+  });
 
   it('should ignore crap', () => {
     const pipe = new DistancePipe();

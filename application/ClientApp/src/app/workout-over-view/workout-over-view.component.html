@@ -1,5 +1,5 @@
 <div>
-  <h3>Workouts</h3>
+  <h1>Workouts</h1>
 
   <table mat-table [dataSource]="workouts" class="mat-elevation-z8">
 
@@ -19,6 +19,12 @@
     <ng-container matColumnDef="endtime">
       <th mat-header-cell *matHeaderCellDef>Endtime</th>
       <td mat-cell *matCellDef="let workout"> {{workout.endTime | date : 'HH:mm'}} </td>
+    </ng-container>
+
+    <!-- Duration -->
+    <ng-container matColumnDef="duration">
+      <th mat-header-cell *matHeaderCellDef>Duration</th>
+      <td mat-cell *matCellDef="let workout"> {{workout.durationInSec | duration}} </td>
     </ng-container>
 
     <!-- Distance -->
