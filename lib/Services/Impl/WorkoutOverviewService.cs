@@ -36,6 +36,8 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                     StartTime = x.StartTime,
                     EndTime = x.EndTime,
                     Sport = x.SportsCategory.Name,
+                    DistanceInKm = x.DistanceInKm,
+                    DurationInSec = x.DurationInSec,
                 })
                 .OrderByDescending(x => x.StartTime)
                 .Skip(PageSize*search.Page)

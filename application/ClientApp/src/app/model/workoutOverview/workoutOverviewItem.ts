@@ -3,4 +3,6 @@ export interface WorkoutOverviewItem {
     startTime?: Date;
     endTime?: Date;
     sport?: string;
+    distanceInKm: number;
+    durationInSec: number;
 }

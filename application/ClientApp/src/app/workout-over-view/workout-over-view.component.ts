@@ -24,7 +24,7 @@ export class WorkoutOverViewComponent implements OnInit, AfterViewInit  {
 
   public workouts: WorkoutOverviewItem[] = [];
   public count = 0;
-  public displayedColumns: string[] = ['date', 'starttime', 'endtime', 'sport'];
+  public displayedColumns: string[] = ['date', 'starttime', 'endtime', 'distance', 'sport'];
   public pageIndex = 0;
 
   @ViewChild(MatPaginator) paginator: any;

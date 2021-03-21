@@ -38,6 +38,7 @@ import { AltitudechartComponent } from './altitudechart/altitudechart.component'
 import { TabmenuComponent } from './tabmenu/tabmenu.component';
 import { WorkoutstatisticsComponent } from './workoutstatistics/workoutstatistics.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { DistancePipe } from './pipes/distance.pipe';
 
 // Use your Client ID in the GoogleLoginProvider()
 const socialProviders = [
@@ -60,6 +61,7 @@ const socialProviders = [
     AltitudechartComponent,
     TabmenuComponent,
     WorkoutstatisticsComponent,
+    DistancePipe,
   ],
   imports: [
     BrowserModule,
