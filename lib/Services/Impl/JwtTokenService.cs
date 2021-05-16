@@ -44,7 +44,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             var token = new JwtSecurityToken(issuer, //Issure    
                             issuer,  //Audience    
                             permClaims,
-                            expires: DateTime.Now.AddDays(1),
+                            expires: DateTime.Now.AddDays(100),
                             signingCredentials: credentials);
             var jwt_token = new JwtSecurityTokenHandler().WriteToken(token);
             return jwt_token;
