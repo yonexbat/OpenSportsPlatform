@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CountdownComponent } from './countdown/countdown.component';
 import { EditworkoutComponent } from './editworkout/editworkout.component';
 import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 import { AuthGuard } from './guards/auth.guard';
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'workouts', component: WorkoutOverViewComponent, canActivate: [AuthGuard] },
   { path: 'uploadworkout', component: UploadWorkoutComponent, canActivate: [AuthGuard] },
+  { path: 'countdown', component: CountdownComponent, },
   { path: 'test', component: FileUploaderComponent, canActivate: [AuthGuard] },
 
   {

@@ -1,0 +1,11 @@
+<div>
+    <h1>Countdowns</h1>
+
+    <p class="countdown">
+        {{countDownText$ | async}}
+    </p>
+
+    <button mat-raised-button color="primary" (click)="reset()">Reset</button>
+    <button class="countdownbutton" mat-raised-button color="primary" (click)="start()">Start</button>
+
+</div>

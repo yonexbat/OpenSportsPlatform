@@ -40,6 +40,7 @@ import { WorkoutstatisticsComponent } from './workoutstatistics/workoutstatistic
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { DistancePipe } from './pipes/distance.pipe';
 import { DurationPipe } from './pipes/duration.pipe';
+import { CountdownComponent } from './countdown/countdown.component';
 
 // Use your Client ID in the GoogleLoginProvider()
 const socialProviders = [
@@ -64,6 +65,7 @@ const socialProviders = [
     WorkoutstatisticsComponent,
     DistancePipe,
     DurationPipe,
+    CountdownComponent,
   ],
   imports: [
     BrowserModule,
