@@ -8,6 +8,12 @@ namespace OpenSportsPlatform.Lib.Services.Contract
 {
     public interface IPolarFlowService
     {
-        Task<AccessTokenResult> GetAuthToken(string code);
+        Task<AccessTokenResponse> GetAuthToken(string code);
+
+        Task<RegisterUserResponse> RegisterUser(string userId, string accessCode);
+
+        Task<TransactionResponse> CreateTransaction(string userId, string accessCode);
+
+        Task<ListExercisesResponse> ListExercises(string userId, string transationId);
     }
 }
