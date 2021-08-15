@@ -1,6 +1,7 @@
 ﻿using OpenSportsPlatform.Lib.Model.Dtos.Polar;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,6 +15,10 @@ namespace OpenSportsPlatform.Lib.Services.Contract
 
         Task<TransactionResponse> CreateTransaction(string userId, string accessCode);
 
-        Task<ListExercisesResponse> ListExercises(string userId, string transationId);
+        Task CommitTransaction(string userId, string transationId, string accessCode);
+
+        Task<ListExercisesResponse> ListExercises(string userId, string transationId, string accessCode);
+
+        Task<Stream> GetExerciseAsTcx(string urlToEx, string accessCode);
     }
 }

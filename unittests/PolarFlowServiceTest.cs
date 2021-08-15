@@ -5,7 +5,9 @@ using OpenSportsPlatform.Lib.Services.Contract;
 using OpenSportsPlatform.Lib.Services.Impl;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Security.Principal;
 using System.Text;
 using System.Text.Json;
@@ -52,7 +54,7 @@ namespace unittests
 
 
         [Fact]
-        public async Task DownloadTraining()
+        public async Task DownloadTrainings()
         {
             IPolarFlowService service = CreateService();
             IConfiguration config = GetConfiguration();
@@ -61,16 +63,26 @@ namespace unittests
             string accessToken = config.GetValue<string>("PolarAccessToken");
 
             TransactionResponse transaction = await service.CreateTransaction(userid.ToString(), accessToken);
-            if(transaction != null)
+            
+            if (transaction != null)
             {
-                var exercises = await service.ListExercises(userid.ToString(), transaction.TransactionId.ToString());
+                var exercises = await service.ListExercises(userid.ToString(), transaction.TransactionId?.ToString(), accessToken);
+                foreach(var exercise in exercises.Exercises)
+                {
+                    // var res = await service.GetExerciseAsGpx(exercise, accessToken);
+                    using (Stream stream = await service.GetExerciseAsTcx(exercise, accessToken))
+                    {
+                        Guid guid = Guid.NewGuid();
+                        WriteToFile(stream, $"D:\\Tmp\\{guid}.tcx");
+                    }
+                }
+
+                await service.CommitTransaction(userid.ToString(), transaction.TransactionId?.ToString(), accessToken);
             }
         }
 
         private IPolarFlowService CreateService()
-        {
-            IPrincipal principal = MockPrincipal.CreatePrincipal();
-            ISecurityService securityService = new SecurityService(principal);
+        {      
             ILogger<PolarFlowService> logger = new MockLogger<PolarFlowService>();
 
             IConfiguration config = GetConfiguration();
@@ -86,8 +98,10 @@ namespace unittests
                 .AddInMemoryCollection(inMemorySettings)
                 .Build();
 
+            HttpClient httpClient = new HttpClient();
 
-            IPolarFlowService service = new PolarFlowService(mockConfiguration, logger);
+
+            IPolarFlowService service = new PolarFlowService(mockConfiguration, httpClient, logger);
             return service;
         }
 
@@ -99,6 +113,25 @@ namespace unittests
                 .AddUserSecrets<PolarFlowServiceTest>();
 
             return builder.Build();
+        }
+
+
+        private static void WriteToFile(Stream stream, string destinationFile)
+        {
+            using (Stream file = File.Create(destinationFile))
+            {
+                CopyStream(stream, file);
+            }
+        }
+
+        private static void CopyStream(Stream input, Stream output)
+        {
+            byte[] buffer = new byte[8 * 1024];
+            int len;
+            while ((len = input.Read(buffer, 0, buffer.Length)) > 0)
+            {
+                output.Write(buffer, 0, len);
+            }
         }
 
 
