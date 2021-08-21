@@ -16,6 +16,9 @@ namespace OpenSportsPlatform.Lib.DependencyInjection
         {
             string connectionString = configuration.GetConnectionString("DefaultConnection");
 
+            serviceCollection.AddHttpClient<IPolarFlowService, PolarFlowService>()
+                    .SetHandlerLifetime(TimeSpan.FromMinutes(5));
+
             return serviceCollection
                 .AddSingleton<IJwtTokenService, JwtTokenService>()
                 .AddScoped<ISecurityService, SecurityService>()
@@ -25,6 +28,7 @@ namespace OpenSportsPlatform.Lib.DependencyInjection
                 .AddScoped<ITcxFileImporterService, TcxFileImporterService>()
                 .AddScoped<IWorkoutService, WorkoutService>()
                 .AddScoped<IStatisticsService, StatisticsService>()
+                .AddScoped<ISyncPolarService, SyncPolarService>()
                 .AddDbContext<OpenSportsPlatformDbContext>(options =>
                 options.UseSqlServer(connectionString, x => x.UseNetTopologySuite()));
         }

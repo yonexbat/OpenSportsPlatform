@@ -45,4 +45,8 @@ export class DataService {
   public getStatistics(): Promise<Statistics> {
     return this.http.get<Statistics>(`${this.apiPrefix}/Data/GetStatistics`).toPromise();
   }
+
+  public syncPolar(): Promise<any> {
+    return this.http.post<boolean>(`${this.apiPrefix}/Data/SyncPolar`, {}).toPromise();
+  }
 }

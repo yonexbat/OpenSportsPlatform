@@ -2,6 +2,9 @@
     <div *ngIf="userProfile$ | async as user">
         <div *ngIf="user.authenticated === true; else notsignedin">
             Welcome {{user.name}}
+
+            <button class="countdownbutton" mat-raised-button color="primary" (click)="syncPolar()">Sync Polar</button>
+
         </div>
         <ng-template #notsignedin>
             Please login to use this site.

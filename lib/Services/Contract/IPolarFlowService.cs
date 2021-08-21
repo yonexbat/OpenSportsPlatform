@@ -15,7 +15,7 @@ namespace OpenSportsPlatform.Lib.Services.Contract
 
         Task<TransactionResponse> CreateTransaction(string userId, string accessCode);
 
-        Task CommitTransaction(string userId, string transationId, string accessCode);
+        Task CommitTransaction(string userId, ulong transactionId, string accessCode);
 
         Task<ListExercisesResponse> ListExercises(string userId, string transationId, string accessCode);
 

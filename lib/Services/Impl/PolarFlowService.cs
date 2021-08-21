@@ -30,7 +30,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             _logger = logger;
         }
 
-        public async Task CommitTransaction(string userId, string transationId, string accessCode)
+        public async Task CommitTransaction(string userId, ulong transationId, string accessCode)
         {
             _logger.LogInformation("Commit transaction {0} for user {1}", transationId, userId);
 

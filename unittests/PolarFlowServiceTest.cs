@@ -77,7 +77,7 @@ namespace unittests
                     }
                 }
 
-                await service.CommitTransaction(userid.ToString(), transaction.TransactionId?.ToString(), accessToken);
+                await service.CommitTransaction(userid.ToString(), transaction.TransactionId.Value, accessToken);
             }
         }
 

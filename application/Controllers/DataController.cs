@@ -20,16 +20,19 @@ namespace OpenSportsPlatform.Application.Controllers
         private readonly IWorkoutService _workoutService;
         private readonly ITcxFileImporterService _tcxFileImporterService;
         private readonly IStatisticsService _statisticsService;
+        private readonly ISyncPolarService _syncPolarService;
 
         public DataController(IWorkoutOverviewService workoutOverviewService,
             IWorkoutService workoutService,
             ITcxFileImporterService tcxFileImporterService,
-            IStatisticsService statisticsService)
+            IStatisticsService statisticsService,
+            ISyncPolarService syncPolarService)
         {
             _workoutOverviewService = workoutOverviewService;
             _workoutService = workoutService;
             _tcxFileImporterService = tcxFileImporterService;
             _statisticsService = statisticsService;
+            _syncPolarService = syncPolarService;
         }
 
         [HttpGet]
@@ -85,6 +88,13 @@ namespace OpenSportsPlatform.Application.Controllers
         public async Task<StatisticsDto> GetStatistics([FromQuery] GetStatisticsDto dto)
         {
             return await _statisticsService.GetStatistics(dto);
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        public async Task SyncPolar()
+        {
+            await _syncPolarService.SyncPolar();
         }
     }
 }
