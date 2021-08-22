@@ -43,7 +43,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             _dbContext = dbContext;
         }
 
-        public async Task ImoportWorkout(Stream stream)
+        public async Task ImportWorkout(Stream stream)
         {
             _sample = null;
             _segment = null;
@@ -57,7 +57,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             
 
             string user = _securityService.GetCurrentUserid();
-            _logger.LogInformation("imorting workout for user {0}", user);
+            _logger.LogInformation("Importing workout for user {0}", user);
 
             //Get User
             UserProfile userEntity = await _dbContext.UserProfile.Where(x => x.UserId == user)

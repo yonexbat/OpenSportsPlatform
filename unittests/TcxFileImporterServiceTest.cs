@@ -41,7 +41,7 @@ namespace unittests
                 {
                     ITcxFileImporterService service = new TcxFileImporterService(logger, securityService, dbContext);
                     Stream stream = File.OpenRead("Files\\testactivity.tcx");
-                    await service.ImoportWorkout(stream);
+                    await service.ImportWorkout(stream);
                 }
 
             }

@@ -8,6 +8,6 @@ namespace OpenSportsPlatform.Lib.Services.Contract
 {
     public interface ITcxFileImporterService
     {
-        Task ImoportWorkout(Stream stream);
+        Task ImportWorkout(Stream stream);
     }
 }

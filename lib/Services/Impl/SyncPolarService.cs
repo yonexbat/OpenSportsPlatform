@@ -54,7 +54,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                     _logger.LogInformation("Getting exercise from polar: {0}", exercise);
                     using (Stream stream = await _polarFlowService.GetExerciseAsTcx(exercise, polarAccessToken))
                     {
-                        await _tcxFileImporterService.ImoportWorkout(stream);
+                        await _tcxFileImporterService.ImportWorkout(stream);
                     }
                 }
                 await _polarFlowService.CommitTransaction(polarUser, transaction.TransactionId.Value, polarAccessToken);

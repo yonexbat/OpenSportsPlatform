@@ -50,7 +50,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             {
                 using (Stream stream = File.OpenRead(file))
                 {
-                    await _tcxFileImporterService.ImoportWorkout(stream);
+                    await _tcxFileImporterService.ImportWorkout(stream);
                     _dbContext.ChangeTracker.Clear();
                 }
 

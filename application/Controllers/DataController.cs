@@ -70,7 +70,7 @@ namespace OpenSportsPlatform.Application.Controllers
             foreach(IFormFile file in files)
             {
                 var stream = file.OpenReadStream();
-                await _tcxFileImporterService.ImoportWorkout(stream);   
+                await _tcxFileImporterService.ImportWorkout(stream);   
             }
 
             return Ok(new { count = files.Count});
