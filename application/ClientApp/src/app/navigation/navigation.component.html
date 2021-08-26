@@ -47,6 +47,10 @@
                     <mat-icon class="icon">bar_chart</mat-icon>
                     <span class="label">Statistics</span>
                 </a>
+                <a *ngIf="isLoggedIn$ | async" mat-list-item routerLink="/sync">
+                    <mat-icon class="icon">sync</mat-icon>
+                    <span class="label">Synchronize with platforms</span>
+                </a>
                 <a *ngIf="isLoggedIn$ | async" mat-list-item routerLink="/uploadworkout">
                     <mat-icon class="icon">upload</mat-icon>
                     <span class="label">Upload</span>

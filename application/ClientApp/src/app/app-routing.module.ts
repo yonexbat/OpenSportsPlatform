@@ -6,6 +6,7 @@ import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { StatsComponent } from './stats/stats.component';
+import { SyncComponent } from './sync/sync.component';
 import { TabmenuComponent } from './tabmenu/tabmenu.component';
 import { UploadWorkoutComponent } from './upload-workout/upload-workout.component';
 import { WorkoutOverViewComponent } from './workout-over-view/workout-over-view.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'uploadworkout', component: UploadWorkoutComponent, canActivate: [AuthGuard] },
   { path: 'countdown', component: CountdownComponent, },
   { path: 'test', component: FileUploaderComponent, canActivate: [AuthGuard] },
+  { path: 'sync', component: SyncComponent, canActivate: [AuthGuard] },
 
   {
     path: 'workout',
