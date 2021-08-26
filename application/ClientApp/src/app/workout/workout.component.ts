@@ -16,7 +16,7 @@ export class WorkoutComponent implements OnInit {
   public workout?: Workout;
   public options = {
     layers: [
-      tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' })
+      tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' })
     ],
     zoom: 5,
     center: latLng(46.879966, -121.726909)
@@ -27,7 +27,7 @@ export class WorkoutComponent implements OnInit {
 
   public layersControl = {
     baseLayers: {
-      'Open Street Map': tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' }),
+      'Open Street Map': tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' }),
       'Open Cycle Map': tileLayer(
         'https://tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=8ae171ac1d904baea2ef1f3e9a7cf4e8', {
         attribution: `&copy; ${this.mapLink} Contributors ${this.ocmlink}`,
