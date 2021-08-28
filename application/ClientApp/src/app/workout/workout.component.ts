@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { circle, latLng, LatLngTuple, marker, polygon, polyline, tileLayer } from 'leaflet';
-import { ConfirmService } from '../confirm.service';
 import { DataService } from '../data.service';
 import { Workout } from '../model/workout/workout';
 import { getImageFromCategory } from '../util/util';
@@ -42,9 +41,7 @@ export class WorkoutComponent implements OnInit {
 
   constructor(
     private dataService: DataService,
-    private route: ActivatedRoute,
-    private router: Router,
-    private confirmService: ConfirmService
+    private route: ActivatedRoute
   ) {
     this.route.params.subscribe(x => this.handleRouteParamChanged(x));
   }
