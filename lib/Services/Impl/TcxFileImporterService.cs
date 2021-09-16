@@ -102,6 +102,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                 .Select(x => x.CadenceRpm)
                 .Where(x => x > 0);
 
+            // to do: prevent exception.
             _workout.CadenceMaxRpm = cadence.Max();
             _workout.CadenceAvgRpm = cadence.Average();
 
@@ -318,7 +319,10 @@ namespace OpenSportsPlatform.Lib.Services.Impl
 
         private async Task ReadElementLap(XmlReader reader)
         {
-            _segment = new Segment();
+            _segment = new Segment()
+            {
+                Samples = new List<Sample>(),
+            };
             _segment.Workout = _workout;
             await _dbContext.AddAsync(_segment);
             _importState = ImportTcxState.Lap;
