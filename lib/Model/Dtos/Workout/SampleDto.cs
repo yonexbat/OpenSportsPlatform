@@ -10,5 +10,6 @@ namespace OpenSportsPlatform.Lib.Model.Dtos.Workout
         public double? Latitude { get; set; }
         public float? AltitudeInMeters { get; set; }
         public float? HeartRateBpm { get; set; }
+        public DateTimeOffset? Timestamp { get; set; }
     }
 }

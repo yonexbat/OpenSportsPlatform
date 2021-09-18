@@ -36,6 +36,8 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             _logger.LogInformation("Deleting workout with id {0}", id);
             Workout wo = await _dbContext.Workout.Where(x => x.Id == id)
                 .Include(x => x.UserProfile)
+                .Include(x => x.Segments)
+                .ThenInclude(x => x.Samples)
                 .SingleAsync();
 
             CheckAccess(wo);
@@ -103,6 +105,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                     Longitude = x.Longitude,
                     AltitudeInMeters = x.AltitudeInMeters,
                     HeartRateBpm = x.HeartRateBpm,
+                    Timestamp = x.Timestamp,
                 }).ToListAsync();
 
             return res;
