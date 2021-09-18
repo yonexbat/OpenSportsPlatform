@@ -88,8 +88,8 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                     DurationInSec = x.DurationInSec,
                 }).SingleAsync();
 
-            res.StartTime = res.StartTime.AsUtc();
-            res.EndTime = res.EndTime.AsUtc();
+            res.StartTime = res.StartTime;
+            res.EndTime = res.EndTime;
 
             //Samples
             res.Samples = await _dbContext

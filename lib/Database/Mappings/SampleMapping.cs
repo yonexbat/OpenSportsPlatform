@@ -11,7 +11,7 @@ namespace OpenSportsPlatform.Lib.Database.Mappings
     {
         public void Configure(EntityTypeBuilder<Sample> builder)
         {
-            builder.ToTable("OSPSample");
+            builder.ToTable("OSPSample");            
             builder.HasOne(samp => samp.Segment)
                 .WithMany(seg => seg.Samples)
                 .HasForeignKey(samp => samp.SegmentId)

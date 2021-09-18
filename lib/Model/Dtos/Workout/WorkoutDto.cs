@@ -7,8 +7,8 @@ namespace OpenSportsPlatform.Lib.Model.Dtos.Workout
     public class WorkoutDto
     {
         public int Id { get; set; }
-        public DateTime? StartTime { get; set; }
-        public DateTime? EndTime { get; set; }
+        public DateTimeOffset? StartTime { get; set; }
+        public DateTimeOffset? EndTime { get; set; }
         public float? DistanceInKm { get; set; }
         public float? DurationInSec { get; set; }
         public float? CaloriesInKCal { get; set; }

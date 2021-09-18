@@ -8,8 +8,8 @@ namespace OpenSportsPlatform.Lib.Model.Entities
     {
         int Id { get; set; }
         string InsertUser { get; set; }
-        DateTime InsertDate { get; set; }
+        DateTimeOffset InsertDate { get; set; }
         string UpdateUser { get; set; }
-        DateTime UpdateDate { get; set; }
+        DateTimeOffset UpdateDate { get; set; }
     }
 }

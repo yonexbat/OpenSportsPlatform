@@ -10,8 +10,8 @@ namespace OpenSportsPlatform.Lib.Model.Entities
         public virtual int SportsCategoryId { get; set; }
         public virtual int UserProfileId { get; set; }
         public virtual string Name { get; set; }
-        public virtual DateTime? StartTime { get; set; }
-        public virtual DateTime? EndTime { get; set; }
+        public virtual DateTimeOffset? StartTime { get; set; }
+        public virtual DateTimeOffset? EndTime { get; set; }
         public virtual float? DurationInSec { get; set; }
         public virtual float? CaloriesInKCal { get; set; }
         public virtual float? AltitudeMinInMeters { get; set; }
@@ -26,9 +26,9 @@ namespace OpenSportsPlatform.Lib.Model.Entities
         public virtual float? SpeedMaxKmh { get; set; }
         public virtual float? SpeedAvgKmh { get; set; }
         public virtual string InsertUser { get; set; }
-        public virtual DateTime InsertDate { get; set; }
+        public virtual DateTimeOffset InsertDate { get; set; }
         public virtual string UpdateUser { get; set; }
-        public virtual DateTime UpdateDate { get; set; }
+        public virtual DateTimeOffset UpdateDate { get; set; }
         public virtual SportsCategory SportsCategory { get; set; }
         public virtual IList<Segment> Segments { get; set; }
         public virtual UserProfile UserProfile { get; set; }  

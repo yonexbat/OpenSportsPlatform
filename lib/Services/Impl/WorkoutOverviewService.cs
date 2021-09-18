@@ -47,8 +47,8 @@ namespace OpenSportsPlatform.Lib.Services.Impl
 
             foreach(var item in data)
             {
-                item.StartTime = item.StartTime.AsUtc();
-                item.EndTime = item.EndTime.AsUtc();
+                item.StartTime = item.StartTime;
+                item.EndTime = item.EndTime;
             }
 
             var count = await query.CountAsync();
