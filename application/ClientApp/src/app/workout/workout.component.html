@@ -1,5 +1,7 @@
 <div *ngIf="workout" class="workout">
 
+  <mat-slider min="0" max="10000"  [(value)]="sliderval"></mat-slider>
+
   <div class="leaflet" leaflet [leafletOptions]="options" [leafletLayersControl]="layersControl"
     [leafletLayers]="layers">
   </div>

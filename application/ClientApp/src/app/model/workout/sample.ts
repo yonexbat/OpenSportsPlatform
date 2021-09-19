@@ -3,4 +3,5 @@ export interface Sample {
     longitude: number;
     altitudeInMeters: number;
     heartRateBpm: number;
+    timestamp: string;
 }

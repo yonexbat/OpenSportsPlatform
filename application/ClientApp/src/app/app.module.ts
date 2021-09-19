@@ -23,6 +23,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatSliderModule } from '@angular/material/slider';
 import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { WorkoutComponent } from './workout/workout.component';
@@ -91,6 +92,7 @@ const socialProviders = [
     MatInputModule,
     MatExpansionModule,
     MatTabsModule,
+    MatSliderModule,
     LeafletModule,
     ReactiveFormsModule,
     NgxChartsModule,
