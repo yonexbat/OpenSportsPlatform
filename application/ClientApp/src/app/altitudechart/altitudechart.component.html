@@ -1,9 +1,10 @@
 <div>
 
-    <div #ContainerRef style="height: 500px; width: 100%;" 
+    <div #ContainerRef style="width: 100%;" 
+        [style.height.px]="chartHeight"
         (resized)="divResized($event)">
         <ngx-charts-line-chart 
-            [view]="[chartWidth, 500]" 
+            [view]="[chartWidth, chartHeight]" 
             [results]="data" 
             [xAxis]="true" 
             [yAxis]="true"

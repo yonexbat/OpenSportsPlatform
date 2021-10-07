@@ -1,4 +1,5 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { interval } from 'rxjs';
 import { AvgSampleX } from '../model/workout/avgsamplex';
 import { StatisticsService } from '../workoutstatistics/statistics.service';
 
@@ -31,27 +32,39 @@ export class AltitudechartComponent implements OnInit {
     this.data[0].series = val.map(x => {
       return {name: x.dist, value: x.evelation};
     });
+
+    this._minAltitude = Math.min(...this._samples.map(x => x.evelation));
+    this._maxAltitude = Math.max(...this._samples.map(x => x.evelation));
   }
   public get samples(): AvgSampleX[] {
     return this._samples;
   }
 
+  // tslint:disable-next-line:variable-name
+  private _minAltitude = 0;
+
   public get minAltitude(): number {
-    if (this.samples) {
-      return Math.min(... this.samples.map(x => x.evelation));
-    }
-    return 0;
+    return this._minAltitude;
   }
 
+  // tslint:disable-next-line:variable-name
+  private _maxAltitude = 0;
   public get maxAltitude(): number {
-    if (this.samples) {
-      return Math.max(... this.samples.map(x => x.evelation));
-    }
-    return 0;
+    return this._maxAltitude;
   }
+
+  // tslint:disable-next-line:variable-name
+  private _chartWidth = 1000;
 
   public get chartWidth(): number {
-    return this.divElem.nativeElement.offsetWidth;
+    return this._chartWidth;
+  }
+
+
+
+  public get chartHeight(): number {
+    const diff = this.maxAltitude - this.minAltitude;
+    return diff * 1;
   }
 
 
@@ -59,6 +72,10 @@ export class AltitudechartComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this._chartWidth = this.divElem.nativeElement.offsetWidth;
+    interval(500).subscribe(() => {
+      this._chartWidth = this.divElem.nativeElement.offsetWidth;
+    });
   }
 
   public divResized(event: any): any {
