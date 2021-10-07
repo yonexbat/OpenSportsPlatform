@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { AvgSampleX } from '../model/workout/avgsamplex';
-import { Workout } from '../model/workout/workout';
 import { StatisticsService } from '../workoutstatistics/statistics.service';
+
+type AltitudeData = {name: string, series: {name: number, value: number}[]};
 
 @Component({
   selector: 'app-altitudechart',
@@ -10,19 +11,18 @@ import { StatisticsService } from '../workoutstatistics/statistics.service';
 })
 export class AltitudechartComponent implements OnInit {
 
-  public data: {name: string, series: {name: any, value: any}[] }[]  = [
+  public data: AltitudeData[]  = [
     {
       name: 'Altitude',
       series: []
     },
-    {
-      name: 'Heartrate',
-      series: []
-    }
   ];
+
 
   // tslint:disable-next-line:variable-name
   private _samples: AvgSampleX[] = [];
+
+  @ViewChild('ContainerRef', { static: true }) divElem!: ElementRef;
 
   @Input()
   public set samples(val: AvgSampleX[]) {
@@ -31,21 +31,38 @@ export class AltitudechartComponent implements OnInit {
     this.data[0].series = val.map(x => {
       return {name: x.dist, value: x.evelation};
     });
-
-    this.data[1].series = val.map(x => {
-      return {name: x.dist, value: x.heartRate};
-    });
-
-
   }
   public get samples(): AvgSampleX[] {
     return this._samples;
   }
 
+  public get minAltitude(): number {
+    if (this.samples) {
+      return Math.min(... this.samples.map(x => x.evelation));
+    }
+    return 0;
+  }
+
+  public get maxAltitude(): number {
+    if (this.samples) {
+      return Math.max(... this.samples.map(x => x.evelation));
+    }
+    return 0;
+  }
+
+  public get chartWidth(): number {
+    return this.divElem.nativeElement.offsetWidth;
+  }
+
+
   constructor(private statisticsService: StatisticsService) { }
 
 
   ngOnInit(): void {
+  }
+
+  public divResized(event: any): any {
+    console.log(event);
   }
 
 }
