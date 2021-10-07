@@ -64,7 +64,7 @@ export class AltitudechartComponent implements OnInit {
 
   public get chartHeight(): number {
     const diff = this.maxAltitude - this.minAltitude;
-    return diff * 1;
+    return Math.min(diff * 1, 700);
   }
 
 
