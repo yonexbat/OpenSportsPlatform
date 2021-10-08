@@ -2,3 +2,19 @@
     height: 2em;
     width: 2em;
 }
+
+.workoutitem {
+    display: flex;
+}
+
+.colicon {
+    flex-basis: 100px;
+    flex-shrink: 0;
+    flex-grow: 1;
+}
+
+.colstart {
+    flex-basis: 100px;
+    flex-shrink: 0;
+    flex-grow: 1;
+}
