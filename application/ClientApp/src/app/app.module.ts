@@ -44,6 +44,8 @@ import { DurationPipe } from './pipes/duration.pipe';
 import { CountdownComponent } from './countdown/countdown.component';
 import { SyncComponent } from './sync/sync.component';
 import { HeartratechartComponent } from './heartratechart/heartratechart.component';
+import { WorkoutOverView2Component } from './workout-over-view2/workout-over-view2.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 // Use your Client ID in the GoogleLoginProvider()
 const socialProviders = [
@@ -71,6 +73,7 @@ const socialProviders = [
     CountdownComponent,
     SyncComponent,
     HeartratechartComponent,
+    WorkoutOverView2Component,
   ],
   imports: [
     BrowserModule,
@@ -98,6 +101,7 @@ const socialProviders = [
     LeafletModule,
     ReactiveFormsModule,
     NgxChartsModule,
+    ScrollingModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

@@ -1,0 +1,12 @@
+<div>
+    <cdk-virtual-scroll-viewport #ScrollerRef itemSize="100" style="height:800px; background-color: aqua;">
+
+      <mat-list>
+        <ng-container *cdkVirtualFor="let item of arrNumber; let i = index">
+          <mat-list-item style="height: 100px;">
+            <p>Hello there {{i}}</p>
+          </mat-list-item>
+        </ng-container>
+      </mat-list>     
+    </cdk-virtual-scroll-viewport>
+</div>
