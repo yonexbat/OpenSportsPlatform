@@ -1,10 +1,16 @@
-<div>
-    <cdk-virtual-scroll-viewport #ScrollerRef itemSize="100" style="height:800px; background-color: aqua;">
+<div style="height: 100%;">
+    <cdk-virtual-scroll-viewport #ScrollerRef itemSize="50" style="height:100%;">
 
       <mat-list>
-        <ng-container *cdkVirtualFor="let item of arrNumber; let i = index">
-          <mat-list-item style="height: 100px;">
-            <p>Hello there {{i}}</p>
+        <ng-container *cdkVirtualFor="let workout of (workoutItems); let i = index">
+          <mat-list-item style="height: 50px;">
+            <img  matline [src]="getImage(workout.sport)" class="sportsicon">  
+            <p matLine>
+              {{workout.startTime | date : 'dd.MM.yyyy'}}
+              {{workout.startTime | date : 'HH:mm'}} - {{workout.endTime | date : 'HH:mm'}} 
+              {{workout.durationInSec | duration}} 
+              {{workout.distanceInKm | distance}}              
+            </p>          
           </mat-list-item>
         </ng-container>
       </mat-list>     

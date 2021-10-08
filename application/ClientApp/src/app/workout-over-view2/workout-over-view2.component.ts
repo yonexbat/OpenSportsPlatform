@@ -1,7 +1,9 @@
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { filter, map, pairwise, throttleTime } from 'rxjs/operators';
 import { DataService } from '../data.service';
+import { getImageFromCategory } from '../util/util';
 
 
 @Component({
@@ -11,11 +13,13 @@ import { DataService } from '../data.service';
 })
 export class WorkoutOverView2Component implements OnInit {
 
-  public arrNumber: number[] = [];
+  public workoutItems: any[] = [];
+
+  private currentPage = 0;
 
   @ViewChild('ScrollerRef', { static: true }) scroller!: CdkVirtualScrollViewport;
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService, private ngZone: NgZone) {
     this.fetchMore();
    }
 
@@ -28,17 +32,20 @@ export class WorkoutOverView2Component implements OnInit {
         filter(([y1, y2]) => (y2 < y1 && y2 < 300)),
         throttleTime(200)
       ).subscribe(x => {
-      console.log(x);
-      this.fetchMore();
+        this.ngZone.run(() => {
+          this.fetchMore();
+        });
     });
   }
 
-  private fetchMore(): void {
+  public async fetchMore(): Promise<void> {
+    this.currentPage++;
+    const newItems = await this.dataService.searchWorkoutItems(this.currentPage - 1);
+    this.workoutItems = [...this.workoutItems, ...newItems.data];
+  }
 
-    for (let i = 0; i < 20; i++){
-      this.arrNumber.push(i);
-    }
-    this.arrNumber = [...this.arrNumber];
+  public getImage(sportCat: string): string {
+    return getImageFromCategory(sportCat);
   }
 
 }
