@@ -43,6 +43,7 @@ import { DistancePipe } from './pipes/distance.pipe';
 import { DurationPipe } from './pipes/duration.pipe';
 import { CountdownComponent } from './countdown/countdown.component';
 import { SyncComponent } from './sync/sync.component';
+import { HeartratechartComponent } from './heartratechart/heartratechart.component';
 
 // Use your Client ID in the GoogleLoginProvider()
 const socialProviders = [
@@ -69,6 +70,7 @@ const socialProviders = [
     DurationPipe,
     CountdownComponent,
     SyncComponent,
+    HeartratechartComponent,
   ],
   imports: [
     BrowserModule,

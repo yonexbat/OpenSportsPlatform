@@ -45,14 +45,21 @@ export class StatisticsService {
     for (let key = 0; key <= lastKey; key += deltaDist) {
       if (map.has(key)) {
         const values: SampleX[] | undefined = map.get(key);
-        const numSamplesAltitude = values?.filter(x => !!x.sample.altitudeInMeters).length ?? 1;
-        const numSamplesHeartRate = values?.filter(x => !!x.sample.heartRateBpm).length ?? 1;
+        const numSamplesAltitude = values?.filter(x => !!x.sample.altitudeInMeters).length ?? 0;
+        const numSamplesHeartRate = values?.filter(x => !!x.sample.heartRateBpm).length ?? 0;
 
-        const sumEvelation = values?.reduce((accumulator, value)  => accumulator + value?.sample?.altitudeInMeters, 0) ?? 0;
-        const averageEvelation = sumEvelation / numSamplesAltitude;
+        let averageEvelation = 0;
+        let averageHeartRate = 0;
 
-        const sumHeartRate = values?.reduce((accumulator, value)  => accumulator + value?.sample?.heartRateBpm, 0) ?? 0;
-        const averageHeartRate = sumHeartRate / numSamplesHeartRate;
+        if (numSamplesAltitude > 0) {
+          const sumEvelation = values?.reduce((accumulator, value)  => accumulator + value?.sample?.altitudeInMeters, 0) ?? 0;
+          averageEvelation = sumEvelation / numSamplesAltitude;
+        }
+
+        if (numSamplesHeartRate > 0) {
+          const sumHeartRate = values?.reduce((accumulator, value)  => accumulator + value?.sample?.heartRateBpm, 0) ?? 0;
+          averageHeartRate = sumHeartRate / numSamplesHeartRate;
+        }
 
         res.push(new AvgSampleX(averageEvelation ?? 0, averageHeartRate ?? 0, key));
       }

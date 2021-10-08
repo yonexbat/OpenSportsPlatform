@@ -1,6 +1,6 @@
 <div *ngIf="workout">
 
-  <mat-accordion>
+
 
     <mat-expansion-panel [expanded]="true">
 
@@ -34,10 +34,10 @@
     <mat-expansion-panel [expanded]="true">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Graphs
+          Altitude
         </mat-panel-title>
         <mat-panel-description>
-          Altitude
+          Altitude Chart
         </mat-panel-description>
       </mat-expansion-panel-header>
       <mat-card>
@@ -48,6 +48,21 @@
       </mat-card>
     </mat-expansion-panel>
 
-  </mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Heartrate
+        </mat-panel-title>
+        <mat-panel-description>
+          Heartrate Chart
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-card>
+        <mat-card-content>
+          <app-heartratechart [samples]="samples">
+          </app-heartratechart>
+        </mat-card-content>
+      </mat-card>
+    </mat-expansion-panel>  
 
 </div>
