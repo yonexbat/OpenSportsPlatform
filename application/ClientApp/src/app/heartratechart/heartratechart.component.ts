@@ -1,8 +1,8 @@
 import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { MultiSeries } from '@swimlane/ngx-charts';
 import { interval, Subscription } from 'rxjs';
 import { AvgSampleX } from '../model/workout/avgsamplex';
 
-type HeartRate = { name: string, series: { name: number, value: number }[] };
 
 @Component({
   selector: 'app-heartratechart',
@@ -11,7 +11,7 @@ type HeartRate = { name: string, series: { name: number, value: number }[] };
 })
 export class HeartratechartComponent implements OnInit, OnDestroy {
 
-  public data: HeartRate[] = [
+  public data: MultiSeries = [
     {
       name: 'Heartrate',
       series: []
