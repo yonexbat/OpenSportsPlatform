@@ -46,6 +46,7 @@ import { SyncComponent } from './sync/sync.component';
 import { HeartratechartComponent } from './heartratechart/heartratechart.component';
 import { WorkoutOverView2Component } from './workout-over-view2/workout-over-view2.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 // Use your Client ID in the GoogleLoginProvider()
 const socialProviders = [
@@ -101,6 +102,7 @@ const socialProviders = [
     LeafletModule,
     ReactiveFormsModule,
     NgxChartsModule,
+    MatSnackBarModule,
     ScrollingModule,
   ],
   providers: [

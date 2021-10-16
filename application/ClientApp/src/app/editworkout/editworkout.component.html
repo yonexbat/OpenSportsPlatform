@@ -6,11 +6,11 @@
         </button>      
     </mat-toolbar>
 
-    <form  [formGroup]="formGroup" (ngSubmit)="saveClick()">
+    <form class="form" [formGroup]="formGroup" (ngSubmit)="saveClick()">
 
         <input type="hidden" formControlName="id">
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field appearance="fill" class="uielement">
             <mat-label>Sport</mat-label>
             <select matNativeControl required placeholder="Sports category for this workout"
                 formControlName="sportsCategoryId">
@@ -19,12 +19,16 @@
             </select>           
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
-            <mat-label>Leave a comment</mat-label>
-            <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+        <mat-form-field appearance="fill" >
+            <mat-label>Notes</mat-label>
+            <textarea matInput placeholder="Ex. It felt ..."></textarea>
         </mat-form-field>
 
-        <button mat-button type="submit" [disabled]="!formGroup.valid">Save</button>
+        <div mat-dialog-actions align="end" class="buttonlist">
+            <button mat-raised-button type="submit" [disabled]="!formGroup.valid">Save</button>
+        </div>
+
+       
 
     </form>
 </div>

@@ -44,7 +44,6 @@ export class WorkoutOverViewComponent implements OnInit, AfterViewInit  {
         return obsv;
       })
     ).subscribe(x => {
-      console.log(paginator.pageIndex);
       this.workouts = x.data;
       this.count = x.count;
       this.router.navigate([], {

@@ -15,7 +15,7 @@ export class StatsComponent implements OnInit {
     yearItems: [],
   };
 
-  public displayedColumns: string[] = ['sportsCategoryName', 'distanceInKm'];
+  public displayedColumns: string[] = ['sportsCategoryIcon', 'sportsCategoryName', 'distanceInKm'];
 
   constructor(private dataService: DataService) { }
 

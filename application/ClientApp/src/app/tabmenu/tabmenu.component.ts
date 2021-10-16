@@ -34,7 +34,6 @@ export class TabmenuComponent implements OnInit {
   constructor(private route: ActivatedRoute,  private router: Router) {
     this.router.events
     .pipe(filter(e => e instanceof NavigationEnd)).subscribe(() => this.handleRouteChanged());
-    console.log(`id: ${this.id}, path: ${this.path}`);
   }
 
   itemClicked(link: WorkoutMenuItem): void {
