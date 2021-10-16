@@ -1,6 +1,7 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { threadId } from 'worker_threads';
 import { ConfirmService } from '../confirm.service';
@@ -15,10 +16,7 @@ import { SaveWorkout } from '../model/editworkout/saveWorkout';
 })
 export class EditworkoutComponent implements OnInit {
 
-  public sports: SelectItem[] = [
-    {id: 1, name: 'Biking'},
-    {id: 2, name: 'Hiking'},
-  ];
+  public sports: SelectItem[] = [];
 
   public formGroup: FormGroup = this.fb.group({
     id: [0, Validators.required],
@@ -29,7 +27,8 @@ export class EditworkoutComponent implements OnInit {
               private dataService: DataService,
               private route: ActivatedRoute,
               private router: Router,
-              private confirmService: ConfirmService) {
+              private confirmService: ConfirmService,
+              private snackBar: MatSnackBar) {
       this.route.params.subscribe(x => this.handleRouteParamChanged(x));
   }
 
@@ -54,6 +53,11 @@ export class EditworkoutComponent implements OnInit {
   async save(): Promise<void> {
     const saveWorkout = this.formGroup.value;
     await this.dataService.saveWorkout(saveWorkout);
+    this.snackBar.open('Save successful', 'close', {
+      duration: 3000
+    }).onAction().subscribe((action) => {
+
+    });
   }
 
   public deleteClick(): void {
