@@ -9,7 +9,7 @@ namespace OpenSportsPlatform.Lib.Model.Dtos.Workout
     {
         public int Id { get; set; }
         public int SportsCategoryId { get; set; }
-
+        public string Notes { get; set; }
         public IList<SelectItemDto> SportsCategories { get; set; }
     }
 }

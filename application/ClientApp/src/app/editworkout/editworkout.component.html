@@ -19,16 +19,17 @@
             </select>           
         </mat-form-field>
 
-        <mat-form-field appearance="fill" >
+        <mat-form-field appearance="fill">
             <mat-label>Notes</mat-label>
-            <textarea matInput placeholder="Ex. It felt ..."></textarea>
+            <textarea matInput 
+                placeholder="Ex. It felt ..."
+                maxlength="1000"
+                formControlName="notes"></textarea>
         </mat-form-field>
 
-        <div mat-dialog-actions align="end" class="buttonlist">
+        <div mat-dialog-actions class="buttonlist">
             <button mat-raised-button type="submit" [disabled]="!formGroup.valid">Save</button>
-        </div>
-
-       
+        </div>       
 
     </form>
 </div>

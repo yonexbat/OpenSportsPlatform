@@ -27,8 +27,8 @@ export class ConfirmService {
       showCancel,
     };
     return this.dialog.open(ConfirmComponent, {
-      height: '400px',
-      width: '600px',
+      height: 'auto',
+      width: 'auto',
       data,
     }).afterClosed().pipe(map(x => {
       if (x === 'Ok') {

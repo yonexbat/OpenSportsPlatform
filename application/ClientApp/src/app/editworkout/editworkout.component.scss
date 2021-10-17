@@ -1,11 +1,21 @@
 .mat-form-field {
-    width: 100%;
+ box-sizing: border-box;
+ padding-left: 1rem;
+ padding-right: 1rem;
+ width: 100%;
 }
 
 .form {
     margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.buttonlist {
+    align-self: flex-end;  
+}
 .buttonlist button {
-    margin-right: 1rem;
+    margin-right: 1rem;  
+    
 }

@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { threadId } from 'worker_threads';
 import { ConfirmService } from '../confirm.service';
 import { DataService } from '../data.service';
 import { SelectItem } from '../model/common/selectitem';
@@ -20,7 +19,8 @@ export class EditworkoutComponent implements OnInit {
 
   public formGroup: FormGroup = this.fb.group({
     id: [0, Validators.required],
-    sportsCategoryId: [0, Validators.required]
+    sportsCategoryId: [0, Validators.required],
+    notes: [''],
   });
 
   constructor(private fb: FormBuilder,

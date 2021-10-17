@@ -52,6 +52,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                 {
                     Id = x.Id,
                     SportsCategoryId = x.SportsCategoryId,
+                    Notes = x.Notes,
                 }).SingleAsync();
 
             result.SportsCategories = await _dbContext.SportsCategory.Select(
@@ -117,6 +118,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             CheckAccess(workout);
 
             workout.SportsCategoryId = dto.SportsCategoryId;
+            workout.Notes = dto.Notes;
             await _dbContext.SaveChangesAsync();
 
             return true;
