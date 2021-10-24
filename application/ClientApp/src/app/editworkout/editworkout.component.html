@@ -1,9 +1,9 @@
 <div>
-    
+
     <mat-toolbar>
         <button (click)="deleteClick()" mat-icon-button>
-          <mat-icon>delete</mat-icon>
-        </button>      
+            <mat-icon>delete</mat-icon>
+        </button>
     </mat-toolbar>
 
     <form class="form" [formGroup]="formGroup" (ngSubmit)="saveClick()">
@@ -16,20 +16,17 @@
                 formControlName="sportsCategoryId">
                 <option value=""></option>
                 <option *ngFor="let item of sports" [value]="item.id">{{item.name}}</option>
-            </select>           
+            </select>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
             <mat-label>Notes</mat-label>
-            <textarea matInput 
-                placeholder="Ex. It felt ..."
-                maxlength="1000"
-                formControlName="notes"></textarea>
+            <textarea matInput placeholder="Ex. It felt ..." maxlength="1000" formControlName="notes"></textarea>
         </mat-form-field>
 
         <div mat-dialog-actions class="buttonlist">
-            <button mat-raised-button type="submit" [disabled]="!formGroup.valid">Save</button>
-        </div>       
+            <button mat-raised-button type="submit" color="primary" [disabled]="!formGroup.valid">Save</button>
+        </div>
 
     </form>
 </div>
