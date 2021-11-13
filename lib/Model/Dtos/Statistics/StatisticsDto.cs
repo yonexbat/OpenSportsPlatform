@@ -9,5 +9,7 @@ namespace OpenSportsPlatform.Lib.Model.Dtos.Statistics
         public IList<StatisticsItemDto> MonthItems { get; set; }
 
         public IList<StatisticsItemDto> YearItems { get; set; }
+
+        public IList<MonthValueItemDto> RunningLast12Months { get; set; }
     }
 }

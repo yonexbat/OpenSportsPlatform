@@ -6,24 +6,15 @@ namespace OpenSportsPlatform.Lib.Util
 {
     public static class DateUtil
     {
-        public static DateTime? AsUtc(this DateTime? input)
+        public static DateTimeOffset FirstOfMonth(this DateTimeOffset input)
         {
-            if(!input.HasValue)
-            {
-                return null;
-            }
+            DateTimeOffset dateTimeOffset = new DateTimeOffset(input.Year, input.Month, 1, 0, 0, 0, input.Offset);
+            return dateTimeOffset;
+        }
 
-            switch(input.Value.Kind)
-            {
-                case DateTimeKind.Utc:
-                    return input;
-                case DateTimeKind.Unspecified:
-                    return DateTime.SpecifyKind(input.Value, DateTimeKind.Utc);
-                case DateTimeKind.Local:
-                    return input.Value.ToUniversalTime();
-                default:
-                    throw new ArgumentException($"Kind {input.Value.Kind} not supported");
-            }
+        public static DateTimeOffset LastOfMonth(this DateTimeOffset input)
+        {
+            return input.FirstOfMonth().AddMonths(1).AddDays(-1);
         }
     }
 }

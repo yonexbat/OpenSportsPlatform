@@ -18,16 +18,16 @@ namespace unittests
     public class TcxFileImporterServiceTest
     {
         [Fact]
-        public async Task TestImort()
+        public async Task TestImport()
         {
             IPrincipal principal = MockPrincipal.CreatePrincipal();
             ISecurityService securityService = new SecurityService(principal);
             ILogger<TcxFileImporterService> logger = new MockLogger<TcxFileImporterService>();
 
 
-            using (var connection = MockDatabase.CreateInMemoryDatabase())
+            using (var connection = MockDatabaseSqlLite.CreateInMemoryDatabase())
             {
-                using (OpenSportsPlatformDbContext dbContext = MockDatabase.CreateDbContext(principal, connection))
+                using (OpenSportsPlatformDbContext dbContext = MockDatabaseSqlLite.CreateDbContext(principal, connection))
                 {
                     dbContext.Database.EnsureCreated();
 
@@ -37,7 +37,7 @@ namespace unittests
                     dbContext.SaveChanges();
                 }
 
-                using (OpenSportsPlatformDbContext dbContext = MockDatabase.CreateDbContext(principal, connection))
+                using (OpenSportsPlatformDbContext dbContext = MockDatabaseSqlLite.CreateDbContext(principal, connection))
                 {
                     ITcxFileImporterService service = new TcxFileImporterService(logger, securityService, dbContext);
                     Stream stream = File.OpenRead("Files\\testactivity.tcx");

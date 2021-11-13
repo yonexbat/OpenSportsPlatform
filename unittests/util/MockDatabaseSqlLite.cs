@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace unittests.util
 {
-    public static class MockDatabase
+    public static class MockDatabaseSqlLite
     {
         public static OpenSportsPlatformDbContext CreateDbContext(IPrincipal principal, DbConnection connection)
         {

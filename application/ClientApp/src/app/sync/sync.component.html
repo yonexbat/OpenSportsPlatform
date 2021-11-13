@@ -1,7 +1,7 @@
 <div>
     
     <div class="sync">
-        <button class="countdownbutton" mat-raised-button color="primary" (click)="syncPolar()">Sync Polar</button>
+        <button  *ngIf="showSpinner === false" class="countdownbutton" mat-raised-button color="primary" (click)="syncPolar()">Sync Polar</button>
         <mat-progress-spinner *ngIf="showSpinner" diameter=50 mode="indeterminate"></mat-progress-spinner>
     </div>
 </div>

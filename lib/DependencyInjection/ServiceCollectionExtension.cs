@@ -21,6 +21,7 @@ namespace OpenSportsPlatform.Lib.DependencyInjection
 
             return serviceCollection
                 .AddSingleton<IJwtTokenService, JwtTokenService>()
+                .AddSingleton<ICurrentDateTimeService, CurrentDateTimeService>()
                 .AddScoped<ISecurityService, SecurityService>()
                 .AddScoped<IMultiFileImporterService, MultiFileImporterService>()
                 .AddScoped<IUserProfileService, UserProfileService>()

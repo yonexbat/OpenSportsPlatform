@@ -63,4 +63,22 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
+
+  <!-- Running months -->
+  <div  #RunningYearRef  style="width: 100%;" 
+        [style.height.px]="400">
+        <ngx-charts-bar-vertical
+            [view]="[chartWidth, 200]" 
+            [results]="data"
+            [xAxis]="true" 
+            [yAxis]="true"
+            [showXAxisLabel]="false"
+            [showYAxisLabel]="false"
+            [legend]="false"
+            [showDataLabel]="true"
+            [scheme]="{domain: ['#003c88']}">
+        </ngx-charts-bar-vertical>
+    </div>
+
+
 </div>
