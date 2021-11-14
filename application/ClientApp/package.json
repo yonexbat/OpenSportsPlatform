@@ -23,7 +23,7 @@
     "@angular/router": "~12.2.9",
     "@asymmetrik/ngx-leaflet": "^8.1.0",
     "@swimlane/ngx-charts": "^17.0.1",
-    "angularx-social-login": "^3.5.7",
+    "angularx-social-login": "^4.0.1",
     "leaflet": "^1.7.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
