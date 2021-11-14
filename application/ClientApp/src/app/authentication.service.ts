@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { GoogleLoginProvider, SocialAuthService, SocialUser } from 'angularx-social-login';
 import { map, shareReplay, switchMap } from 'rxjs/operators';
-import { BehaviorSubject, from, Observable, ReplaySubject, Subject } from 'rxjs';
+import { BehaviorSubject, firstValueFrom, from, Observable, ReplaySubject, Subject } from 'rxjs';
 import { ExchangeToken } from './model/exchangetoken';
 import { ShortUserProfile } from './model/shortUserProfile';
 
@@ -65,8 +65,8 @@ export class AuthenticationService {
     }
   }
 
-  private async fetchUserProfile(): Promise<ShortUserProfile | undefined> {
-    return this.fetchUserProfileReplay().toPromise();
+  private async fetchUserProfile(): Promise<ShortUserProfile> {
+    return firstValueFrom(this.fetchUserProfileReplay()) as Promise<ShortUserProfile>;
   }
 
   private fetchUserProfileReplay(): Observable<ShortUserProfile> {
@@ -88,8 +88,8 @@ export class AuthenticationService {
     const exchangeToken: ExchangeToken = {
       idToken: user.idToken,
     };
-    const token = await this.http.post<string>('/Authentication/ExchangeToken', exchangeToken).toPromise();
-    localStorage.setItem('jwt', token as string);
+    const token = await firstValueFrom(this.http.post<string>('/Authentication/ExchangeToken', exchangeToken)) as string;
+    localStorage.setItem('jwt', token);
     return user;
   }
 }
