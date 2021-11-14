@@ -27,12 +27,19 @@ export class StatsComponent implements OnInit, OnDestroy {
 
   private intervalSub?: Subscription = undefined;
 
-   // tslint:disable-next-line:variable-name
-   private _chartWidth = 1000;
+  // tslint:disable-next-line:variable-name
+  private _chartWidth = 0;
 
-   public get chartWidth(): number {
-     return this._chartWidth;
-   }
+  public get chartWidth(): number {
+    return this._chartWidth;
+  }
+
+  // tslint:disable-next-line:variable-name
+  private _chartHeight = 400;
+
+  public get chartHeight(): number {
+    return this._chartHeight;
+  }
 
 
   constructor(private dataService: DataService) { }
@@ -55,8 +62,8 @@ export class StatsComponent implements OnInit, OnDestroy {
       previous.push({
         name: `${current.year}.${current.month}`,
         value: current.value,
-        label: `${current.year}.${current.month}`
-       });
+        //label: `${current.year}.${current.month} km`
+      });
       return previous;
     }, [] as SingleSeries);
   }

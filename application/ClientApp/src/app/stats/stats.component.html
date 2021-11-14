@@ -8,15 +8,15 @@
     <!-- Category Icon -->
     <ng-container matColumnDef="sportsCategoryIcon">
       <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell *matCellDef="let item"> 
-        <img [src]="getImage(item.sportsCategoryName)" class="sportsicon">  
+      <td mat-cell *matCellDef="let item">
+        <img [src]="getImage(item.sportsCategoryName)" class="sportsicon">
       </td>
     </ng-container>
 
     <!-- Category Name -->
     <ng-container matColumnDef="sportsCategoryName">
       <th mat-header-cell *matHeaderCellDef>Category</th>
-      <td mat-cell *matCellDef="let item">         
+      <td mat-cell *matCellDef="let item">
         <span>{{item.sportsCategoryName}}</span>
       </td>
     </ng-container>
@@ -36,18 +36,18 @@
   <h2>Yearly stats</h2>
   <table mat-table [dataSource]="statistics.yearItems" class="mat-elevation-z8">
 
-     <!-- Category Icon -->
-     <ng-container matColumnDef="sportsCategoryIcon">
+    <!-- Category Icon -->
+    <ng-container matColumnDef="sportsCategoryIcon">
       <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell *matCellDef="let item"> 
-        <img [src]="getImage(item.sportsCategoryName)" class="sportsicon">  
+      <td mat-cell *matCellDef="let item">
+        <img [src]="getImage(item.sportsCategoryName)" class="sportsicon">
       </td>
     </ng-container>
-    
+
     <!-- Category -->
     <ng-container matColumnDef="sportsCategoryName">
       <th mat-header-cell *matHeaderCellDef>Category</th>
-      <td mat-cell *matCellDef="let item"> 
+      <td mat-cell *matCellDef="let item">
         <span>{{item.sportsCategoryName}}</span>
       </td>
     </ng-container>
@@ -65,20 +65,22 @@
 
 
   <!-- Running months -->
-  <div  #RunningYearRef  style="width: 100%;" 
-        [style.height.px]="400">
-        <ngx-charts-bar-vertical
-            [view]="[chartWidth, 200]" 
-            [results]="data"
-            [xAxis]="true" 
-            [yAxis]="true"
-            [showXAxisLabel]="false"
-            [showYAxisLabel]="false"
-            [legend]="false"
-            [showDataLabel]="true"
-            [scheme]="{domain: ['#003c88']}">
-        </ngx-charts-bar-vertical>
+  <h2>Running each month</h2>
+  <mat-card>
+    <div #RunningYearRef style="width: 100%;" [style.height.px]="chartHeight">
+      <ngx-charts-bar-vertical 
+        [view]="[chartWidth, chartHeight]" 
+        [results]="data" 
+        [xAxis]="true" 
+        [yAxis]="true"
+        [showXAxisLabel]="false" 
+        [showYAxisLabel]="false" 
+        [legend]="false" 
+        [showDataLabel]="true"
+        [scheme]="{domain: ['#003c88']}">
+      </ngx-charts-bar-vertical>
     </div>
+  </mat-card>
 
 
 </div>
