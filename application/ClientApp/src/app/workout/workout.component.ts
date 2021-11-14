@@ -13,7 +13,7 @@ import { getImageFromCategory } from '../util/util';
 })
 export class WorkoutComponent implements OnInit {
 
-  public workout?: Workout;
+  public workout!: Workout;
   public options = {
     layers: [
       tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' })
@@ -63,7 +63,7 @@ export class WorkoutComponent implements OnInit {
   }
 
   handleRouteParamChanged(params: Params): void {
-    const id = params.id;
+    const id = params['id'];
     this.loadData(id);
   }
 
@@ -78,8 +78,8 @@ export class WorkoutComponent implements OnInit {
     const startMarker = this.createMarker(this.workout);
     this.layers.push(startMarker);
 
-    if (this.workout.samples.length > 0) {
-      this.options.center = latLng(this.workout.samples[0].latitude, this.workout.samples[0].longitude);
+    if (this.workout?.samples?.length > 0) {
+      this.options.center = latLng(this.workout?.samples[0].latitude, this.workout?.samples[0].longitude);
       this.options.zoom = 15;
     }
   }

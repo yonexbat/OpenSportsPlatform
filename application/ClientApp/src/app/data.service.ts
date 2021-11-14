@@ -23,30 +23,30 @@ export class DataService {
   }
 
   public searchWorkoutItems(page: number): Promise<PagedResult<WorkoutOverviewItem>> {
-    return this.http.get<PagedResult<WorkoutOverviewItem>>(`${this.apiPrefix}/Data/SearchWorkoutItems?Page=${page}`).toPromise();
+    return this.http.get<PagedResult<WorkoutOverviewItem>>(`${this.apiPrefix}/Data/SearchWorkoutItems?Page=${page}`).toPromise() as Promise<PagedResult<WorkoutOverviewItem>>;
   }
 
   public getWorkout(id: number): Promise<Workout> {
-    return this.http.get<Workout>(`${this.apiPrefix}/Data/GetWorkout/${id}`).toPromise();
+    return this.http.get<Workout>(`${this.apiPrefix}/Data/GetWorkout/${id}`).toPromise() as Promise<Workout>;
   }
 
   public getEditWorkout(id: number): Promise<EditWorkout> {
-    return this.http.get<EditWorkout>(`${this.apiPrefix}/Data/GetEditWorkout/${id}`).toPromise();
+    return this.http.get<EditWorkout>(`${this.apiPrefix}/Data/GetEditWorkout/${id}`).toPromise() as Promise<EditWorkout>;
   }
 
   public saveWorkout(dto: SaveWorkout): Promise<boolean> {
-    return this.http.post<boolean>(`${this.apiPrefix}/Data/SaveWorkout`, dto).toPromise();
+    return this.http.post<boolean>(`${this.apiPrefix}/Data/SaveWorkout`, dto).toPromise() as Promise<boolean> ;
   }
 
   public deleteWorkout(id: number): Promise<boolean> {
-    return this.http.delete<boolean>(`${this.apiPrefix}/Data/DeleteWorkout/${id}`).toPromise();
+    return this.http.delete<boolean>(`${this.apiPrefix}/Data/DeleteWorkout/${id}`).toPromise() as Promise<boolean>;
   }
 
   public getStatistics(): Promise<Statistics> {
-    return this.http.get<Statistics>(`${this.apiPrefix}/Data/GetStatistics`).toPromise();
+    return this.http.get<Statistics>(`${this.apiPrefix}/Data/GetStatistics`).toPromise() as Promise<Statistics>;
   }
 
   public syncPolar(): Promise<any> {
-    return this.http.post<boolean>(`${this.apiPrefix}/Data/SyncPolar`, {}).toPromise();
+    return this.http.post<boolean>(`${this.apiPrefix}/Data/SyncPolar`, {}).toPromise() as Promise<any>;
   }
 }

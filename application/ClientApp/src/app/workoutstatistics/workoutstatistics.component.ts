@@ -33,7 +33,7 @@ export class WorkoutstatisticsComponent implements OnInit {
   }
 
   handleRouteParamChanged(params: Params): void {
-    const id = params.id;
+    const id = params['id'];
     this.loadData(id);
   }
 

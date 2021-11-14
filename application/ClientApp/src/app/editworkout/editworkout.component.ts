@@ -15,7 +15,7 @@ import { SaveWorkout } from '../model/editworkout/saveWorkout';
 })
 export class EditworkoutComponent implements OnInit {
 
-  public sports: SelectItem[] = [];
+  public sports?: SelectItem[] = [];
 
   public formGroup: FormGroup = this.fb.group({
     id: [0, Validators.required],
@@ -36,13 +36,13 @@ export class EditworkoutComponent implements OnInit {
   }
 
   handleRouteParamChanged(params: Params): void {
-    const id = params.id;
+    const id = params['id'];
     this.loadData(id);
   }
 
   async loadData(id: number): Promise<void> {
     const workout = await this.dataService.getEditWorkout(id);
-    this.sports = workout.sportsCategories;
+    this.sports = workout?.sportsCategories;
     this.formGroup.patchValue(workout);
   }
 
@@ -55,7 +55,7 @@ export class EditworkoutComponent implements OnInit {
     await this.dataService.saveWorkout(saveWorkout);
     this.snackBar.open('Save successful', 'close', {
       duration: 3000
-    }).onAction().subscribe((action) => {
+    }).onAction().subscribe((action: any) => {
 
     });
   }

@@ -47,12 +47,15 @@ export class AuthenticationService {
 
   public isLoggedInObservalbe(): Observable<boolean> {
     return this.getUserProfile()
-      .pipe(map(x => x.authenticated));
+      .pipe(map((x: any) => x.authenticated));
   }
 
   public async isLoggedIn(): Promise<boolean> {
     const userProfile = await this.fetchUserProfile();
-    return userProfile.authenticated;
+    if (userProfile) {
+      return userProfile.authenticated === true;
+    }
+    return false;
   }
 
   private async startUp(): Promise<void> {
@@ -62,7 +65,7 @@ export class AuthenticationService {
     }
   }
 
-  private async fetchUserProfile(): Promise<ShortUserProfile> {
+  private async fetchUserProfile(): Promise<ShortUserProfile | undefined> {
     return this.fetchUserProfileReplay().toPromise();
   }
 
@@ -73,12 +76,12 @@ export class AuthenticationService {
     this.userProfileReplay = this.http.get<ShortUserProfile>('/Authentication/GetShortUserProfile')
     .pipe(
       map(profile => {
-        this.userProfile.next(profile);
+        this.userProfile.next(profile as ShortUserProfile);
         return profile;
       }),
       shareReplay(1)
       );
-    return this.userProfileReplay;
+    return this.userProfileReplay as Observable<ShortUserProfile>;
   }
 
   private async exchangeToken(user: SocialUser): Promise<SocialUser> {
@@ -86,7 +89,7 @@ export class AuthenticationService {
       idToken: user.idToken,
     };
     const token = await this.http.post<string>('/Authentication/ExchangeToken', exchangeToken).toPromise();
-    localStorage.setItem('jwt', token);
+    localStorage.setItem('jwt', token as string);
     return user;
   }
 }
