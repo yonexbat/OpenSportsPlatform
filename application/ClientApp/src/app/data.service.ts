@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { firstValueFrom } from 'rxjs';
 import { PagedResult } from './model/common/pagedresult';
 import { EditWorkout } from './model/editworkout/editWorkout';
 import { SaveWorkout } from './model/editworkout/saveWorkout';
@@ -18,35 +19,31 @@ export class DataService {
 
   }
 
-  public getForeCast(): Promise<any> {
-    return this.http.get('/WeatherForecast').toPromise();
-  }
-
   public searchWorkoutItems(page: number): Promise<PagedResult<WorkoutOverviewItem>> {
-    return this.http.get<PagedResult<WorkoutOverviewItem>>(`${this.apiPrefix}/Data/SearchWorkoutItems?Page=${page}`).toPromise();
+    return firstValueFrom(this.http.get<PagedResult<WorkoutOverviewItem>>(`${this.apiPrefix}/Data/SearchWorkoutItems?Page=${page}`)) as Promise<PagedResult<WorkoutOverviewItem>>;
   }
 
   public getWorkout(id: number): Promise<Workout> {
-    return this.http.get<Workout>(`${this.apiPrefix}/Data/GetWorkout/${id}`).toPromise();
+    return firstValueFrom(this.http.get<Workout>(`${this.apiPrefix}/Data/GetWorkout/${id}`)) as Promise<Workout>;
   }
 
   public getEditWorkout(id: number): Promise<EditWorkout> {
-    return this.http.get<EditWorkout>(`${this.apiPrefix}/Data/GetEditWorkout/${id}`).toPromise();
+    return firstValueFrom(this.http.get<EditWorkout>(`${this.apiPrefix}/Data/GetEditWorkout/${id}`)) as Promise<EditWorkout>;
   }
 
   public saveWorkout(dto: SaveWorkout): Promise<boolean> {
-    return this.http.post<boolean>(`${this.apiPrefix}/Data/SaveWorkout`, dto).toPromise();
+    return firstValueFrom(this.http.post<boolean>(`${this.apiPrefix}/Data/SaveWorkout`, dto)) as Promise<boolean> ;
   }
 
   public deleteWorkout(id: number): Promise<boolean> {
-    return this.http.delete<boolean>(`${this.apiPrefix}/Data/DeleteWorkout/${id}`).toPromise();
+    return firstValueFrom(this.http.delete<boolean>(`${this.apiPrefix}/Data/DeleteWorkout/${id}`)) as Promise<boolean>;
   }
 
   public getStatistics(): Promise<Statistics> {
-    return this.http.get<Statistics>(`${this.apiPrefix}/Data/GetStatistics`).toPromise();
+    return firstValueFrom(this.http.get<Statistics>(`${this.apiPrefix}/Data/GetStatistics`)) as Promise<Statistics>;
   }
 
   public syncPolar(): Promise<any> {
-    return this.http.post<boolean>(`${this.apiPrefix}/Data/SyncPolar`, {}).toPromise();
+    return firstValueFrom(this.http.post<boolean>(`${this.apiPrefix}/Data/SyncPolar`, {})) as Promise<any>;
   }
 }

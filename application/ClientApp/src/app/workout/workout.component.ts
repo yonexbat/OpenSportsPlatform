@@ -63,7 +63,7 @@ export class WorkoutComponent implements OnInit {
   }
 
   handleRouteParamChanged(params: Params): void {
-    const id = params.id;
+    const id = params['id'];
     this.loadData(id);
   }
 
@@ -78,7 +78,7 @@ export class WorkoutComponent implements OnInit {
     const startMarker = this.createMarker(this.workout);
     this.layers.push(startMarker);
 
-    if (this.workout.samples.length > 0) {
+    if (this.workout.samples?.length > 0) {
       this.options.center = latLng(this.workout.samples[0].latitude, this.workout.samples[0].longitude);
       this.options.zoom = 15;
     }
