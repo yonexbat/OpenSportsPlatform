@@ -12,3 +12,19 @@
     height: 1.5em;
     width: 1.5em;
 }
+
+.sliderrow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    
+    > span {
+        margin-right: 1rem;
+    }
+
+    mat-slider {
+        flex: 1 1 auto;
+        min-width: 30rem;
+    }
+}

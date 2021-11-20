@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { circle, icon, latLng, LatLngTuple, Marker, marker, polygon, Polyline, polyline, tileLayer } from 'leaflet';
+import { ActivatedRoute, Params, } from '@angular/router';
+import { icon, latLng, LatLngTuple, Marker, marker, Polyline, polyline, tileLayer } from 'leaflet';
+import { timer } from 'rxjs';
 import { DataService } from '../data.service';
 import { Sample } from '../model/workout/sample';
 import { Workout } from '../model/workout/workout';
@@ -44,6 +45,8 @@ export class WorkoutComponent implements OnInit {
   // tslint:disable-next-line:variable-name
   private _sliderval: number | null = 0;
 
+  public markerPosText: string = '00:00';
+
 
   constructor(
     private dataService: DataService,
@@ -78,6 +81,7 @@ export class WorkoutComponent implements OnInit {
 
     // marker
     const startMarker = this.createMarker(this.workout);
+    timer(1).subscribe(() => startMarker.openPopup());
     this.layers.push(startMarker);
 
     if (this.workout.samples?.length > 0) {
@@ -104,10 +108,12 @@ export class WorkoutComponent implements OnInit {
       iconAnchor: [12, 41],
       popupAnchor: [1, -34],
       tooltipAnchor: [16, -28],
-      shadowSize: [41, 41]
+      shadowSize: [41, 41],
     });
+    
     const makerLongLat = [workout.samples[0].latitude, workout.samples[0].longitude] as LatLngTuple;
     const startMarker = marker(makerLongLat, { title: `yuppi duppi`, icon: iconDefault });
+    startMarker.bindPopup('00:00');
     return startMarker;
   }
 
@@ -125,7 +131,9 @@ export class WorkoutComponent implements OnInit {
       const latLong = [sample?.latitude, sample?.longitude] as LatLngTuple;
       currentMarker.setLatLng(latLong);
       const tooltip = this.ticksToString(currentPoint);
-      console.log(tooltip);
+      this.markerPosText = tooltip;
+      currentMarker.setPopupContent(tooltip);
+      currentMarker.options.title = tooltip;      
     }
   }
 
@@ -174,7 +182,7 @@ export class WorkoutComponent implements OnInit {
     const hh = Math.floor(ticks / 3600);
     const mm = Math.floor((ticks % 3600) / 60);
     const ss = ticks % 60;
-    return this.pad(hh, 2) + ':' + this.pad(mm, 2) + ':' + this.pad(ss, 2);
+    return `${this.pad(hh, 2)}:${this.pad(mm, 2)}`;
   }
 
   private pad(n: number, width: number): string {
