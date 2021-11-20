@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { circle, latLng, LatLngTuple, Marker, marker, polygon, Polyline, polyline, tileLayer } from 'leaflet';
+import { circle, icon, latLng, LatLngTuple, Marker, marker, polygon, Polyline, polyline, tileLayer } from 'leaflet';
 import { DataService } from '../data.service';
 import { Sample } from '../model/workout/sample';
 import { Workout } from '../model/workout/workout';
 import { getImageFromCategory } from '../util/util';
+
+
 
 @Component({
   selector: 'app-workout',
@@ -91,8 +93,21 @@ export class WorkoutComponent implements OnInit {
   }
 
   private createMarker(workout: Workout): Marker {
+    const iconRetinaUrl = 'assets/images/leaflet/marker-icon-2x.png';
+    const iconUrl = 'assets/images/leaflet/marker-icon.png';
+    const shadowUrl = 'assets/images/leaflet/marker-shadow.png';
+    const iconDefault = icon({
+      iconRetinaUrl,
+      iconUrl,
+      shadowUrl,
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      tooltipAnchor: [16, -28],
+      shadowSize: [41, 41]
+    });
     const makerLongLat = [workout.samples[0].latitude, workout.samples[0].longitude] as LatLngTuple;
-    const startMarker = marker(makerLongLat, {title: `yuppi duppi`});
+    const startMarker = marker(makerLongLat, { title: `yuppi duppi`, icon: iconDefault });
     return startMarker;
   }
 
@@ -165,7 +180,7 @@ export class WorkoutComponent implements OnInit {
   private pad(n: number, width: number): string {
     const q = n + '';
     return q.length >= width ? q : new Array(width - q.length + 1).join('0') + q;
-}
+  }
 
   public getImage(sportCat?: string): string {
     return getImageFromCategory(sportCat);
