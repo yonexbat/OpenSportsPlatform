@@ -66,7 +66,7 @@ namespace OpenSportsPlatform.Application
             services.AddHttpContextAccessor();
 
             services.AddScoped<IPrincipal>(
-                (IServiceProvider sp) => sp.GetService<IHttpContextAccessor>()?.HttpContext?.User ?? throw new AggregateException("Can to provide IPrincipal")
+                (IServiceProvider sp) => sp.GetService<IHttpContextAccessor>()?.HttpContext?.User ?? throw new InvalidOperationException("Can to provide IPrincipal")
             );
         }
 
