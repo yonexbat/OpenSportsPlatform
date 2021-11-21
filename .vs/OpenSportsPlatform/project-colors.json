@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a30fcf9f-0042-41a1-af71-ff45c402be46": {
+      "ProjectGuid": "a30fcf9f-0042-41a1-af71-ff45c402be46",
+      "DisplayName": "application",
+      "ColorIndex": 0
+    },
+    "915ceff8-f24e-4f90-a99a-e89054e53a82": {
+      "ProjectGuid": "915ceff8-f24e-4f90-a99a-e89054e53a82",
+      "DisplayName": "databasemigrations",
+      "ColorIndex": 1
+    },
+    "a6ca5119-0bd7-4a79-8e16-95ee659a2cea": {
+      "ProjectGuid": "a6ca5119-0bd7-4a79-8e16-95ee659a2cea",
+      "DisplayName": "importer",
+      "ColorIndex": 2
+    },
+    "f32c1a4d-fc6e-45c8-b61f-fa4a6bbf18fc": {
+      "ProjectGuid": "f32c1a4d-fc6e-45c8-b61f-fa4a6bbf18fc",
+      "DisplayName": "lib",
+      "ColorIndex": 3
+    },
+    "b8d9450b-6ccf-49f0-90ad-45ed9dd76b29": {
+      "ProjectGuid": "b8d9450b-6ccf-49f0-90ad-45ed9dd76b29",
+      "DisplayName": "unittests",
+      "ColorIndex": 4
+    }
+  },
+  "NextColorIndex": 5
+}
