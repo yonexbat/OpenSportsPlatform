@@ -1,7 +1,20 @@
 <div>
+    <div>
+        <div class="welcome">
+            <div>
+                Open
+            </div>
+            <div>
+                Sports
+            </div>
+            <div>
+                Platform
+            </div>
+        </div>
+    </div>
     <div *ngIf="userProfile$ | async as user">
-        <div *ngIf="user.authenticated === true; else notsignedin">            
-            Welcome {{user.name}}            
+        <div *ngIf="user.authenticated === true; else notsignedin">
+            Welcome {{user.name}}
         </div>
         <ng-template #notsignedin>
             Please login to use this site.

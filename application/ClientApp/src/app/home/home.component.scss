@@ -1,0 +1,29 @@
+.welcome {
+    font-size: x-large;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+}
+
+.welcome > div {
+    padding-right: 0.8rem;
+    transform: rotate(0deg);
+    animation-name: rotateopf;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes rotateopf {
+    from {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
