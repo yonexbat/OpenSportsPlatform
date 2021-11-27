@@ -2,7 +2,7 @@
     font-size: x-large;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    display: flex; 
+    display: flex;
 
     & > div {
         padding-right: 0.8rem;
@@ -13,7 +13,6 @@
         animation-iteration-count: infinite;
     }
 }
-
 
 @keyframes rotateopf {
     from {
@@ -31,41 +30,37 @@
 
 .container {
     height: 100%;
-    background-color: darkslateblue;
+    background: linear-gradient(0deg, rgba(75,30,126,1) 45%, rgba(0,0,0,1) 100%);
     color: white;
 }
 
-
 .snowflake {
-    --size: 1em;
+    --size: 24px;
     width: var(--size);
     height: var(--size);
-    background: white;
-    border-radius: 50%;
     position: absolute;
     top: -5vh;
 }
 
-
 @for $i from 1 through 50 {
     .snowflake:nth-child(#{$i}) {
-      --size: #{random(5) * 0.2}vw;
-      --left-ini: #{random(60) - 30}vw;
-      --left-end: #{random(60) - 30}vw;
-      left: #{random(100)}vw;
-      animation-name: snowfall;
-      animation-duration: #{5 + random(10)}s;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-      animation-delay: -#{random(10)}s;
+        --left-ini: #{random(60) - 30}vw;
+        --left-end: #{random(60) - 30}vw;
+        --scale: #{random()};
+        left: #{random(100)}vw;
+        animation-name: snowfall;
+        animation-duration: #{5 + random(10)}s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-delay: -#{random(10)}s;
     }
-  }
+}
 
-  @keyframes snowfall {
+@keyframes snowfall {
     0% {
-      transform: translate3d(var(--left-ini), 0, 0);
+        transform: translate3d(var(--left-ini), 0, 0)  scale(var(--scale)) rotate(0deg);
     }
     100% {
-      transform: translate3d(var(--left-end), 110vh, 0);
+        transform: translate3d(var(--left-end), 110vh, 0)  scale(var(--scale)) rotate(360deg);
     }
-  }
+}
