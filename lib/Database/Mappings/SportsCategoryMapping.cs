@@ -12,6 +12,7 @@ namespace OpenSportsPlatform.Lib.Database.Mappings
         public void Configure(EntityTypeBuilder<SportsCategory> builder)
         {
             builder.ToTable("OSPSportcCategory");
+            builder.Property(x => x.Name).IsRequired(false);
         }
     }
 }
