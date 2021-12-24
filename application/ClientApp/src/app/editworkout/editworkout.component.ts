@@ -7,6 +7,7 @@ import { ConfirmService } from '../confirm.service';
 import { DataService } from '../data.service';
 import { SelectItem } from '../model/common/selectitem';
 import { SaveWorkout } from '../model/editworkout/saveWorkout';
+import { ticksToString } from '../util/util';
 
 @Component({
   selector: 'app-editworkout',
@@ -17,11 +18,40 @@ export class EditworkoutComponent implements OnInit {
 
   public sports?: SelectItem[] = [];
 
+  private _sliderValCropFrom: number | null = 0;
+  public get sliderValCropFrom() : number | null {
+    return this._sliderValCropFrom;
+  }
+  public set sliderValCropFrom(val: number | null) {
+    this._sliderValCropFrom = val;
+    if(val && this.ticks) {
+      const currentPoint = (val / 10000) * this.ticks;
+      this.sliderValCropFromText = ticksToString(currentPoint);
+    }
+  }
+
+  private _sliderValCropTo: number | null = 10000;
+  public get sliderValCropTo() : number | null {
+    return this._sliderValCropTo;
+  }
+  public set sliderValCropTo(val: number | null) {
+    this._sliderValCropTo = val;
+    if(val && this.ticks) {
+      const currentPoint = (val / 10000) * this.ticks;
+      this.sliderValCropToText = ticksToString(currentPoint);
+    }
+  }
+
+  public sliderValCropFromText: string = '00:00';
+  public sliderValCropToText: string = '00:00';
+
   public formGroup: FormGroup = this.fb.group({
     id: [0, Validators.required],
     sportsCategoryId: [0, Validators.required],
     notes: [''],
   });
+
+  private ticks: number = 0;
 
   constructor(private fb: FormBuilder,
               private dataService: DataService,
@@ -44,6 +74,8 @@ export class EditworkoutComponent implements OnInit {
     const workout = await this.dataService.getEditWorkout(id);
     this.sports = workout?.sportsCategories;
     this.formGroup.patchValue(workout);
+    this.ticks = workout.ticks;
+    this.sliderValCropToText = ticksToString(this.ticks);
   }
 
   public saveClick(): void {

@@ -14,3 +14,18 @@ export function getImageFromCategory(sportCat?: string): string {
     return '/assets/images/OtherSmall.png';
 }
 
+
+export function ticksToString(ticks: number): string {
+  ticks = ticks / 1000;
+  const hh = Math.floor(ticks / 3600);
+  const mm = Math.floor((ticks % 3600) / 60);
+  const ss = ticks % 60;
+  return `${pad(hh, 2)}:${pad(mm, 2)}`;
+}
+
+function pad(n: number, width: number): string {
+  const q = n + '';
+  return q.length >= width ? q : new Array(width - q.length + 1).join('0') + q;
+}
+
+

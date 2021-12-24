@@ -55,6 +55,20 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                     Notes = x.Notes,
                 }).SingleAsync();
 
+            result.FirstSampleTimestamp = await _dbContext.Sample
+                .Where(x => x.Segment.Workout.Id == id)
+                .Where(x => x.Timestamp.HasValue)
+                .OrderBy(x => x.Timestamp)
+                .Select(x => x.Timestamp)
+                .FirstOrDefaultAsync();
+
+            result.LastSampleTimestamp = await _dbContext.Sample
+                    .Where(x => x.Segment.Workout.Id == id)
+                    .Where(x => x.Timestamp.HasValue)
+                    .OrderByDescending(x => x.Timestamp)
+                    .Select(x => x.Timestamp)
+                    .FirstOrDefaultAsync();
+
             result.SportsCategories = await _dbContext.SportsCategory.Select(
                 x => new SelectItemDto()
                 {
@@ -63,6 +77,8 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                 })
                 .OrderBy(x => x.Name)
                 .ToListAsync();
+
+            result.Ticks = (result.LastSampleTimestamp - result.FirstSampleTimestamp)?.TotalMilliseconds;
 
             return result;
         }

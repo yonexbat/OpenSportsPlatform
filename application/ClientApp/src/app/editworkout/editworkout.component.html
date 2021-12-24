@@ -29,4 +29,23 @@
         </div>
 
     </form>
+
+    <div>
+        <div class="sliderrow">
+            <mat-slider min="0" max="10000" [(value)]="sliderValCropFrom"></mat-slider>
+            <span>{{sliderValCropFromText}}</span>
+        </div>
+        <div class="sliderrow">
+            <mat-slider min="0" max="10000" [(value)]="sliderValCropTo"></mat-slider>
+            <span>{{sliderValCropToText}}</span>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end;">
+            <div mat-dialog-actions class="buttonlist">
+                <button mat-raised-button type="submit" color="primary">Crop</button>
+            </div>
+        </div>
+
+    </div>
+
 </div>

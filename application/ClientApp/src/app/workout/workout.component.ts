@@ -5,7 +5,7 @@ import { timer } from 'rxjs';
 import { DataService } from '../data.service';
 import { Sample } from '../model/workout/sample';
 import { Workout } from '../model/workout/workout';
-import { getImageFromCategory } from '../util/util';
+import { getImageFromCategory, ticksToString } from '../util/util';
 
 
 
@@ -110,7 +110,7 @@ export class WorkoutComponent implements OnInit {
       tooltipAnchor: [16, -28],
       shadowSize: [41, 41],
     });
-    
+
     const makerLongLat = [workout.samples[0].latitude, workout.samples[0].longitude] as LatLngTuple;
     const startMarker = marker(makerLongLat, { title: `yuppi duppi`, icon: iconDefault });
     startMarker.bindPopup('00:00');
@@ -130,10 +130,10 @@ export class WorkoutComponent implements OnInit {
       const currentMarker = this.getMarker();
       const latLong = [sample?.latitude, sample?.longitude] as LatLngTuple;
       currentMarker.setLatLng(latLong);
-      const tooltip = this.ticksToString(currentPoint);
+      const tooltip = ticksToString(currentPoint);
       this.markerPosText = tooltip;
       currentMarker.setPopupContent(tooltip);
-      currentMarker.options.title = tooltip;      
+      currentMarker.options.title = tooltip;
     }
   }
 
@@ -175,19 +175,6 @@ export class WorkoutComponent implements OnInit {
       return timeOfSample >= pointToShow;
     });
     return sample;
-  }
-
-  private ticksToString(ticks: number): string {
-    ticks = ticks / 1000;
-    const hh = Math.floor(ticks / 3600);
-    const mm = Math.floor((ticks % 3600) / 60);
-    const ss = ticks % 60;
-    return `${this.pad(hh, 2)}:${this.pad(mm, 2)}`;
-  }
-
-  private pad(n: number, width: number): string {
-    const q = n + '';
-    return q.length >= width ? q : new Array(width - q.length + 1).join('0') + q;
   }
 
   public getImage(sportCat?: string): string {

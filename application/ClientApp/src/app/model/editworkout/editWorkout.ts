@@ -4,5 +4,6 @@ export interface EditWorkout {
     id: number;
     sportsCategoryId: number;
     sportsCategories: SelectItem[];
+    ticks: number;
 }
 
