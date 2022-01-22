@@ -64,7 +64,9 @@ namespace OpenSportsPlatform.Lib.Services.Impl
         {
             string userid = _securityService.GetCurrentUserid();
             // Test if user exists.
-            UserProfile user = await _dbContext.UserProfile.Where(x => x.UserId == userid)
+            UserProfile? user = await _dbContext
+                .UserProfile
+                .Where(x => x.UserId == userid)
                 .FirstOrDefaultAsync();
 
             if (user == null)

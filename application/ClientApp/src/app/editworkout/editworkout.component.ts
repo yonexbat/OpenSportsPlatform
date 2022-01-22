@@ -6,6 +6,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ConfirmService } from '../confirm.service';
 import { DataService } from '../data.service';
 import { SelectItem } from '../model/common/selectitem';
+import { CropWorkout } from '../model/editworkout/cropWorkout';
 import { SaveWorkout } from '../model/editworkout/saveWorkout';
 import { ticksToString } from '../util/util';
 
@@ -107,5 +108,20 @@ export class EditworkoutComponent implements OnInit {
       await this.dataService.deleteWorkout(id);
       this.router.navigate(['workouts']);
     }
+  }
+
+  public cropClick() {
+    this.crop();
+  }
+
+  private async crop() {
+    const crop: CropWorkout = {
+      id: this.formGroup.get('id')?.value,
+      cropFrom: this.sliderValCropFrom ?? 0,
+      cropTo: this.sliderValCropTo ?? 0,
+    };
+
+    await this.dataService.crop(crop);
+    await this.loadData(crop.id);
   }
 }

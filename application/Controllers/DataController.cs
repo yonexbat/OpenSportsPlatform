@@ -1,14 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OpenSportsPlatform.Lib.Model.Dtos.Statistics;
 using OpenSportsPlatform.Lib.Model.Dtos.Workout;
 using OpenSportsPlatform.Lib.Model.Dtos.WorkoutOverview;
 using OpenSportsPlatform.Lib.Services.Contract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace OpenSportsPlatform.Application.Controllers
 {
@@ -21,18 +17,21 @@ namespace OpenSportsPlatform.Application.Controllers
         private readonly ITcxFileImporterService _tcxFileImporterService;
         private readonly IStatisticsService _statisticsService;
         private readonly ISyncPolarService _syncPolarService;
+        private readonly ICropWorkoutService _cropWorkoutService;
 
         public DataController(IWorkoutOverviewService workoutOverviewService,
             IWorkoutService workoutService,
             ITcxFileImporterService tcxFileImporterService,
             IStatisticsService statisticsService,
-            ISyncPolarService syncPolarService)
+            ISyncPolarService syncPolarService,
+            ICropWorkoutService cropWorkoutService)
         {
             _workoutOverviewService = workoutOverviewService;
             _workoutService = workoutService;
             _tcxFileImporterService = tcxFileImporterService;
             _statisticsService = statisticsService;
             _syncPolarService = syncPolarService;
+            _cropWorkoutService = cropWorkoutService;
         }
 
         [HttpGet]
@@ -96,5 +95,14 @@ namespace OpenSportsPlatform.Application.Controllers
         {
             await _syncPolarService.SyncPolar();
         }
+
+        [HttpPost]
+        [Route("[action]")]
+        public async Task Crop([FromBody] CropWorkoutDto dto)
+        {
+            await _cropWorkoutService.Crop(dto);
+
+        }
+
     }
 }

@@ -30,6 +30,8 @@ namespace OpenSportsPlatform.Lib.DependencyInjection
                 .AddScoped<IWorkoutService, WorkoutService>()
                 .AddScoped<IStatisticsService, StatisticsService>()
                 .AddScoped<ISyncPolarService, SyncPolarService>()
+                .AddScoped<ICropWorkoutService, CropWorkoutService>()
+                .AddScoped<IWorkoutStatisticsService, WorkoutStatisticsService>()
                 .AddDbContext<OpenSportsPlatformDbContext>(options =>
                 options.UseSqlServer(connectionString, x => x.UseNetTopologySuite()));
         }

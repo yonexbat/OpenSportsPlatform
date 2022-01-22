@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { PagedResult } from './model/common/pagedresult';
+import { CropWorkout } from './model/editworkout/cropWorkout';
 import { EditWorkout } from './model/editworkout/editWorkout';
 import { SaveWorkout } from './model/editworkout/saveWorkout';
 import { Statistics } from './model/statistics/statistics';
@@ -45,5 +46,9 @@ export class DataService {
 
   public syncPolar(): Promise<any> {
     return firstValueFrom(this.http.post<boolean>(`${this.apiPrefix}/Data/SyncPolar`, {})) as Promise<any>;
+  }
+
+  public crop(dto: CropWorkout): Promise<any> {
+    return firstValueFrom(this.http.post<boolean>(`${this.apiPrefix}/Data/Crop`, dto)) as Promise<any>;
   }
 }
