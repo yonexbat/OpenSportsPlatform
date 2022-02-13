@@ -30,15 +30,15 @@ namespace OpenSportsPlatform.Lib.Services.Impl
         public async Task<bool> DeleteWorkout(int id)
         {
             _logger.LogInformation("Deleting workout with id {0}", id);
-            Workout wo = await _dbContext.Workout.Where(x => x.Id == id)
+            Workout workout = await _dbContext.Workout.Where(x => x.Id == id)
                 .Include(x => x.UserProfile)
                 .Include(x => x.Segments)
                 .ThenInclude(x => x.Samples)
                 .SingleAsync();
 
-            CheckAccess(wo);
+            _securityService.CheckAccess(workout);
 
-            _dbContext.Remove(wo);
+            _dbContext.Remove(workout);
             await _dbContext.SaveChangesAsync();
             return true;
         }
@@ -58,16 +58,15 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             result.FirstSampleTimestamp = await _dbContext.Sample
                 .Where(x => x.Segment.Workout.Id == id)
                 .Where(x => x.Timestamp.HasValue)
-                .OrderBy(x => x.Timestamp)
-                .Select(x => x.Timestamp)
-                .FirstOrDefaultAsync();
+                .OrderBy(x => x.Id)
+                .MinAsync(x => x.Timestamp);
+                
 
             result.LastSampleTimestamp = await _dbContext.Sample
-                    .Where(x => x.Segment.Workout.Id == id)
-                    .Where(x => x.Timestamp.HasValue)
-                    .OrderByDescending(x => x.Timestamp)
-                    .Select(x => x.Timestamp)
-                    .FirstOrDefaultAsync();
+                .Where(x => x.Segment.Workout.Id == id)
+                .Where(x => x.Timestamp.HasValue)
+                .OrderBy(x => x.Id)
+                .MaxAsync(x => x.Timestamp);
 
             result.SportsCategories = await _dbContext.SportsCategory.Select(
                 x => new SelectItemDto()
@@ -130,8 +129,8 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                 .Where(x => x.Id == dto.Id)
                 .Include(x => x.UserProfile)
                 .SingleAsync();
-           
-            CheckAccess(workout);
+
+            _securityService.CheckAccess(workout);
 
             workout.SportsCategoryId = dto.SportsCategoryId;
             workout.Notes = dto.Notes;
@@ -139,21 +138,6 @@ namespace OpenSportsPlatform.Lib.Services.Impl
 
             return true;
         }
-
-        private void CheckAccess(Workout wo)
-        {
-            if (_securityService.IsUserInAnyRole(Role.Admin))
-            {
-                return;
-            }
-
-            string userId = wo.UserProfile.UserId;
-            string currentPrincipal = _securityService.GetCurrentUserid();
-
-            if (userId != currentPrincipal)
-            {
-                throw new SecurityException($"User {currentPrincipal} not allowed to delete workout from {userId}");
-            }
-        }
+       
     }
 }

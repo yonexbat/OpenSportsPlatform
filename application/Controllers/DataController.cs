@@ -101,7 +101,6 @@ namespace OpenSportsPlatform.Application.Controllers
         public async Task Crop([FromBody] CropWorkoutDto dto)
         {
             await _cropWorkoutService.Crop(dto);
-
         }
 
     }

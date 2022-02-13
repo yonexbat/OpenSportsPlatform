@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OpenSportsPlatform.Lib.Model.Entities
 {
-    public class Workout : IEntity
+    public class Workout : IEntity, ISecuredEntity
     {
         public virtual int Id { get; set; }
         public virtual int SportsCategoryId { get; set; }
@@ -32,6 +32,7 @@ namespace OpenSportsPlatform.Lib.Model.Entities
         public virtual DateTimeOffset UpdateDate { get; set; }
         public virtual SportsCategory SportsCategory { get; set; }
         public virtual IList<Segment> Segments { get; set; }
-        public virtual UserProfile UserProfile { get; set; }  
+        public virtual UserProfile UserProfile { get; set; }
+        public string? OwnerUserId => this.UserProfile?.UserId;
     }
 }

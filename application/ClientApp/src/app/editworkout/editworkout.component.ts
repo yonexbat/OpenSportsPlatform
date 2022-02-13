@@ -68,12 +68,14 @@ export class EditworkoutComponent implements OnInit {
 
   handleRouteParamChanged(params: Params): void {
     const id = params['id'];
-    this.loadData(id);
+    this.loadData(id, true);
   }
 
-  async loadData(id: number): Promise<void> {
+  async loadData(id: number, resetSports: boolean): Promise<void> {
     const workout = await this.dataService.getEditWorkout(id);
-    this.sports = workout?.sportsCategories;
+    if(resetSports) {
+      this.sports = workout?.sportsCategories;
+    }
     this.formGroup.patchValue(workout);
     this.ticks = workout.ticks;
     this.sliderValCropToText = ticksToString(this.ticks);
@@ -115,13 +117,27 @@ export class EditworkoutComponent implements OnInit {
   }
 
   private async crop() {
+
+    if(this.ticks == null || this.ticks === 0) {
+      return;
+    }
+
+    let cropFrom =  this.toTicks(this.sliderValCropFrom ?? 0);
+    let cropTo = this.toTicks(this.sliderValCropTo ?? 0);    
+
     const crop: CropWorkout = {
       id: this.formGroup.get('id')?.value,
-      cropFrom: this.sliderValCropFrom ?? 0,
-      cropTo: this.sliderValCropTo ?? 0,
+      cropFrom: cropFrom,
+      cropTo: cropTo,
     };
 
-    await this.dataService.crop(crop);
-    await this.loadData(crop.id);
+    await this.dataService.crop(crop);   
+    await this.loadData(crop.id, false);    
+  }
+
+  private toTicks(percentage: number): number {
+    let result = (percentage / 10000) * this.ticks;
+    result = Math.trunc(result);
+    return result;
   }
 }
