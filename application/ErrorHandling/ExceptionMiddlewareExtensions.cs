@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
 using OpenSportsPlatform.Lib.Model.Exceptions;
 using System.Net;
+using System.Security;
 
 namespace OpenSportsPlatform.Application.ErrorHandling
 {
@@ -31,6 +32,10 @@ namespace OpenSportsPlatform.Application.ErrorHandling
                 case EntityNotFoundException:
                     errorDetails.StatusCode = StatusCodes.Status404NotFound;
                     errorDetails.Message = "Entity not found";
+                    break;
+                case SecurityException:
+                    errorDetails.StatusCode = StatusCodes.Status403Forbidden;
+                    errorDetails.Message = "Forbidden";
                     break;
                 default:
                     errorDetails.StatusCode = context.Response.StatusCode;
