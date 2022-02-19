@@ -96,31 +96,31 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             }
 
             // Calculate values
-            IEnumerable<float?> cadence = _workout
-                .Segments
-                .SelectMany(x => x.Samples)
-                .Select(x => x.CadenceRpm)
-                .Where(x => x > 0);
+            IEnumerable<Sample>? allSamples = _workout
+                .Segments?.SelectMany(x => x.Samples);
 
-            // to do: prevent exception.
-            _workout.CadenceMaxRpm = cadence.Max();
-            _workout.CadenceAvgRpm = cadence.Average();
+            if (allSamples != null && allSamples.Any())
+            {
+                IEnumerable<float?> cadence = allSamples
+                   .Select(x => x.CadenceRpm)
+                   .Where(x => x > 0);
 
-            IEnumerable<float?> altitude = _workout
-              .Segments
-              .SelectMany(x => x.Samples)
-              .Select(x => x.AltitudeInMeters)
-              .Where(x => x > 0);
+                _workout.CadenceMaxRpm = cadence.Max();
+                _workout.CadenceAvgRpm = cadence.Average();
 
-            _workout.AltitudeMaxInMeters = altitude.Max();
-            _workout.AltitudeMinInMeters = altitude.Min();
+                IEnumerable<float?> altitude = allSamples
+                  .Select(x => x.AltitudeInMeters)
+                  .Where(x => x > 0);
 
-            _workout.StartTime = _workout.Segments?.First().Samples?.First().Timestamp;
-            _workout.EndTime = _workout.Segments?.Last().Samples?.Last().Timestamp;
+                _workout.AltitudeMaxInMeters = altitude.Max();
+                _workout.AltitudeMinInMeters = altitude.Min();
 
-            _workout.AscendInMeters = _ascendInMeters;
-            _workout.DescendInMeters = _descendInMeters;
-                
+                _workout.StartTime = allSamples.FirstOrDefault()?.Timestamp;
+                _workout.EndTime = allSamples.LastOrDefault()?.Timestamp;
+
+                _workout.AscendInMeters = _ascendInMeters;
+                _workout.DescendInMeters = _descendInMeters;
+            }                          
 
             await _dbContext.SaveChangesAsync();
         }
