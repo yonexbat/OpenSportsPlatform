@@ -25,6 +25,7 @@ namespace OpenSportsPlatform.Lib.DependencyInjection
                 .AddScoped<ISecurityService, SecurityService>()
                 .AddScoped<IMultiFileImporterService, MultiFileImporterService>()
                 .AddScoped<IUserProfileService, UserProfileService>()
+                .AddScoped<ICalculateWorkoutStatisticsService, CalculateWorkoutStatisticsService>()
                 .AddScoped<IWorkoutOverviewService, WorkoutOverviewService>()
                 .AddScoped<ITcxFileImporterService, TcxFileImporterService>()
                 .AddScoped<IWorkoutService, WorkoutService>()

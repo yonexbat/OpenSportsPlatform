@@ -34,7 +34,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
         public async Task Crop(CropWorkoutDto dto)
         {
 
-            
+
             long cropFrom = Math.Min(dto.CropFrom, dto.CropTo);
             long cropTo = Math.Max(dto.CropFrom, dto.CropTo);
             int id = dto.Id;
@@ -60,18 +60,30 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                 .OrderBy(x => x.Id)
                 .MinAsync(x => x.Timestamp);
 
-            
-
-            if (firstTimeStamp.HasValue)
+            if (!firstTimeStamp.HasValue)
             {
-                TimeSpan cropFromTimespan = new TimeSpan(cropFrom * TimeSpan.TicksPerMillisecond);
-                TimeSpan cropToTimespan = new TimeSpan(cropTo * TimeSpan.TicksPerMillisecond);
-
-
-                DateTimeOffset keepFrom = firstTimeStamp.Value + cropFromTimespan;
-                DateTimeOffset keepTo = firstTimeStamp.Value + cropToTimespan;
+                return;
             }
 
+
+
+            TimeSpan cropFromTimespan = new TimeSpan(cropFrom * TimeSpan.TicksPerMillisecond);
+            TimeSpan cropToTimespan = new TimeSpan(cropTo * TimeSpan.TicksPerMillisecond);
+
+
+            DateTimeOffset keepFrom = firstTimeStamp.Value + cropFromTimespan;
+            DateTimeOffset keepTo = firstTimeStamp.Value + cropToTimespan;
+
+
+            var samplesToDelte = _dbContext.Sample
+                .Where(x => x.Segment.Workout.Id == id)
+                .Where(x => x.Timestamp < keepFrom || x.Timestamp > keepTo);
+
+            foreach(var sampleToDelete in samplesToDelte)
+            {
+                _dbContext.Sample.Remove(sampleToDelete);
+            }
+            await _dbContext.SaveChangesAsync();
         }
     }
 }
