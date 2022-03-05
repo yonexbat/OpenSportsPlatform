@@ -113,7 +113,12 @@ export class EditworkoutComponent implements OnInit {
   }
 
   public cropClick() {
-    this.crop();
+    this.confirmService.confirm('Crop workout', 'Do you really want to crop this workout?')
+      .subscribe(x => {
+        if (x) {
+          this.crop();
+        }
+      });    
   }
 
   private async crop() {
