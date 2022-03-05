@@ -20,14 +20,17 @@ namespace OpenSportsPlatform.Lib.Services.Impl
         private readonly ILogger _logger;
         private readonly OpenSportsPlatformDbContext _dbContext;
         private readonly ISecurityService _securityService;
+        private readonly ICalculateWorkoutStatisticsService _calculateWorkoutStatisticsService;
 
         public CropWorkoutService(OpenSportsPlatformDbContext dbContext,
             ILogger<CropWorkoutService> logger,
-            ISecurityService securityService)
+            ISecurityService securityService,
+            ICalculateWorkoutStatisticsService calculateWorkoutStatisticsService)
         {
             _dbContext = dbContext;
             _logger = logger;
             _securityService = securityService;
+            _calculateWorkoutStatisticsService = calculateWorkoutStatisticsService;
         }
 
 
@@ -77,6 +80,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
 
             var samplesToDelte = _dbContext.Sample
                 .Where(x => x.Segment.Workout.Id == id)
+                .Where(x => x.Timestamp.HasValue)
                 .Where(x => x.Timestamp < keepFrom || x.Timestamp > keepTo);
 
             foreach(var sampleToDelete in samplesToDelte)
@@ -84,6 +88,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                 _dbContext.Sample.Remove(sampleToDelete);
             }
             await _dbContext.SaveChangesAsync();
+            await _calculateWorkoutStatisticsService.Calculate(id);
         }
     }
 }

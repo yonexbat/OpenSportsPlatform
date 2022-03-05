@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using OpenSportsPlatform.Lib.Database;
 using OpenSportsPlatform.Lib.Model.Entities;
 using OpenSportsPlatform.Lib.Services.Contract;
@@ -30,10 +31,25 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             var samples = _dbContex.Sample
                 .Where(x => x.Segment.Workout.Id == workoutid);
 
+            double totalDist = 0;
+
+            Sample? lastSample = null;
             foreach (var sample in samples)
             {
+                if(lastSample == null)
+                {
+                    lastSample = sample;
+                    continue;
+                }
 
+                var diffDist = Dist(lastSample, sample);
+                totalDist += diffDist;
+                lastSample = sample;
             }
+
+            Workout workout = await _dbContex.Workout.Where(x => x.Id == workoutid).SingleAsync();
+            workout.DistanceInKm = (float) totalDist;
+            await _dbContex.SaveChangesAsync();
         }
 
         private double Dist(Sample sample1, Sample sample2)
@@ -56,6 +72,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
               Math.Sin(dLon / 2);
             double c = 2 * Math.Atan2(Math.Sqrt(r), Math.Sqrt(1 - r));
             double d = 6371000 * c;
+            d = d / 1000;
             return d;
         }
 
