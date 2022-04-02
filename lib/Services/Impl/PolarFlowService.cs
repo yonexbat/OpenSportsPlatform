@@ -53,7 +53,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             throw new ArgumentException($"Got unexpected statuscode from server. Statuscode {response.StatusCode}");
         }
 
-        public async Task<TransactionResponse> CreateTransaction(string userId, string accessCode)
+        public async Task<TransactionResponse?> CreateTransaction(string userId, string accessCode)
         {
             _logger.LogInformation("Starting transaction for user {0}", userId);
 

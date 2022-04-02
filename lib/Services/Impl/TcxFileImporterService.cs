@@ -21,9 +21,9 @@ namespace OpenSportsPlatform.Lib.Services.Impl
         private readonly OpenSportsPlatformDbContext _dbContext;
         private readonly ISecurityService _securityService;
 
-        private Workout _workout;
-        private Segment _segment;
-        private Sample _sample;
+        private Workout? _workout;
+        private Segment? _segment;
+        private Sample? _sample;
         private ImportTcxState _importState;
 
         private string _currentElement;
