@@ -47,6 +47,7 @@ import { HeartratechartComponent } from './heartratechart/heartratechart.compone
 import { WorkoutOverView2Component } from './workout-over-view2/workout-over-view2.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { PolarComponent } from './polar/polar.component';
 
 // Use your Client ID in the GoogleLoginProvider()
 const socialProviders = [
@@ -75,6 +76,7 @@ const socialProviders = [
     SyncComponent,
     HeartratechartComponent,
     WorkoutOverView2Component,
+    PolarComponent,
   ],
   imports: [
     BrowserModule,

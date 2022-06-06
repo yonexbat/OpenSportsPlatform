@@ -70,7 +70,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             if (response.StatusCode == System.Net.HttpStatusCode.Created)
             {
                 string json = await response.Content.ReadAsStringAsync();
-                return JsonSerializer.Deserialize<TransactionResponse>(json);
+                return JsonSerializer.Deserialize<TransactionResponse>(json)!;
             }
             throw new ArgumentException($"Got unexpected statuscode from server. Statuscode {response.StatusCode}");
         }
@@ -87,8 +87,12 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             formvalues["code"] = code;
             request.Content = new FormUrlEncodedContent(formvalues);
             HttpResponseMessage response = await GetHttpClient().SendAsync(request);
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new ArgumentException("Error exchanging token from polar");
+            }
             string json = await response.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<AccessTokenResponse>(json);
+            return JsonSerializer.Deserialize<AccessTokenResponse>(json)!;
         }
 
 
@@ -100,8 +104,17 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessCode);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.garmin.tcx+xml"));
             HttpResponseMessage response = await GetHttpClient().SendAsync(request);
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new ArgumentException($"Got a 404 for url {url}");
+            }
             Stream stream = await response.Content.ReadAsStreamAsync();
             return new GZipStream(stream, CompressionMode.Decompress);
+        }
+
+        public string GetRegisterUrl()
+        {
+            return $"https://flow.polar.com/oauth2/authorization?response_type=code&client_id={this.PolarClientId}";
         }
 
         public async Task<ListExercisesResponse> ListExercises(string userId, string transationId, string accessCode)
@@ -115,7 +128,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
 
             HttpResponseMessage response = await GetHttpClient().SendAsync(request);
             string json = await response.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<ListExercisesResponse>(json);
+            return JsonSerializer.Deserialize<ListExercisesResponse>(json)!;
         }
 
         public async Task<RegisterUserResponse> RegisterUser(string userId, string accessCode)
@@ -130,7 +143,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             request.Content = new StringContent(requestJson, Encoding.UTF8, "application/json");
             HttpResponseMessage response = await GetHttpClient().SendAsync(request);
             string json = await response.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<RegisterUserResponse>(json);           
+            return JsonSerializer.Deserialize<RegisterUserResponse>(json)!;           
         }
 
         private string GetAuthorizationHeader(string clientId, string secret)

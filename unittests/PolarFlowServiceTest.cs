@@ -21,7 +21,7 @@ namespace unittests
         public async Task GetAuthtokenOk()
         {            
             IPolarFlowService service = CreateService();
-            AccessTokenResponse res = await service.GetAuthToken("b83321ebdf17f3c8e51f1615ca772fa9");
+            AccessTokenResponse res = await service.GetAuthToken("cadefc6c043b89efa06ede0d7ada36");
 
             Assert.False(string.IsNullOrWhiteSpace(res.AccessToken));
             Assert.True(res.UserId > 0);

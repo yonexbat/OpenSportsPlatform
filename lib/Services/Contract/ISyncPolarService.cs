@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OpenSportsPlatform.Lib.Model.Dtos.PolarOsp;
 
 namespace OpenSportsPlatform.Lib.Services.Contract
 {
     public interface ISyncPolarService
     {
         Task SyncPolar();
+
+        Task ExchangeToken(PolarExchangeTokenDto dto);
+
+        Task<PolarRegisterDto> RegisterData();
     }
 }

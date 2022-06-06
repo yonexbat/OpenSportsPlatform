@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using OpenSportsPlatform.Lib.Database;
+using OpenSportsPlatform.Lib.Model.Dtos;
 using OpenSportsPlatform.Lib.Model.Dtos.Polar;
+using OpenSportsPlatform.Lib.Model.Dtos.PolarOsp;
 using OpenSportsPlatform.Lib.Services.Contract;
 using System;
 using System.Collections.Generic;
@@ -19,6 +21,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
         private readonly OpenSportsPlatformDbContext _dbContext;
         private readonly ITcxFileImporterService _tcxFileImporterService;
         private readonly ILogger _logger;
+       
 
         public SyncPolarService(
             OpenSportsPlatformDbContext dbContext,
@@ -35,6 +38,24 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             _tcxFileImporterService = tcxFileImporterService;
         }
 
+        public async Task ExchangeToken(PolarExchangeTokenDto dto)
+        {
+            string userId = _securityService.GetCurrentUserid();
+            _logger.LogInformation("Exchanging token for user {0}", userId);
+            var userProfile = await _dbContext.UserProfile.SingleAsync(x => x.UserId == userId);
+            var res = await _polarFlowService.GetAuthToken(dto.Code);
+            userProfile.PolarAccessToken = res.AccessToken;
+            userProfile.PolarUserId = res.UserId.ToString();
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task<PolarRegisterDto> RegisterData()
+        {            
+            PolarRegisterDto polarRegisterDto = new PolarRegisterDto();
+            polarRegisterDto.Url = _polarFlowService.GetRegisterUrl();
+            return polarRegisterDto;
+        }
+
         public async Task SyncPolar()
         {
             string userId = _securityService.GetCurrentUserid();
@@ -44,11 +65,11 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             string polarUser = userProfile.PolarUserId;
             string polarAccessToken = userProfile.PolarAccessToken;
 
-            TransactionResponse transaction = await _polarFlowService.CreateTransaction(polarUser, polarAccessToken);
+            TransactionResponse? transaction = await _polarFlowService.CreateTransaction(polarUser, polarAccessToken);
 
-            if (transaction != null)
+            if (transaction != null && transaction.TransactionId.HasValue)
             {
-                ListExercisesResponse exercises = await _polarFlowService.ListExercises(polarUser, transaction.TransactionId?.ToString(), polarAccessToken);
+                ListExercisesResponse exercises = await _polarFlowService.ListExercises(polarUser, transaction.TransactionId.Value.ToString(), polarAccessToken);
                 foreach (string exercise in exercises.Exercises)
                 {
                     _logger.LogInformation("Getting exercise from polar: {0}", exercise);
@@ -63,7 +84,6 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             {
                 _logger.LogInformation("No data to sync with polar.");
             }
-
         }
     }
 }
