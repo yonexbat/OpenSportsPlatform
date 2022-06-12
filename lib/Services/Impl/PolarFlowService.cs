@@ -109,7 +109,8 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                 throw new ArgumentException($"Got a 404 for url {url}");
             }
             Stream stream = await response.Content.ReadAsStreamAsync();
-            return new GZipStream(stream, CompressionMode.Decompress);
+            //return new GZipStream(stream, CompressionMode.Decompress);
+            return stream;
         }
 
         public string GetRegisterUrl()
