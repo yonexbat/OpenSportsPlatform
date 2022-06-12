@@ -6,6 +6,7 @@ using OpenSportsPlatform.Lib.Services.Contract;
 using OpenSportsPlatform.Lib.Services.Impl;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 
 namespace OpenSportsPlatform.Lib.DependencyInjection
@@ -16,8 +17,13 @@ namespace OpenSportsPlatform.Lib.DependencyInjection
         {
             string connectionString = configuration.GetConnectionString("DefaultConnection");
 
-            serviceCollection.AddHttpClient<IPolarFlowService, PolarFlowService>()
-                    .SetHandlerLifetime(TimeSpan.FromMinutes(5));
+            var httpclient = serviceCollection.AddHttpClient<IPolarFlowService, PolarFlowService>()
+                    .SetHandlerLifetime(TimeSpan.FromMinutes(5))
+                    .ConfigurePrimaryHttpMessageHandler(provider => new HttpClientHandler
+                    {
+                        AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate | DecompressionMethods.Brotli,
+                    });
+
 
             return serviceCollection
                 .AddSingleton<IJwtTokenService, JwtTokenService>()
