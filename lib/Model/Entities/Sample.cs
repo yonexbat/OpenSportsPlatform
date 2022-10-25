@@ -13,7 +13,7 @@ namespace OpenSportsPlatform.Lib.Model.Entities
         public virtual float? DistanceInKm { get; set; }
         public virtual float? SpeedKmh { get; set; }
         public virtual DateTimeOffset? Timestamp { get; set; }
-        public virtual Point Location { get; set; }
+        public virtual Point? Location { get; set; }
         public virtual double? Longitude { get; set; }
         public virtual double? Latitude { get; set; }
         public virtual float? HeartRateBpm { get; set; }
