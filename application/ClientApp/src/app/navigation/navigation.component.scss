@@ -11,3 +11,12 @@
      display: flex;
      flex-flow: column;
  }
+
+ .mat-icon {
+    vertical-align: baseline;
+ }
+
+ .material-icons {
+    display: inline-flex;
+    vertical-align: bottom;
+ }
