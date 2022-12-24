@@ -31,13 +31,13 @@
     </form>
 
     <div>
+        
         <div class="sliderrow">
-            <mat-slider min="0" max="10000" [(value)]="sliderValCropFrom"></mat-slider>
-            <span>{{sliderValCropFromText}}</span>
-        </div>
-        <div class="sliderrow">
-            <mat-slider min="0" max="10000" [(value)]="sliderValCropTo"></mat-slider>
-            <span>{{sliderValCropToText}}</span>
+            <mat-slider min="0" max="10000">
+                <input matSliderStartThumb [(value)]="sliderValCropFrom">
+                <input matSliderEndThumb [(value)]="sliderValCropTo">
+            </mat-slider>
+            <span>{{sliderValCropFromText}} {{sliderValCropToText}}</span>
         </div>
 
         <div style="display: flex; justify-content: flex-end;">
