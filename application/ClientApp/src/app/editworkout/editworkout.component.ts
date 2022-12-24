@@ -1,6 +1,6 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ConfirmService } from '../confirm.service';
@@ -46,7 +46,7 @@ export class EditworkoutComponent implements OnInit {
   public sliderValCropFromText: string = '00:00';
   public sliderValCropToText: string = '00:00';
 
-  public formGroup: FormGroup = this.fb.group({
+  public formGroup: UntypedFormGroup = this.fb.group({
     id: [0, Validators.required],
     sportsCategoryId: [0, Validators.required],
     notes: [''],
@@ -54,7 +54,7 @@ export class EditworkoutComponent implements OnInit {
 
   private ticks: number = 0;
 
-  constructor(private fb: FormBuilder,
+  constructor(private fb: UntypedFormBuilder,
               private dataService: DataService,
               private route: ActivatedRoute,
               private router: Router,

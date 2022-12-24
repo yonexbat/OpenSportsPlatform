@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { GoogleLoginProvider, SocialAuthService, SocialUser } from 'angularx-social-login';
-import { map, shareReplay, switchMap } from 'rxjs/operators';
-import { BehaviorSubject, firstValueFrom, from, Observable, ReplaySubject, Subject } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
+import { BehaviorSubject, firstValueFrom, Observable, Subject } from 'rxjs';
 import { ExchangeToken } from './model/exchangetoken';
 import { ShortUserProfile } from './model/shortUserProfile';
+import { GoogleLoginProvider, SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 
 @Injectable({
   providedIn: 'root'

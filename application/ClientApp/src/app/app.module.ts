@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './jwt.interceptor';
-import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -27,7 +26,6 @@ import { MatSliderModule } from '@angular/material/slider';
 import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { WorkoutComponent } from './workout/workout.component';
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 import { UploadWorkoutComponent } from './upload-workout/upload-workout.component';
 import { ConfirmComponent } from './confirm/confirm.component';
@@ -48,6 +46,8 @@ import { WorkoutOverView2Component } from './workout-over-view2/workout-over-vie
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { PolarComponent } from './polar/polar.component';
+import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 // Use your Client ID in the GoogleLoginProvider()
 const socialProviders = [
