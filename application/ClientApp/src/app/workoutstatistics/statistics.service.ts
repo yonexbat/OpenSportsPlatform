@@ -8,8 +8,6 @@ import { SampleX } from '../model/workout/samplex';
 })
 export class StatisticsService {
 
-  constructor() { }
-
   public convertToDist(samples: Sample[]): SampleX[] {
     let last: SampleX;
     return samples.map(x => {
@@ -52,12 +50,12 @@ export class StatisticsService {
         let averageHeartRate = 0;
 
         if (numSamplesAltitude > 0) {
-          const sumEvelation = values?.reduce((accumulator, value)  => accumulator + value?.sample?.altitudeInMeters, 0) ?? 0;
+          const sumEvelation = values?.reduce((accumulator, value) => accumulator + value?.sample?.altitudeInMeters, 0) ?? 0;
           averageEvelation = sumEvelation / numSamplesAltitude;
         }
 
         if (numSamplesHeartRate > 0) {
-          const sumHeartRate = values?.reduce((accumulator, value)  => accumulator + value?.sample?.heartRateBpm, 0) ?? 0;
+          const sumHeartRate = values?.reduce((accumulator, value) => accumulator + value?.sample?.heartRateBpm, 0) ?? 0;
           averageHeartRate = sumHeartRate / numSamplesHeartRate;
         }
 

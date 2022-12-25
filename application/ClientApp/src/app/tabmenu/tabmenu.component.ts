@@ -9,7 +9,7 @@ import { WorkoutMenuItem } from '../model/workout/workoutMenuItem';
   templateUrl: './tabmenu.component.html',
   styleUrls: ['./tabmenu.component.scss']
 })
-export class TabmenuComponent implements OnInit {
+export class TabmenuComponent {
 
   links: WorkoutMenuItem[] = [
     {
@@ -39,10 +39,6 @@ export class TabmenuComponent implements OnInit {
   itemClicked(link: WorkoutMenuItem): void {
     this.router.navigate(['.', link.routerLink, this.id], {relativeTo: this.route});
   }
-
-  ngOnInit(): void {
-  }
-
 
   handleRouteChanged(): void {
     const firstChild = this.route.snapshot.firstChild;

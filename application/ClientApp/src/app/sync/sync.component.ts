@@ -7,14 +7,11 @@ import { DataService } from '../data.service';
   templateUrl: './sync.component.html',
   styleUrls: ['./sync.component.scss']
 })
-export class SyncComponent implements OnInit {
+export class SyncComponent {
 
   public showSpinner = false;
 
   constructor(private dataService: DataService, private confirmService: ConfirmService) { }
-
-  ngOnInit(): void {
-  }
 
   public async syncPolar(): Promise<void> {
     try {

@@ -14,7 +14,7 @@ import { getImageFromCategory, ticksToString } from '../util/util';
   templateUrl: './workout.component.html',
   styleUrls: ['./workout.component.scss']
 })
-export class WorkoutComponent implements OnInit {
+export class WorkoutComponent {
 
   public workout?: Workout;
   public options = {
@@ -45,7 +45,7 @@ export class WorkoutComponent implements OnInit {
   // tslint:disable-next-line:variable-name
   private _sliderval: number | null = 0;
 
-  public markerPosText: string = '00:00';
+  public markerPosText = '00:00';
 
 
   constructor(
@@ -62,9 +62,6 @@ export class WorkoutComponent implements OnInit {
   public set sliderval(val) {
     this._sliderval = val;
     this.updateMarker();
-  }
-
-  ngOnInit(): void {
   }
 
   handleRouteParamChanged(params: Params): void {

@@ -17,7 +17,7 @@ import { catchError, last, map, tap } from 'rxjs/operators';
     ])
   ]
 })
-export class FileUploaderComponent implements OnInit {
+export class FileUploaderComponent {
 
   @Input() text = 'Upload';
 
@@ -27,16 +27,11 @@ export class FileUploaderComponent implements OnInit {
 
   @Input() accept = 'image/*';
 
-
-  // tslint:disable-next-line:no-output-native
-  @Output() complete = new EventEmitter<string>();
+  @Output() uploadComplete = new EventEmitter<string>();
 
   public files: Array<FileUploadModel> = [];
 
   constructor(private httpClient: HttpClient) { }
-
-  ngOnInit(): void {
-  }
 
   public onClick(): void {
     const fileUpload = document.getElementById('fileUpload') as HTMLInputElement;
@@ -46,7 +41,6 @@ export class FileUploaderComponent implements OnInit {
         return;
       }
 
-      // tslint:disable-next-line:prefer-for-of
       for (let index = 0; index < fileUpload.files.length; index++) {
         const file = fileUpload.files[index];
         this.files.push({
@@ -85,7 +79,6 @@ export class FileUploaderComponent implements OnInit {
         }
         return event;
       }),
-      tap(message => { }),
       last(),
       catchError((error: HttpErrorResponse) => {
         file.inProgress = false;
@@ -96,7 +89,7 @@ export class FileUploaderComponent implements OnInit {
       (event: any) => {
         if (typeof (event) === 'object') {
           this.removeFileFromArray(file);
-          this.complete.emit(event.body);
+          this.uploadComplete.emit(event.body);
         }
       }
     );

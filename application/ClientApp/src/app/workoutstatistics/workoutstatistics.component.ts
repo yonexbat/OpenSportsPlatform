@@ -12,7 +12,7 @@ import { StatisticsService } from './statistics.service';
   templateUrl: './workoutstatistics.component.html',
   styleUrls: ['./workoutstatistics.component.scss']
 })
-export class WorkoutstatisticsComponent implements OnInit {
+export class WorkoutstatisticsComponent {
 
   public workout?: Workout;
 
@@ -22,14 +22,9 @@ export class WorkoutstatisticsComponent implements OnInit {
 
   constructor(
     private dataService: DataService,
-    private route: ActivatedRoute,
-    private statisticsService: StatisticsService,
-    private router: Router,
-    private confirmService: ConfirmService) {
-      this.route.params.subscribe(x => this.handleRouteParamChanged(x));
-     }
-
-  ngOnInit(): void {
+    private activatedRoute: ActivatedRoute,
+    private statisticsService: StatisticsService) {
+    this.activatedRoute.params.subscribe(params => this.handleRouteParamChanged(params));
   }
 
   handleRouteParamChanged(params: Params): void {
@@ -39,7 +34,7 @@ export class WorkoutstatisticsComponent implements OnInit {
 
   async loadData(id: number): Promise<void> {
     this.workout = await this.dataService.getWorkout(id);
-    const dists =  this.statisticsService.convertToDist(this.workout.samples);
+    const dists = this.statisticsService.convertToDist(this.workout.samples);
     this.samples = this.statisticsService.thinOut(dists, 50);
   }
 

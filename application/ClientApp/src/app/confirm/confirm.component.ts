@@ -9,14 +9,11 @@ import { ConfirmData } from '../model/confirm/confirmdata';
   templateUrl: './confirm.component.html',
   styleUrls: ['./confirm.component.scss']
 })
-export class ConfirmComponent implements OnInit {
+export class ConfirmComponent {
 
   constructor(
     public dialogRef: MatDialogRef<ConfirmComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ConfirmData) { }
-
-  ngOnInit(): void {
-  }
 
   public okClicked(): void {
     this.dialogRef.close('Ok');

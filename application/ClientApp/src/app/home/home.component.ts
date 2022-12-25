@@ -9,15 +9,13 @@ import { ShortUserProfile } from '../model/shortUserProfile';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
   public userProfile$: Observable<ShortUserProfile>;
 
-  constructor(private authService: AuthenticationService) {
+  constructor(authService: AuthenticationService) {
     this.userProfile$ = authService.getUserProfile();
     authService.isLoggedInObservalbe();
   }
 
-  ngOnInit(): void {
-  }
 }

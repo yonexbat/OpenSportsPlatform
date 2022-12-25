@@ -5,11 +5,5 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './upload-workout.component.html',
   styleUrls: ['./upload-workout.component.scss']
 })
-export class UploadWorkoutComponent implements OnInit {
+export class UploadWorkoutComponent { }
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}

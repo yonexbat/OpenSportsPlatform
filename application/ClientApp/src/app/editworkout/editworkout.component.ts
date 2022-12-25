@@ -1,13 +1,11 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ConfirmService } from '../confirm.service';
 import { DataService } from '../data.service';
 import { SelectItem } from '../model/common/selectitem';
 import { CropWorkout } from '../model/editworkout/cropWorkout';
-import { SaveWorkout } from '../model/editworkout/saveWorkout';
 import { ticksToString } from '../util/util';
 
 @Component({
@@ -15,7 +13,7 @@ import { ticksToString } from '../util/util';
   templateUrl: './editworkout.component.html',
   styleUrls: ['./editworkout.component.scss']
 })
-export class EditworkoutComponent implements OnInit {
+export class EditworkoutComponent {
 
   public sports?: SelectItem[] = [];
 
@@ -43,27 +41,24 @@ export class EditworkoutComponent implements OnInit {
     }
   }
 
-  public sliderValCropFromText: string = '00:00';
-  public sliderValCropToText: string = '00:00';
+  public sliderValCropFromText = '00:00';
+  public sliderValCropToText = '00:00';
 
-  public formGroup: UntypedFormGroup = this.fb.group({
+  public formGroup: FormGroup = this.fb.group({
     id: [0, Validators.required],
     sportsCategoryId: [0, Validators.required],
     notes: [''],
   });
 
-  private ticks: number = 0;
+  private ticks = 0;
 
-  constructor(private fb: UntypedFormBuilder,
+  constructor(private fb: FormBuilder,
               private dataService: DataService,
               private route: ActivatedRoute,
               private router: Router,
               private confirmService: ConfirmService,
               private snackBar: MatSnackBar) {
       this.route.params.subscribe(x => this.handleRouteParamChanged(x));
-  }
-
-  ngOnInit(): void {
   }
 
   handleRouteParamChanged(params: Params): void {
@@ -90,8 +85,8 @@ export class EditworkoutComponent implements OnInit {
     await this.dataService.saveWorkout(saveWorkout);
     this.snackBar.open('Save successful', 'close', {
       duration: 3000
-    }).onAction().subscribe((action: any) => {
-
+    }).onAction().subscribe(() => {
+      //closed
     });
   }
 
@@ -114,8 +109,8 @@ export class EditworkoutComponent implements OnInit {
 
   public cropClick() {
     this.confirmService.confirm('Crop workout', 'Do you really want to crop this workout?')
-      .subscribe(x => {
-        if (x) {
+      .subscribe(answer => {
+        if (answer) {
           this.crop();
         }
       });    
@@ -127,8 +122,8 @@ export class EditworkoutComponent implements OnInit {
       return;
     }
 
-    let cropFrom =  this.toTicks(this.sliderValCropFrom ?? 0);
-    let cropTo = this.toTicks(this.sliderValCropTo ?? 0);    
+    const cropFrom =  this.toTicks(this.sliderValCropFrom ?? 0);
+    const cropTo = this.toTicks(this.sliderValCropTo ?? 0);    
 
     const crop: CropWorkout = {
       id: this.formGroup.get('id')?.value,

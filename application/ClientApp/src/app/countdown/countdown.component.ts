@@ -7,7 +7,7 @@ import { map, startWith } from 'rxjs/operators';
   templateUrl: './countdown.component.html',
   styleUrls: ['./countdown.component.scss']
 })
-export class CountdownComponent implements OnInit {
+export class CountdownComponent {
 
   public countDownText$: Observable<string>;
 
@@ -24,9 +24,6 @@ export class CountdownComponent implements OnInit {
   constructor() {
     this.countDownText$ =  merge(interval(1000), this.zero$)
       .pipe(map(() => this.countDown()));
-  }
-
-  ngOnInit(): void {
   }
 
   public countDown(): string {
