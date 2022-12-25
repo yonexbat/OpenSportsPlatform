@@ -1,8 +1,8 @@
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
-import { ChangeDetectorRef, Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { filter, map, pairwise, throttleTime } from 'rxjs/operators';
 import { DataService } from '../data.service';
+import { WorkoutOverviewItem } from '../model/workoutOverview/workoutOverviewItem';
 import { getImageFromCategory } from '../util/util';
 
 
@@ -13,7 +13,7 @@ import { getImageFromCategory } from '../util/util';
 })
 export class WorkoutOverView2Component implements OnInit {
 
-  public workoutItems: any[] = [];
+  public workoutItems: WorkoutOverviewItem[] = [];
 
   private currentPage = 0;
 
@@ -21,21 +21,21 @@ export class WorkoutOverView2Component implements OnInit {
 
   constructor(private dataService: DataService, private ngZone: NgZone) {
     this.fetchMore();
-   }
+  }
 
   ngOnInit(): void {
 
     this.scroller.elementScrolled()
       .pipe(
-        map( () => this.scroller.measureScrollOffset('bottom')),
+        map(() => this.scroller.measureScrollOffset('bottom')),
         pairwise(),
         filter(([y1, y2]) => (y2 < y1 && y2 < 300)),
         throttleTime(200)
-      ).subscribe(x => {
+      ).subscribe(() => {
         this.ngZone.run(() => {
           this.fetchMore();
         });
-    });
+      });
   }
 
   public async fetchMore(): Promise<void> {

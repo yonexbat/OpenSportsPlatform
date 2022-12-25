@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { ConfirmData } from '../model/confirm/confirmdata';

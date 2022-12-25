@@ -1,4 +1,4 @@
 export interface SeriesItem {
-    name: any;
+    name: string;
     value: number;
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { map, shareReplay } from 'rxjs/operators';
 import { BehaviorSubject, firstValueFrom, Observable, Subject } from 'rxjs';
 import { ExchangeToken } from './model/exchangetoken';
@@ -11,7 +11,7 @@ import { GoogleLoginProvider, SocialAuthService, SocialUser } from '@abacritt/an
 })
 export class AuthenticationService {
 
-  private unauthenticatedUserProfile: ShortUserProfile  = {
+  private unauthenticatedUserProfile: ShortUserProfile = {
     authenticated: false,
     name: '',
     userid: 'anonymous',
@@ -47,7 +47,7 @@ export class AuthenticationService {
 
   public isLoggedInObservalbe(): Observable<boolean> {
     return this.getUserProfile()
-      .pipe(map((x: any) => x.authenticated));
+      .pipe(map((shortUserProfile: ShortUserProfile) => shortUserProfile.authenticated));
   }
 
   public async isLoggedIn(): Promise<boolean> {
@@ -74,12 +74,12 @@ export class AuthenticationService {
       return this.userProfileReplay;
     }
     this.userProfileReplay = this.http.get<ShortUserProfile>('/Authentication/GetShortUserProfile')
-    .pipe(
-      map(profile => {
-        this.userProfile.next(profile as ShortUserProfile);
-        return profile;
-      }),
-      shareReplay(1)
+      .pipe(
+        map(profile => {
+          this.userProfile.next(profile as ShortUserProfile);
+          return profile;
+        }),
+        shareReplay(1)
       );
     return this.userProfileReplay as Observable<ShortUserProfile>;
   }

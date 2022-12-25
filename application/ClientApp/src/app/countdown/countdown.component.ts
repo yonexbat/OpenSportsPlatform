@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, interval, merge, Observable, Subject } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
+import { Component } from '@angular/core';
+import { BehaviorSubject, interval, merge, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-countdown',

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Params, } from '@angular/router';
-import { icon, latLng, LatLngTuple, Marker, marker, Polyline, polyline, tileLayer } from 'leaflet';
+import { icon, latLng, LatLngTuple, Layer, Marker, marker, Polyline, polyline, tileLayer } from 'leaflet';
 import { timer } from 'rxjs';
 import { DataService } from '../data.service';
 import { Sample } from '../model/workout/sample';
@@ -40,7 +40,7 @@ export class WorkoutComponent {
     overlays: {},
   };
 
-  public layers: any[] = [];
+  public layers: Layer[] = [];
 
   // tslint:disable-next-line:variable-name
   private _sliderval: number | null = 0;

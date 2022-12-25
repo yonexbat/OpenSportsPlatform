@@ -19,7 +19,6 @@ export function ticksToString(ticks: number): string {
   ticks = ticks / 1000;
   const hh = Math.floor(ticks / 3600);
   const mm = Math.floor((ticks % 3600) / 60);
-  const ss = ticks % 60;
   return `${pad(hh, 2)}:${pad(mm, 2)}`;
 }
 

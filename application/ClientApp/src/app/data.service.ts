@@ -44,11 +44,11 @@ export class DataService {
     return firstValueFrom(this.http.get<Statistics>(`${this.apiPrefix}/Data/GetStatistics`)) as Promise<Statistics>;
   }
 
-  public syncPolar(): Promise<any> {
-    return firstValueFrom(this.http.post<boolean>(`${this.apiPrefix}/Data/SyncPolar`, {})) as Promise<any>;
+  public syncPolar(): Promise<void> {
+    return firstValueFrom(this.http.post<void>(`${this.apiPrefix}/Data/SyncPolar`, {})) as Promise<void>;
   }
 
-  public crop(dto: CropWorkout): Promise<any> {
-    return firstValueFrom(this.http.post<boolean>(`${this.apiPrefix}/Data/Crop`, dto)) as Promise<any>;
+  public crop(dto: CropWorkout): Promise<void> {
+    return firstValueFrom(this.http.post<void>(`${this.apiPrefix}/Data/Crop`, dto)) as Promise<void>;
   }
 }

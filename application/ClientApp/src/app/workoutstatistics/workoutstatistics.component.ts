@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { ConfirmService } from '../confirm.service';
+import { Component } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { DataService } from '../data.service';
 import { AvgSampleX } from '../model/workout/avgsamplex';
 import { Workout } from '../model/workout/workout';

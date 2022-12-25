@@ -1,8 +1,8 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { HttpClient, HttpErrorResponse, HttpEventType, HttpRequest } from '@angular/common/http';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { HttpClient, HttpEventType, HttpRequest } from '@angular/common/http';
+import { Component, EventEmitter, Input,  Output } from '@angular/core';
 import { of, Subscription } from 'rxjs';
-import { catchError, last, map, tap } from 'rxjs/operators';
+import { catchError, last, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-file-uploader',
@@ -27,7 +27,7 @@ export class FileUploaderComponent {
 
   @Input() accept = 'image/*';
 
-  @Output() uploadComplete = new EventEmitter<string>();
+  @Output() uploadComplete = new EventEmitter<void>();
 
   public files: Array<FileUploadModel> = [];
 
@@ -80,16 +80,16 @@ export class FileUploaderComponent {
         return event;
       }),
       last(),
-      catchError((error: HttpErrorResponse) => {
+      catchError(() => {
         file.inProgress = false;
         file.canRetry = true;
         return of(`${file.data.name} upload failed.`);
       })
     ).subscribe(
-      (event: any) => {
+      (event) => {
         if (typeof (event) === 'object') {
           this.removeFileFromArray(file);
-          this.uploadComplete.emit(event.body);
+          this.uploadComplete.emit();
         }
       }
     );

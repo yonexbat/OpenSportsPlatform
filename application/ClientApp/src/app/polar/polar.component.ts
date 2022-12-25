@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { PolarRegister } from '../model/polar/polarRegister';
 import { PolarService } from '../polar.service';
 
@@ -23,12 +23,12 @@ export class PolarComponent implements OnInit {
     const polarRegister = await this.polarService.registerData();
     this.polarRegister = polarRegister;
     this.route.queryParams          
-    .subscribe((params: any) => {
+    .subscribe((params: Params) => {
       console.log(params);
-      this.code = params.code;
+      this.code = params['code'] as string;
       console.log(this.code);
       if(this.code) {
-        this.polarService.exchangeToken({code: this.code!});
+        this.polarService.exchangeToken({code: this.code});
       }
     });
   }

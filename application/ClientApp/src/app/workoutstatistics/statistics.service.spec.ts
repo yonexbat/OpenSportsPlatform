@@ -3,7 +3,7 @@ import { Workout } from '../model/workout/workout';
 import { StatisticsService } from './statistics.service';
 import * as workoutjson from './workouttest.json';
 
-const workout: Workout = (workoutjson as any).default as Workout;
+const workout: Workout = (workoutjson as {default: Workout}).default;
 
 describe('StatisticsService', () => {
   let service: StatisticsService;
@@ -27,7 +27,7 @@ describe('StatisticsService', () => {
 
   it('should should thin out', () => {
     const samplesX = service.convertToDist(workout.samples);
-    const res = service.thinOut(samplesX, 500);
+    service.thinOut(samplesX, 500);
   });
 
 });

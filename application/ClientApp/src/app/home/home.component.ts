@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthenticationService } from '../authentication.service';
-import { DataService } from '../data.service';
 import { ShortUserProfile } from '../model/shortUserProfile';
 
 @Component({
