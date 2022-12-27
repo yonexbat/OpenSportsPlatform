@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using OpenSportsPlatform.Lib.Core;
 using OpenSportsPlatform.Lib.Database;
 using OpenSportsPlatform.Lib.Model.Entities;
 using OpenSportsPlatform.Lib.Services.Contract;
@@ -84,7 +85,8 @@ namespace OpenSportsPlatform.Lib.Services.Impl
 
         private List<string> GetFileList()
         {
-            string directory = _configuration.GetValue<string>("WorkoutFilesDirectory");
+            string directory = _configuration.GetValue<string>("WorkoutFilesDirectory") 
+                ?? throw new ConfigurationException("WorkoutFilesDirectory");
             _logger.LogInformation("Workoutdirectory: {0}", directory);
 
             string[] fileEntries = Directory.GetFiles(directory);

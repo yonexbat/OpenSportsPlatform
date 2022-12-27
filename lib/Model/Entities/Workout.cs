@@ -33,6 +33,6 @@ namespace OpenSportsPlatform.Lib.Model.Entities
         public virtual SportsCategory SportsCategory { get; set; }
         public virtual IList<Segment> Segments { get; set; }
         public virtual UserProfile UserProfile { get; set; }
-        public string? OwnerUserId => this.UserProfile?.UserId;
+        public string OwnerUserId => this.UserProfile?.UserId ?? string.Empty;
     }
 }

@@ -11,7 +11,7 @@ namespace OpenSportsPlatform.Lib.Model.Dtos.Polar
         public ulong? PolarUserId { get; set; }
 
         [JsonPropertyName("member-id")]
-        public string MemberId { get; set; }
+        public string? MemberId { get; set; }
 
         [JsonPropertyName("registration-date")]
         public DateTime? RegistrationDate { get; set; }

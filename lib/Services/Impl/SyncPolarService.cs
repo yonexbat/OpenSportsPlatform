@@ -51,8 +51,11 @@ namespace OpenSportsPlatform.Lib.Services.Impl
 
         public async Task<PolarRegisterDto> RegisterData()
         {            
-            PolarRegisterDto polarRegisterDto = new PolarRegisterDto();
-            polarRegisterDto.Url = _polarFlowService.GetRegisterUrl();
+            string url = _polarFlowService.GetRegisterUrl();
+            PolarRegisterDto polarRegisterDto = new PolarRegisterDto()
+            {
+                Url = url,
+            };
             return polarRegisterDto;
         }
 

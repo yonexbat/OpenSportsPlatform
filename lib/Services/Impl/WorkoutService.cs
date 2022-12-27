@@ -132,7 +132,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
 
             _securityService.CheckAccess(workout);
 
-            workout.SportsCategoryId = dto.SportsCategoryId;
+            workout.SportsCategoryId = dto.SportsCategoryId ?? throw new ArgumentNullException(nameof(SaveWorkoutDto.SportsCategoryId));
             workout.Notes = dto.Notes;
             await _dbContext.SaveChangesAsync();
 
