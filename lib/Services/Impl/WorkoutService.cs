@@ -108,7 +108,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             //Samples
             res.Samples = await _dbContext
                 .Sample
-                .Where(x => x.Segment!.Workout.Id == id)
+                .Where(x => x.Segment!.Workout!.Id == id)
                 .Where(x => x.Latitude.HasValue && x.Longitude.HasValue)
                 .OrderBy(x => x.Timestamp)
                 .Select(x => new SampleDto()
