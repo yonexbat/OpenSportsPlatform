@@ -325,7 +325,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
         private async Task ReadElementActivity(XmlReader reader)
         {
             string? sport = reader.GetAttribute("Sport");
-            if(sport != null)
+            if(sport == null)
             {
                 throw new InvalidOperationException($"Sport must not be null");
             }
