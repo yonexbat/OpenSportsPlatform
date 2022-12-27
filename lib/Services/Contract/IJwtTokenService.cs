@@ -10,7 +10,7 @@ namespace OpenSportsPlatform.Lib.Services.Contract
     {
         string GenerateJwtToken(string userId);
 
-        string ValidateJwtToken(string token);
+        string? ValidateJwtToken(string token);
 
         Task<GoogleJsonWebSignature.Payload> ValidateGoogelTokenAndGetUserId(string idToken);
     }

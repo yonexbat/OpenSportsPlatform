@@ -12,7 +12,7 @@ namespace OpenSportsPlatform.Lib.Model.Entities
         public virtual DateTimeOffset? InsertDate { get; set; }
         public virtual string? UpdateUser { get; set; }
         public virtual DateTimeOffset? UpdateDate { get; set; }
-        public virtual Workout Workout { get; set; }
-        public virtual IList<Sample> Samples { get; set; }
+        public virtual Workout? Workout { get; set; }
+        public virtual IList<Sample>? Samples { get; set; }
     }
 }

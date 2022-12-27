@@ -62,7 +62,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             return payload;
         }
 
-        public string ValidateJwtToken(string token)
+        public string? ValidateJwtToken(string token)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             byte[] key = GetSecretKey();
@@ -93,7 +93,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
 
         private byte[] GetSecretKey()
         {
-            string secret = _configuration.GetValue<string>("jwtSecret");
+            string secret = _configuration.GetValue<string>("jwtSecret") ?? throw new ConfigurationException("jwtSecret");
             var key = Encoding.ASCII.GetBytes(secret);
             return key;
         }

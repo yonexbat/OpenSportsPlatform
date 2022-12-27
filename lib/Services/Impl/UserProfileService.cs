@@ -64,11 +64,11 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             string currentUserId = _securityService.GetCurrentUserid();
             
             var user = await _dbContext.UserProfile.Where(x => x.UserId == currentUserId)
-                .Select(x => new ShortUserProfileDto()
+                .Select(userProfile => new ShortUserProfileDto()
                 {
                     UserId = currentUserId,
-                    Name = x.Name,
-                    Authenticated = true,                   
+                    Name = userProfile.Name!,
+                    Authenticated = true,                
                 })
                .FirstOrDefaultAsync();
 

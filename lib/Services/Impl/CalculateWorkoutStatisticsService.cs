@@ -29,7 +29,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
         {
             _logger.LogInformation("Calculation workout stats");
             var samples = _dbContex.Sample
-                .Where(x => x.Segment.Workout.Id == workoutid);
+                .Where(x => x.Segment!.Workout!.Id == workoutid);
 
             double totalDist = 0;
 

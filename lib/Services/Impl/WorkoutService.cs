@@ -31,8 +31,8 @@ namespace OpenSportsPlatform.Lib.Services.Impl
         {
             _logger.LogInformation("Deleting workout with id {0}", id);
             Workout workout = await _dbContext.Workout.Where(x => x.Id == id)
-                .Include(x => x.UserProfile)
-                .Include(x => x.Segments)
+                .Include(x => x.UserProfile!)
+                .Include(x => x.Segments!)
                 .ThenInclude(x => x.Samples)
                 .SingleAsync();
 
@@ -56,14 +56,14 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                 }).SingleAsync();
 
             result.FirstSampleTimestamp = await _dbContext.Sample
-                .Where(x => x.Segment.Workout.Id == id)
+                .Where(x => x.Segment!.Workout!.Id == id)
                 .Where(x => x.Timestamp.HasValue)
                 .OrderBy(x => x.Id)
                 .MinAsync(x => x.Timestamp);
                 
 
             result.LastSampleTimestamp = await _dbContext.Sample
-                .Where(x => x.Segment.Workout.Id == id)
+                .Where(x => x.Segment!.Workout!.Id == id)
                 .Where(x => x.Timestamp.HasValue)
                 .OrderBy(x => x.Id)
                 .MaxAsync(x => x.Timestamp);
@@ -72,7 +72,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                 x => new SelectItemDto()
                 {
                     Id = x.Id,
-                    Name = x.Name,
+                    Name = x.Name!,
                 })
                 .OrderBy(x => x.Name)
                 .ToListAsync();
@@ -92,7 +92,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                     Id = x.Id,
                     StartTime = x.StartTime,
                     EndTime = x.EndTime,
-                    Sport = x.SportsCategory.Name,
+                    Sport = x.SportsCategory!.Name,
                     DistanceInKm = x.DistanceInKm,
                     AscendInMeters = x.AscendInMeters,
                     DescendInMeters = x.DescendInMeters,
@@ -108,7 +108,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             //Samples
             res.Samples = await _dbContext
                 .Sample
-                .Where(x => x.Segment.Workout.Id == id)
+                .Where(x => x.Segment!.Workout.Id == id)
                 .Where(x => x.Latitude.HasValue && x.Longitude.HasValue)
                 .OrderBy(x => x.Timestamp)
                 .Select(x => new SampleDto()

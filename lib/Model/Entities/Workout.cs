@@ -7,10 +7,10 @@ namespace OpenSportsPlatform.Lib.Model.Entities
     public class Workout : IEntity, ISecuredEntity
     {
         public virtual int Id { get; set; }
-        public virtual int SportsCategoryId { get; set; }
-        public virtual int UserProfileId { get; set; }
-        public virtual string Name { get; set; }
-        public virtual string Notes { get; set; }
+        public virtual int? SportsCategoryId { get; set; }
+        public virtual int? UserProfileId { get; set; }
+        public virtual string? Name { get; set; }
+        public virtual string? Notes { get; set; }
         public virtual DateTimeOffset? StartTime { get; set; }
         public virtual DateTimeOffset? EndTime { get; set; }
         public virtual float? DurationInSec { get; set; }
