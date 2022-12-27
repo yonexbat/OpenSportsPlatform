@@ -6,6 +6,7 @@ using System.Security.Principal;
 using System.Text;
 using OpenSportsPlatform.Lib.DependencyInjection;
 using OpenSportsPlatform.Application.ErrorHandling;
+using OpenSportsPlatform.Lib.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -22,7 +23,7 @@ void RegisterServies(IServiceCollection services, IConfiguration configuration)
         services.AddLettuceEncrypt();
     }
 
-    var secret = configuration.GetValue<string>("jwtSecret");
+    var secret = configuration.GetValue<string>("jwtSecret") ?? throw new ConfigurationException("jwtSecret");
     var key = Encoding.ASCII.GetBytes(secret);
 
     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

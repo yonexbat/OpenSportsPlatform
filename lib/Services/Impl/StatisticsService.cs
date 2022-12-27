@@ -87,7 +87,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
         private async Task<IList<StatisticsItemDto>> GetStatsForPeriod(DateTime from, DateTime toExcl, string userId)
         {
             return await _dbContext.Workout
-                .Where(x => x.UserProfile.UserId == userId)
+                .Where(x => x.UserProfile!.UserId == userId)
                 .Where(x => x.StartTime >= from && x.StartTime < toExcl)
                 .GroupBy(x => new { x.SportsCategory.Name })
                 .Select(g => new StatisticsItemDto()

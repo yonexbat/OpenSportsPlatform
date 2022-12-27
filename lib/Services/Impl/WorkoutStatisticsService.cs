@@ -13,10 +13,5 @@ namespace OpenSportsPlatform.Lib.Services.Impl
         public WorkoutStatisticsService()
         {
         }
-
-        public async Task Crop(CropWorkoutDto dto)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

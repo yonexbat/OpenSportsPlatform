@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using OpenSportsPlatform.Lib.Core;
 using OpenSportsPlatform.Lib.Model.Dtos.Polar;
 using OpenSportsPlatform.Lib.Services.Contract;
 using System;
@@ -24,8 +25,8 @@ namespace OpenSportsPlatform.Lib.Services.Impl
 
         public PolarFlowService(IConfiguration configuration, HttpClient httpClient, ILogger<PolarFlowService> logger)
         {
-            PolarClientId = configuration.GetValue<string>("PolarClientID");
-            PolarSecret = configuration.GetValue<string>("PolarClientSecret");
+            PolarClientId = configuration.GetValue<string>("PolarClientID") ?? throw new ConfigurationException("PolarClientID");
+            PolarSecret = configuration.GetValue<string>("PolarClientSecret") ?? throw new ConfigurationException("PolarClientSecret");
             _httpClient = httpClient;
             _logger = logger;
         }

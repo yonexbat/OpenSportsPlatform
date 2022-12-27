@@ -17,16 +17,16 @@ namespace OpenSportsPlatform.Lib.Model.Dtos.Polar
         public DateTime? RegistrationDate { get; set; }
 
         [JsonPropertyName("first-name")]
-        public string FirstName { get; set; }
+        public string? FirstName { get; set; }
 
         [JsonPropertyName("last-name")]
-        public string LastName { get; set; }
+        public string? LastName { get; set; }
 
         [JsonPropertyName("birthdate")]
         public DateTime? BirthDate { get; set; }
 
         [JsonPropertyName("gender")]
-        public string Gender { get; set; }
+        public string? Gender { get; set; }
 
         [JsonPropertyName("weight")]
         public float? Weight { get; set; }
@@ -35,6 +35,6 @@ namespace OpenSportsPlatform.Lib.Model.Dtos.Polar
         public float? Height { get; set; }
 
         [JsonPropertyName("extra-info")]
-        public IList<UserExtraInfoResponse> ExtraInfo { get; set; }
+        public IList<UserExtraInfoResponse>? ExtraInfo { get; set; }
     }
 }

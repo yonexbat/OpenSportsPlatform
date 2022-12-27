@@ -13,10 +13,10 @@ namespace OpenSportsPlatform.Lib.Model.Entities
         public virtual string PolarAccessToken { get; set; }
         public virtual DateTimeOffset? PolarAccessTokenValidUntil { get; set; }
         public virtual string PolarUserId { get; set; }
-        public virtual string InsertUser { get; set; }
-        public virtual DateTimeOffset InsertDate { get; set; }
-        public virtual string UpdateUser { get; set; }
-        public virtual DateTimeOffset UpdateDate { get; set; }
+        public virtual string? InsertUser { get; set; }
+        public virtual DateTimeOffset? InsertDate { get; set; }
+        public virtual string? UpdateUser { get; set; }
+        public virtual DateTimeOffset? UpdateDate { get; set; }
         public virtual IList<Workout> Workouts { get; set; }
     }
 }

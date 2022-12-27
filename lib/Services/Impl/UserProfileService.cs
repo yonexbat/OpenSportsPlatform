@@ -38,10 +38,10 @@ namespace OpenSportsPlatform.Lib.Services.Impl
         public async Task<string> ExchangeToken(ExchangeTokenDto token)
         {
             _logger.LogDebug($"Exchanging token");
-            var payload = await _jwtTokenService.ValidateGoogelTokenAndGetUserId(token.IdToken);
+            var payload = await _jwtTokenService.ValidateGoogelTokenAndGetUserId(token.IdToken ?? throw new ArgumentNullException(nameof(ExchangeTokenDto.IdToken)));
 
             // Test if user exists.
-            UserProfile user = await _dbContext.UserProfile.Where(x => x.UserId == payload.Email)
+            UserProfile? user = await _dbContext.UserProfile.Where(x => x.UserId == payload.Email)
                 .FirstOrDefaultAsync();
 
             if(user == null)

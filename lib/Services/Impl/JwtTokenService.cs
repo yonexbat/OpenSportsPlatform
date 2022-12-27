@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using OpenSportsPlatform.Lib.Core;
 using OpenSportsPlatform.Lib.Services.Contract;
 using System;
 using System.Collections.Generic;
@@ -52,7 +53,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
 
         public async Task<GoogleJsonWebSignature.Payload> ValidateGoogelTokenAndGetUserId(string token)
         {
-            string googleClientId = _configuration.GetValue<string>("googleClientId");
+            string googleClientId = _configuration.GetValue<string>("googleClientId") ?? throw new ConfigurationException("googleClientId");
             GoogleJsonWebSignature.ValidationSettings settings = new GoogleJsonWebSignature.ValidationSettings();
             settings.Audience = new List<string>() { googleClientId };
             settings.ExpirationTimeClockTolerance = new TimeSpan(1, 0, 0);

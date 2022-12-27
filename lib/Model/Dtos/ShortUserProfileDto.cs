@@ -6,8 +6,8 @@ namespace OpenSportsPlatform.Lib.Model.Dtos
 {
     public class ShortUserProfileDto
     {
-        public string UserId { get; init; }
-        public string Name { get; init; }
+        public string UserId { get; init; } = null!;
+        public string Name { get; init; } = null!;
         public bool Authenticated { get; init; }
         public IList<string>? Roles { get; set; }
     }
