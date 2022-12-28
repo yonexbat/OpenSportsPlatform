@@ -22,9 +22,11 @@ export class AuthenticationService {
   private userProfileReplay?: Observable<ShortUserProfile> = undefined;
 
   constructor(private http: HttpClient, private authService: SocialAuthService) {
+
     this.startUp();
   }
 
+  /*
   public async signInGoogle(): Promise<void> {
     console.log('signing in to google');
     this.userProfileReplay = undefined;
@@ -32,7 +34,7 @@ export class AuthenticationService {
     await this.exchangeToken(user);
     await this.fetchUserProfile();
     console.log('done signing in');
-  }
+  }*/
 
   public async signOut(): Promise<void> {
     localStorage.removeItem('jwt');
@@ -61,6 +63,23 @@ export class AuthenticationService {
   private async startUp(): Promise<void> {
     const jwt = localStorage.getItem('jwt');
     if (jwt) {
+      await this.fetchUserProfile();
+    }
+
+    this.authService.authState.subscribe((user: SocialUser) => {
+      this.signInIfNeeded(user);
+    });
+
+  }
+
+  private async signInIfNeeded(user: SocialUser): Promise<void> {
+    if (!user) {
+      return;
+    }
+    const loggedIn = await this.isLoggedIn();
+    if(!loggedIn) {
+      this.userProfileReplay = undefined;
+      await this.exchangeToken(user);
       await this.fetchUserProfile();
     }
   }

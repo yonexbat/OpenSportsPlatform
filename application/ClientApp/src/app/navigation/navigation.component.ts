@@ -19,12 +19,6 @@ export class NavigationComponent {
     this.userProfile$ = authenticationService.getUserProfile();
   }
 
-  public async signIn(): Promise<void> {
-    this.showLoginSpinner = true;
-    await this.authenticationService.signInGoogle();
-    this.showLoginSpinner = false;
-  }
-
   public signOut(): void {
     this.authenticationService.signOut();
   }
