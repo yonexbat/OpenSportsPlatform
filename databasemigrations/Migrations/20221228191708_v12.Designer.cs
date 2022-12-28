@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetTopologySuite.Geometries;
 using OpenSportsPlatform.Lib.Database;
@@ -12,9 +13,11 @@ using OpenSportsPlatform.Lib.Database;
 namespace OpenSportsPlatform.DatabaseMigrations.Migrations
 {
     [DbContext(typeof(OpenSportsPlatformDbContext))]
-    partial class OpenSportsPlatformDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221228191708_v12")]
+    partial class v12
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
