@@ -4,7 +4,7 @@ import { map, shareReplay } from 'rxjs/operators';
 import { BehaviorSubject, firstValueFrom, Observable, Subject } from 'rxjs';
 import { ExchangeToken } from './model/exchangetoken';
 import { ShortUserProfile } from './model/shortUserProfile';
-import { GoogleLoginProvider, SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
+import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 
 @Injectable({
   providedIn: 'root'
@@ -25,16 +25,6 @@ export class AuthenticationService {
 
     this.startUp();
   }
-
-  /*
-  public async signInGoogle(): Promise<void> {
-    console.log('signing in to google');
-    this.userProfileReplay = undefined;
-    const user = await this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-    await this.exchangeToken(user);
-    await this.fetchUserProfile();
-    console.log('done signing in');
-  }*/
 
   public async signOut(): Promise<void> {
     localStorage.removeItem('jwt');
@@ -77,7 +67,7 @@ export class AuthenticationService {
       return;
     }
     const loggedIn = await this.isLoggedIn();
-    if(!loggedIn) {
+    if (!loggedIn) {
       this.userProfileReplay = undefined;
       await this.exchangeToken(user);
       await this.fetchUserProfile();
@@ -95,7 +85,7 @@ export class AuthenticationService {
     this.userProfileReplay = this.http.get<ShortUserProfile>('/Authentication/GetShortUserProfile')
       .pipe(
         map(profile => {
-          this.userProfile.next(profile as ShortUserProfile);
+          this.userProfile.next(profile);
           return profile;
         }),
         shareReplay(1)
