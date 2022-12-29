@@ -11,14 +11,6 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_OSPWorkout_OSPSportcCategory_SportsCategoryId",
-                table: "OSPWorkout");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_OSPWorkout_OSPUserProfile_UserProfileId",
-                table: "OSPWorkout");
-
             migrationBuilder.AlterColumn<int>(
                 name: "UserProfileId",
                 table: "OSPWorkout",
@@ -44,7 +36,7 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 table: "OSPWorkout",
                 type: "datetimeoffset",
                 nullable: false,
-                defaultValue: new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                defaultValueSql: "GetUtcDate()",
                 oldClrType: typeof(DateTimeOffset),
                 oldType: "datetimeoffset",
                 oldNullable: true);
@@ -74,7 +66,7 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 table: "OSPWorkout",
                 type: "datetimeoffset",
                 nullable: false,
-                defaultValue: new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                defaultValueSql: "GetUtcDate()",
                 oldClrType: typeof(DateTimeOffset),
                 oldType: "datetimeoffset",
                 oldNullable: true);
@@ -94,7 +86,7 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 table: "OSPUserProfile",
                 type: "datetimeoffset",
                 nullable: false,
-                defaultValue: new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                defaultValueSql: "GetUtcDate()",
                 oldClrType: typeof(DateTimeOffset),
                 oldType: "datetimeoffset",
                 oldNullable: true);
@@ -114,7 +106,7 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 table: "OSPUserProfile",
                 type: "datetimeoffset",
                 nullable: false,
-                defaultValue: new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                defaultValueSql: "GetUtcDate()",
                 oldClrType: typeof(DateTimeOffset),
                 oldType: "datetimeoffset",
                 oldNullable: true);
@@ -134,7 +126,7 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 table: "OSPTagWorkout",
                 type: "datetimeoffset",
                 nullable: false,
-                defaultValue: new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                defaultValueSql: "GetUtcDate()",
                 oldClrType: typeof(DateTimeOffset),
                 oldType: "datetimeoffset",
                 oldNullable: true);
@@ -154,7 +146,7 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 table: "OSPTagWorkout",
                 type: "datetimeoffset",
                 nullable: false,
-                defaultValue: new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                defaultValueSql: "GetUtcDate()",
                 oldClrType: typeof(DateTimeOffset),
                 oldType: "datetimeoffset",
                 oldNullable: true);
@@ -174,7 +166,7 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 table: "OSPTag",
                 type: "datetimeoffset",
                 nullable: false,
-                defaultValue: new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                defaultValueSql: "GetUtcDate()",
                 oldClrType: typeof(DateTimeOffset),
                 oldType: "datetimeoffset",
                 oldNullable: true);
@@ -194,7 +186,7 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 table: "OSPTag",
                 type: "datetimeoffset",
                 nullable: false,
-                defaultValue: new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                defaultValueSql: "GetUtcDate()",
                 oldClrType: typeof(DateTimeOffset),
                 oldType: "datetimeoffset",
                 oldNullable: true);
@@ -214,7 +206,7 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 table: "OSPSportcCategory",
                 type: "datetimeoffset",
                 nullable: false,
-                defaultValue: new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                defaultValueSql: "GetUtcDate()",
                 oldClrType: typeof(DateTimeOffset),
                 oldType: "datetimeoffset",
                 oldNullable: true);
@@ -234,7 +226,7 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 table: "OSPSportcCategory",
                 type: "datetimeoffset",
                 nullable: false,
-                defaultValue: new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                defaultValueSql: "GetUtcDate()",
                 oldClrType: typeof(DateTimeOffset),
                 oldType: "datetimeoffset",
                 oldNullable: true);
@@ -254,7 +246,7 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 table: "OSPSegment",
                 type: "datetimeoffset",
                 nullable: false,
-                defaultValue: new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                defaultValueSql: "GetUtcDate()",
                 oldClrType: typeof(DateTimeOffset),
                 oldType: "datetimeoffset",
                 oldNullable: true);
@@ -274,7 +266,7 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 table: "OSPSegment",
                 type: "datetimeoffset",
                 nullable: false,
-                defaultValue: new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                defaultValueSql: "GetUtcDate()",
                 oldClrType: typeof(DateTimeOffset),
                 oldType: "datetimeoffset",
                 oldNullable: true);
@@ -294,7 +286,7 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 table: "OSPSample",
                 type: "datetimeoffset",
                 nullable: false,
-                defaultValue: new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                defaultValueSql: "GetUtcDate()",
                 oldClrType: typeof(DateTimeOffset),
                 oldType: "datetimeoffset",
                 oldNullable: true);
@@ -314,39 +306,15 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 table: "OSPSample",
                 type: "datetimeoffset",
                 nullable: false,
-                defaultValue: new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                defaultValueSql: "GetUtcDate()",
                 oldClrType: typeof(DateTimeOffset),
                 oldType: "datetimeoffset",
                 oldNullable: true);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_OSPWorkout_OSPSportcCategory_SportsCategoryId",
-                table: "OSPWorkout",
-                column: "SportsCategoryId",
-                principalTable: "OSPSportcCategory",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_OSPWorkout_OSPUserProfile_UserProfileId",
-                table: "OSPWorkout",
-                column: "UserProfileId",
-                principalTable: "OSPUserProfile",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_OSPWorkout_OSPSportcCategory_SportsCategoryId",
-                table: "OSPWorkout");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_OSPWorkout_OSPUserProfile_UserProfileId",
-                table: "OSPWorkout");
-
             migrationBuilder.AlterColumn<int>(
                 name: "UserProfileId",
                 table: "OSPWorkout",
@@ -369,7 +337,8 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 type: "datetimeoffset",
                 nullable: true,
                 oldClrType: typeof(DateTimeOffset),
-                oldType: "datetimeoffset");
+                oldType: "datetimeoffset",
+                oldDefaultValueSql: "GetUtcDate()");
 
             migrationBuilder.AlterColumn<int>(
                 name: "SportsCategoryId",
@@ -393,7 +362,8 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 type: "datetimeoffset",
                 nullable: true,
                 oldClrType: typeof(DateTimeOffset),
-                oldType: "datetimeoffset");
+                oldType: "datetimeoffset",
+                oldDefaultValueSql: "GetUtcDate()");
 
             migrationBuilder.AlterColumn<string>(
                 name: "UpdateUser",
@@ -409,7 +379,8 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 type: "datetimeoffset",
                 nullable: true,
                 oldClrType: typeof(DateTimeOffset),
-                oldType: "datetimeoffset");
+                oldType: "datetimeoffset",
+                oldDefaultValueSql: "GetUtcDate()");
 
             migrationBuilder.AlterColumn<string>(
                 name: "InsertUser",
@@ -425,7 +396,8 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 type: "datetimeoffset",
                 nullable: true,
                 oldClrType: typeof(DateTimeOffset),
-                oldType: "datetimeoffset");
+                oldType: "datetimeoffset",
+                oldDefaultValueSql: "GetUtcDate()");
 
             migrationBuilder.AlterColumn<string>(
                 name: "UpdateUser",
@@ -441,7 +413,8 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 type: "datetimeoffset",
                 nullable: true,
                 oldClrType: typeof(DateTimeOffset),
-                oldType: "datetimeoffset");
+                oldType: "datetimeoffset",
+                oldDefaultValueSql: "GetUtcDate()");
 
             migrationBuilder.AlterColumn<string>(
                 name: "InsertUser",
@@ -457,7 +430,8 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 type: "datetimeoffset",
                 nullable: true,
                 oldClrType: typeof(DateTimeOffset),
-                oldType: "datetimeoffset");
+                oldType: "datetimeoffset",
+                oldDefaultValueSql: "GetUtcDate()");
 
             migrationBuilder.AlterColumn<string>(
                 name: "UpdateUser",
@@ -473,7 +447,8 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 type: "datetimeoffset",
                 nullable: true,
                 oldClrType: typeof(DateTimeOffset),
-                oldType: "datetimeoffset");
+                oldType: "datetimeoffset",
+                oldDefaultValueSql: "GetUtcDate()");
 
             migrationBuilder.AlterColumn<string>(
                 name: "InsertUser",
@@ -489,7 +464,8 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 type: "datetimeoffset",
                 nullable: true,
                 oldClrType: typeof(DateTimeOffset),
-                oldType: "datetimeoffset");
+                oldType: "datetimeoffset",
+                oldDefaultValueSql: "GetUtcDate()");
 
             migrationBuilder.AlterColumn<string>(
                 name: "UpdateUser",
@@ -505,7 +481,8 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 type: "datetimeoffset",
                 nullable: true,
                 oldClrType: typeof(DateTimeOffset),
-                oldType: "datetimeoffset");
+                oldType: "datetimeoffset",
+                oldDefaultValueSql: "GetUtcDate()");
 
             migrationBuilder.AlterColumn<string>(
                 name: "InsertUser",
@@ -521,7 +498,8 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 type: "datetimeoffset",
                 nullable: true,
                 oldClrType: typeof(DateTimeOffset),
-                oldType: "datetimeoffset");
+                oldType: "datetimeoffset",
+                oldDefaultValueSql: "GetUtcDate()");
 
             migrationBuilder.AlterColumn<string>(
                 name: "UpdateUser",
@@ -537,7 +515,8 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 type: "datetimeoffset",
                 nullable: true,
                 oldClrType: typeof(DateTimeOffset),
-                oldType: "datetimeoffset");
+                oldType: "datetimeoffset",
+                oldDefaultValueSql: "GetUtcDate()");
 
             migrationBuilder.AlterColumn<string>(
                 name: "InsertUser",
@@ -553,7 +532,8 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 type: "datetimeoffset",
                 nullable: true,
                 oldClrType: typeof(DateTimeOffset),
-                oldType: "datetimeoffset");
+                oldType: "datetimeoffset",
+                oldDefaultValueSql: "GetUtcDate()");
 
             migrationBuilder.AlterColumn<string>(
                 name: "UpdateUser",
@@ -569,7 +549,8 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 type: "datetimeoffset",
                 nullable: true,
                 oldClrType: typeof(DateTimeOffset),
-                oldType: "datetimeoffset");
+                oldType: "datetimeoffset",
+                oldDefaultValueSql: "GetUtcDate()");
 
             migrationBuilder.AlterColumn<string>(
                 name: "InsertUser",
@@ -585,21 +566,8 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                 type: "datetimeoffset",
                 nullable: true,
                 oldClrType: typeof(DateTimeOffset),
-                oldType: "datetimeoffset");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_OSPWorkout_OSPSportcCategory_SportsCategoryId",
-                table: "OSPWorkout",
-                column: "SportsCategoryId",
-                principalTable: "OSPSportcCategory",
-                principalColumn: "Id");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_OSPWorkout_OSPUserProfile_UserProfileId",
-                table: "OSPWorkout",
-                column: "UserProfileId",
-                principalTable: "OSPUserProfile",
-                principalColumn: "Id");
+                oldType: "datetimeoffset",
+                oldDefaultValueSql: "GetUtcDate()");
         }
     }
 }

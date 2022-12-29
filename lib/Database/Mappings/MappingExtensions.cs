@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using OpenSportsPlatform.Lib.Model.Entities;
 using System;
 using System.Collections.Generic;
@@ -16,11 +17,13 @@ namespace OpenSportsPlatform.Lib.Database.Mappings
             builder.Property(x => x.InsertUser)
                 .IsRequired();
             builder.Property(x => x.InsertDate)
-               .IsRequired();
+               .IsRequired()
+               .HasDefaultValueSql("GetUtcDate()");
             builder.Property(x => x.UpdateUser)
                  .IsRequired();
             builder.Property(x => x.UpdateDate)
-                 .IsRequired();
+                 .IsRequired()
+                 .HasDefaultValueSql("GetUtcDate()");
         }
 
     }

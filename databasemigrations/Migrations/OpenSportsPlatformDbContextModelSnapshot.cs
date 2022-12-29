@@ -45,7 +45,9 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
 
                     b.Property<DateTimeOffset?>("InsertDate")
                         .IsRequired()
-                        .HasColumnType("datetimeoffset");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
 
                     b.Property<string>("InsertUser")
                         .IsRequired()
@@ -71,7 +73,9 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
 
                     b.Property<DateTimeOffset?>("UpdateDate")
                         .IsRequired()
-                        .HasColumnType("datetimeoffset");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
 
                     b.Property<string>("UpdateUser")
                         .IsRequired()
@@ -94,7 +98,9 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
 
                     b.Property<DateTimeOffset?>("InsertDate")
                         .IsRequired()
-                        .HasColumnType("datetimeoffset");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
 
                     b.Property<string>("InsertUser")
                         .IsRequired()
@@ -102,7 +108,9 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
 
                     b.Property<DateTimeOffset?>("UpdateDate")
                         .IsRequired()
-                        .HasColumnType("datetimeoffset");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
 
                     b.Property<string>("UpdateUser")
                         .IsRequired()
@@ -128,7 +136,9 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
 
                     b.Property<DateTimeOffset?>("InsertDate")
                         .IsRequired()
-                        .HasColumnType("datetimeoffset");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
 
                     b.Property<string>("InsertUser")
                         .IsRequired()
@@ -139,7 +149,9 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
 
                     b.Property<DateTimeOffset?>("UpdateDate")
                         .IsRequired()
-                        .HasColumnType("datetimeoffset");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
 
                     b.Property<string>("UpdateUser")
                         .IsRequired()
@@ -160,7 +172,9 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
 
                     b.Property<DateTimeOffset?>("InsertDate")
                         .IsRequired()
-                        .HasColumnType("datetimeoffset");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
 
                     b.Property<string>("InsertUser")
                         .IsRequired()
@@ -172,7 +186,9 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
 
                     b.Property<DateTimeOffset?>("UpdateDate")
                         .IsRequired()
-                        .HasColumnType("datetimeoffset");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
 
                     b.Property<string>("UpdateUser")
                         .IsRequired()
@@ -193,7 +209,9 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
 
                     b.Property<DateTimeOffset?>("InsertDate")
                         .IsRequired()
-                        .HasColumnType("datetimeoffset");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
 
                     b.Property<string>("InsertUser")
                         .IsRequired()
@@ -204,7 +222,9 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
 
                     b.Property<DateTimeOffset?>("UpdateDate")
                         .IsRequired()
-                        .HasColumnType("datetimeoffset");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
 
                     b.Property<string>("UpdateUser")
                         .IsRequired()
@@ -232,7 +252,9 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
 
                     b.Property<DateTimeOffset?>("InsertDate")
                         .IsRequired()
-                        .HasColumnType("datetimeoffset");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
 
                     b.Property<string>("InsertUser")
                         .IsRequired()
@@ -255,7 +277,9 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
 
                     b.Property<DateTimeOffset?>("UpdateDate")
                         .IsRequired()
-                        .HasColumnType("datetimeoffset");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
 
                     b.Property<string>("UpdateUser")
                         .IsRequired()
@@ -315,7 +339,9 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
 
                     b.Property<DateTimeOffset?>("InsertDate")
                         .IsRequired()
-                        .HasColumnType("datetimeoffset");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
 
                     b.Property<string>("InsertUser")
                         .IsRequired()
@@ -341,7 +367,9 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
 
                     b.Property<DateTimeOffset?>("UpdateDate")
                         .IsRequired()
-                        .HasColumnType("datetimeoffset");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
 
                     b.Property<string>("UpdateUser")
                         .IsRequired()
@@ -386,13 +414,13 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                     b.HasOne("OpenSportsPlatform.Lib.Model.Entities.Tag", "Tag")
                         .WithMany("TagWorkouts")
                         .HasForeignKey("TagId")
-                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("OpenSportsPlatform.Lib.Model.Entities.Workout", "Workout")
                         .WithMany("TagWorkouts")
                         .HasForeignKey("WorkoutId")
-                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Tag");
@@ -405,13 +433,13 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                     b.HasOne("OpenSportsPlatform.Lib.Model.Entities.SportsCategory", "SportsCategory")
                         .WithMany("Workouts")
                         .HasForeignKey("SportsCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("OpenSportsPlatform.Lib.Model.Entities.UserProfile", "UserProfile")
                         .WithMany("Workouts")
                         .HasForeignKey("UserProfileId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("SportsCategory");

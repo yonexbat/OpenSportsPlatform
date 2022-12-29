@@ -15,11 +15,13 @@ namespace OpenSportsPlatform.Lib.Database.Mappings
 
             builder.HasOne(wo => wo.SportsCategory)
                 .WithMany(cat => cat.Workouts)
-                .HasForeignKey(c => c.SportsCategoryId);
+                .HasForeignKey(c => c.SportsCategoryId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(wo => wo.UserProfile)
                 .WithMany(cat => cat.Workouts)
-                .HasForeignKey(c => c.UserProfileId);            
+                .HasForeignKey(c => c.UserProfileId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.AddTechnicalAttributes();
         }

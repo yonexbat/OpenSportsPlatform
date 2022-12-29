@@ -30,8 +30,9 @@ namespace OpenSportsPlatform.DatabaseMigrations.OSPMigration
             var optionsBuilder = new DbContextOptionsBuilder<OpenSportsPlatformDbContext>();
             optionsBuilder.UseSqlServer(connectionString, 
                     b => 
-                        b.MigrationsAssembly("OpenSportsPlatform.DatabaseMigrations")
+                        b.MigrationsAssembly("OpenSportsPlatform.DatabaseMigrations")                        
                         .UseNetTopologySuite()
+                        .CommandTimeout(100000)
                 );
 
             GenericIdentity identity = new GenericIdentity("technicaluser");
