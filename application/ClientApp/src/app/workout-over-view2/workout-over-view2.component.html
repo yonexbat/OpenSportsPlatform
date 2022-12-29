@@ -1,8 +1,20 @@
-<div style="background-color: aquamarine; height: 100%;">
-  <cdk-virtual-scroll-viewport #ScrollerRef itemSize="50" style="height:100%;">
-    <ng-container *cdkVirtualFor="let workout of (workoutItems); let i = index">
-      <div style="height: 50px; border-style: solid; border-color: black; border-radius: 1em;">
+<div style="height: 100%;">
+  <cdk-virtual-scroll-viewport #ScrollerRef [itemSize]="workoutHeightPx" style="height:100%;">
+    <ng-container *cdkVirtualFor="let workout of (workoutItems); let i = index; trackBy: trackById">
+      <div [style.height]="workoutHeightPx +'px'">
+        <mat-card [routerLink]="['/workout', 'map', workout.id]">
+          
+          <mat-card-title>
+            <img [src]="getImage(workout.sport)" class="sportsicon">
+            {{workout.startTime | date : 'dd.MM.yyyy'}}
+          </mat-card-title>
 
+          <mat-card-subtitle>            
+            {{workout.endTime | date : 'HH:mm'}}
+            {{workout.durationInSec | duration}}
+            {{workout.distanceInKm | distance}}
+          </mat-card-subtitle>
+        </mat-card>
       </div>
     </ng-container>
   </cdk-virtual-scroll-viewport>

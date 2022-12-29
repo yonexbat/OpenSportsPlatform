@@ -17,6 +17,8 @@ export class WorkoutOverView2Component implements OnInit {
 
   private currentPage = 0;
 
+  public readonly workoutHeightPx = 60;
+
   @ViewChild('ScrollerRef', { static: true }) scroller!: CdkVirtualScrollViewport;
 
   constructor(private dataService: DataService, private ngZone: NgZone) {
@@ -27,17 +29,14 @@ export class WorkoutOverView2Component implements OnInit {
 
     const height = this.scroller.measureViewportSize('vertical');
     console.log(`viewport size is ${height}`);
-    const numPages = height / 500.0;
+    const numPages = height / (this.workoutHeightPx * 10);
     this.fetchPages(numPages);
 
     
     this.scroller.elementScrolled()
     .pipe(
       map(() => this.scroller.measureScrollOffset('bottom')),
-      pairwise(),
-      tap(([y1, y2]) =>  {
-        console.log(`y1: ${y1}, y2: ${y2}`)
-      }),
+      pairwise(),     
       filter(([y1, y2]) => (y2 < y1 && y2 < 300)),
       throttleTime(200)
     ).subscribe(() => {
@@ -64,4 +63,7 @@ export class WorkoutOverView2Component implements OnInit {
     return getImageFromCategory(sportCat);
   }
 
+  public trackById(index: number, item: WorkoutOverviewItem) {    
+    return item.id;
+  }
 }
