@@ -19,7 +19,7 @@ export class AuthenticationService {
   };
 
   private userProfile: Subject<ShortUserProfile> = new BehaviorSubject<ShortUserProfile>(this.unauthenticatedUserProfile);
-  //private userProfileReplay?: Observable<ShortUserProfile> = undefined;
+  private userProfileReplay?: Observable<ShortUserProfile> = undefined;
 
   constructor(private http: HttpClient, private authService: SocialAuthService) {
 
@@ -29,7 +29,7 @@ export class AuthenticationService {
   public async signOut(): Promise<void> {
     localStorage.removeItem('jwt');
     await this.authService.signOut();
-    //this.userProfileReplay = undefined;
+    this.userProfileReplay = undefined;
     this.userProfile.next(this.unauthenticatedUserProfile);
   }
 
@@ -43,8 +43,11 @@ export class AuthenticationService {
   }
 
   public async isLoggedIn(): Promise<boolean> {
-    const userProfile = await firstValueFrom(this.userProfile);
-    return userProfile.authenticated === true;
+    const userProfile = await this.fetchUserProfile();
+    if (userProfile) {
+      return userProfile.authenticated === true;
+    }
+    return false;
   }
 
   private async startUp(): Promise<void> {
@@ -56,6 +59,7 @@ export class AuthenticationService {
     this.authService.authState.subscribe((user: SocialUser) => {
       this.signInIfNeeded(user);
     });
+
   }
 
   private async signInIfNeeded(user: SocialUser): Promise<void> {
@@ -64,15 +68,29 @@ export class AuthenticationService {
     }
     const loggedIn = await this.isLoggedIn();
     if (!loggedIn) {
+      this.userProfileReplay = undefined;
       await this.exchangeToken(user);
       await this.fetchUserProfile();
     }
   }
 
   private async fetchUserProfile(): Promise<ShortUserProfile> {
-    const userProfile = await firstValueFrom(this.http.get<ShortUserProfile>('/Authentication/GetShortUserProfile'));
-    this.userProfile.next(userProfile);
-    return userProfile;
+    return firstValueFrom(this.fetchUserProfileReplay()) as Promise<ShortUserProfile>;
+  }
+
+  private fetchUserProfileReplay(): Observable<ShortUserProfile> {
+    if (this.userProfileReplay) {
+      return this.userProfileReplay;
+    }
+    this.userProfileReplay = this.http.get<ShortUserProfile>('/Authentication/GetShortUserProfile')
+      .pipe(
+        map(profile => {
+          this.userProfile.next(profile);
+          return profile;
+        }),
+        shareReplay(1)
+      );
+    return this.userProfileReplay as Observable<ShortUserProfile>;
   }
 
   private async exchangeToken(user: SocialUser): Promise<SocialUser> {
