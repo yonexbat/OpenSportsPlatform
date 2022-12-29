@@ -20,6 +20,10 @@ namespace OpenSportsPlatform.Lib.Database
 
         public DbSet<Sample> Sample { get; set; }
 
+        public DbSet<Tag> Tag { get; set; }
+
+        public DbSet<TagWorkout> TagWorkout { get; set; }
+
         public OpenSportsPlatformDbContext(
             DbContextOptions<OpenSportsPlatformDbContext> options, 
             ISecurityService securityService) : base(options)

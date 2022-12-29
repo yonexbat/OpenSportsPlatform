@@ -25,6 +25,8 @@ namespace OpenSportsPlatform.Lib.Database.Mappings
                           .HasForeignKey(tagWorkout => tagWorkout.TagId)
                           .OnDelete(DeleteBehavior.ClientCascade);
 
+            builder.AddTechnicalAttributes();
+
         }
     }
 }

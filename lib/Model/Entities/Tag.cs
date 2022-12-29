@@ -8,13 +8,12 @@ namespace OpenSportsPlatform.Lib.Model.Entities
 {
     public class Tag : IEntity
     {
-        public int Id { get ; set; }
-        public string Name { get; set; }
-        public string? InsertUser { get; set; }
-        public DateTimeOffset? InsertDate { get; set; }
-        public string? UpdateUser { get; set; }
-        public DateTimeOffset? UpdateDate { get; set; }
-
-        public virtual IList<TagWorkout> TagWorkouts { get; set; }
+        public virtual int Id { get ; set; }
+        public virtual required string Name { get; set; }
+        public virtual string? InsertUser { get; set; }
+        public virtual DateTimeOffset? InsertDate { get; set; }
+        public virtual string? UpdateUser { get; set; }
+        public virtual DateTimeOffset? UpdateDate { get; set; }
+        public virtual IList<TagWorkout>? TagWorkouts { get; set; }
     }
 }

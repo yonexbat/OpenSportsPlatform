@@ -6,6 +6,7 @@ using OpenSportsPlatform.Lib.Model.Dtos.Common;
 using OpenSportsPlatform.Lib.Model.Dtos.Workout;
 using OpenSportsPlatform.Lib.Model.Entities;
 using OpenSportsPlatform.Lib.Services.Contract;
+using System.Formats.Asn1;
 using System.Linq;
 using System.Security;
 using System.Threading.Tasks;
@@ -128,15 +129,50 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             var workout = await _dbContext.Workout
                 .Where(x => x.Id == dto.Id)
                 .Include(x => x.UserProfile)
+                .Include(x => x.TagWorkouts!)
+                .ThenInclude(x => x.Tag)
                 .SingleAsync();
 
             _securityService.CheckAccess(workout);
 
             workout.SportsCategoryId = dto.SportsCategoryId ?? throw new ArgumentNullException(nameof(SaveWorkoutDto.SportsCategoryId));
             workout.Notes = dto.Notes;
+
+            if (!string.IsNullOrWhiteSpace(dto.Tag))
+            {
+                Tag tag = await GetOrCreateTag(dto.Tag); 
+
+                if(workout.TagWorkouts!.All(x => x.TagId != tag.Id))
+                {
+                    TagWorkout tagWorkout = new TagWorkout() { 
+                        Tag = tag,
+                        Workout = workout,
+                    };
+                    await _dbContext.AddAsync(tagWorkout);
+                }
+                
+            }
+
             await _dbContext.SaveChangesAsync();
 
             return true;
+        }
+
+        private async Task<Tag> GetOrCreateTag(string tagName)
+        {
+            var tag = await _dbContext.Tag
+                .Where(x => x.Name == tagName)
+                .FirstOrDefaultAsync();
+
+            if (tag == null)
+            {
+                tag = new Tag()
+                {
+                    Name = tagName,
+                };
+            }
+            await _dbContext.AddAsync(tag);
+            return tag;
         }
        
     }

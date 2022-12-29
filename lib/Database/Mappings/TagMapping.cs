@@ -15,6 +15,8 @@ namespace OpenSportsPlatform.Lib.Database.Mappings
         {
             builder.ToTable("OSPTag");
             builder.Property(x => x.Name).IsRequired(true);
+
+            builder.AddTechnicalAttributes();
         }
     }
 }
