@@ -41,6 +41,10 @@
                     <mat-icon class="icon">list</mat-icon>
                     <span class="label">Workouts</span>
                 </a>
+                <a *ngIf="isLoggedIn$ | async" mat-list-item routerLink="/workouts2">
+                    <mat-icon class="icon">list</mat-icon>
+                    <span class="label">Workouts2</span>
+                </a>
                 <a *ngIf="isLoggedIn$ | async" mat-list-item routerLink="/statistics">
                     <mat-icon class="icon">bar_chart</mat-icon>
                     <span class="label">Statistics</span>
