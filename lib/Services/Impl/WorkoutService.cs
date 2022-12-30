@@ -5,6 +5,7 @@ using OpenSportsPlatform.Lib.Model;
 using OpenSportsPlatform.Lib.Model.Dtos.Common;
 using OpenSportsPlatform.Lib.Model.Dtos.Workout;
 using OpenSportsPlatform.Lib.Model.Entities;
+using OpenSportsPlatform.Lib.Model.Exceptions;
 using OpenSportsPlatform.Lib.Services.Contract;
 using System.Formats.Asn1;
 using System.Linq;
@@ -28,7 +29,35 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             _securityService = securityService;
         }
 
-        public async Task<bool> DeleteWorkout(int id)
+        public async Task AddTag(int workoutId, string name)
+        {
+            Workout? workout = await GetWorkoutSecured(workoutId);
+            Tag? tag = await _dbContext.Tag
+                .Where(x => x.Name == name)
+                .SingleOrDefaultAsync();
+
+            if (tag == null)
+            {
+                tag = new Tag { Name = name };
+                await _dbContext.AddAsync(tag);
+            }
+
+            TagWorkout? tagWorkout = await _dbContext.TagWorkout
+                .Where(x => x.WorkoutId == workoutId && x.TagId == tag.Id)
+                .SingleOrDefaultAsync();
+
+            if (tagWorkout == null)
+            {
+                tagWorkout = new TagWorkout { 
+                    Tag = tag,
+                    Workout = workout,
+                };
+                await _dbContext.AddAsync(tagWorkout);
+            }
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task DeleteWorkout(int id)
         {
             _logger.LogInformation("Deleting workout with id {0}", id);
             Workout workout = await _dbContext.Workout.Where(x => x.Id == id)
@@ -41,7 +70,6 @@ namespace OpenSportsPlatform.Lib.Services.Impl
 
             _dbContext.Remove(workout);
             await _dbContext.SaveChangesAsync();
-            return true;
         }
 
         public async Task<EditWorkoutDto> GetEditWorkout(int id)
@@ -85,26 +113,22 @@ namespace OpenSportsPlatform.Lib.Services.Impl
 
         public async Task<WorkoutDto> GetWorkout(int id)
         {
-            var res = await _dbContext
-                .Workout
-                .Where(x => x.Id == id)
-                .Select(x => new WorkoutDto()
-                {
-                    Id = x.Id,
-                    StartTime = x.StartTime,
-                    EndTime = x.EndTime,
-                    Sport = x.SportsCategory!.Name,
-                    DistanceInKm = x.DistanceInKm,
-                    AscendInMeters = x.AscendInMeters,
-                    DescendInMeters = x.DescendInMeters,
-                    CaloriesInKCal = x.CaloriesInKCal,
-                    HeartRateAvgBpm = x.HeartRateAvgBpm,
-                    HeartRateMaxBpm = x.HeartRateMaxBpm,
-                    DurationInSec = x.DurationInSec,
-                }).SingleAsync();
+            Workout workout = await GetWorkoutSecured(id);
 
-            res.StartTime = res.StartTime;
-            res.EndTime = res.EndTime;
+            WorkoutDto res = new WorkoutDto()
+            {
+                Id = workout.Id,
+                StartTime = workout.StartTime,
+                EndTime = workout.EndTime,
+                Sport = workout.SportsCategory!.Name,
+                DistanceInKm = workout.DistanceInKm,
+                AscendInMeters = workout.AscendInMeters,
+                DescendInMeters = workout.DescendInMeters,
+                CaloriesInKCal = workout.CaloriesInKCal,
+                HeartRateAvgBpm = workout.HeartRateAvgBpm,
+                HeartRateMaxBpm = workout.HeartRateMaxBpm,
+                DurationInSec = workout.DurationInSec,
+            };
 
             //Samples
             res.Samples = await _dbContext
@@ -124,56 +148,60 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             return res;
         }
 
-        public async Task<bool> SaveWorkout(SaveWorkoutDto dto)
+        public async Task RemoveTag(int workoutId, string name)
         {
-            var workout = await _dbContext.Workout
-                .Where(x => x.Id == dto.Id)
-                .Include(x => x.UserProfile)
-                .Include(x => x.TagWorkouts!)
-                .ThenInclude(x => x.Tag)
-                .SingleAsync();
+            await GetWorkoutSecured(workoutId);
+            TagWorkout? tagWorkout = await _dbContext.TagWorkout
+                .Where(x => x.Workout.Id == workoutId)
+                .Where(x => x.Tag.Name == name)
+                .SingleOrDefaultAsync();
 
-            _securityService.CheckAccess(workout);
+            if (tagWorkout != null) {
+                _dbContext.Remove(tagWorkout);
+                await _dbContext.SaveChangesAsync();
+            }
+        }
+
+        public async Task SaveWorkout(SaveWorkoutDto dto)
+        {
+            Workout workout = await GetWorkoutSecured(dto.Id ?? 0);
 
             workout.SportsCategoryId = dto.SportsCategoryId ?? throw new ArgumentNullException(nameof(SaveWorkoutDto.SportsCategoryId));
             workout.Notes = dto.Notes;
 
-            if (!string.IsNullOrWhiteSpace(dto.Tag))
-            {
-                Tag tag = await GetOrCreateTag(dto.Tag); 
-
-                if(workout.TagWorkouts!.All(x => x.TagId != tag.Id))
-                {
-                    TagWorkout tagWorkout = new TagWorkout() { 
-                        Tag = tag,
-                        Workout = workout,
-                    };
-                    await _dbContext.AddAsync(tagWorkout);
-                }
-                
-            }
-
             await _dbContext.SaveChangesAsync();
-
-            return true;
         }
 
-        private async Task<Tag> GetOrCreateTag(string tagName)
+        private async Task<Workout> GetWorkoutSecured(int workoutId)
         {
-            var tag = await _dbContext.Tag
-                .Where(x => x.Name == tagName)
-                .FirstOrDefaultAsync();
+            var workout = await _dbContext.Workout
+                .Where(x => x.Id == workoutId)
+                .Include(x => x.UserProfile)
+                .Include(x => x.SportsCategory)
+                .SingleAsync();
 
-            if (tag == null)
+            if (workout == null)
             {
-                tag = new Tag()
-                {
-                    Name = tagName,
-                };
+                throw new EntityNotFoundException(typeof(Workout), workoutId);
             }
-            await _dbContext.AddAsync(tag);
-            return tag;
+
+            _securityService.CheckAccess(workout);
+
+            return workout;
         }
-       
+
+        public async Task<IList<SelectItemDto>> SerachTags(string name)
+        {
+            return await _dbContext.Tag
+                .Where(x => x.Name.Contains(name))
+                .Take(100)
+                .OrderBy(x => x.Name)
+                .Select(x => new SelectItemDto()
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                })
+                .ToListAsync();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using OpenSportsPlatform.Lib.Database;
 using OpenSportsPlatform.Lib.Model.Entities;
 using OpenSportsPlatform.Lib.Services.Contract;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using unittests.util;
 using Xunit;
 
@@ -23,26 +25,32 @@ namespace unittests
             IPrincipal principal = MockPrincipal.CreatePrincipal();
             ISecurityService securityService = new SecurityService(principal);
             ILogger<TcxFileImporterService> logger = new MockLogger<TcxFileImporterService>();
+            string dbName = Guid.NewGuid().ToString();
 
-
-            using (var connection = MockDatabaseSqlLite.CreateInMemoryDatabase())
+            using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
             {
-                using (OpenSportsPlatformDbContext dbContext = MockDatabaseSqlLite.CreateDbContext(principal, connection))
-                {
-                    dbContext.Database.EnsureCreated();
+                dbContext.Database.EnsureCreated();
 
-                    UserProfile userProfile = new UserProfile();
-                    userProfile.UserId = securityService.GetCurrentUserid();
-                    dbContext.Add(userProfile);
-                    dbContext.SaveChanges();
-                }
+                UserProfile userProfile = new UserProfile();
+                userProfile.UserId = securityService.GetCurrentUserid();
+                await dbContext.AddAsync(userProfile);
 
-                using (OpenSportsPlatformDbContext dbContext = MockDatabaseSqlLite.CreateDbContext(principal, connection))
-                {
-                    ITcxFileImporterService service = new TcxFileImporterService(logger, securityService, dbContext);
-                    Stream stream = File.OpenRead("Files\\testactivity.tcx");
-                    await service.ImportWorkout(stream);
-                }
+                await dbContext.SaveChangesAsync();
+            }
+            using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
+            {
+                ITcxFileImporterService service = new TcxFileImporterService(logger, securityService, dbContext);
+                Stream stream = File.OpenRead("Files\\testactivity.tcx");
+                await service.ImportWorkout(stream);
+            }
+
+            // Assert
+            using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
+            {
+                var numSamples = await dbContext.Sample
+                    .Where(x => x.Segment.Workout.UserProfile.UserId == securityService.GetCurrentUserid())
+                    .CountAsync();
+                Assert.True(numSamples > 0);
 
             }
         }

@@ -59,7 +59,8 @@ namespace OpenSportsPlatform.Application.Controllers
         [Route("[action]/{id}")]
         public async Task<bool> DeleteWorkout(int id)
         {
-            return await _workoutService.DeleteWorkout(id);
+            await _workoutService.DeleteWorkout(id);
+            return true;
         }
 
         [HttpPost]
@@ -79,7 +80,8 @@ namespace OpenSportsPlatform.Application.Controllers
         [Route("[action]")]
         public async Task<bool> SaveWorkout([FromBody] SaveWorkoutDto dto)
         {
-            return await _workoutService.SaveWorkout(dto);
+            await _workoutService.SaveWorkout(dto);
+            return true;
         }
 
         [HttpGet]
