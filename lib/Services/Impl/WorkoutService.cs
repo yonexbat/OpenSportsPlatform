@@ -7,10 +7,7 @@ using OpenSportsPlatform.Lib.Model.Dtos.Workout;
 using OpenSportsPlatform.Lib.Model.Entities;
 using OpenSportsPlatform.Lib.Model.Exceptions;
 using OpenSportsPlatform.Lib.Services.Contract;
-using System.Formats.Asn1;
-using System.Linq;
-using System.Security;
-using System.Threading.Tasks;
+
 
 namespace OpenSportsPlatform.Lib.Services.Impl
 {
@@ -29,21 +26,31 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             _securityService = securityService;
         }
 
-        public async Task AddTag(int workoutId, string name)
+        public async Task AddTag(AddTagDto dto)
         {
-            Workout? workout = await GetWorkoutSecured(workoutId);
+            if (dto.Id == null)
+            {
+                throw new ArgumentNullException("Id must not be null");
+            }
+
+            if (dto.Name == null)
+            {
+                throw new ArgumentNullException("Name must not be null");
+            }
+
+            Workout? workout = await GetWorkoutSecured(dto.Id ?? 0);
             Tag? tag = await _dbContext.Tag
-                .Where(x => x.Name == name)
+                .Where(x => x.Name == dto.Name)
                 .SingleOrDefaultAsync();
 
             if (tag == null)
             {
-                tag = new Tag { Name = name };
+                tag = new Tag { Name = dto.Name };
                 await _dbContext.AddAsync(tag);
             }
 
             TagWorkout? tagWorkout = await _dbContext.TagWorkout
-                .Where(x => x.WorkoutId == workoutId && x.TagId == tag.Id)
+                .Where(x => x.WorkoutId == dto.Id && x.TagId == tag.Id)
                 .SingleOrDefaultAsync();
 
             if (tagWorkout == null)
@@ -148,12 +155,22 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             return res;
         }
 
-        public async Task RemoveTag(int workoutId, string name)
+        public async Task RemoveTag(RemoveTagDto dto)
         {
-            await GetWorkoutSecured(workoutId);
+            if (dto.Id == null)
+            {
+                throw new ArgumentNullException("Id must not be null");
+            }
+
+            if (dto.Name == null)
+            {
+                throw new ArgumentNullException("Name must not be null");
+            }
+
+            await GetWorkoutSecured(dto.Id ?? 0);
             TagWorkout? tagWorkout = await _dbContext.TagWorkout
-                .Where(x => x.Workout.Id == workoutId)
-                .Where(x => x.Tag.Name == name)
+                .Where(x => x.Workout.Id == dto.Id)
+                .Where(x => x.Tag.Name == dto.Name)
                 .SingleOrDefaultAsync();
 
             if (tagWorkout != null) {

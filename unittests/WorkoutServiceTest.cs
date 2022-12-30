@@ -100,7 +100,7 @@ namespace unittests
             using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
             {
                 IWorkoutService service = CreateService(dbContext, securityService);
-                await service.AddTag(workOutId, "Bluemlisalp-Lauf");
+                await service.AddTag(new AddTagDto() { Id = workOutId, Name = "Bluemlisalp-Lauf" });
             }
 
             // Assert
@@ -141,7 +141,7 @@ namespace unittests
             using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
             {
                 IWorkoutService service = CreateService(dbContext, securityService);
-                await service.RemoveTag(workOutId, "TestTag");
+                await service.RemoveTag(new RemoveTagDto { Id = workOutId, Name = "TestTag" });
             }
 
             // Assert

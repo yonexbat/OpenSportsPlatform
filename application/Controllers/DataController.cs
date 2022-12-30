@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using OpenSportsPlatform.Lib.Model.Dtos.Common;
 using OpenSportsPlatform.Lib.Model.Dtos.Statistics;
 using OpenSportsPlatform.Lib.Model.Dtos.Workout;
 using OpenSportsPlatform.Lib.Model.Dtos.WorkoutOverview;
@@ -105,5 +106,24 @@ namespace OpenSportsPlatform.Application.Controllers
             await _cropWorkoutService.Crop(dto);
         }
 
+        [HttpPost]
+        [Route("[action]")]
+        public async Task AddTag([FromBody] AddTagDto dto)
+        {
+            await _workoutService.AddTag(dto);
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        public async Task RemoveTag([FromBody] RemoveTagDto dto)
+        {
+            await _workoutService.RemoveTag(dto);
+        }
+
+        [HttpGet]
+        public async Task<IList<SelectItemDto>> SearchTags([FromQuery] string name)
+        {
+            return await _workoutService.SerachTags(name);
+        }
     }
 }
