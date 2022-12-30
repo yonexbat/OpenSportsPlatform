@@ -19,6 +19,8 @@
             </select>
         </mat-form-field>
 
+       
+
         <mat-form-field appearance="fill">
             <mat-label>Notes</mat-label>
             <textarea matInput placeholder="Ex. It felt ..." maxlength="1000" formControlName="notes"></textarea>
@@ -45,7 +47,21 @@
                 <button mat-raised-button type="submit" color="primary" (click)="cropClick()">Crop</button>
             </div>
         </div>
+    </div>
 
+    <div style="margin-top: 1em;">
+        <mat-form-field>
+            <mat-label>Tags</mat-label>
+            <input id="tagsInput" [(ngModel)]="tag" matInput type="text" (keyup.enter)="onEnterInTagInput()">
+        </mat-form-field>
+
+        <div class="tags">
+            <div *ngFor="let tag of tags" class="tag">
+                <span>{{tag.name}}</span>
+                <span class="remove" (click)="deleteTag(tag.name)">x</span>
+            </div>
+        </div>
+        
     </div>
 
 </div>

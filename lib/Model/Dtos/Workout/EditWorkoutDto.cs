@@ -11,6 +11,7 @@ namespace OpenSportsPlatform.Lib.Model.Dtos.Workout
         public int? SportsCategoryId { get; set; }
         public string? Notes { get; set; }
         public IList<SelectItemDto>? SportsCategories { get; set; }
+        public IList<SelectItemDto>? Tags { get; set; }
         public DateTimeOffset? FirstSampleTimestamp { get; set; }
         public DateTimeOffset? LastSampleTimestamp { get; set; }
         public double? Ticks { get; set; }

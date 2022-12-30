@@ -58,10 +58,9 @@ namespace OpenSportsPlatform.Application.Controllers
 
         [HttpDelete]
         [Route("[action]/{id}")]
-        public async Task<bool> DeleteWorkout(int id)
+        public async Task DeleteWorkout(int id)
         {
-            await _workoutService.DeleteWorkout(id);
-            return true;
+            await _workoutService.DeleteWorkout(id);           
         }
 
         [HttpPost]
@@ -79,10 +78,9 @@ namespace OpenSportsPlatform.Application.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public async Task<bool> SaveWorkout([FromBody] SaveWorkoutDto dto)
+        public async Task SaveWorkout([FromBody] SaveWorkoutDto dto)
         {
-            await _workoutService.SaveWorkout(dto);
-            return true;
+            await _workoutService.SaveWorkout(dto);           
         }
 
         [HttpGet]
@@ -108,22 +106,23 @@ namespace OpenSportsPlatform.Application.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public async Task AddTag([FromBody] AddTagDto dto)
+        public async Task<IList<SelectItemDto>> AddTag([FromBody] AddTagDto dto)
         {
-            await _workoutService.AddTag(dto);
+            return await _workoutService.AddTag(dto);
         }
 
         [HttpPost]
         [Route("[action]")]
-        public async Task RemoveTag([FromBody] RemoveTagDto dto)
+        public async Task<IList<SelectItemDto>> RemoveTag([FromBody] RemoveTagDto dto)
         {
-            await _workoutService.RemoveTag(dto);
+            return await _workoutService.RemoveTag(dto);
         }
 
         [HttpGet]
+        [Route("[action]")]
         public async Task<IList<SelectItemDto>> SearchTags([FromQuery] string name)
         {
-            return await _workoutService.SerachTags(name);
+            return await _workoutService.SearchTags(name);
         }
     }
 }

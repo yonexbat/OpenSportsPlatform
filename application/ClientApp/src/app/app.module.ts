@@ -32,7 +32,7 @@ import { ConfirmComponent } from './confirm/confirm.component';
 import { StatsComponent } from './stats/stats.component';
 import { GlobalErrorHandler } from './errorhandler/globalerrorhandler';
 import { EditworkoutComponent } from './editworkout/editworkout.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AltitudechartComponent } from './altitudechart/altitudechart.component';
 import { TabmenuComponent } from './tabmenu/tabmenu.component';
 import { WorkoutstatisticsComponent } from './workoutstatistics/workoutstatistics.component';
@@ -103,6 +103,7 @@ const socialProviders = [
     MatSliderModule,
     LeafletModule,
     ReactiveFormsModule,
+    FormsModule,
     NgxChartsModule,
     MatSnackBarModule,
     ScrollingModule,

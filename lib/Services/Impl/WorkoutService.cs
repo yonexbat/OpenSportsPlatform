@@ -26,7 +26,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             _securityService = securityService;
         }
 
-        public async Task AddTag(AddTagDto dto)
+        public async Task<IList<SelectItemDto>> AddTag(AddTagDto dto)
         {
             if (dto.Id == null)
             {
@@ -62,6 +62,8 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                 await _dbContext.AddAsync(tagWorkout);
             }
             await _dbContext.SaveChangesAsync();
+
+            return await GetTags(dto.Id ?? 0);
         }
 
         public async Task DeleteWorkout(int id)
@@ -82,6 +84,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
         public async Task<EditWorkoutDto> GetEditWorkout(int id)
         {
             _logger.LogDebug("GetEditWorkout. Id: {0}", id);
+
             EditWorkoutDto result = await _dbContext.Workout
                 .Where(x => x.Id == id)
                 .Select(x => new EditWorkoutDto()
@@ -112,6 +115,9 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                 })
                 .OrderBy(x => x.Name)
                 .ToListAsync();
+
+            result.Tags = await GetTags(id);
+
 
             result.Ticks = (result.LastSampleTimestamp - result.FirstSampleTimestamp)?.TotalMilliseconds;
 
@@ -155,7 +161,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             return res;
         }
 
-        public async Task RemoveTag(RemoveTagDto dto)
+        public async Task<IList<SelectItemDto>> RemoveTag(RemoveTagDto dto)
         {
             if (dto.Id == null)
             {
@@ -177,6 +183,8 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                 _dbContext.Remove(tagWorkout);
                 await _dbContext.SaveChangesAsync();
             }
+
+            return await GetTags(dto.Id ?? 0);
         }
 
         public async Task SaveWorkout(SaveWorkoutDto dto)
@@ -207,7 +215,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             return workout;
         }
 
-        public async Task<IList<SelectItemDto>> SerachTags(string name)
+        public async Task<IList<SelectItemDto>> SearchTags(string name)
         {
             return await _dbContext.Tag
                 .Where(x => x.Name.Contains(name))
@@ -218,6 +226,15 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                     Id = x.Id,
                     Name = x.Name,
                 })
+                .ToListAsync();
+        }
+
+        private async Task<IList<SelectItemDto>> GetTags(int workoutId)
+        {
+            return await _dbContext.TagWorkout
+                .Where(x => x.Workout.Id == workoutId)
+                .Select(x => new SelectItemDto { Id = x.Id, Name = x.Tag.Name })
+                .OrderBy(x => x.Name)
                 .ToListAsync();
         }
     }

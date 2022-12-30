@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Azure;
+using Microsoft.EntityFrameworkCore;
 using OpenSportsPlatform.Lib.Database;
 using OpenSportsPlatform.Lib.Model.Dtos.Workout;
 using OpenSportsPlatform.Lib.Model.Entities;
@@ -10,6 +11,7 @@ using System.Security.Principal;
 using System.Threading.Tasks;
 using unittests.util;
 using Xunit;
+using Xunit.Sdk;
 
 namespace unittests
 {
@@ -77,7 +79,7 @@ namespace unittests
             using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
             {
                 IWorkoutService service = CreateService(dbContext, securityService);
-                var res =  await service.SerachTags("Grand");
+                var res =  await service.SearchTags("Grand");
                 Assert.Equal(1, res.Count);
             }            
         }
@@ -154,6 +156,35 @@ namespace unittests
                    .ThenInclude(x => x.Tag)
                    .FirstAsync();
                 Assert.Equal(0, wo.TagWorkouts.Count);                
+            }
+        }
+
+        [Fact]
+        public async Task TestEditWorkout()
+        {
+            IPrincipal principal = MockPrincipal.CreatePrincipal();
+            ISecurityService securityService = new SecurityService(principal);
+            string dbName = Guid.NewGuid().ToString();
+            int workOutId = 0;
+
+            using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
+            {
+                Workout workout = await SetUpWorkout(dbContext, securityService);
+                workOutId = workout.Id;
+                Tag tag = new Tag { Name = "gurten classic"};
+                await dbContext.Tag.AddAsync(tag);
+                await dbContext.TagWorkout.AddAsync(new TagWorkout { Tag = tag, Workout = workout });
+                await dbContext.SaveChangesAsync();
+            }
+
+            // Act and Assert
+            using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
+            {
+                IWorkoutService service = CreateService(dbContext, securityService);
+                var res = await service.GetEditWorkout(workOutId);             
+
+                Assert.NotNull(res);
+                Assert.NotNull(res.Tags);
             }
         }
 

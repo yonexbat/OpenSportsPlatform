@@ -17,10 +17,10 @@ namespace OpenSportsPlatform.Lib.Services.Contract
 
         Task<EditWorkoutDto> GetEditWorkout(int id);
 
-        Task AddTag(AddTagDto dto);
+        Task<IList<SelectItemDto>> AddTag(AddTagDto dto);
 
-        Task RemoveTag(RemoveTagDto dto);
+        Task<IList<SelectItemDto>> RemoveTag(RemoveTagDto dto);
 
-        Task<IList<SelectItemDto>> SerachTags(string name);
+        Task<IList<SelectItemDto>> SearchTags(string name);
     }
 }
