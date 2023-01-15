@@ -1,4 +1,4 @@
-.mat-form-field {
+.mat-mdc-form-field {
  box-sizing: border-box;
  padding-left: 1rem;
  padding-right: 1rem;
@@ -31,5 +31,25 @@
 
     mat-slider {
         flex: 1 1 auto;
+    }
+}
+
+.tags {
+    display: inline-flex;    
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    .tag {
+        margin-left: 0.1em;
+        margin-right: 0.1em;
+        padding: 0.4em;
+        background-color:  crimson;
+        border-radius: 0.5em;
+
+        .remove {
+            cursor: pointer;
+            background: white;
+            margin-left: 0.2em;
+        }
     }
 }

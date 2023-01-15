@@ -68,9 +68,6 @@ export class AltitudechartComponent implements OnInit, OnDestroy {
     return Math.min(diff * 1.5, 700);
   }
 
-
-  constructor() { }
-
   ngOnDestroy(): void {
     if (this.intervalSub) {
       this.intervalSub.unsubscribe();

@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import { GoogleLoginProvider, SocialAuthService, SocialUser } from 'angularx-social-login';
-import { map, shareReplay, switchMap } from 'rxjs/operators';
-import { BehaviorSubject, firstValueFrom, from, Observable, ReplaySubject, Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { map, shareReplay } from 'rxjs/operators';
+import { BehaviorSubject, firstValueFrom, Observable, Subject } from 'rxjs';
 import { ExchangeToken } from './model/exchangetoken';
 import { ShortUserProfile } from './model/shortUserProfile';
+import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  private unauthenticatedUserProfile: ShortUserProfile  = {
+  private unauthenticatedUserProfile: ShortUserProfile = {
     authenticated: false,
     name: '',
     userid: 'anonymous',
@@ -22,16 +22,8 @@ export class AuthenticationService {
   private userProfileReplay?: Observable<ShortUserProfile> = undefined;
 
   constructor(private http: HttpClient, private authService: SocialAuthService) {
-    this.startUp();
-  }
 
-  public async signInGoogle(): Promise<void> {
-    console.log('signing in to google');
-    this.userProfileReplay = undefined;
-    const user = await this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-    await this.exchangeToken(user);
-    await this.fetchUserProfile();
-    console.log('done signing in');
+    this.startUp();
   }
 
   public async signOut(): Promise<void> {
@@ -47,7 +39,7 @@ export class AuthenticationService {
 
   public isLoggedInObservalbe(): Observable<boolean> {
     return this.getUserProfile()
-      .pipe(map((x: any) => x.authenticated));
+      .pipe(map((shortUserProfile: ShortUserProfile) => shortUserProfile.authenticated));
   }
 
   public async isLoggedIn(): Promise<boolean> {
@@ -63,6 +55,23 @@ export class AuthenticationService {
     if (jwt) {
       await this.fetchUserProfile();
     }
+
+    this.authService.authState.subscribe((user: SocialUser) => {
+      this.signInIfNeeded(user);
+    });
+
+  }
+
+  private async signInIfNeeded(user: SocialUser): Promise<void> {
+    if (!user) {
+      return;
+    }
+    const loggedIn = await this.isLoggedIn();
+    if (!loggedIn) {
+      this.userProfileReplay = undefined;
+      await this.exchangeToken(user);
+      await this.fetchUserProfile();
+    }
   }
 
   private async fetchUserProfile(): Promise<ShortUserProfile> {
@@ -74,12 +83,12 @@ export class AuthenticationService {
       return this.userProfileReplay;
     }
     this.userProfileReplay = this.http.get<ShortUserProfile>('/Authentication/GetShortUserProfile')
-    .pipe(
-      map(profile => {
-        this.userProfile.next(profile as ShortUserProfile);
-        return profile;
-      }),
-      shareReplay(1)
+      .pipe(
+        map(profile => {
+          this.userProfile.next(profile);
+          return profile;
+        }),
+        shareReplay(1)
       );
     return this.userProfileReplay as Observable<ShortUserProfile>;
   }

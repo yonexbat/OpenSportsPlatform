@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
-import { ActivatedRoute, NavigationEnd, NavigationStart, Params, Router, UrlSegment } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { WorkoutMenuItem } from '../model/workout/workoutMenuItem';
 
@@ -9,7 +9,7 @@ import { WorkoutMenuItem } from '../model/workout/workoutMenuItem';
   templateUrl: './tabmenu.component.html',
   styleUrls: ['./tabmenu.component.scss']
 })
-export class TabmenuComponent implements OnInit {
+export class TabmenuComponent {
 
   links: WorkoutMenuItem[] = [
     {
@@ -31,18 +31,14 @@ export class TabmenuComponent implements OnInit {
 
   background: ThemePalette = undefined;
 
-  constructor(private route: ActivatedRoute,  private router: Router) {
+  constructor(private route: ActivatedRoute, private router: Router) {
     this.router.events
-    .pipe(filter(e => e instanceof NavigationEnd)).subscribe(() => this.handleRouteChanged());
+      .pipe(filter(e => e instanceof NavigationEnd)).subscribe(() => this.handleRouteChanged());
   }
 
   itemClicked(link: WorkoutMenuItem): void {
-    this.router.navigate(['.', link.routerLink, this.id], {relativeTo: this.route});
+    this.router.navigate(['.', link.routerLink, this.id], { relativeTo: this.route });
   }
-
-  ngOnInit(): void {
-  }
-
 
   handleRouteChanged(): void {
     const firstChild = this.route.snapshot.firstChild;

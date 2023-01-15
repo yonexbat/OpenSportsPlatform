@@ -4,12 +4,6 @@ using OpenSportsPlatform.Lib.Database;
 using OpenSportsPlatform.Lib.Model.Dtos.Import;
 using OpenSportsPlatform.Lib.Model.Entities;
 using OpenSportsPlatform.Lib.Services.Contract;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace OpenSportsPlatform.Lib.Services.Impl
@@ -26,8 +20,8 @@ namespace OpenSportsPlatform.Lib.Services.Impl
         private Sample? _sample;
         private ImportTcxState _importState;
 
-        private string _currentElement;
-        private string _currentHeartRate;
+        private string? _currentElement;
+        private string? _currentHeartRate;
 
         private float? _lastElevation;
         private float _ascendInMeters;
@@ -97,13 +91,13 @@ namespace OpenSportsPlatform.Lib.Services.Impl
 
             // Calculate values
             IEnumerable<Sample>? allSamples = _workout
-                .Segments?.SelectMany(x => x.Samples);
-
+                .Segments?.SelectMany(segment => segment!.Samples!);
+            
             if (allSamples != null && allSamples.Any())
             {
                 IEnumerable<float?> cadence = allSamples
-                   .Select(x => x.CadenceRpm)
-                   .Where(x => x > 0);
+                   .Select(sample => sample.CadenceRpm)
+                   .Where(sample => sample > 0);
 
                 _workout.CadenceMaxRpm = cadence.Max();
                 _workout.CadenceAvgRpm = cadence.Average();
@@ -145,13 +139,13 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                 case "Time":
                     if (_importState == ImportTcxState.Trackpoint)
                     {
-                        _sample.Timestamp = DateTime.Parse(value);
+                        _sample!.Timestamp = DateTime.Parse(value);
                     }
                     break;
                 case "AltitudeMeters":
                     if (_importState == ImportTcxState.Trackpoint)
                     {
-                        _sample.AltitudeInMeters = float.Parse(value);
+                        _sample!.AltitudeInMeters = float.Parse(value);
                         if(_lastElevation.HasValue)
                         {
                             float diff = _sample.AltitudeInMeters.Value - _lastElevation.Value;
@@ -173,11 +167,11 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                     dist = dist * 0.001f;
                     if(_importState == ImportTcxState.Trackpoint) 
                     {
-                        _sample.DistanceInKm = dist;
+                        _sample!.DistanceInKm = dist;
                     }
                     else if(_importState == ImportTcxState.Lap)
                     {
-                        if(!_workout.DistanceInKm.HasValue)
+                        if(!_workout!.DistanceInKm.HasValue)
                         {
                             _workout.DistanceInKm = 0;
                         }
@@ -188,7 +182,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                     float heartRate = float.Parse(value);
                     if (_importState == ImportTcxState.Trackpoint)
                     {
-                        _sample.HeartRateBpm = heartRate;
+                        _sample!.HeartRateBpm = heartRate;
                     }
                     break;
                 case "Speed":
@@ -196,35 +190,35 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                     float kmH = speedMetersPerSecond * 0.001f * 60f * 60f;
                     if(_importState == ImportTcxState.Trackpoint)
                     {
-                        _sample.SpeedKmh = kmH;
+                        _sample!.SpeedKmh = kmH;
                     }
                     break;
                 case "LatitudeDegrees":
                     if (_importState == ImportTcxState.Trackpoint)
                     {
-                        _sample.Latitude = double.Parse(value);
+                        _sample!.Latitude = double.Parse(value);
                         AddCoordinates();
                     }
                     break;
                 case "LongitudeDegrees":
                     if(_importState == ImportTcxState.Trackpoint)
                     {
-                        _sample.Longitude = double.Parse(value);
+                        _sample!.Longitude = double.Parse(value);
                         AddCoordinates();
                     }
                     break;
                 case "Value":
                     if(_currentHeartRate == "HeartRateBpm" && _importState == ImportTcxState.Trackpoint)
                     {
-                        _sample.HeartRateBpm = float.Parse(value);
+                        _sample!.HeartRateBpm = float.Parse(value);
                     }
                     if (_currentHeartRate == "AverageHeartRateBpm" && _importState == ImportTcxState.Lap)
                     {
-                        _workout.HeartRateAvgBpm= float.Parse(value);
+                        _workout!.HeartRateAvgBpm= float.Parse(value);
                     }
                     if (_currentHeartRate == "MaximumHeartRateBpm" && _importState == ImportTcxState.Lap)
                     {
-                        _workout.HeartRateMaxBpm = float.Parse(value);
+                        _workout!.HeartRateMaxBpm = float.Parse(value);
                     }
                     break;
                 case "MaximumSpeed":
@@ -233,7 +227,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                         float speedMetersPerSecond2 = float.Parse(value);
                         float kmH2 = speedMetersPerSecond2 * 0.001f * 60f * 60f;
 
-                        if (!_workout.SpeedMaxKmh.HasValue)
+                        if (!_workout!.SpeedMaxKmh.HasValue)
                         {
                             _workout.SpeedMaxKmh = 0;
                         }
@@ -244,7 +238,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                     if(_importState == ImportTcxState.Lap)
                     {
                         float calories = float.Parse(value);
-                        if(!_workout.CaloriesInKCal.HasValue)
+                        if(!_workout!.CaloriesInKCal.HasValue)
                         {
                             _workout.CaloriesInKCal = 0;
                         }
@@ -255,7 +249,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                     float duration = float.Parse(value);
                     if(_importState == ImportTcxState.Lap)
                     {
-                        if(!_workout.DurationInSec.HasValue)
+                        if(!_workout!.DurationInSec.HasValue)
                         {
                             _workout.DurationInSec = 0;
                         }
@@ -266,20 +260,20 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                     float cadence = float.Parse(value);
                     if(_importState == ImportTcxState.Trackpoint)
                     {
-                        _sample.CadenceRpm = cadence;
+                        _sample!.CadenceRpm = cadence;
                     }
                     break;
                 case "Id":
-                    _workout.Name = value;
+                    _workout!.Name = value;
                     break;
             }
         }
 
         private void AddCoordinates()
         {
-            if(_sample.Longitude.HasValue && _sample.Latitude.HasValue)
+            if(_sample!.Longitude.HasValue && _sample!.Latitude.HasValue)
             {
-                _sample.Location = new NetTopologySuite.Geometries.Point(_sample.Longitude.Value, _sample.Latitude.Value) { SRID = 4326 };
+                _sample!.Location = new NetTopologySuite.Geometries.Point(_sample.Longitude.Value, _sample.Latitude.Value) { SRID = 4326 };
             }
         }
 
@@ -330,8 +324,13 @@ namespace OpenSportsPlatform.Lib.Services.Impl
 
         private async Task ReadElementActivity(XmlReader reader)
         {
-            string sport = reader.GetAttribute("Sport");
-            SportsCategory category = await _dbContext.SportsCategory.Where(x => x.Name == sport).SingleOrDefaultAsync();
+            string? sport = reader.GetAttribute("Sport");
+            if(sport == null)
+            {
+                throw new InvalidOperationException($"Sport must not be null");
+            }
+
+            SportsCategory? category = await _dbContext.SportsCategory.Where(x => x.Name == sport).SingleOrDefaultAsync();
             if(category == null)
             {
                 category = new SportsCategory()
@@ -340,7 +339,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                 };
                 await _dbContext.AddAsync(category);
             }
-            _workout.SportsCategory = category;
+            _workout!.SportsCategory = category;
         }
     }
 }

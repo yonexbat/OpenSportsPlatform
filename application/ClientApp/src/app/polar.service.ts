@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
-import { SaveWorkout } from './model/editworkout/saveWorkout';
 import { PolarExchangeToken } from './model/polar/polarExchangeToken';
 import { PolarRegister } from './model/polar/polarRegister';
 
@@ -14,8 +13,8 @@ export class PolarService {
 
   constructor(private http: HttpClient) { }
 
-  public exchangeToken(dto: PolarExchangeToken): Promise<any> {
-    return firstValueFrom(this.http.post<any>(`${this.apiPrefix}/Polar/ExchangeToken`, dto)) as Promise<any> ;
+  public exchangeToken(dto: PolarExchangeToken): Promise<void> {
+    return firstValueFrom(this.http.post<void>(`${this.apiPrefix}/Polar/ExchangeToken`, dto)) as Promise<void> ;
   }
 
   public registerData(): Promise<PolarRegister> {

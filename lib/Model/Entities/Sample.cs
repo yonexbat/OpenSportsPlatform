@@ -18,10 +18,10 @@ namespace OpenSportsPlatform.Lib.Model.Entities
         public virtual double? Latitude { get; set; }
         public virtual float? HeartRateBpm { get; set; }
         public virtual float? CadenceRpm { get; set; }
-        public virtual string InsertUser { get; set; }
-        public virtual DateTimeOffset InsertDate { get; set; }
-        public virtual string UpdateUser { get; set; }
-        public virtual DateTimeOffset UpdateDate { get; set; }
-        public virtual Segment Segment { get; set; }
+        public virtual string? InsertUser { get; set; }
+        public virtual DateTimeOffset? InsertDate { get; set; }
+        public virtual string? UpdateUser { get; set; }
+        public virtual DateTimeOffset? UpdateDate { get; set; }
+        public virtual Segment? Segment { get; set; }
     }
 }

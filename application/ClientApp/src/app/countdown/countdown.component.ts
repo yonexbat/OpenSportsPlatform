@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, interval, merge, Observable, Subject } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
+import { Component } from '@angular/core';
+import { BehaviorSubject, interval, merge, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-countdown',
   templateUrl: './countdown.component.html',
   styleUrls: ['./countdown.component.scss']
 })
-export class CountdownComponent implements OnInit {
+export class CountdownComponent {
 
   public countDownText$: Observable<string>;
 
@@ -24,9 +24,6 @@ export class CountdownComponent implements OnInit {
   constructor() {
     this.countDownText$ =  merge(interval(1000), this.zero$)
       .pipe(map(() => this.countDown()));
-  }
-
-  ngOnInit(): void {
   }
 
   public countDown(): string {

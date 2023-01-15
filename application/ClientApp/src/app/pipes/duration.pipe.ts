@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class DurationPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
+  transform(value: unknown): unknown {
     if (this.isNumber(value)) {
       const durationInSec = value as number;
       const hours = Math.floor(durationInSec / (60.0 * 60.0));

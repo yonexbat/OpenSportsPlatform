@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Params, } from '@angular/router';
-import { icon, latLng, LatLngTuple, Marker, marker, Polyline, polyline, tileLayer } from 'leaflet';
+import { icon, latLng, LatLngTuple, Layer, Marker, marker, Polyline, polyline, tileLayer } from 'leaflet';
 import { timer } from 'rxjs';
 import { DataService } from '../data.service';
 import { Sample } from '../model/workout/sample';
@@ -14,7 +14,7 @@ import { getImageFromCategory, ticksToString } from '../util/util';
   templateUrl: './workout.component.html',
   styleUrls: ['./workout.component.scss']
 })
-export class WorkoutComponent implements OnInit {
+export class WorkoutComponent {
 
   public workout?: Workout;
   public options = {
@@ -40,12 +40,12 @@ export class WorkoutComponent implements OnInit {
     overlays: {},
   };
 
-  public layers: any[] = [];
+  public layers: Layer[] = [];
 
   // tslint:disable-next-line:variable-name
   private _sliderval: number | null = 0;
 
-  public markerPosText: string = '00:00';
+  public markerPosText = '00:00';
 
 
   constructor(
@@ -62,9 +62,6 @@ export class WorkoutComponent implements OnInit {
   public set sliderval(val) {
     this._sliderval = val;
     this.updateMarker();
-  }
-
-  ngOnInit(): void {
   }
 
   handleRouteParamChanged(params: Params): void {

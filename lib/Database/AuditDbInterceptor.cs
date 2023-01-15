@@ -42,13 +42,13 @@ namespace OpenSportsPlatform.Lib.Database
 
         public InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)
         {
-            InitTechnicalFields(eventData.Context);
+            InitTechnicalFields(eventData.Context!);
             return result;
         }
 
         public ValueTask<InterceptionResult<int>> SavingChangesAsync(DbContextEventData eventData, InterceptionResult<int> result, CancellationToken cancellationToken = default)
         {
-            InitTechnicalFields(eventData.Context);
+            InitTechnicalFields(eventData.Context!);
             return new ValueTask<InterceptionResult<int>>(Task.FromResult(result));
         }
 

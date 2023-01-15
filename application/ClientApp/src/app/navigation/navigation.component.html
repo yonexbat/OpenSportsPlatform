@@ -18,11 +18,9 @@
             </mat-icon>
 
             <!-- Login button -->
-            <button *ngIf="(isLoggedIn$ | async) === false" mat-icon-button (click)="signIn()" matTooltip="Login">
-                <mat-icon>login</mat-icon>
-            </button>
+            <asl-google-signin-button *ngIf="(isLoggedIn$ | async) === false" type='icon' size='medium'></asl-google-signin-button>
 
-            <!-- Logout button -->
+            <!-- Log-out button -->
             <button *ngIf="(isLoggedIn$ | async) === true" mat-icon-button (click)="signOut()" matTooltip="Logout">
                 <mat-icon>logout</mat-icon>
             </button>
@@ -42,6 +40,10 @@
                 <a *ngIf="isLoggedIn$ | async" mat-list-item routerLink="/workouts">
                     <mat-icon class="icon">list</mat-icon>
                     <span class="label">Workouts</span>
+                </a>
+                <a *ngIf="isLoggedIn$ | async" mat-list-item routerLink="/workouts2">
+                    <mat-icon class="icon">list</mat-icon>
+                    <span class="label">Workouts2</span>
                 </a>
                 <a *ngIf="isLoggedIn$ | async" mat-list-item routerLink="/statistics">
                     <mat-icon class="icon">bar_chart</mat-icon>

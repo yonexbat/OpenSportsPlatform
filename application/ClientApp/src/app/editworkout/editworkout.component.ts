@@ -1,5 +1,4 @@
-import { ThisReceiver } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, ɵisDefaultChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Params, Router } from '@angular/router';
@@ -7,7 +6,6 @@ import { ConfirmService } from '../confirm.service';
 import { DataService } from '../data.service';
 import { SelectItem } from '../model/common/selectitem';
 import { CropWorkout } from '../model/editworkout/cropWorkout';
-import { SaveWorkout } from '../model/editworkout/saveWorkout';
 import { ticksToString } from '../util/util';
 
 @Component({
@@ -15,36 +13,36 @@ import { ticksToString } from '../util/util';
   templateUrl: './editworkout.component.html',
   styleUrls: ['./editworkout.component.scss']
 })
-export class EditworkoutComponent implements OnInit {
+export class EditworkoutComponent {
 
   public sports?: SelectItem[] = [];
 
   private _sliderValCropFrom: number | null = 0;
-  public get sliderValCropFrom() : number | null {
+  public get sliderValCropFrom(): number | null {
     return this._sliderValCropFrom;
   }
   public set sliderValCropFrom(val: number | null) {
     this._sliderValCropFrom = val;
-    if(val && this.ticks) {
+    if (val && this.ticks) {
       const currentPoint = (val / 10000) * this.ticks;
       this.sliderValCropFromText = ticksToString(currentPoint);
     }
   }
 
   private _sliderValCropTo: number | null = 10000;
-  public get sliderValCropTo() : number | null {
+  public get sliderValCropTo(): number | null {
     return this._sliderValCropTo;
   }
   public set sliderValCropTo(val: number | null) {
     this._sliderValCropTo = val;
-    if(val && this.ticks) {
+    if (val && this.ticks) {
       const currentPoint = (val / 10000) * this.ticks;
       this.sliderValCropToText = ticksToString(currentPoint);
     }
   }
 
-  public sliderValCropFromText: string = '00:00';
-  public sliderValCropToText: string = '00:00';
+  public sliderValCropFromText = '00:00';
+  public sliderValCropToText = '00:00';
 
   public formGroup: FormGroup = this.fb.group({
     id: [0, Validators.required],
@@ -52,18 +50,19 @@ export class EditworkoutComponent implements OnInit {
     notes: [''],
   });
 
-  private ticks: number = 0;
+  private ticks = 0;
+
+  public tag = '';
+
+  public tags: SelectItem[] = [];
 
   constructor(private fb: FormBuilder,
-              private dataService: DataService,
-              private route: ActivatedRoute,
-              private router: Router,
-              private confirmService: ConfirmService,
-              private snackBar: MatSnackBar) {
-      this.route.params.subscribe(x => this.handleRouteParamChanged(x));
-  }
-
-  ngOnInit(): void {
+    private dataService: DataService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private confirmService: ConfirmService,
+    private snackBar: MatSnackBar) {
+    this.route.params.subscribe(x => this.handleRouteParamChanged(x));
   }
 
   handleRouteParamChanged(params: Params): void {
@@ -73,12 +72,13 @@ export class EditworkoutComponent implements OnInit {
 
   async loadData(id: number, resetSports: boolean): Promise<void> {
     const workout = await this.dataService.getEditWorkout(id);
-    if(resetSports) {
+    if (resetSports) {
       this.sports = workout?.sportsCategories;
     }
     this.formGroup.patchValue(workout);
     this.ticks = workout.ticks;
     this.sliderValCropToText = ticksToString(this.ticks);
+    this.tags = workout.tags;
   }
 
   public saveClick(): void {
@@ -90,9 +90,23 @@ export class EditworkoutComponent implements OnInit {
     await this.dataService.saveWorkout(saveWorkout);
     this.snackBar.open('Save successful', 'close', {
       duration: 3000
-    }).onAction().subscribe((action: any) => {
-
+    }).onAction().subscribe(() => {
+      //closed
     });
+  }
+
+  public async onEnterInTagInput(): Promise<void> {
+    const id = this.formGroup.value.id;
+    this.tags = await this.dataService.addTag({
+      id: id,
+      name: this.tag,
+    });
+    this.tag = '';
+  }
+
+  public async deleteTag(tagName: string): Promise<void> {
+    const id = this.formGroup.value.id;
+    this.tags = await this.dataService.removeTag({id: id, name: tagName});
   }
 
   public deleteClick(): void {
@@ -100,6 +114,16 @@ export class EditworkoutComponent implements OnInit {
       .subscribe(x => {
         if (x) {
           this.deleteWorkout();
+        }
+      });
+  }
+
+
+  public cropClick() {
+    this.confirmService.confirm('Crop workout', 'Do you really want to crop this workout?')
+      .subscribe(answer => {
+        if (answer) {
+          this.crop();
         }
       });
   }
@@ -112,23 +136,14 @@ export class EditworkoutComponent implements OnInit {
     }
   }
 
-  public cropClick() {
-    this.confirmService.confirm('Crop workout', 'Do you really want to crop this workout?')
-      .subscribe(x => {
-        if (x) {
-          this.crop();
-        }
-      });    
-  }
-
   private async crop() {
 
-    if(this.ticks == null || this.ticks === 0) {
+    if (this.ticks == null || this.ticks === 0) {
       return;
     }
 
-    let cropFrom =  this.toTicks(this.sliderValCropFrom ?? 0);
-    let cropTo = this.toTicks(this.sliderValCropTo ?? 0);    
+    const cropFrom = this.toTicks(this.sliderValCropFrom ?? 0);
+    const cropTo = this.toTicks(this.sliderValCropTo ?? 0);
 
     const crop: CropWorkout = {
       id: this.formGroup.get('id')?.value,
@@ -136,8 +151,8 @@ export class EditworkoutComponent implements OnInit {
       cropTo: cropTo,
     };
 
-    await this.dataService.crop(crop);   
-    await this.loadData(crop.id, false);    
+    await this.dataService.crop(crop);
+    await this.loadData(crop.id, false);
   }
 
   private toTicks(percentage: number): number {

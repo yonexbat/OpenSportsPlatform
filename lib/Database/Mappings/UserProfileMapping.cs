@@ -12,6 +12,7 @@ namespace OpenSportsPlatform.Lib.Database.Mappings
         public void Configure(EntityTypeBuilder<UserProfile> builder)
         {
             builder.ToTable("OSPUserProfile");
+            builder.AddTechnicalAttributes();
         }
     }
 }

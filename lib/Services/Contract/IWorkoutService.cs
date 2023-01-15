@@ -1,4 +1,5 @@
-﻿using OpenSportsPlatform.Lib.Model.Dtos.Workout;
+﻿using OpenSportsPlatform.Lib.Model.Dtos.Common;
+using OpenSportsPlatform.Lib.Model.Dtos.Workout;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,10 +11,16 @@ namespace OpenSportsPlatform.Lib.Services.Contract
     {
         Task<WorkoutDto> GetWorkout(int id);
 
-        Task<bool> DeleteWorkout(int id);
+        Task DeleteWorkout(int id);
 
-        Task<bool> SaveWorkout(SaveWorkoutDto dto);
+        Task SaveWorkout(SaveWorkoutDto dto);
 
         Task<EditWorkoutDto> GetEditWorkout(int id);
+
+        Task<IList<SelectItemDto>> AddTag(AddTagDto dto);
+
+        Task<IList<SelectItemDto>> RemoveTag(RemoveTagDto dto);
+
+        Task<IList<SelectItemDto>> SearchTags(string name);
     }
 }

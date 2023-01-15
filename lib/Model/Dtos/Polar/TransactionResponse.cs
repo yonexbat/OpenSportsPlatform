@@ -12,6 +12,6 @@ namespace OpenSportsPlatform.Lib.Model.Dtos.Polar
 
 
         [JsonPropertyName("resource-uri")]
-        public string ResourceUri { get; set; }
+        public string? ResourceUri { get; set; }
     }
 }

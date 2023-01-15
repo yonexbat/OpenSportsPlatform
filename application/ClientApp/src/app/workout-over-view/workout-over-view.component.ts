@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { from, merge } from 'rxjs';
+import { from } from 'rxjs';
 import { startWith, switchMap, take } from 'rxjs/operators';
 import { DataService } from '../data.service';
 import { WorkoutOverviewItem } from '../model/workoutOverview/workoutOverviewItem';
@@ -26,9 +26,9 @@ export class WorkoutOverViewComponent implements OnInit, AfterViewInit  {
   public displayedColumns: string[] = ['date', 'starttime', 'duration', 'distance', 'sport'];
   public pageIndex = 0;
 
-  @ViewChild(MatPaginator) paginator: any;
+  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
 
-  @ViewChild(MatSort) sort: any;
+  @ViewChild(MatSort) sort: MatSort | undefined;
 
   public getImage(sportCat: string): string {
     return getImageFromCategory(sportCat);
@@ -36,9 +36,9 @@ export class WorkoutOverViewComponent implements OnInit, AfterViewInit  {
 
   ngAfterViewInit(): void {
     const paginator = this.paginator as MatPaginator;
-    merge(paginator.page).pipe(
+    paginator.page.pipe(
       startWith({}),
-      switchMap(x => {
+      switchMap(() => {
         const page = paginator.pageIndex;
         const obsv = from(this.dataService.searchWorkoutItems(page));
         return obsv;
@@ -56,9 +56,9 @@ export class WorkoutOverViewComponent implements OnInit, AfterViewInit  {
   }
 
   ngOnInit(): void {
-    const queryparams = this.route.queryParams.pipe(take(1))
-    .subscribe((x: Params) => {
-      const page = (x as any).page;
+    this.route.queryParams.pipe(take(1))
+    .subscribe((params: Params) => {
+      const page = params['page'];
       const pageNumber = parseInt(page, 10);
       if (isNaN(pageNumber) === false) {
         this.pageIndex = pageNumber;

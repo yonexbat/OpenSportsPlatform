@@ -16,7 +16,7 @@ namespace OpenSportsPlatform.Lib.Model.Dtos.Workout
         public float? DescendInMeters { get; set; }
         public float? HeartRateAvgBpm { get; set; }
         public float? HeartRateMaxBpm { get; set; }
-        public string Sport { get; set; }
-        public IList<SampleDto> Samples { get; set; }
+        public string? Sport { get; set; }
+        public IList<SampleDto>? Samples { get; set; }
     }
 }

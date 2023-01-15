@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthenticationService } from '../authentication.service';
 import { ShortUserProfile } from '../model/shortUserProfile';
@@ -8,7 +8,7 @@ import { ShortUserProfile } from '../model/shortUserProfile';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss']
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent {
 
   public isLoggedIn$: Observable<boolean>;
   public userProfile$: Observable<ShortUserProfile>;
@@ -17,15 +17,6 @@ export class NavigationComponent implements OnInit {
   constructor(private authenticationService: AuthenticationService) {
     this.isLoggedIn$ = authenticationService.isLoggedInObservalbe();
     this.userProfile$ = authenticationService.getUserProfile();
-  }
-
-  ngOnInit(): void {
-  }
-
-  public async signIn(): Promise<void> {
-    this.showLoginSpinner = true;
-    await this.authenticationService.signInGoogle();
-    this.showLoginSpinner = false;
   }
 
   public signOut(): void {

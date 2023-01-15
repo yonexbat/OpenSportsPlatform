@@ -8,7 +8,7 @@ export class GlobalErrorHandler implements ErrorHandler {
 
     handleError(error: Error): void {
 
-        const errormessage: any = error.message  || error.toString();
+        const errormessage = error.message || error.toString();
         this.zone.run(() => this.confirmService.inform('Error', errormessage));
 
         console.error('Error from global error handler', error);

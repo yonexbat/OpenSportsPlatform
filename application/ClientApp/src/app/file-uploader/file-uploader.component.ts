@@ -1,8 +1,8 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { HttpClient, HttpErrorResponse, HttpEventType, HttpRequest } from '@angular/common/http';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { HttpClient, HttpEventType, HttpRequest } from '@angular/common/http';
+import { Component, EventEmitter, Input,  Output } from '@angular/core';
 import { of, Subscription } from 'rxjs';
-import { catchError, last, map, tap } from 'rxjs/operators';
+import { catchError, last, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-file-uploader',
@@ -17,7 +17,7 @@ import { catchError, last, map, tap } from 'rxjs/operators';
     ])
   ]
 })
-export class FileUploaderComponent implements OnInit {
+export class FileUploaderComponent {
 
   @Input() text = 'Upload';
 
@@ -27,16 +27,11 @@ export class FileUploaderComponent implements OnInit {
 
   @Input() accept = 'image/*';
 
-
-  // tslint:disable-next-line:no-output-native
-  @Output() complete = new EventEmitter<string>();
+  @Output() uploadComplete = new EventEmitter<void>();
 
   public files: Array<FileUploadModel> = [];
 
   constructor(private httpClient: HttpClient) { }
-
-  ngOnInit(): void {
-  }
 
   public onClick(): void {
     const fileUpload = document.getElementById('fileUpload') as HTMLInputElement;
@@ -46,7 +41,6 @@ export class FileUploaderComponent implements OnInit {
         return;
       }
 
-      // tslint:disable-next-line:prefer-for-of
       for (let index = 0; index < fileUpload.files.length; index++) {
         const file = fileUpload.files[index];
         this.files.push({
@@ -85,18 +79,17 @@ export class FileUploaderComponent implements OnInit {
         }
         return event;
       }),
-      tap(message => { }),
       last(),
-      catchError((error: HttpErrorResponse) => {
+      catchError(() => {
         file.inProgress = false;
         file.canRetry = true;
         return of(`${file.data.name} upload failed.`);
       })
     ).subscribe(
-      (event: any) => {
+      (event) => {
         if (typeof (event) === 'object') {
           this.removeFileFromArray(file);
-          this.complete.emit(event.body);
+          this.uploadComplete.emit();
         }
       }
     );

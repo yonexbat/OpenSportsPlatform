@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { Color, MultiSeries, ScaleType, SingleSeries } from '@swimlane/ngx-charts';
+import { Color, ScaleType, SingleSeries } from '@swimlane/ngx-charts';
 import { interval, Subscription } from 'rxjs';
 import { DataService } from '../data.service';
 import { Statistics } from '../model/statistics/statistics';

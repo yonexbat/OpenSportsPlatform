@@ -66,8 +66,6 @@ export class HeartratechartComponent implements OnInit, OnDestroy {
     return Math.min(diff * 10, 700);
   }
 
-  constructor() { }
-
   ngOnDestroy(): void {
     if (this.intervalSub) {
       this.intervalSub.unsubscribe();

@@ -31,14 +31,14 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             var query = _dbContext.Workout;
 
             IList<WorkoutOverviewItemDto> data = await query
-                .Select(x => new WorkoutOverviewItemDto()
+                .Select(workout => new WorkoutOverviewItemDto()
                 {
-                    Id = x.Id,
-                    StartTime = x.StartTime,
-                    EndTime = x.EndTime,
-                    Sport = x.SportsCategory.Name,
-                    DistanceInKm = x.DistanceInKm,
-                    DurationInSec = x.DurationInSec,
+                    Id = workout.Id,
+                    StartTime = workout.StartTime,
+                    EndTime = workout.EndTime,
+                    Sport = workout.SportsCategory!.Name,
+                    DistanceInKm = workout.DistanceInKm,
+                    DurationInSec = workout.DurationInSec,
                 })
                 .OrderByDescending(x => x.StartTime)
                 .Skip(PageSize * search.Page)

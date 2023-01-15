@@ -16,6 +16,8 @@ namespace OpenSportsPlatform.Lib.Database.Mappings
                 .WithMany(seg => seg.Samples)
                 .HasForeignKey(samp => samp.SegmentId)
                 .OnDelete(DeleteBehavior.ClientCascade);
+
+            builder.AddTechnicalAttributes();
         }
     }
 }

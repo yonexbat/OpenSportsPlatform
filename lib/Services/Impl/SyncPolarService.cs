@@ -43,16 +43,21 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             string userId = _securityService.GetCurrentUserid();
             _logger.LogInformation("Exchanging token for user {0}", userId);
             var userProfile = await _dbContext.UserProfile.SingleAsync(x => x.UserId == userId);
-            var res = await _polarFlowService.GetAuthToken(dto.Code);
+            var res = await _polarFlowService.GetAuthToken(dto.Code ?? throw new ArgumentNullException(nameof(PolarExchangeTokenDto.Code)));
             userProfile.PolarAccessToken = res.AccessToken;
             userProfile.PolarUserId = res.UserId.ToString();
             await _dbContext.SaveChangesAsync();
         }
 
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
         public async Task<PolarRegisterDto> RegisterData()
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {            
-            PolarRegisterDto polarRegisterDto = new PolarRegisterDto();
-            polarRegisterDto.Url = _polarFlowService.GetRegisterUrl();
+            string url = _polarFlowService.GetRegisterUrl();
+            PolarRegisterDto polarRegisterDto = new PolarRegisterDto()
+            {
+                Url = url,
+            };
             return polarRegisterDto;
         }
 
@@ -62,14 +67,18 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             _logger.LogInformation("Syncing polar for user {0}", userId);
 
             var userProfile = await _dbContext.UserProfile.SingleAsync(x => x.UserId == userId);
-            string polarUser = userProfile.PolarUserId;
-            string polarAccessToken = userProfile.PolarAccessToken;
+            string polarUser = userProfile.PolarUserId ?? throw new InvalidOperationException("PolarUserId must not be null.");
+            string polarAccessToken = userProfile.PolarAccessToken ?? throw new InvalidOperationException("PolarAccessToken must not be null");
 
             TransactionResponse? transaction = await _polarFlowService.CreateTransaction(polarUser, polarAccessToken);
 
             if (transaction != null && transaction.TransactionId.HasValue)
             {
                 ListExercisesResponse exercises = await _polarFlowService.ListExercises(polarUser, transaction.TransactionId.Value.ToString(), polarAccessToken);
+                if(exercises == null || exercises.Exercises == null)
+                {
+                    throw new InvalidOperationException("exercises or property Exercises must not be null");
+                }
                 foreach (string exercise in exercises.Exercises)
                 {
                     _logger.LogInformation("Getting exercise from polar: {0}", exercise);

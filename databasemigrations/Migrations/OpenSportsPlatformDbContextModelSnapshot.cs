@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetTopologySuite.Geometries;
 using OpenSportsPlatform.Lib.Database;
 
+#nullable disable
+
 namespace OpenSportsPlatform.DatabaseMigrations.Migrations
 {
     [DbContext(typeof(OpenSportsPlatformDbContext))]
@@ -16,16 +18,18 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.6")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "7.0.0")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("OpenSportsPlatform.Lib.Model.Entities.Sample", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<float?>("AltitudeInMeters")
                         .HasColumnType("real");
@@ -39,10 +43,14 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                     b.Property<float?>("HeartRateBpm")
                         .HasColumnType("real");
 
-                    b.Property<DateTimeOffset>("InsertDate")
-                        .HasColumnType("datetimeoffset");
+                    b.Property<DateTimeOffset?>("InsertDate")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
 
                     b.Property<string>("InsertUser")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double?>("Latitude")
@@ -63,36 +71,49 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                     b.Property<DateTimeOffset?>("Timestamp")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<DateTimeOffset>("UpdateDate")
-                        .HasColumnType("datetimeoffset");
+                    b.Property<DateTimeOffset?>("UpdateDate")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
 
                     b.Property<string>("UpdateUser")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("SegmentId");
 
-                    b.ToTable("OSPSample");
+                    b.ToTable("OSPSample", (string)null);
                 });
 
             modelBuilder.Entity("OpenSportsPlatform.Lib.Model.Entities.Segment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
-                    b.Property<DateTimeOffset>("InsertDate")
-                        .HasColumnType("datetimeoffset");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTimeOffset?>("InsertDate")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
 
                     b.Property<string>("InsertUser")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTimeOffset>("UpdateDate")
-                        .HasColumnType("datetimeoffset");
+                    b.Property<DateTimeOffset?>("UpdateDate")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
 
                     b.Property<string>("UpdateUser")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("WorkoutId")
@@ -102,50 +123,144 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
 
                     b.HasIndex("WorkoutId");
 
-                    b.ToTable("OSPSegment");
+                    b.ToTable("OSPSegment", (string)null);
                 });
 
             modelBuilder.Entity("OpenSportsPlatform.Lib.Model.Entities.SportsCategory", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
-                    b.Property<DateTimeOffset>("InsertDate")
-                        .HasColumnType("datetimeoffset");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTimeOffset?>("InsertDate")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
 
                     b.Property<string>("InsertUser")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTimeOffset>("UpdateDate")
-                        .HasColumnType("datetimeoffset");
+                    b.Property<DateTimeOffset?>("UpdateDate")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
 
                     b.Property<string>("UpdateUser")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("OSPSportcCategory");
+                    b.ToTable("OSPSportcCategory", (string)null);
+                });
+
+            modelBuilder.Entity("OpenSportsPlatform.Lib.Model.Entities.Tag", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTimeOffset?>("InsertDate")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
+
+                    b.Property<string>("InsertUser")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTimeOffset?>("UpdateDate")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
+
+                    b.Property<string>("UpdateUser")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OSPTag", (string)null);
+                });
+
+            modelBuilder.Entity("OpenSportsPlatform.Lib.Model.Entities.TagWorkout", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTimeOffset?>("InsertDate")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
+
+                    b.Property<string>("InsertUser")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TagId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTimeOffset?>("UpdateDate")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
+
+                    b.Property<string>("UpdateUser")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("WorkoutId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TagId");
+
+                    b.HasIndex("WorkoutId");
+
+                    b.ToTable("OSPTagWorkout", (string)null);
                 });
 
             modelBuilder.Entity("OpenSportsPlatform.Lib.Model.Entities.UserProfile", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
-                    b.Property<DateTimeOffset>("InsertDate")
-                        .HasColumnType("datetimeoffset");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTimeOffset?>("InsertDate")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
 
                     b.Property<string>("InsertUser")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsAdmin")
+                    b.Property<bool?>("IsAdmin")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
@@ -160,10 +275,14 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                     b.Property<string>("PolarUserId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTimeOffset>("UpdateDate")
-                        .HasColumnType("datetimeoffset");
+                    b.Property<DateTimeOffset?>("UpdateDate")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
 
                     b.Property<string>("UpdateUser")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
@@ -171,15 +290,16 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("OSPUserProfile");
+                    b.ToTable("OSPUserProfile", (string)null);
                 });
 
             modelBuilder.Entity("OpenSportsPlatform.Lib.Model.Entities.Workout", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<float?>("AltitudeMaxInMeters")
                         .HasColumnType("real");
@@ -217,10 +337,14 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                     b.Property<float?>("HeartRateMaxBpm")
                         .HasColumnType("real");
 
-                    b.Property<DateTimeOffset>("InsertDate")
-                        .HasColumnType("datetimeoffset");
+                    b.Property<DateTimeOffset?>("InsertDate")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
 
                     b.Property<string>("InsertUser")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -241,10 +365,14 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                     b.Property<DateTimeOffset?>("StartTime")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<DateTimeOffset>("UpdateDate")
-                        .HasColumnType("datetimeoffset");
+                    b.Property<DateTimeOffset?>("UpdateDate")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GetUtcDate()");
 
                     b.Property<string>("UpdateUser")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UserProfileId")
@@ -256,7 +384,7 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
 
                     b.HasIndex("UserProfileId");
 
-                    b.ToTable("OSPWorkout");
+                    b.ToTable("OSPWorkout", (string)null);
                 });
 
             modelBuilder.Entity("OpenSportsPlatform.Lib.Model.Entities.Sample", b =>
@@ -281,18 +409,37 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                     b.Navigation("Workout");
                 });
 
+            modelBuilder.Entity("OpenSportsPlatform.Lib.Model.Entities.TagWorkout", b =>
+                {
+                    b.HasOne("OpenSportsPlatform.Lib.Model.Entities.Tag", "Tag")
+                        .WithMany("TagWorkouts")
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("OpenSportsPlatform.Lib.Model.Entities.Workout", "Workout")
+                        .WithMany("TagWorkouts")
+                        .HasForeignKey("WorkoutId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Tag");
+
+                    b.Navigation("Workout");
+                });
+
             modelBuilder.Entity("OpenSportsPlatform.Lib.Model.Entities.Workout", b =>
                 {
                     b.HasOne("OpenSportsPlatform.Lib.Model.Entities.SportsCategory", "SportsCategory")
                         .WithMany("Workouts")
                         .HasForeignKey("SportsCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("OpenSportsPlatform.Lib.Model.Entities.UserProfile", "UserProfile")
                         .WithMany("Workouts")
                         .HasForeignKey("UserProfileId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("SportsCategory");
@@ -310,6 +457,11 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
                     b.Navigation("Workouts");
                 });
 
+            modelBuilder.Entity("OpenSportsPlatform.Lib.Model.Entities.Tag", b =>
+                {
+                    b.Navigation("TagWorkouts");
+                });
+
             modelBuilder.Entity("OpenSportsPlatform.Lib.Model.Entities.UserProfile", b =>
                 {
                     b.Navigation("Workouts");
@@ -318,6 +470,8 @@ namespace OpenSportsPlatform.DatabaseMigrations.Migrations
             modelBuilder.Entity("OpenSportsPlatform.Lib.Model.Entities.Workout", b =>
                 {
                     b.Navigation("Segments");
+
+                    b.Navigation("TagWorkouts");
                 });
 #pragma warning restore 612, 618
         }

@@ -47,7 +47,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             var securedEntity = await _dbContext.Workout.Where(x => x.Id == id)
                 .Select(x => new SecuredEntityDto()
                 {
-                    OwnerUserId = x.UserProfile.UserId,
+                    OwnerUserId = x.UserProfile!.UserId ?? string.Empty,
                 }).SingleOrDefaultAsync();
 
             if (securedEntity == null)
@@ -58,7 +58,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             _securityService.CheckAccess(securedEntity);
 
             var firstTimeStamp = await _dbContext.Sample
-                .Where(x => x.Segment.Workout.Id == id)
+                .Where(x => x.Segment!.Workout!.Id == id)
                 .Where(x => x.Timestamp.HasValue)
                 .OrderBy(x => x.Id)
                 .MinAsync(x => x.Timestamp);
@@ -79,7 +79,7 @@ namespace OpenSportsPlatform.Lib.Services.Impl
 
 
             var samplesToDelte = _dbContext.Sample
-                .Where(x => x.Segment.Workout.Id == id)
+                .Where(x => x.Segment!.Workout!.Id == id)
                 .Where(x => x.Timestamp.HasValue)
                 .Where(x => x.Timestamp < keepFrom || x.Timestamp > keepTo);
 

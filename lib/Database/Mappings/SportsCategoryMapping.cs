@@ -13,6 +13,8 @@ namespace OpenSportsPlatform.Lib.Database.Mappings
         {
             builder.ToTable("OSPSportcCategory");
             builder.Property(x => x.Name).IsRequired(false);
+
+            builder.AddTechnicalAttributes();
         }
     }
 }

@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthenticationService } from '../authentication.service';
-import { DataService } from '../data.service';
 import { ShortUserProfile } from '../model/shortUserProfile';
 
 @Component({
@@ -9,15 +8,13 @@ import { ShortUserProfile } from '../model/shortUserProfile';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
   public userProfile$: Observable<ShortUserProfile>;
 
-  constructor(private authService: AuthenticationService) {
+  constructor(authService: AuthenticationService) {
     this.userProfile$ = authService.getUserProfile();
     authService.isLoggedInObservalbe();
   }
 
-  ngOnInit(): void {
-  }
 }

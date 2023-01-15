@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using OpenSportsPlatform.Lib.Core;
 using OpenSportsPlatform.Lib.Database;
 using OpenSportsPlatform.Lib.Services.Contract;
 using OpenSportsPlatform.Lib.Services.Impl;
@@ -15,7 +16,7 @@ namespace OpenSportsPlatform.Lib.DependencyInjection
     {
         public static IServiceCollection AddOpenSportsPlatformServices(this IServiceCollection serviceCollection, IConfiguration configuration)
         {
-            string connectionString = configuration.GetConnectionString("DefaultConnection");
+            string connectionString = configuration.GetConnectionString("DefaultConnection") ?? throw new ConfigurationException("DefaultConnection");
 
             var httpclient = serviceCollection.AddHttpClient<IPolarFlowService, PolarFlowService>()
                     .SetHandlerLifetime(TimeSpan.FromMinutes(5))
