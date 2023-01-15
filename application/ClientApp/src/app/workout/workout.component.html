@@ -1,0 +1,16 @@
+<div *ngIf="workout" class="workout">
+
+  <div class="sliderrow">
+     <mat-slider min="0" max="10000">
+      <input matSliderThumb [(value)]="sliderval">
+    </mat-slider>
+
+    <span>{{markerPosText}}</span>
+  </div>
+  
+
+  <div class="leaflet" leaflet [leafletOptions]="options" [leafletLayersControl]="layersControl"
+    [leafletLayers]="layers">
+  </div>
+
+</div>

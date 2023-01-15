@@ -1,0 +1,67 @@
+<div>
+
+    <mat-toolbar>
+        <button (click)="deleteClick()" mat-icon-button>
+            <mat-icon>delete</mat-icon>
+        </button>
+    </mat-toolbar>
+
+    <form class="form" [formGroup]="formGroup" (ngSubmit)="saveClick()">
+
+        <input type="hidden" formControlName="id">
+
+        <mat-form-field appearance="fill" class="uielement">
+            <mat-label>Sport</mat-label>
+            <select matNativeControl required placeholder="Sports category for this workout"
+                formControlName="sportsCategoryId">
+                <option value=""></option>
+                <option *ngFor="let item of sports" [value]="item.id">{{item.name}}</option>
+            </select>
+        </mat-form-field>
+
+       
+
+        <mat-form-field appearance="fill">
+            <mat-label>Notes</mat-label>
+            <textarea matInput placeholder="Ex. It felt ..." maxlength="1000" formControlName="notes"></textarea>
+        </mat-form-field>
+
+        <div mat-dialog-actions class="buttonlist">
+            <button mat-raised-button type="submit" color="primary" [disabled]="!formGroup.valid">Save</button>
+        </div>
+
+    </form>
+
+    <div>
+        
+        <div class="sliderrow">
+            <mat-slider min="0" max="10000">
+                <input matSliderStartThumb [(value)]="sliderValCropFrom">
+                <input matSliderEndThumb [(value)]="sliderValCropTo">
+            </mat-slider>
+            <span>{{sliderValCropFromText}} {{sliderValCropToText}}</span>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end;">
+            <div mat-dialog-actions class="buttonlist">
+                <button mat-raised-button type="submit" color="primary" (click)="cropClick()">Crop</button>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 1em;">
+        <mat-form-field>
+            <mat-label>Tags</mat-label>
+            <input id="tagsInput" [(ngModel)]="tag" matInput type="text" (keyup.enter)="onEnterInTagInput()">
+        </mat-form-field>
+
+        <div class="tags">
+            <div *ngFor="let tag of tags" class="tag">
+                <span>{{tag.name}}</span>
+                <span class="remove" (click)="deleteTag(tag.name)">x</span>
+            </div>
+        </div>
+        
+    </div>
+
+</div>

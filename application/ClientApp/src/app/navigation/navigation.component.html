@@ -1,0 +1,75 @@
+<div class="container">
+    <mat-toolbar color="primary">
+
+        <mat-toolbar-row>
+            <div>
+                <button (click)="sidenav.toggle()" mat-icon-button>
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </div>
+
+            <div>Open Sports Platform</div>
+
+            <div class="spacer"></div>
+
+            <!-- Face -->
+            <mat-icon *ngIf="(isLoggedIn$ | async) === true" [matTooltip]="(userProfile$ | async)?.name || ''">
+                face
+            </mat-icon>
+
+            <!-- Login button -->
+            <asl-google-signin-button *ngIf="(isLoggedIn$ | async) === false" type='icon' size='medium'></asl-google-signin-button>
+
+            <!-- Log-out button -->
+            <button *ngIf="(isLoggedIn$ | async) === true" mat-icon-button (click)="signOut()" matTooltip="Logout">
+                <mat-icon>logout</mat-icon>
+            </button>
+
+        </mat-toolbar-row>
+
+    </mat-toolbar>
+
+    <mat-sidenav-container>
+
+        <mat-sidenav #sidenav>
+            <mat-nav-list (click)="sidenav.close()">
+                <a mat-list-item routerLink="/home">
+                    <mat-icon class="icon">home</mat-icon>
+                    <span class="label">Home</span>
+                </a>
+                <a *ngIf="isLoggedIn$ | async" mat-list-item routerLink="/workouts">
+                    <mat-icon class="icon">list</mat-icon>
+                    <span class="label">Workouts</span>
+                </a>
+                <a *ngIf="isLoggedIn$ | async" mat-list-item routerLink="/workouts2">
+                    <mat-icon class="icon">list</mat-icon>
+                    <span class="label">Workouts2</span>
+                </a>
+                <a *ngIf="isLoggedIn$ | async" mat-list-item routerLink="/statistics">
+                    <mat-icon class="icon">bar_chart</mat-icon>
+                    <span class="label">Statistics</span>
+                </a>
+                <a *ngIf="isLoggedIn$ | async" mat-list-item routerLink="/sync">
+                    <mat-icon class="icon">sync</mat-icon>
+                    <span class="label">Synchronize</span>
+                </a>
+                <a *ngIf="isLoggedIn$ | async" mat-list-item routerLink="/uploadworkout">
+                    <mat-icon class="icon">upload</mat-icon>
+                    <span class="label">Upload</span>
+                </a>
+                <a mat-list-item routerLink="/countdown">
+                    <mat-icon class="icon">alarm</mat-icon>
+                    <span class="label">Countdown</span>
+                </a>
+                <a mat-list-item (click)="throwTestError()">
+                    <mat-icon class="icon">error</mat-icon>
+                    <span class="label">force error</span>
+                </a>
+            </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content>          
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

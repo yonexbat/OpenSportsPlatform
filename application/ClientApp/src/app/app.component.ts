@@ -7,9 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  constructor() {
-    console.log('Hello World');
-  }
+  public title = 'Open Sports Platform';
 
-  title = 'OpenSportPlatform';
 }

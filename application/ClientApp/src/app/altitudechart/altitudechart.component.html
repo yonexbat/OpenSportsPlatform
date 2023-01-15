@@ -1,0 +1,21 @@
+<div>
+
+    <div #ContainerRef style="width: 100%;" 
+        [style.height.px]="chartHeight">
+        <ngx-charts-line-chart 
+            [view]="[chartWidth, chartHeight]" 
+            [results]="data" 
+            [xAxis]="true" 
+            [yAxis]="true"
+            [legend]="false"
+            [legendTitle]="'legend'"
+            [xAxisLabel]="'distance in m'"
+            [yAxisLabel]="'m above sealevel'"
+            [showXAxisLabel]="true"
+            [showYAxisLabel]="true"
+            [yScaleMin]="minAltitude"
+            [yScaleMax]="maxAltitude">
+        </ngx-charts-line-chart>
+    </div>
+
+</div>

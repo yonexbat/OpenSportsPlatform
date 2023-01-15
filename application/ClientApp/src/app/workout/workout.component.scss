@@ -1,0 +1,29 @@
+.leaflet {
+    flex: 1 1 100px;
+}
+
+.workout {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+.sportsicon {
+    height: 1.5em;
+    width: 1.5em;
+}
+
+.sliderrow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    
+    > span {
+        margin-right: 1rem;
+    }
+
+    mat-slider {
+        flex: 1 1 auto;
+    }
+}
