@@ -2,13 +2,8 @@
 using Microsoft.Extensions.Logging;
 using OpenSportsPlatform.Lib.Database;
 using OpenSportsPlatform.Lib.Model.Dtos.WorkoutOverview;
+using OpenSportsPlatform.Lib.Model.Entities;
 using OpenSportsPlatform.Lib.Services.Contract;
-using OpenSportsPlatform.Lib.Util;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OpenSportsPlatform.Lib.Services.Impl
 {
@@ -16,42 +11,50 @@ namespace OpenSportsPlatform.Lib.Services.Impl
     {
         private readonly ILogger _logger;
         private readonly OpenSportsPlatformDbContext _dbContext;
+        private readonly ISecurityService _securityService;
         private static int PageSize = 10;
 
         public WorkoutOverviewService(
             OpenSportsPlatformDbContext dbContext,
+            ISecurityService securityService,
             ILogger<WorkoutOverviewService> logger)
         {
             _dbContext = dbContext;
+            _securityService = securityService;
             _logger = logger;
         }
 
         public async Task<PagedResultDto<WorkoutOverviewItemDto>> SearchWorkoutItems(SearchWorkoutsDto search)
         {
-            var query = _dbContext.Workout;
+            string userId = _securityService.GetCurrentUserid();
+            _logger.LogInformation("Searching for workouts. userId: {userId}", userId);
 
-            IList<WorkoutOverviewItemDto> data = await query
-                .Select(workout => new WorkoutOverviewItemDto()
-                {
-                    Id = workout.Id,
-                    StartTime = workout.StartTime,
-                    EndTime = workout.EndTime,
-                    Sport = workout.SportsCategory!.Name,
-                    DistanceInKm = workout.DistanceInKm,
-                    DurationInSec = workout.DurationInSec,
-                })
+            var query = _dbContext.Workout
+                .Where(x => x.UserProfile!.UserId == userId);
+
+            var count = await query.CountAsync();
+
+
+            IList<Workout> workouts = await query
+                .Include(x => x.TagWorkouts!)
+                .ThenInclude(tw => tw.Tag)
+                .Include(wo => wo.SportsCategory)
                 .OrderByDescending(x => x.StartTime)
                 .Skip(PageSize * search.Page)
                 .Take(PageSize)
                 .ToListAsync();
-
-            foreach(var item in data)
-            {
-                item.StartTime = item.StartTime;
-                item.EndTime = item.EndTime;
-            }
-
-            var count = await query.CountAsync();
+                      
+            var data = workouts.Select(wo => new WorkoutOverviewItemDto()
+                {
+                    DistanceInKm = wo.DistanceInKm,
+                    DurationInSec = wo.DurationInSec,
+                    EndTime = wo.EndTime,
+                    StartTime = wo.StartTime,
+                    Id = wo.Id,
+                    Sport = wo.SportsCategory?.Name,
+                    Tags = wo.TagWorkouts?.Select(tw => tw.Tag.Name).ToList(),
+                })
+                .ToList();
 
             return new PagedResultDto<WorkoutOverviewItemDto>()
             {

@@ -12,5 +12,6 @@ namespace OpenSportsPlatform.Lib.Model.Dtos.WorkoutOverview
         public float? DistanceInKm { get; set; }
         public float? DurationInSec { get; set; }
         public string? Sport { get; set; }
+        public IList<string>? Tags { get; set; }
     }
 }

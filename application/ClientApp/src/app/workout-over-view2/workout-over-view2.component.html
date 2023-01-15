@@ -3,16 +3,33 @@
     <ng-container *cdkVirtualFor="let workout of (workoutItems); let i = index; trackBy: trackById">
       <div [style.height]="workoutHeightPx +'px'">
         <mat-card [routerLink]="['/workout', 'map', workout.id]">
-          
+
           <mat-card-title>
             <img [src]="getImage(workout.sport)" class="sportsicon">
-            {{workout.startTime | date : 'dd.MM.yyyy'}}
+            <span>
+              {{workout.startTime | date : 'dd.MM.yyyy'}}
+            </span>
+            <div class="tags">
+              <span class="tag" *ngFor="let tag of workout.tags">
+                {{tag}}
+              </span>
+            </div>           
           </mat-card-title>
 
-          <mat-card-subtitle>            
-            {{workout.endTime | date : 'HH:mm'}}
-            {{workout.durationInSec | duration}}
-            {{workout.distanceInKm | distance}}
+          <mat-card-subtitle>
+            <span>
+              {{workout.startTime | date : 'HH:mm'}} - {{workout.endTime | date : 'HH:mm'}}
+            </span>
+
+            <span>
+              {{workout.durationInSec | duration}}
+            </span>
+
+            <span>
+              {{workout.distanceInKm | distance}}
+            </span>
+
+
           </mat-card-subtitle>
         </mat-card>
       </div>

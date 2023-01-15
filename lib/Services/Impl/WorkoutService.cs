@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using OpenSportsPlatform.Lib.Database;
-using OpenSportsPlatform.Lib.Model;
 using OpenSportsPlatform.Lib.Model.Dtos.Common;
 using OpenSportsPlatform.Lib.Model.Dtos.Workout;
 using OpenSportsPlatform.Lib.Model.Entities;

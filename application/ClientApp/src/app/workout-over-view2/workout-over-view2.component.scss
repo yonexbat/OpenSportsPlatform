@@ -4,18 +4,39 @@
     margin-left: 0.2em;
 }
 
-.workoutitem {
-    display: flex;
+mat-card-title {
+    display: flex inline;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+
+    :first-child {
+        margin-right: 0.5em;
+    }
 }
 
-.colicon {
-    flex-basis: 100px;
-    flex-shrink: 0;
-    flex-grow: 1;
+mat-card-subtitle {
+    display: flex inline;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.colstart {
-    flex-basis: 100px;
-    flex-shrink: 0;
-    flex-grow: 1;
+.tags {
+    display: inline-flex;    
+    padding-left: 1rem;
+    padding-top: 0.1em;
+
+
+    .tag {
+        margin-left: 0.1em;
+        margin-right: 0.0em;        
+        background-color:  crimson;
+        border-radius: 0.5em;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        font-weight: lighter;
+        font-size: small;
+    }
 }
