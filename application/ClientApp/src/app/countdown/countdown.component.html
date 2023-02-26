@@ -1,8 +1,8 @@
 <div>
     <h1>Countdowns</h1>
 
-    <p class="countdown">
-        {{countDownText$ | async}}
+    <p class="countdown">        
+        {{ countdown | date: "mm:ss" }}
     </p>
 
     <button mat-raised-button color="primary" (click)="reset()">Reset</button>

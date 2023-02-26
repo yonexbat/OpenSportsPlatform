@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { BehaviorSubject, interval, merge, Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject, interval, merge, Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -7,40 +7,37 @@ import { map } from 'rxjs/operators';
   templateUrl: './countdown.component.html',
   styleUrls: ['./countdown.component.scss']
 })
-export class CountdownComponent {
+export class CountdownComponent implements OnInit {
 
-  public countDownText$: Observable<string>;
 
-  private numSeconds = 60;
 
-  private doCountDown = false;
 
-  private zero$ = new BehaviorSubject<number>(0);
+  private timerSubscription?: Subscription;
+  public countdown?: Date;
 
-  static calculateText(numSeconds: number): string {
-    return `00:${numSeconds}`;
+  ngOnInit(): void {
+    this.countdown = new Date(0);
   }
 
-  constructor() {
-    this.countDownText$ =  merge(interval(1000), this.zero$)
-      .pipe(map(() => this.countDown()));
-  }
 
-  public countDown(): string {
-    if (this.doCountDown && this.numSeconds > 0) {
-      this.numSeconds -= 1;
-    }
-    return CountdownComponent.calculateText(this.numSeconds);
-  }
+  public start(): void {    
+    const countDownDate = new Date().getTime() + 60000; // 1 minute from now
+    this.timerSubscription = interval(100).subscribe(() => {
+      const now = new Date().getTime();
+      const distance = countDownDate - now;
 
-  public start(): void {
-    this.doCountDown = true;
+      if (distance < 0) {
+        this.timerSubscription?.unsubscribe();
+        this.countdown = new Date(0);
+      } else {
+        this.countdown = new Date(distance);
+      }
+    });
   }
 
   public reset(): void {
-    this.doCountDown = false;
-    this.numSeconds = 60;
-    this.zero$.next(0);
+    this.timerSubscription?.unsubscribe();
+    this.countdown = new Date(0);
   }
 
 }
