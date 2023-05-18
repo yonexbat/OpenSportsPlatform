@@ -1,6 +1,6 @@
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
-import { filter, map, pairwise, tap, throttleTime } from 'rxjs/operators';
+import { filter, map, pairwise, throttleTime } from 'rxjs/operators';
 import { DataService } from '../data.service';
 import { WorkoutOverviewItem } from '../model/workoutOverview/workoutOverviewItem';
 import { getImageFromCategory } from '../util/util';

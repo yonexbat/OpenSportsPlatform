@@ -46,7 +46,7 @@ import { WorkoutOverView2Component } from './workout-over-view2/workout-over-vie
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { PolarComponent } from './polar/polar.component';
-import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule, GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 // Use your Client ID in the GoogleLoginProvider()
@@ -84,6 +84,7 @@ const socialProviders = [
     HttpClientModule,
     BrowserAnimationsModule,
     SocialLoginModule,
+    GoogleSigninButtonModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatProgressSpinnerModule,

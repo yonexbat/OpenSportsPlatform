@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, interval, merge, Observable, Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { interval, Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-countdown',
@@ -20,7 +20,7 @@ export class CountdownComponent implements OnInit {
   }
 
 
-  public start(): void {    
+  public start(): void {
     const countDownDate = new Date().getTime() + 60000; // 1 minute from now
     this.timerSubscription = interval(100).subscribe(() => {
       const now = new Date().getTime();
