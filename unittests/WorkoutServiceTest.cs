@@ -80,7 +80,7 @@ namespace unittests
             {
                 IWorkoutService service = CreateService(dbContext, securityService);
                 var res =  await service.SearchTags("Grand");
-                Assert.Equal(1, res.Count);
+                Assert.Single(res);
             }            
         }
 
@@ -114,7 +114,7 @@ namespace unittests
                    .Include(x => x.TagWorkouts)
                    .ThenInclude(x => x.Tag)
                    .FirstAsync();
-                Assert.Equal(1, wo.TagWorkouts.Count);
+                Assert.Single(wo.TagWorkouts);
                 Assert.Equal("Bluemlisalp-Lauf", wo.TagWorkouts[0].Tag.Name);
             }
         }
@@ -155,7 +155,7 @@ namespace unittests
                    .Include(x => x.TagWorkouts)
                    .ThenInclude(x => x.Tag)
                    .FirstAsync();
-                Assert.Equal(0, wo.TagWorkouts.Count);                
+                Assert.Empty(wo.TagWorkouts);                
             }
         }
 
