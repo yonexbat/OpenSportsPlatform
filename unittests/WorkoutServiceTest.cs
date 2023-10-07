@@ -21,7 +21,7 @@ namespace unittests
         public async Task TestSave()
         {
             IPrincipal principal = MockPrincipal.CreatePrincipal();
-            ISecurityService securityService = new SecurityService(principal);        
+            ISecurityService securityService = new SecurityService(principal);
             string dbName = Guid.NewGuid().ToString();
             int workOutId = 0;
             int sportsCategoryId = 0;
@@ -79,9 +79,9 @@ namespace unittests
             using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
             {
                 IWorkoutService service = CreateService(dbContext, securityService);
-                var res =  await service.SearchTags("Grand");
+                var res = await service.SearchTags("Grand");
                 Assert.Single(res);
-            }            
+            }
         }
 
         [Fact]
@@ -92,28 +92,28 @@ namespace unittests
             string dbName = Guid.NewGuid().ToString();
             int workOutId = 0;
 
-            using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
+            await using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
             {
                 Workout workout = await SetUpWorkout(dbContext, securityService);
                 workOutId = workout.Id;
             }
 
             // Act
-            using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
+            await using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
             {
                 IWorkoutService service = CreateService(dbContext, securityService);
                 await service.AddTag(new AddTagDto() { Id = workOutId, Name = "Bluemlisalp-Lauf" });
             }
 
             // Assert
-            using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
+            await using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
             {
                 Workout wo = await dbContext
-                   .Workout
-                   .Where(x => x.Id == workOutId)
-                   .Include(x => x.TagWorkouts)
-                   .ThenInclude(x => x.Tag)
-                   .FirstAsync();
+                    .Workout
+                    .Where(x => x.Id == workOutId)
+                    .Include(x => x.TagWorkouts)
+                    .ThenInclude(x => x.Tag)
+                    .FirstAsync();
                 Assert.Single(wo.TagWorkouts);
                 Assert.Equal("Bluemlisalp-Lauf", wo.TagWorkouts[0].Tag.Name);
             }
@@ -150,12 +150,12 @@ namespace unittests
             using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
             {
                 Workout wo = await dbContext
-                   .Workout
-                   .Where(x => x.Id == workOutId)
-                   .Include(x => x.TagWorkouts)
-                   .ThenInclude(x => x.Tag)
-                   .FirstAsync();
-                Assert.Empty(wo.TagWorkouts);                
+                    .Workout
+                    .Where(x => x.Id == workOutId)
+                    .Include(x => x.TagWorkouts)
+                    .ThenInclude(x => x.Tag)
+                    .FirstAsync();
+                Assert.Empty(wo.TagWorkouts);
             }
         }
 
@@ -167,30 +167,32 @@ namespace unittests
             string dbName = Guid.NewGuid().ToString();
             int workOutId = 0;
 
-            using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
+            await using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
             {
                 Workout workout = await SetUpWorkout(dbContext, securityService);
                 workOutId = workout.Id;
-                Tag tag = new Tag { Name = "gurten classic"};
+                Tag tag = new Tag { Name = "gurten classic" };
                 await dbContext.Tag.AddAsync(tag);
                 await dbContext.TagWorkout.AddAsync(new TagWorkout { Tag = tag, Workout = workout });
                 await dbContext.SaveChangesAsync();
             }
 
             // Act and Assert
-            using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
+            await using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
             {
                 IWorkoutService service = CreateService(dbContext, securityService);
-                var res = await service.GetEditWorkout(workOutId);             
+                var res = await service.GetEditWorkout(workOutId);
 
+                // Assert
                 Assert.NotNull(res);
                 Assert.NotNull(res.Tags);
             }
         }
 
-        private static async Task<Workout> SetUpWorkout(OpenSportsPlatformDbContext dbContext, ISecurityService securityService)
+        private static async Task<Workout> SetUpWorkout(OpenSportsPlatformDbContext dbContext,
+            ISecurityService securityService)
         {
-            dbContext.Database.EnsureCreated();
+            await dbContext.Database.EnsureCreatedAsync();
 
             UserProfile userProfile = new UserProfile();
             userProfile.UserId = securityService.GetCurrentUserid();
@@ -216,11 +218,12 @@ namespace unittests
         }
 
 
-        private static IWorkoutService CreateService(OpenSportsPlatformDbContext dbContext, ISecurityService securityService)
+        private static IWorkoutService CreateService(OpenSportsPlatformDbContext dbContext,
+            ISecurityService securityService)
         {
-            IWorkoutService workoutService = new WorkoutService(dbContext, new MockLogger<WorkoutService>(), securityService);
+            IWorkoutService workoutService =
+                new WorkoutService(dbContext, new MockLogger<WorkoutService>(), securityService);
             return workoutService;
         }
-       
     }
 }

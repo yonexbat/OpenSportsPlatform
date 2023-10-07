@@ -22,14 +22,15 @@ namespace unittests
         [Fact]
         public async Task TestImport()
         {
+            // Arrange
             IPrincipal principal = MockPrincipal.CreatePrincipal();
             ISecurityService securityService = new SecurityService(principal);
             ILogger<TcxFileImporterService> logger = new MockLogger<TcxFileImporterService>();
             string dbName = Guid.NewGuid().ToString();
 
-            using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
+            await using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
             {
-                dbContext.Database.EnsureCreated();
+                await dbContext.Database.EnsureCreatedAsync();
 
                 UserProfile userProfile = new UserProfile();
                 userProfile.UserId = securityService.GetCurrentUserid();
@@ -37,15 +38,18 @@ namespace unittests
 
                 await dbContext.SaveChangesAsync();
             }
-            using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
+
+            await using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
             {
                 ITcxFileImporterService service = new TcxFileImporterService(logger, securityService, dbContext);
-                Stream stream = File.OpenRead("Files\\testactivity.tcx");
+                Stream stream = File.OpenRead($"Files{Path.DirectorySeparatorChar}testactivity.tcx");
+                
+                //  Act
                 await service.ImportWorkout(stream);
             }
 
             // Assert
-            using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
+            await using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
             {
                 var numSamples = await dbContext.Sample
                     .Where(x => x.Segment.Workout.UserProfile.UserId == securityService.GetCurrentUserid())

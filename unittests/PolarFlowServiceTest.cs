@@ -19,13 +19,14 @@ namespace unittests
     {
         [Fact]
         public async Task GetAuthtokenOk()
-        {            
+        {
             IPolarFlowService service = CreateService();
             AccessTokenResponse res = await service.GetAuthToken("cadefc6c043b89efa06ede0d7ada36");
 
             Assert.False(string.IsNullOrWhiteSpace(res.AccessToken));
             Assert.True(res.UserId > 0);
         }
+
 
         [Fact]
         public async Task RegisterUser()
@@ -50,7 +51,6 @@ namespace unittests
         }
 
 
-
         [Fact]
         public async Task DownloadTrainings()
         {
@@ -61,11 +61,12 @@ namespace unittests
             string accessToken = config.GetValue<string>("PolarAccessToken");
 
             TransactionResponse transaction = await service.CreateTransaction(userid.ToString(), accessToken);
-            
+
             if (transaction != null)
             {
-                var exercises = await service.ListExercises(userid.ToString(), transaction.TransactionId?.ToString(), accessToken);
-                foreach(var exercise in exercises.Exercises)
+                var exercises = await service.ListExercises(userid.ToString(), transaction.TransactionId?.ToString(),
+                    accessToken);
+                foreach (var exercise in exercises.Exercises)
                 {
                     // var res = await service.GetExerciseAsGpx(exercise, accessToken);
                     using (Stream stream = await service.GetExerciseAsTcx(exercise, accessToken))
@@ -80,16 +81,17 @@ namespace unittests
         }
 
         private IPolarFlowService CreateService()
-        {      
+        {
             ILogger<PolarFlowService> logger = new MockLogger<PolarFlowService>();
 
             IConfiguration config = GetConfiguration();
             var clientId = config.GetValue<string>("PolarClientID");
             var clientSecret = config.GetValue<string>("PolarClientSecret");
 
-            var inMemorySettings = new Dictionary<string, string> {
-                {"PolarClientID", clientId},
-                {"PolarClientSecret", clientSecret},
+            var inMemorySettings = new Dictionary<string, string>
+            {
+                { "PolarClientID", clientId },
+                { "PolarClientSecret", clientSecret },
             };
 
             IConfiguration mockConfiguration = new ConfigurationBuilder()
@@ -104,7 +106,6 @@ namespace unittests
         }
 
 
-        
         private IConfiguration GetConfiguration()
         {
             var builder = new ConfigurationBuilder()
@@ -131,7 +132,5 @@ namespace unittests
                 output.Write(buffer, 0, len);
             }
         }
-
-
     }
 }
