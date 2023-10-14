@@ -62,18 +62,16 @@ namespace unittests
 
             TransactionResponse transaction = await service.CreateTransaction(userid.ToString(), accessToken);
 
-            if (transaction != null)
+            if (transaction != null && transaction.TransactionId != null)
             {
-                var exercises = await service.ListExercises(userid.ToString(), transaction.TransactionId?.ToString(),
+                ListExercisesResponse exercises = await service.ListExercises(userid.ToString(), transaction.TransactionId.ToString(),
                     accessToken);
-                foreach (var exercise in exercises.Exercises)
+                foreach (var exercise in exercises.Exercises!)
                 {
                     // var res = await service.GetExerciseAsGpx(exercise, accessToken);
-                    using (Stream stream = await service.GetExerciseAsTcx(exercise, accessToken))
-                    {
-                        Guid guid = Guid.NewGuid();
-                        WriteToFile(stream, $"D:\\Tmp\\{guid}.tcx");
-                    }
+                    await using Stream stream = await service.GetExerciseAsTcx(exercise, accessToken);
+                    Guid guid = Guid.NewGuid();
+                    WriteToFile(stream, $"D:\\Tmp\\{guid}.tcx");
                 }
 
                 await service.CommitTransaction(userid.ToString(), transaction.TransactionId.Value, accessToken);
@@ -117,10 +115,8 @@ namespace unittests
 
         private static void WriteToFile(Stream stream, string destinationFile)
         {
-            using (Stream file = File.Create(destinationFile))
-            {
-                CopyStream(stream, file);
-            }
+            using Stream file = File.Create(destinationFile);
+            CopyStream(stream, file);
         }
 
         private static void CopyStream(Stream input, Stream output)
