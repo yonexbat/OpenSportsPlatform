@@ -4,6 +4,7 @@ using OpenSportsPlatform.Lib.Model.Dtos.Common;
 using OpenSportsPlatform.Lib.Model.Dtos.Statistics;
 using OpenSportsPlatform.Lib.Model.Dtos.Workout;
 using OpenSportsPlatform.Lib.Model.Dtos.WorkoutOverview;
+using OpenSportsPlatform.Lib.Model.Entities;
 using OpenSportsPlatform.Lib.Services.Contract;
 
 
@@ -19,13 +20,15 @@ namespace OpenSportsPlatform.Application.Controllers
         private readonly IStatisticsService _statisticsService;
         private readonly ISyncPolarService _syncPolarService;
         private readonly ICropWorkoutService _cropWorkoutService;
+        private readonly ISamplesService _samplesService;
 
         public DataController(IWorkoutOverviewService workoutOverviewService,
             IWorkoutService workoutService,
             ITcxFileImporterService tcxFileImporterService,
             IStatisticsService statisticsService,
             ISyncPolarService syncPolarService,
-            ICropWorkoutService cropWorkoutService)
+            ICropWorkoutService cropWorkoutService,
+            ISamplesService samplesService)
         {
             _workoutOverviewService = workoutOverviewService;
             _workoutService = workoutService;
@@ -33,6 +36,7 @@ namespace OpenSportsPlatform.Application.Controllers
             _statisticsService = statisticsService;
             _syncPolarService = syncPolarService;
             _cropWorkoutService = cropWorkoutService;
+            _samplesService = samplesService;
         }
 
         [HttpGet]
@@ -47,6 +51,14 @@ namespace OpenSportsPlatform.Application.Controllers
         public async Task<WorkoutDto> GetWorkout(int id)
         {
             return await _workoutService.GetWorkout(id);
+        }
+        
+        [HttpGet]
+        [Route("[action]/{id}")]
+        public async Task<ActionResult<IEnumerable<SampleDto>>> GetSamples([FromRoute] int id)
+        {
+            var samplesEnumerable = await _samplesService.GetSamples(id);
+            return Ok(samplesEnumerable);
         }
 
         [HttpGet]

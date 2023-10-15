@@ -11,6 +11,7 @@ import { SaveWorkout } from './model/editworkout/saveWorkout';
 import { Statistics } from './model/statistics/statistics';
 import { Workout } from './model/workout/workout';
 import { WorkoutOverviewItem } from './model/workoutOverview/workoutOverviewItem';
+import { Sample } from './model/workout/sample';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,10 @@ export class DataService {
 
   public getWorkout(id: number): Promise<Workout> {
     return firstValueFrom(this.http.get<Workout>(`${this.apiPrefix}/Data/GetWorkout/${id}`)) as Promise<Workout>;
+  }
+
+  public getSamples(id: number): Promise<Sample[]> {
+    return firstValueFrom(this.http.get<Sample[]>(`${this.apiPrefix}/Data/GetSamples/${id}`)) as Promise<Sample[]>;
   }
 
   public getEditWorkout(id: number): Promise<EditWorkout> {

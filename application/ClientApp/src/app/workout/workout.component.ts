@@ -17,6 +17,7 @@ import { getImageFromCategory, ticksToString } from '../util/util';
 export class WorkoutComponent {
 
   public workout?: Workout;
+  public samples?: Sample[];
   public options = {
     layers: [
       tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' })
@@ -69,8 +70,15 @@ export class WorkoutComponent {
     this.loadData(id);
   }
 
-  async loadData(id: number): Promise<void> {
-    this.workout = await this.dataService.getWorkout(id);
+  async loadData(id: number): Promise<void> {    
+
+
+    const samples = await this.dataService.getSamples(id);
+    const workout = await this.dataService.getWorkout(id);
+
+    workout.samples = samples;
+    
+    this.workout = workout;
 
     // Track
     const polyLineWorkout = this.createPolyLine(this.workout);

@@ -70,12 +70,9 @@ namespace OpenSportsPlatform.Lib.Services.Impl
             _logger.LogInformation("Deleting workout with id {0}", id);
             Workout workout = await _dbContext.Workout.Where(x => x.Id == id)
                 .Include(x => x.UserProfile!)
-                .Include(x => x.Segments!)
-                .ThenInclude(x => x.Samples)
                 .SingleAsync();
 
             _securityService.CheckAccess(workout);
-
             _dbContext.Remove(workout);
             await _dbContext.SaveChangesAsync();
         }
@@ -141,21 +138,6 @@ namespace OpenSportsPlatform.Lib.Services.Impl
                 HeartRateMaxBpm = workout.HeartRateMaxBpm,
                 DurationInSec = workout.DurationInSec,
             };
-
-            //Samples
-            res.Samples = await _dbContext
-                .Sample
-                .Where(x => x.Segment!.Workout!.Id == id)
-                .Where(x => x.Latitude.HasValue && x.Longitude.HasValue)
-                .OrderBy(x => x.Timestamp)
-                .Select(x => new SampleDto()
-                {
-                    Latitude = x.Latitude,
-                    Longitude = x.Longitude,
-                    AltitudeInMeters = x.AltitudeInMeters,
-                    HeartRateBpm = x.HeartRateBpm,
-                    Timestamp = x.Timestamp,
-                }).ToListAsync();
 
             return res;
         }
