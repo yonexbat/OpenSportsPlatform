@@ -7,6 +7,8 @@ import { DataService } from '../data.service';
 import { SelectItem } from '../model/common/selectitem';
 import { CropWorkout } from '../model/editworkout/cropWorkout';
 import { ticksToString } from '../util/util';
+import { WorkoutService } from '../workout.service';
+import { SaveWorkout } from '../model/editworkout/saveWorkout';
 
 @Component({
   selector: 'app-editworkout',
@@ -58,6 +60,7 @@ export class EditworkoutComponent {
 
   constructor(private fb: FormBuilder,
     private dataService: DataService,
+    private workoutService: WorkoutService,
     private route: ActivatedRoute,
     private router: Router,
     private confirmService: ConfirmService,
@@ -86,8 +89,9 @@ export class EditworkoutComponent {
   }
 
   async save(): Promise<void> {
-    const saveWorkout = this.formGroup.value;
+    const saveWorkout: SaveWorkout = this.formGroup.value;
     await this.dataService.saveWorkout(saveWorkout);
+    this.workoutService.clearWorkout(saveWorkout.id);
     this.snackBar.open('Save successful', 'close', {
       duration: 3000
     }).onAction().subscribe(() => {
@@ -132,6 +136,7 @@ export class EditworkoutComponent {
     const id = this.formGroup.get('id')?.value;
     if (id > 0) {
       await this.dataService.deleteWorkout(id);
+      this.workoutService.clearWorkout(id);
       this.router.navigate(['workouts']);
     }
   }
@@ -153,6 +158,7 @@ export class EditworkoutComponent {
 
     await this.dataService.crop(crop);
     await this.loadData(crop.id, false);
+    this.workoutService.clearWorkout(crop.id);
   }
 
   private toTicks(percentage: number): number {

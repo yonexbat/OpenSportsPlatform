@@ -18,6 +18,11 @@ export class WorkoutService {
     return workout;
   }
 
+  public clearWorkout(id: number){
+    const key = this.getKey(id);
+    localStorage.removeItem(key);
+  }
+
   private storeLocally(workout: Workout) {
     const json = JSON.stringify(workout);
     const key = this.getKey(workout.id);
