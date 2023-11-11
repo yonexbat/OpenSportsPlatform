@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Params, } from '@angular/router';
 import { icon, latLng, LatLngTuple, Layer, Marker, marker, Polyline, polyline, tileLayer } from 'leaflet';
 import { timer } from 'rxjs';
-import { DataService } from '../data.service';
 import { Sample } from '../model/workout/sample';
 import { Workout } from '../model/workout/workout';
 import { getImageFromCategory, ticksToString } from '../util/util';
+import { WorkoutService } from '../workout.service';
 
 
 
@@ -50,7 +50,7 @@ export class WorkoutComponent {
 
 
   constructor(
-    private dataService: DataService,
+    private workoutService: WorkoutService,
     private route: ActivatedRoute
   ) {
     this.route.params.subscribe(x => this.handleRouteParamChanged(x));
@@ -71,13 +71,7 @@ export class WorkoutComponent {
   }
 
   async loadData(id: number): Promise<void> {    
-
-
-    const samples = await this.dataService.getSamples(id);
-    const workout = await this.dataService.getWorkout(id);
-
-    workout.samples = samples;
-    
+    const workout = await this.workoutService.getWorkout(id);    
     this.workout = workout;
 
     // Track
