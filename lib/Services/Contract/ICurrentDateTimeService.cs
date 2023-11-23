@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace OpenSportsPlatform.Lib.Services.Contract;
 
-namespace OpenSportsPlatform.Lib.Services.Contract
+public interface ICurrentDateTimeService
 {
-    public interface ICurrentDateTimeService
-    {
-        DateTimeOffset GetCurrentTime();
-    }
+    DateTimeOffset GetCurrentTime();
 }

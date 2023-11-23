@@ -1,13 +1,12 @@
 ﻿using OpenSportsPlatform.Lib.Model.Dtos.PolarOsp;
 
-namespace OpenSportsPlatform.Lib.Services.Contract
+namespace OpenSportsPlatform.Lib.Services.Contract;
+
+public interface ISyncPolarService
 {
-    public interface ISyncPolarService
-    {
-        Task SyncPolar();
+    Task SyncPolar();
 
-        Task ExchangeToken(PolarExchangeTokenDto dto);
+    Task ExchangeToken(PolarExchangeTokenDto dto);
 
-        Task<PolarRegisterDto> RegisterData();
-    }
+    Task<PolarRegisterDto> RegisterData();
 }

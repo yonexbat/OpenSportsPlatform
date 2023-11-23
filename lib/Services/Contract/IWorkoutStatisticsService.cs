@@ -1,14 +1,6 @@
-﻿using OpenSportsPlatform.Lib.Model.Dtos.Workout;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace OpenSportsPlatform.Lib.Services.Contract;
 
-namespace OpenSportsPlatform.Lib.Services.Contract
+public interface IWorkoutStatisticsService
 {
-    public interface IWorkoutStatisticsService
-    {
         
-    }
 }

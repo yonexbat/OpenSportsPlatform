@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace OpenSportsPlatform.Lib.Model.Dtos.Import;
 
-namespace OpenSportsPlatform.Lib.Model.Dtos.Import
+public enum ImportTcxState
 {
-    public enum ImportTcxState
-    {
-        Activity,
-        Lap,
-        Trackpoint,
-    }
+    Activity,
+    Lap,
+    Trackpoint,
 }

@@ -1,26 +1,21 @@
 ﻿using OpenSportsPlatform.Lib.Model.Dtos.Common;
 using OpenSportsPlatform.Lib.Model.Dtos.Workout;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace OpenSportsPlatform.Lib.Services.Contract
+namespace OpenSportsPlatform.Lib.Services.Contract;
+
+public interface IWorkoutService
 {
-    public interface IWorkoutService
-    {
-        Task<WorkoutDto> GetWorkout(int id);
+    Task<WorkoutDto> GetWorkout(int id);
 
-        Task DeleteWorkout(int id);
+    Task DeleteWorkout(int id);
 
-        Task SaveWorkout(SaveWorkoutDto dto);
+    Task SaveWorkout(SaveWorkoutDto dto);
 
-        Task<EditWorkoutDto> GetEditWorkout(int id);
+    Task<EditWorkoutDto> GetEditWorkout(int id);
 
-        Task<IList<SelectItemDto>> AddTag(AddTagDto dto);
+    Task<IList<SelectItemDto>> AddTag(AddTagDto dto);
 
-        Task<IList<SelectItemDto>> RemoveTag(RemoveTagDto dto);
+    Task<IList<SelectItemDto>> RemoveTag(RemoveTagDto dto);
 
-        Task<IList<SelectItemDto>> SearchTags(string name);
-    }
+    Task<IList<SelectItemDto>> SearchTags(string name);
 }

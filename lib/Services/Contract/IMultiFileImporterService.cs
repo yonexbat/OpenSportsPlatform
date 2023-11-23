@@ -1,9 +1,6 @@
-using System.Threading.Tasks;
+namespace OpenSportsPlatform.Lib.Services.Contract;
 
-namespace OpenSportsPlatform.Lib.Services.Contract
+public interface IMultiFileImporterService
 {
-    public interface IMultiFileImporterService
-    {
-        Task ImportFiles();
-    }
+    Task ImportFiles();
 }

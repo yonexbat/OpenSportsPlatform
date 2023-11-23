@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace OpenSportsPlatform.Lib.Model.Dtos.Statistics;
 
-namespace OpenSportsPlatform.Lib.Model.Dtos.Statistics
+public class MonthValueItemDto
 {
-    public class MonthValueItemDto
-    {
-        public int Year { get; set; }
-        public int Month { get; set; }
-        public float Value { get; set; }
-    }
+    public int Year { get; set; }
+    public int Month { get; set; }
+    public float Value { get; set; }
 }

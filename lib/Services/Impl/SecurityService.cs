@@ -1,52 +1,48 @@
 ﻿using OpenSportsPlatform.Lib.Model;
 using OpenSportsPlatform.Lib.Model.Entities;
 using OpenSportsPlatform.Lib.Services.Contract;
-using System;
-using System.Collections.Generic;
 using System.Security;
 using System.Security.Principal;
-using System.Text;
 
-namespace OpenSportsPlatform.Lib.Services.Impl
+namespace OpenSportsPlatform.Lib.Services.Impl;
+
+public class SecurityService : ISecurityService
 {
-    public class SecurityService : ISecurityService
+    private readonly IPrincipal _principal;
+
+    public SecurityService(IPrincipal principal)
     {
-        private readonly IPrincipal _principal;
+        _principal = principal;
+    }
 
-        public SecurityService(IPrincipal principal)
+
+    public void CheckAccess(ISecuredEntity securedEntity)
+    {
+        if (IsUserInAnyRole(Role.Admin))
         {
-            _principal = principal;
+            return;
         }
 
+        string userId = securedEntity.OwnerUserId;
+        string currentPrincipal = GetCurrentUserid();
 
-        public void CheckAccess(ISecuredEntity securedEntity)
+        if (userId != currentPrincipal)
         {
-            if (IsUserInAnyRole(Role.Admin))
-            {
-                return;
-            }
+            throw new SecurityException($"User {currentPrincipal} not allowed to acces workout from user {userId}");
+        }
+    }
 
-            string userId = securedEntity.OwnerUserId;
-            string currentPrincipal = GetCurrentUserid();
+    public string GetCurrentUserid() => _principal?.Identity?.Name ?? "anonymous";
 
-            if (userId != currentPrincipal)
+    public bool IsUserInAnyRole(params Role[] roles)
+    {
+        foreach(Role role in roles)
+        {
+            if(_principal.IsInRole(role.ToString()))
             {
-                throw new SecurityException($"User {currentPrincipal} not allowed to acces workout from user {userId}");
+                return true;
             }
         }
-
-        public string GetCurrentUserid() => _principal?.Identity?.Name ?? "anonymous";
-
-        public bool IsUserInAnyRole(params Role[] roles)
-        {
-            foreach(Role role in roles)
-            {
-                if(_principal.IsInRole(role.ToString()))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
+        return false;
     }
 }

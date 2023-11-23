@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace OpenSportsPlatform.Lib.Model;
 
-namespace OpenSportsPlatform.Lib.Model
+public enum Role
 {
-    public enum Role
-    {
-        User,
-        Admin
-    }
+    User,
+    Admin
 }

@@ -1,5 +1,4 @@
 using OpenSportsPlatform.Lib.Model.Dtos.Workout;
-using OpenSportsPlatform.Lib.Model.Entities;
 
 namespace OpenSportsPlatform.Lib.Services.Contract;
 

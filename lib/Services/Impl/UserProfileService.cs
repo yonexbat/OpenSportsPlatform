@@ -5,87 +5,78 @@ using OpenSportsPlatform.Lib.Model;
 using OpenSportsPlatform.Lib.Model.Dtos;
 using OpenSportsPlatform.Lib.Model.Entities;
 using OpenSportsPlatform.Lib.Services.Contract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace OpenSportsPlatform.Lib.Services.Impl
+namespace OpenSportsPlatform.Lib.Services.Impl;
+
+public class UserProfileService : IUserProfileService
 {
+    private readonly ILogger _logger;
+    private readonly OpenSportsPlatformDbContext _dbContext;
+    private readonly ISecurityService _securityService;
+    private readonly IJwtTokenService _jwtTokenService;
 
-    
-
-    public class UserProfileService : IUserProfileService
+    public UserProfileService(
+        ILogger<UserProfileService> logger,
+        ISecurityService securityService,
+        IJwtTokenService jwtTokenService,
+        OpenSportsPlatformDbContext dbContext)
     {
-        private readonly ILogger _logger;
-        private readonly OpenSportsPlatformDbContext _dbContext;
-        private readonly ISecurityService _securityService;
-        private readonly IJwtTokenService _jwtTokenService;
+        _logger = logger;
+        _securityService = securityService;
+        _jwtTokenService = jwtTokenService;
+        _dbContext = dbContext;
+    }
 
-        public UserProfileService(
-            ILogger<UserProfileService> logger,
-            ISecurityService securityService,
-            IJwtTokenService jwtTokenService,
-            OpenSportsPlatformDbContext dbContext)
+    public async Task<string> ExchangeToken(ExchangeTokenDto token)
+    {
+        _logger.LogDebug($"Exchanging token");
+        var payload = await _jwtTokenService.ValidateGoogleTokenAndGetUserId(token.IdToken ?? throw new ArgumentNullException(nameof(ExchangeTokenDto.IdToken)));
+
+        // Test if user exists.
+        UserProfile? user = await _dbContext.UserProfile.Where(x => x.UserId == payload.Email)
+            .FirstOrDefaultAsync();
+
+        if(user == null)
         {
-            _logger = logger;
-            _securityService = securityService;
-            _jwtTokenService = jwtTokenService;
-            _dbContext = dbContext;
-        }
-
-        public async Task<string> ExchangeToken(ExchangeTokenDto token)
-        {
-            _logger.LogDebug($"Exchanging token");
-            var payload = await _jwtTokenService.ValidateGoogelTokenAndGetUserId(token.IdToken ?? throw new ArgumentNullException(nameof(ExchangeTokenDto.IdToken)));
-
-            // Test if user exists.
-            UserProfile? user = await _dbContext.UserProfile.Where(x => x.UserId == payload.Email)
-                .FirstOrDefaultAsync();
-
-            if(user == null)
+            user = new UserProfile()
             {
-                user = new UserProfile()
-                {
-                    UserId = payload.Email,                  
-                };
-                await _dbContext.AddAsync(user);               
-            }
-
-            user.Name = payload.Name;
-            await _dbContext.SaveChangesAsync();
-
-            return _jwtTokenService.GenerateJwtToken(payload.Email);
+                UserId = payload.Email,                  
+            };
+            await _dbContext.AddAsync(user);               
         }
 
-        public async Task<ShortUserProfileDto> GetShortUserProfile()
-        {
-            string currentUserId = _securityService.GetCurrentUserid();
+        user.Name = payload.Name;
+        await _dbContext.SaveChangesAsync();
+
+        return _jwtTokenService.GenerateJwtToken(payload.Email);
+    }
+
+    public async Task<ShortUserProfileDto> GetShortUserProfile()
+    {
+        string currentUserId = _securityService.GetCurrentUserid();
             
-            var user = await _dbContext.UserProfile.Where(x => x.UserId == currentUserId)
-                .Select(userProfile => new ShortUserProfileDto()
-                {
-                    UserId = currentUserId,
-                    Name = userProfile.Name!,
-                    Authenticated = true,                
-                })
-               .FirstOrDefaultAsync();
-
-            if(user == null)
+        var user = await _dbContext.UserProfile.Where(x => x.UserId == currentUserId)
+            .Select(userProfile => new ShortUserProfileDto()
             {
-                return new ShortUserProfileDto()
-                {
-                    Name = string.Empty,
-                    Authenticated = false,
-                };
-            } 
-            else
-            {
-                user.Roles = new string[] { Role.User.ToString(), };
-            }
+                UserId = currentUserId,
+                Name = userProfile.Name!,
+                Authenticated = true,                
+            })
+            .FirstOrDefaultAsync();
 
-            return user;
+        if(user == null)
+        {
+            return new ShortUserProfileDto()
+            {
+                Name = string.Empty,
+                Authenticated = false,
+            };
+        } 
+        else
+        {
+            user.Roles = new string[] { Role.User.ToString(), };
         }
+
+        return user;
     }
 }

@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace OpenSportsPlatform.Lib.Services.Contract;
 
-namespace OpenSportsPlatform.Lib.Services.Contract
+public interface ITcxFileImporterService
 {
-    public interface ITcxFileImporterService
-    {
-        Task ImportWorkout(Stream stream);
-    }
+    Task ImportWorkout(Stream stream);
 }

@@ -5,58 +5,54 @@ using OpenSportsPlatform.Lib.Model.Entities;
 using OpenSportsPlatform.Lib.Services.Contract;
 using OpenSportsPlatform.Lib.Services.Impl;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.Principal;
-using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 using unittests.util;
 using Xunit;
 
-namespace unittests
+namespace unittests;
+
+public class TcxFileImporterServiceTest
 {
-    public class TcxFileImporterServiceTest
+    [Fact]
+    public async Task TestImport()
     {
-        [Fact]
-        public async Task TestImport()
+        // Arrange
+        IPrincipal principal = MockPrincipal.CreatePrincipal();
+        ISecurityService securityService = new SecurityService(principal);
+        ILogger<TcxFileImporterService> logger = new MockLogger<TcxFileImporterService>();
+        string dbName = Guid.NewGuid().ToString();
+
+        await using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
         {
-            // Arrange
-            IPrincipal principal = MockPrincipal.CreatePrincipal();
-            ISecurityService securityService = new SecurityService(principal);
-            ILogger<TcxFileImporterService> logger = new MockLogger<TcxFileImporterService>();
-            string dbName = Guid.NewGuid().ToString();
+            await dbContext.Database.EnsureCreatedAsync();
 
-            await using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
-            {
-                await dbContext.Database.EnsureCreatedAsync();
+            UserProfile userProfile = new UserProfile();
+            userProfile.UserId = securityService.GetCurrentUserid();
+            await dbContext.AddAsync(userProfile);
 
-                UserProfile userProfile = new UserProfile();
-                userProfile.UserId = securityService.GetCurrentUserid();
-                await dbContext.AddAsync(userProfile);
+            await dbContext.SaveChangesAsync();
+        }
 
-                await dbContext.SaveChangesAsync();
-            }
-
-            await using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
-            {
-                ITcxFileImporterService service = new TcxFileImporterService(logger, securityService, dbContext);
-                Stream stream = File.OpenRead($"Files{Path.DirectorySeparatorChar}testactivity.tcx");
+        await using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
+        {
+            ITcxFileImporterService service = new TcxFileImporterService(logger, securityService, dbContext);
+            Stream stream = File.OpenRead($"Files{Path.DirectorySeparatorChar}testactivity.tcx");
                 
-                //  Act
-                await service.ImportWorkout(stream);
-            }
+            //  Act
+            await service.ImportWorkout(stream);
+        }
 
-            // Assert
-            await using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
-            {
-                var numSamples = await dbContext.Sample
-                    .Where(x => x.Segment.Workout.UserProfile.UserId == securityService.GetCurrentUserid())
-                    .CountAsync();
-                Assert.True(numSamples > 0);
+        // Assert
+        await using (OpenSportsPlatformDbContext dbContext = MockDatabaseInMemory.GetDatabase(dbName, principal))
+        {
+            var numSamples = await dbContext.Sample
+                .Where(x => x.Segment.Workout.UserProfile.UserId == securityService.GetCurrentUserid())
+                .CountAsync();
+            Assert.True(numSamples > 0);
 
-            }
         }
     }
 }

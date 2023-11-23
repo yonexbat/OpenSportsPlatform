@@ -1,15 +1,11 @@
 ﻿using OpenSportsPlatform.Lib.Services.Contract;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace OpenSportsPlatform.Lib.Services.Impl
+namespace OpenSportsPlatform.Lib.Services.Impl;
+
+class CurrentDateTimeService : ICurrentDateTimeService
 {
-    class CurrentDateTimeService : ICurrentDateTimeService
+    public DateTimeOffset GetCurrentTime()
     {
-        public DateTimeOffset GetCurrentTime()
-        {
-            return DateTimeOffset.UtcNow;
-        }
+        return DateTimeOffset.UtcNow;
     }
 }

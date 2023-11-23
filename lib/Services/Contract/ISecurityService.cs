@@ -1,17 +1,13 @@
 ﻿using OpenSportsPlatform.Lib.Model;
 using OpenSportsPlatform.Lib.Model.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace OpenSportsPlatform.Lib.Services.Contract
+namespace OpenSportsPlatform.Lib.Services.Contract;
+
+public interface ISecurityService
 {
-    public interface ISecurityService
-    {
-        string GetCurrentUserid();
+    string GetCurrentUserid();
 
-        public bool IsUserInAnyRole(params Role[] roles);
+    public bool IsUserInAnyRole(params Role[] roles);
 
-        public void CheckAccess(ISecuredEntity securedEntity);
-    }
+    public void CheckAccess(ISecuredEntity securedEntity);
 }
