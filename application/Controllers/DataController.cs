@@ -11,6 +11,7 @@ namespace OpenSportsPlatform.Application.Controllers;
 
 [Authorize]
 [Route("[controller]")]
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "ASP0023: Route conflict detected between route handlers", Justification = "Using [action] template.")]
 public class DataController : ControllerBase
 {
     private readonly IWorkoutOverviewService _workoutOverviewService;
