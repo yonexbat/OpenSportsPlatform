@@ -2,11 +2,12 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <AssemblyName>OpenSportsPlatform.DatabaseMigrations</AssemblyName>
     <RootNamespace>OpenSportsPlatform.DatabaseMigrations</RootNamespace>
     <Authors>Claude Glauser</Authors>
     <UserSecretsId>5f11952e-e127-498a-8d2b-105ffad56db8</UserSecretsId>
+    <LangVersion>12</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
