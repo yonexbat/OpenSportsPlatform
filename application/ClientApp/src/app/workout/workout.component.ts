@@ -66,7 +66,7 @@ export class WorkoutComponent {
   }
 
   handleRouteParamChanged(params: Params): void {
-    const id = params['id'];
+    const  id: number = parseInt(params['id']);
     this.loadData(id);
   }
 

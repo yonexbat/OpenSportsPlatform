@@ -29,12 +29,12 @@ public class WorkoutService : IWorkoutService
     {
         if (dto.Id == null)
         {
-            throw new ArgumentNullException("Id must not be null");
+            throw new ArgumentNullException(nameof(dto.Id));
         }
 
         if (dto.Name == null)
         {
-            throw new ArgumentNullException("Name must not be null");
+            throw new ArgumentNullException(nameof(dto.Name));
         }
 
         Workout? workout = await GetWorkoutSecured(dto.Id ?? 0);
@@ -68,7 +68,8 @@ public class WorkoutService : IWorkoutService
     public async Task DeleteWorkout(int id)
     {
         _logger.LogInformation("Deleting workout with id {0}", id);
-        Workout workout = await _dbContext.Workout.Where(x => x.Id == id)
+        Workout workout = await _dbContext.Workout
+            .Where(x => x.Id == id)
             .Include(x => x.UserProfile!)
             .SingleAsync();
 
@@ -94,14 +95,16 @@ public class WorkoutService : IWorkoutService
             .Where(x => x.Segment!.Workout!.Id == id)
             .Where(x => x.Timestamp.HasValue)
             .OrderBy(x => x.Id)
-            .MinAsync(x => x.Timestamp);
+            .Select(x => x.Timestamp)
+            .FirstOrDefaultAsync();
                 
 
         result.LastSampleTimestamp = await _dbContext.Sample
             .Where(x => x.Segment!.Workout!.Id == id)
             .Where(x => x.Timestamp.HasValue)
-            .OrderBy(x => x.Id)
-            .MaxAsync(x => x.Timestamp);
+            .OrderByDescending(x => x.Id)
+            .Select(x => x.Timestamp)
+            .FirstOrDefaultAsync();
 
         result.SportsCategories = await _dbContext.SportsCategory.Select(
                 x => new SelectItemDto()

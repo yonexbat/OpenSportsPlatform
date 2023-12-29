@@ -2,40 +2,93 @@ import { Injectable } from '@angular/core';
 import { DataService } from './data.service';
 import { Workout } from './model/workout/workout';
 
+const DATABASE = "OpenSportsPlatform";
+const WORKOUT_TABLE = "workouts";
+
 @Injectable({
   providedIn: 'root'
 })
 export class WorkoutService {
+ 
 
   constructor(private dataService: DataService) { }
 
   public async getWorkout(id: number): Promise<Workout> {
-    let workout = this.loadWorkout(id);
-    if(!workout) {
+    let workout = await this.loadWorkout(id);
+    if (!workout) {
       workout = await this.getWorkoutFromServer(id);
-      this.storeLocally(workout);
+      await this.storeLocally(workout);
     }
     return workout;
   }
 
-  public clearWorkout(id: number){
+  public clearWorkout(id: number) {
     const key = this.getKey(id);
     localStorage.removeItem(key);
   }
 
-  private storeLocally(workout: Workout) {
-    const json = JSON.stringify(workout);
-    const key = this.getKey(workout.id);
-    localStorage.setItem(key, json);
+  private async storeLocally(workout: Workout): Promise<void> {
+    var result = new Promise<void>((resolve, reject) => {
+      const request = this.startIndexedDb();
+
+      request.onsuccess = (event) => {
+        const db = request.result;
+        const tx = db.transaction(WORKOUT_TABLE, "readwrite");
+        const store = tx.objectStore(WORKOUT_TABLE);
+        const storeRequest = store.put(workout);
+        storeRequest.onsuccess = () => {
+          resolve();
+        };
+        storeRequest.onerror = () => {
+          reject();
+        }
+        tx.oncomplete = () => {
+          db.close();          
+        }        
+      }
+      request.onerror = () => {
+        reject();
+      }
+    });
+    return result;
   }
 
-  private loadWorkout(id: number): Workout | undefined {
-    const key = this.getKey(id);
-    const json= localStorage.getItem(key);
-    if(json) {
-      return JSON.parse(json);
+  private startIndexedDb(): IDBOpenDBRequest {
+    const request = window.indexedDB.open(DATABASE, 1);
+
+    request.onupgradeneeded = (event) => {
+      const db = request.result;
+      db.createObjectStore(WORKOUT_TABLE, { keyPath: "id" });
     }
-    return undefined;
+    return request;
+  }
+
+
+  private loadWorkout(id: number): Promise<Workout | undefined> {
+    var result = new Promise<Workout | undefined>((resolve, reject) => {
+      const request = window.indexedDB.open("OpenSportsPlatform", 1);
+
+      request.onupgradeneeded = (event) => {
+        var db = request.result;
+        var store = db.createObjectStore("workouts", { keyPath: "id" });
+      }
+      request.onsuccess = (event) => {
+        const db = request.result;
+        const tx = db.transaction("workouts", "readonly");
+        const store = tx.objectStore("workouts");
+        const workoutDbRequest = store.get(id);
+        workoutDbRequest.onerror = (event) => {
+          reject();
+        };
+        workoutDbRequest.onsuccess = (event) => {
+          resolve(workoutDbRequest.result);
+        }      
+      }
+      request.onerror = (event) => {
+        reject();
+      }
+    });
+    return result;
   }
 
   private async getWorkoutFromServer(id: number): Promise<Workout> {

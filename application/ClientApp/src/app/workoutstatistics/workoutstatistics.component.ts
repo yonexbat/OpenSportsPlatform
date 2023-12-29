@@ -27,7 +27,7 @@ export class WorkoutstatisticsComponent {
   }
 
   handleRouteParamChanged(params: Params): void {
-    const id = params['id'];
+    const id = parseInt(params['id']);
     this.loadData(id);
   }
 
