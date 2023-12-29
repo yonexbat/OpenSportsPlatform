@@ -28,10 +28,10 @@ export class WorkoutService {
   }
 
   private async storeLocally(workout: Workout): Promise<void> {
-    var result = new Promise<void>((resolve, reject) => {
+    const result = new Promise<void>((resolve, reject) => {
       const request = this.startIndexedDb();
 
-      request.onsuccess = (event) => {
+      request.onsuccess = () => {
         const db = request.result;
         const tx = db.transaction(WORKOUT_TABLE, "readwrite");
         const store = tx.objectStore(WORKOUT_TABLE);
@@ -56,7 +56,7 @@ export class WorkoutService {
   private startIndexedDb(): IDBOpenDBRequest {
     const request = window.indexedDB.open(DATABASE, 1);
 
-    request.onupgradeneeded = (event) => {
+    request.onupgradeneeded = () => {
       const db = request.result;
       db.createObjectStore(WORKOUT_TABLE, { keyPath: "id" });
     }
@@ -65,26 +65,22 @@ export class WorkoutService {
 
 
   private loadWorkout(id: number): Promise<Workout | undefined> {
-    var result = new Promise<Workout | undefined>((resolve, reject) => {
-      const request = window.indexedDB.open("OpenSportsPlatform", 1);
+    const result = new Promise<Workout | undefined>((resolve, reject) => {
+      const request = this.startIndexedDb();
 
-      request.onupgradeneeded = (event) => {
-        var db = request.result;
-        var store = db.createObjectStore("workouts", { keyPath: "id" });
-      }
-      request.onsuccess = (event) => {
+      request.onsuccess = () => {
         const db = request.result;
-        const tx = db.transaction("workouts", "readonly");
-        const store = tx.objectStore("workouts");
+        const tx = db.transaction(WORKOUT_TABLE, "readonly");
+        const store = tx.objectStore(WORKOUT_TABLE);
         const workoutDbRequest = store.get(id);
-        workoutDbRequest.onerror = (event) => {
+        workoutDbRequest.onerror = () => {
           reject();
         };
-        workoutDbRequest.onsuccess = (event) => {
+        workoutDbRequest.onsuccess = () => {
           resolve(workoutDbRequest.result);
         }      
       }
-      request.onerror = (event) => {
+      request.onerror = () => {
         reject();
       }
     });
