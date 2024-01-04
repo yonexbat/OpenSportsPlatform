@@ -79,6 +79,9 @@ export class WorkoutService {
         workoutDbRequest.onsuccess = () => {
           resolve(workoutDbRequest.result);
         }      
+        tx.oncomplete = () => {
+          db.close();
+        }
       }
       request.onerror = () => {
         reject();

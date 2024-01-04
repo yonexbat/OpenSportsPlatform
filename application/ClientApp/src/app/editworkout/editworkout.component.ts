@@ -18,6 +18,7 @@ import { SaveWorkout } from '../model/editworkout/saveWorkout';
 export class EditworkoutComponent {
 
   public sports?: SelectItem[] = [];
+  public loading = true;
 
   private _sliderValCropFrom: number | null = 0;
   public get sliderValCropFrom(): number | null {
@@ -65,7 +66,7 @@ export class EditworkoutComponent {
     private router: Router,
     private confirmService: ConfirmService,
     private snackBar: MatSnackBar) {
-    this.route.params.subscribe(x => this.handleRouteParamChanged(x));
+    this.route.params.subscribe(params => this.handleRouteParamChanged(params));
   }
 
   handleRouteParamChanged(params: Params): void {
@@ -82,6 +83,7 @@ export class EditworkoutComponent {
     this.ticks = workout.ticks;
     this.sliderValCropToText = ticksToString(this.ticks);
     this.tags = workout.tags;
+    this.loading = false;
   }
 
   public saveClick(): void {

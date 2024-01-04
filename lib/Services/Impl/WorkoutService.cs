@@ -91,20 +91,26 @@ public class WorkoutService : IWorkoutService
                 Notes = x.Notes,
             }).SingleAsync();
 
-        result.FirstSampleTimestamp = await _dbContext.Sample
-            .Where(x => x.Segment!.Workout!.Id == id)
-            .Where(x => x.Timestamp.HasValue)
-            .OrderBy(x => x.Id)
-            .Select(x => x.Timestamp)
-            .FirstOrDefaultAsync();
-                
 
-        result.LastSampleTimestamp = await _dbContext.Sample
+        var firstId = await _dbContext.Sample
             .Where(x => x.Segment!.Workout!.Id == id)
-            .Where(x => x.Timestamp.HasValue)
-            .OrderByDescending(x => x.Id)
+            .Where(x => x.Timestamp != null)
+            .MinAsync(x => x.Id);
+        
+        var lastId = await _dbContext.Sample
+            .Where(x => x.Segment!.Workout!.Id == id)
+            .Where(x => x.Timestamp != null)
+            .MaxAsync(x => x.Id);
+
+        result.FirstSampleTimestamp = await _dbContext.Sample
+            .Where(x => x.Id == firstId)
             .Select(x => x.Timestamp)
-            .FirstOrDefaultAsync();
+            .SingleOrDefaultAsync();
+        
+        result.LastSampleTimestamp = await _dbContext.Sample
+            .Where(x => x.Id == lastId)
+            .Select(x => x.Timestamp)
+            .SingleOrDefaultAsync();
 
         result.SportsCategories = await _dbContext.SportsCategory.Select(
                 x => new SelectItemDto()
