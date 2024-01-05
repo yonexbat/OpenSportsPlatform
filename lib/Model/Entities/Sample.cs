@@ -19,5 +19,5 @@ public class Sample : IEntity
     public virtual DateTimeOffset? InsertDate { get; set; }
     public virtual string? UpdateUser { get; set; }
     public virtual DateTimeOffset? UpdateDate { get; set; }
-    public virtual Segment? Segment { get; set; }
+    public virtual required Segment Segment { get; set; }
 }

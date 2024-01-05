@@ -20,6 +20,8 @@ public class OpenSportsPlatformDbContext : DbContext
     public DbSet<Tag> Tag { get; set; }
 
     public DbSet<TagWorkout> TagWorkout { get; set; }
+    
+    public DbSet<Segment> Segment { get; set; }
 
     public OpenSportsPlatformDbContext(
         DbContextOptions<OpenSportsPlatformDbContext> options, 

@@ -91,26 +91,30 @@ public class WorkoutService : IWorkoutService
                 Notes = x.Notes,
             }).SingleAsync();
 
+        bool hasSamples = await _dbContext.Sample.AnyAsync(s => s.Segment!.Workout!.Id == id && s.Timestamp != null);
 
-        var firstId = await _dbContext.Sample
-            .Where(x => x.Segment!.Workout!.Id == id)
-            .Where(x => x.Timestamp != null)
-            .MinAsync(x => x.Id);
-        
-        var lastId = await _dbContext.Sample
-            .Where(x => x.Segment!.Workout!.Id == id)
-            .Where(x => x.Timestamp != null)
-            .MaxAsync(x => x.Id);
+        if (hasSamples)
+        {
+            var firstId = await _dbContext.Sample
+                .Where(x => x.Segment!.Workout!.Id == id)
+                .Where(x => x.Timestamp != null)
+                .MinAsync(x => x.Id);
 
-        result.FirstSampleTimestamp = await _dbContext.Sample
-            .Where(x => x.Id == firstId)
-            .Select(x => x.Timestamp)
-            .SingleOrDefaultAsync();
-        
-        result.LastSampleTimestamp = await _dbContext.Sample
-            .Where(x => x.Id == lastId)
-            .Select(x => x.Timestamp)
-            .SingleOrDefaultAsync();
+            var lastId = await _dbContext.Sample
+                .Where(x => x.Segment!.Workout!.Id == id)
+                .Where(x => x.Timestamp != null)
+                .MaxAsync(x => x.Id);
+
+            result.FirstSampleTimestamp = await _dbContext.Sample
+                .Where(x => x.Id == firstId)
+                .Select(x => x.Timestamp)
+                .SingleOrDefaultAsync();
+
+            result.LastSampleTimestamp = await _dbContext.Sample
+                .Where(x => x.Id == lastId)
+                .Select(x => x.Timestamp)
+                .SingleOrDefaultAsync();
+        }
 
         result.SportsCategories = await _dbContext.SportsCategory.Select(
                 x => new SelectItemDto()

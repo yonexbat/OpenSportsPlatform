@@ -153,12 +153,12 @@ public class WorkoutServiceTest
                 .Include(x => x.TagWorkouts)
                 .ThenInclude(x => x.Tag)
                 .FirstAsync();
-            Assert.Empty(wo.TagWorkouts);
+            Assert.Empty(wo.TagWorkouts!);
         }
     }
 
     [Fact]
-    public async Task TestEditWorkout()
+    public async Task TestGetEditWorkout()
     {
         IPrincipal principal = MockPrincipal.CreatePrincipal();
         ISecurityService securityService = new SecurityService(principal);
@@ -170,8 +170,23 @@ public class WorkoutServiceTest
             Workout workout = await SetUpWorkout(dbContext, securityService);
             workOutId = workout.Id;
             Tag tag = new Tag { Name = "gurten classic" };
+            Segment segment = new Segment()
+            {
+                Workout = workout
+            };
+            await dbContext.Segment.AddAsync(segment);
             await dbContext.Tag.AddAsync(tag);
             await dbContext.TagWorkout.AddAsync(new TagWorkout { Tag = tag, Workout = workout });
+            await dbContext.Sample.AddAsync(new Sample()
+            {
+                Segment = segment,
+                Timestamp = new DateTimeOffset(2024,1,5,10,0,0,TimeSpan.Zero)
+            });
+            await dbContext.Sample.AddAsync(new Sample()
+            {
+                Segment = segment,
+                Timestamp = new DateTimeOffset(2024,1,5,11,0,0,TimeSpan.Zero)
+            });
             await dbContext.SaveChangesAsync();
         }
 
@@ -184,6 +199,7 @@ public class WorkoutServiceTest
             // Assert
             Assert.NotNull(res);
             Assert.NotNull(res.Tags);
+            Assert.Equal(res.FirstSampleTimestamp, new DateTimeOffset(2024,1,5,10,0,0,TimeSpan.Zero));
         }
     }
 

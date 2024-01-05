@@ -305,8 +305,10 @@ public class TcxFileImporterService : ITcxFileImporterService
 
     private async Task ReadElementTrackpoint(XmlReader reader)
     {
-        _sample = new Sample();
-        _sample.Segment = _segment;
+        _sample = new Sample()
+        {
+            Segment = _segment!
+        };
         await _dbContext.AddAsync(_sample);
         _importState = ImportTcxState.Trackpoint;
     }
@@ -316,8 +318,8 @@ public class TcxFileImporterService : ITcxFileImporterService
         _segment = new Segment()
         {
             Samples = new List<Sample>(),
+            Workout = _workout!
         };
-        _segment.Workout = _workout;
         await _dbContext.AddAsync(_segment);
         _importState = ImportTcxState.Lap;
     }
