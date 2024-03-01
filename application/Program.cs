@@ -8,13 +8,13 @@ using OpenSportsPlatform.Lib.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
-RegisterServies(builder.Services, builder.Configuration);
+RegisterServies(builder.Services);
 var app = builder.Build();
-RegisterMiddleware(app, configuration);
+RegisterMiddleware();
 app.Run();
 
 
-void RegisterServies(IServiceCollection services, IConfiguration configuration)
+void RegisterServies(IServiceCollection services)
 {
     if (configuration.GetValue<bool>("UseLettuceEncrypt"))
     {
@@ -56,7 +56,7 @@ void RegisterServies(IServiceCollection services, IConfiguration configuration)
     services.AddControllersWithViews();
 
     // In production, the Angular files will be served from this directory
-    services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/dist"; });
+    services.AddSpaStaticFiles(conf => { conf.RootPath = "ClientApp/dist"; });
 
     services.AddOpenSportsPlatformServices(builder.Configuration);
     services.AddHttpContextAccessor();
@@ -67,7 +67,7 @@ void RegisterServies(IServiceCollection services, IConfiguration configuration)
     );
 }
 
-void RegisterMiddleware(WebApplication app, IConfiguration configuration)
+void RegisterMiddleware()
 {
     app.ConfigureExceptionHandler();
     if (!app.Environment.IsDevelopment())

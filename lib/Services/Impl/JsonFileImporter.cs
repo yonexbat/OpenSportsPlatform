@@ -34,10 +34,10 @@ public class MultiFileImporterService : IMultiFileImporterService
     public async Task ImportFiles()
     {
         _logger.LogInformation("Importing files");
-        await _dbContext.Database.ExecuteSqlRawAsync("DELETE FROM dbo.OSPSample");
-        await _dbContext.Database.ExecuteSqlRawAsync("DELETE FROM dbo.OSPSegment");
-        await _dbContext.Database.ExecuteSqlRawAsync("DELETE FROM dbo.OSPWorkout");
-        await CreateUserIfNotExists();
+        // await _dbContext.Database.ExecuteSqlRawAsync("DELETE FROM dbo.OSPSample");
+        // await _dbContext.Database.ExecuteSqlRawAsync("DELETE FROM dbo.OSPSegment");
+        // await _dbContext.Database.ExecuteSqlRawAsync("DELETE FROM dbo.OSPWorkout");
+        // await CreateUserIfNotExists();
         List<string> list = GetFileList();
         int index = 0;
         foreach (string file in list)
