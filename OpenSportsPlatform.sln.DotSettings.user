@@ -7,4 +7,5 @@
     &lt;Namespace&gt;unittests&lt;/Namespace&gt;
     &lt;Project Location="/home/claude/coding/OpenSportsPlatform/unittests" Presentation="&amp;lt;unittests&amp;gt;" /&gt;
   &lt;/And&gt;
-&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
+&lt;/SessionState&gt;</s:String>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/Initialized/@EntryValue">True</s:Boolean></wpf:ResourceDictionary>
