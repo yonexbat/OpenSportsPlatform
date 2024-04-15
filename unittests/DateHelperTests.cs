@@ -16,4 +16,25 @@ public class DateHelperTests
         DateTime expected = new DateTime(year, month, day, hh, mm, ss, DateTimeKind.Utc);
         Assert.Equal(expected, res.Value);
     }
+
+    [Fact]
+    public void ParseStrangeEndomondoDate_Null()
+    {
+        var res = DateHelper.ParseStrangeEndomondoDate(null!);
+        Assert.Null(res);
+    }
+
+    [Fact]
+    public void ParseStrangeEndomondoDate_WrongFormat()
+    {
+        try
+        {
+            var res = DateHelper.ParseStrangeEndomondoDate("abadsfrewr");
+            Assert.Fail();
+        }
+        catch (Exception ex)
+        {
+            Assert.IsType<ArgumentException>(ex);
+        }
+    }
 }

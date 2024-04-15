@@ -39,6 +39,8 @@ public static class ServiceCollectionExtension
             .AddScoped<ISamplesService, SamplesService>()
             .AddScoped<IWorkoutStatisticsService, WorkoutStatisticsService>()
             .AddDbContext<OpenSportsPlatformDbContext>(options =>
-                options.UseSqlServer(connectionString, builder => builder.UseNetTopologySuite().UseCompatibilityLevel(120)));
+                options
+                    .UseSqlServer(connectionString, builder => builder.UseNetTopologySuite()
+                    .UseCompatibilityLevel(160)));
     }
 }
