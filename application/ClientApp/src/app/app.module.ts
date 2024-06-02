@@ -3,7 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { JwtInterceptor } from './jwt.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
@@ -55,75 +55,69 @@ const socialProviders = [
 ];
 
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    WorkoutOverViewComponent,
-    HomeComponent,
-    NavigationComponent,
-    WorkoutComponent,
-    FileUploaderComponent,
-    UploadWorkoutComponent,
-    ConfirmComponent,
-    StatsComponent,
-    EditworkoutComponent,
-    AltitudechartComponent,
-    TabmenuComponent,
-    WorkoutstatisticsComponent,
-    DistancePipe,
-    DurationPipe,
-    CountdownComponent,
-    SyncComponent,
-    HeartratechartComponent,
-    WorkoutOverView2Component,
-    PolarComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    SocialLoginModule,
-    GoogleSigninButtonModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatProgressSpinnerModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatListModule,
-    MatProgressBarModule,
-    MatDialogModule,
-    MatCardModule,
-    MatTooltipModule,
-    MatInputModule,
-    MatExpansionModule,
-    MatTabsModule,
-    MatSliderModule,
-    LeafletModule,
-    ReactiveFormsModule,
-    FormsModule,
-    NgxChartsModule,
-    MatSnackBarModule,
-    ScrollingModule,
-  ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    {
-      provide: 'SocialAuthServiceConfig',
-      useValue: {
-        autoLogin: true,
-        providers: socialProviders,
-      } as SocialAuthServiceConfig,
-    },
-    {
-      // processes all errors
-      provide: ErrorHandler,
-      useClass: GlobalErrorHandler,
-    }
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        WorkoutOverViewComponent,
+        HomeComponent,
+        NavigationComponent,
+        WorkoutComponent,
+        FileUploaderComponent,
+        UploadWorkoutComponent,
+        ConfirmComponent,
+        StatsComponent,
+        EditworkoutComponent,
+        AltitudechartComponent,
+        TabmenuComponent,
+        WorkoutstatisticsComponent,
+        DistancePipe,
+        DurationPipe,
+        CountdownComponent,
+        SyncComponent,
+        HeartratechartComponent,
+        WorkoutOverView2Component,
+        PolarComponent,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        SocialLoginModule,
+        GoogleSigninButtonModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatProgressSpinnerModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatListModule,
+        MatProgressBarModule,
+        MatDialogModule,
+        MatCardModule,
+        MatTooltipModule,
+        MatInputModule,
+        MatExpansionModule,
+        MatTabsModule,
+        MatSliderModule,
+        LeafletModule,
+        ReactiveFormsModule,
+        FormsModule,
+        NgxChartsModule,
+        MatSnackBarModule,
+        ScrollingModule], providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+        {
+            provide: 'SocialAuthServiceConfig',
+            useValue: {
+                autoLogin: true,
+                providers: socialProviders,
+            } as SocialAuthServiceConfig,
+        },
+        {
+            // processes all errors
+            provide: ErrorHandler,
+            useClass: GlobalErrorHandler,
+        },
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }

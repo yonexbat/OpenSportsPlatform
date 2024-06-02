@@ -1,0 +1,4 @@
+npm install @types/d3-scale@latest --save-dev
+npm install @types/d3-selection --save-dev
+npm install @types/d3-shape --save-dev
+npm install @types/jasmine --save-dev
