@@ -90,7 +90,7 @@ export class EditworkoutComponent {
     this.save();
   }
 
-  async save(): Promise<void> {
+  private async save(): Promise<void> {
     const saveWorkout: SaveWorkout = this.formGroup.value;
     await this.dataService.saveWorkout(saveWorkout);
     this.workoutService.clearWorkout(saveWorkout.id);
