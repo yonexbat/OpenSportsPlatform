@@ -3,7 +3,7 @@ import { Workout } from '../model/workout/workout';
 import { StatisticsService } from './statistics.service';
 import * as workoutjson from './workouttest.json';
 
-const workout: Workout = (workoutjson as {default: Workout}).default;
+const workout: Workout = (workoutjson as unknown) as Workout;
 
 describe('StatisticsService', () => {
   let service: StatisticsService;
